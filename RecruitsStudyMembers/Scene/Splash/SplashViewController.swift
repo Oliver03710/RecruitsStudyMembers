@@ -9,6 +9,17 @@ import UIKit
 
 final class SplashViewController: BaseViewController {
     
+    // MARK: - Properties
+    
+    let splashView = SplashView()
+    
+    
+    // MARK: - Init
+    
+    override func loadView() {
+        view = splashView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
