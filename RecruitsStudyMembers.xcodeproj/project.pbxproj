@@ -17,6 +17,8 @@
 		AD9533C92919646C002126C0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533C82919646C002126C0 /* LoginView.swift */; };
 		AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533CE2919652F002126C0 /* NicknameViewController.swift */; };
 		AD9533D129196539002126C0 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533D029196539002126C0 /* NicknameView.swift */; };
+		AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533D4291965BA002126C0 /* BirthViewController.swift */; };
+		AD9533D7291965C3002126C0 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533D6291965C3002126C0 /* BirthView.swift */; };
 		ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */; };
 		ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */; };
 		ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3522918CCE400D1F758 /* SplashViewController.swift */; };
@@ -38,6 +40,8 @@
 		AD9533C82919646C002126C0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AD9533CE2919652F002126C0 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		AD9533D029196539002126C0 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		AD9533D4291965BA002126C0 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
+		AD9533D6291965C3002126C0 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
 		ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitsStudyMembers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		AD9533CB291964EB002126C0 /* Birth */ = {
 			isa = PBXGroup;
 			children = (
+				AD9533D4291965BA002126C0 /* BirthViewController.swift */,
+				AD9533D6291965C3002126C0 /* BirthView.swift */,
 			);
 			path = Birth;
 			sourceTree = "<group>";
@@ -286,12 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
+				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
 				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
+				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
