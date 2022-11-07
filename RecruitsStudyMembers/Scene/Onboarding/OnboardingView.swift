@@ -1,5 +1,5 @@
 //
-//  SplashView.swift
+//  OnboardingView.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SplashView: BaseView {
+final class OnboardingView: BaseView {
 
     // MARK: - Properties
     

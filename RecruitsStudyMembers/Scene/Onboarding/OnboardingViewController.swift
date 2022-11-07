@@ -9,7 +9,19 @@ import UIKit
 
 final class OnboardingViewController: BaseViewController {
 
+    // MARK: - Properties
+    
+    let onboardingView = OnboardingView()
+    
+    
+    // MARK: - Init
+    
+    override func loadView() {
+        view = onboardingView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
 }

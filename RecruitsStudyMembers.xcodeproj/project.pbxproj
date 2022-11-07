@@ -12,6 +12,7 @@
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
 		AD9533C0291960BA002126C0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BF291960BA002126C0 /* BaseView.swift */; };
 		AD9533C2291961E1002126C0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533C1291961E1002126C0 /* SplashView.swift */; };
+		AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533C32919629A002126C0 /* OnboardingView.swift */; };
 		ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */; };
 		ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */; };
 		ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3522918CCE400D1F758 /* SplashViewController.swift */; };
@@ -28,6 +29,7 @@
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AD9533BF291960BA002126C0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		AD9533C1291961E1002126C0 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		AD9533C32919629A002126C0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitsStudyMembers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				AD9533BA29196019002126C0 /* OnboardingViewController.swift */,
+				AD9533C32919629A002126C0 /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
+				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
 			);
