@@ -14,6 +14,7 @@
 		ADF9B35B2918CCE500D1F758 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF9B3592918CCE500D1F758 /* LaunchScreen.storyboard */; };
 		ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3682918D49B00D1F758 /* SSColors.swift */; };
 		ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */; };
+		ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B36D2918FCF800D1F758 /* SSIcons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		ADF9B35C2918CCE500D1F758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF9B3682918D49B00D1F758 /* SSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSColors.swift; sourceTree = "<group>"; };
 		ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSFonts.swift; sourceTree = "<group>"; };
+		ADF9B36D2918FCF800D1F758 /* SSIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSIcons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		ADF9B3622918CD8B00D1F758 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ADF9B36C2918FCE400D1F758 /* Icons */,
 				ADF9B3672918D48F00D1F758 /* Colors */,
 			);
 			path = Resources;
@@ -100,6 +103,14 @@
 				ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		ADF9B36C2918FCE400D1F758 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				ADF9B36D2918FCF800D1F758 /* SSIcons.swift */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* ViewController.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
