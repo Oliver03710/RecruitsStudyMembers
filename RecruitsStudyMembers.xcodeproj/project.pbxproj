@@ -15,6 +15,8 @@
 		AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533C32919629A002126C0 /* OnboardingView.swift */; };
 		AD9533C729196460002126C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533C629196460002126C0 /* LoginViewController.swift */; };
 		AD9533C92919646C002126C0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533C82919646C002126C0 /* LoginView.swift */; };
+		AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533CE2919652F002126C0 /* NicknameViewController.swift */; };
+		AD9533D129196539002126C0 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533D029196539002126C0 /* NicknameView.swift */; };
 		ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */; };
 		ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */; };
 		ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3522918CCE400D1F758 /* SplashViewController.swift */; };
@@ -34,6 +36,8 @@
 		AD9533C32919629A002126C0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		AD9533C629196460002126C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AD9533C82919646C002126C0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AD9533CE2919652F002126C0 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		AD9533D029196539002126C0 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitsStudyMembers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,36 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		AD9533CA291964D7002126C0 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533CE2919652F002126C0 /* NicknameViewController.swift */,
+				AD9533D029196539002126C0 /* NicknameView.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		AD9533CB291964EB002126C0 /* Birth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Birth;
+			sourceTree = "<group>";
+		};
+		AD9533CC29196508002126C0 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		AD9533CD2919650C002126C0 /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
 		ADF9B3422918CCE400D1F758 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +182,10 @@
 				AD9533B529195C41002126C0 /* Splash */,
 				AD9533B929195FE3002126C0 /* Onboarding */,
 				AD9533C52919642E002126C0 /* Login */,
+				AD9533CA291964D7002126C0 /* Nickname */,
+				AD9533CB291964EB002126C0 /* Birth */,
+				AD9533CC29196508002126C0 /* Email */,
+				AD9533CD2919650C002126C0 /* Gender */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -248,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
+				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
@@ -260,6 +299,7 @@
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
+				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
