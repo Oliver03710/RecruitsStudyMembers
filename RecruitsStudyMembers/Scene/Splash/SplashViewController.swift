@@ -11,7 +11,7 @@ final class SplashViewController: BaseViewController {
     
     // MARK: - Properties
     
-    let splashView = SplashView()
+    private let splashView = SplashView()
     
     
     // MARK: - Init

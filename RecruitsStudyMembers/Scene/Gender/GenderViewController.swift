@@ -11,7 +11,7 @@ final class GenderViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let genderView = GenderView()
+    private let genderView = GenderView()
     
     
     // MARK: - Init

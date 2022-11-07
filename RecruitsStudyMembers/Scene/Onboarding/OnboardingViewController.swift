@@ -11,7 +11,7 @@ final class OnboardingViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let onboardingView = OnboardingView()
+    private let onboardingView = OnboardingView()
     
     
     // MARK: - Init

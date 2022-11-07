@@ -11,7 +11,7 @@ final class LoginViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let loginView = LoginView()
+    private let loginView = LoginView()
     
     
     // MARK: - Init

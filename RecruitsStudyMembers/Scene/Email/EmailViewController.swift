@@ -11,7 +11,7 @@ final class EmailViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let emailView = EmailView()
+    private let emailView = EmailView()
     
     
     // MARK: - Init

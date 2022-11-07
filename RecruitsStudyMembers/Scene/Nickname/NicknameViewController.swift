@@ -11,7 +11,7 @@ final class NicknameViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let nicknameView = NicknameView()
+    private let nicknameView = NicknameView()
     
     
     // MARK: - Init

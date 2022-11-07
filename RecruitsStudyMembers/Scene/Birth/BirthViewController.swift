@@ -11,7 +11,7 @@ final class BirthViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let birthView = BirthView()
+    private let birthView = BirthView()
     
     
     // MARK: - Init
