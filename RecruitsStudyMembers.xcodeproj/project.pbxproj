@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
+		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
 		AD609667291A1A4300FF78CB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AD609666291A1A4300FF78CB /* SnapKit */; };
 		AD60966A291A1A4F00FF78CB /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = AD609669291A1A4F00FF78CB /* Toast */; };
@@ -374,6 +376,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */,
+				AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */,
 				ADF9B35B2918CCE500D1F758 /* LaunchScreen.storyboard in Resources */,
 				ADF9B3582918CCE500D1F758 /* Assets.xcassets in Resources */,
 			);
