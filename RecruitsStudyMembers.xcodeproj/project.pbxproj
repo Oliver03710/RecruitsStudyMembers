@@ -21,6 +21,7 @@
 		AD609684291A463500FF78CB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609683291A463500FF78CB /* SecondViewController.swift */; };
 		AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609685291A463D00FF78CB /* ThirdViewController.swift */; };
 		AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609687291A471700FF78CB /* OnboardingLabel.swift */; };
+		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -54,6 +55,7 @@
 		AD609683291A463500FF78CB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		AD609685291A463D00FF78CB /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		AD609687291A471700FF78CB /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
+		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				AD609680291A45D600FF78CB /* NestedViewController */,
+				AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */,
 				AD9533BA29196019002126C0 /* OnboardingViewController.swift */,
 				AD9533C32919629A002126C0 /* OnboardingView.swift */,
 			);
@@ -380,6 +383,7 @@
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
+				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
