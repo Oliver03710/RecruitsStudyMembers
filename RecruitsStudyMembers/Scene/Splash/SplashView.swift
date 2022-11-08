@@ -49,15 +49,15 @@ final class SplashView: BaseView {
         logoImageView.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
             make.centerY.equalTo(self.snp.centerY).dividedBy(1.2)
-            make.width.equalTo(220)
-            make.height.equalTo(264)
+            make.width.equalTo(self.snp.width).dividedBy(2)
+            make.height.equalTo(logoImageView.snp.width).multipliedBy(1.1)
         }
         
         textImageView.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
             make.centerY.equalTo(self.snp.centerY).multipliedBy(1.35)
-            make.width.equalTo(328)
-            make.height.equalTo(112)
+            make.width.equalTo(self.snp.width).dividedBy(2)
+            make.height.equalTo(logoImageView.snp.width).dividedBy(2)
         }
     }
 

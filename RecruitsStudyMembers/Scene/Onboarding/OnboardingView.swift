@@ -42,7 +42,7 @@ final class OnboardingView: BaseView {
         addSubview(startButton)
         
         startButton.snp.makeConstraints { make in
-            make.bottom.equalTo(self.snp.bottom).offset(-50)
+            make.centerY.equalTo(self.snp.centerY).multipliedBy(1.8)
             make.directionalHorizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
             make.height.equalTo(48)
         }
