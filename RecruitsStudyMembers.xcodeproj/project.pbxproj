@@ -16,6 +16,7 @@
 		AD609675291A1A8300FF78CB /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = AD609674291A1A8300FF78CB /* Differentiator */; };
 		AD609677291A1A8300FF78CB /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = AD609676291A1A8300FF78CB /* RxDataSources */; };
 		AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AD609679291A1AAA00FF78CB /* JGProgressHUD */; };
+		AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD60967E291A3FD900FF78CB /* CustomButton.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		AD60967E291A3FD900FF78CB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				AD609662291A184300FF78CB /* CustomImageView.swift */,
+				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
+				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
 				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
