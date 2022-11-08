@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol PageIndexDelegate: AnyObject {
+    func passIndex(index: Int)
+}
+
 final class OnboardingPageViewController: UIPageViewController {
 
     // MARK: - Properties
     
     var pages: [UIViewController] = [FirstViewController(), SecondViewController(), ThirdViewController()]
+    
+    weak var indexDelegate: PageIndexDelegate?
     
     
     // MARK: - Init
@@ -37,12 +43,12 @@ final class OnboardingPageViewController: UIPageViewController {
         initViewControllers()
     }
     
-    func PageVCDelegate() {
+    private func PageVCDelegate() {
         dataSource = self
-        delegate = nil
+        delegate = self
     }
     
-    func initViewControllers() {
+    private func initViewControllers() {
         setViewControllers([pages[0]], direction: .forward, animated: false, completion: nil)
     }
 
@@ -53,20 +59,10 @@ final class OnboardingPageViewController: UIPageViewController {
 
 extension OnboardingPageViewController: UIPageViewControllerDelegate {
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return pages.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        
-        guard let firstVC = pageViewController.viewControllers?.first else {
-            return 0
-        }
-        guard let firstVCIndex = pages.firstIndex(of: firstVC) else {
-            return 0
-        }
-        
-        return firstVCIndex
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let currentPageViewController = pageViewController.viewControllers?.first else { return }
+        guard let index = pages.firstIndex(of: currentPageViewController) else { return }
+        indexDelegate?.passIndex(index: index)
     }
     
 }
@@ -82,11 +78,8 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
         
         let previousIndex = viewControllerIndex - 1
         
-        guard previousIndex >= 0 else { return pages.last }
+        return previousIndex < 0 ? nil : pages[previousIndex]
         
-        guard pages.count > previousIndex else { return nil }
-        
-        return pages[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -95,11 +88,8 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
         
         let nextIndex = viewControllerIndex + 1
         
-        guard nextIndex < pages.count else { return pages.first }
-        
-        guard pages.count > nextIndex else { return nil }
-        
-        return pages[nextIndex]
+        return nextIndex >= pages.count ? nil : pages[nextIndex]
+
     }
     
 }
