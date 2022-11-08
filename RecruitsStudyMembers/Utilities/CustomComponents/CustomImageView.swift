@@ -9,6 +9,8 @@ import UIKit
 
 class CustomImageView: UIImageView {
 
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -16,6 +18,11 @@ class CustomImageView: UIImageView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    convenience init(frame: CGRect, image: UIImage? = nil) {
+        self.init(frame: frame)
+        self.image = image
     }
     
     func configureUI() {
