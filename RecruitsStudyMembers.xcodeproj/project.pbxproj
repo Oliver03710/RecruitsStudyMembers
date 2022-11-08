@@ -17,6 +17,9 @@
 		AD609677291A1A8300FF78CB /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = AD609676291A1A8300FF78CB /* RxDataSources */; };
 		AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AD609679291A1AAA00FF78CB /* JGProgressHUD */; };
 		AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD60967E291A3FD900FF78CB /* CustomButton.swift */; };
+		AD609682291A462200FF78CB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609681291A462200FF78CB /* FirstViewController.swift */; };
+		AD609684291A463500FF78CB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609683291A463500FF78CB /* SecondViewController.swift */; };
+		AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609685291A463D00FF78CB /* ThirdViewController.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		AD60967E291A3FD900FF78CB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		AD609681291A462200FF78CB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		AD609683291A463500FF78CB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		AD609685291A463D00FF78CB /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,16 @@
 			path = CustomComponents;
 			sourceTree = "<group>";
 		};
+		AD609680291A45D600FF78CB /* NestedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD609681291A462200FF78CB /* FirstViewController.swift */,
+				AD609683291A463500FF78CB /* SecondViewController.swift */,
+				AD609685291A463D00FF78CB /* ThirdViewController.swift */,
+			);
+			path = NestedViewController;
+			sourceTree = "<group>";
+		};
 		AD9533B529195C41002126C0 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 		AD9533B929195FE3002126C0 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				AD609680291A45D600FF78CB /* NestedViewController */,
 				AD9533BA29196019002126C0 /* OnboardingViewController.swift */,
 				AD9533C32919629A002126C0 /* OnboardingView.swift */,
 			);
@@ -357,6 +374,7 @@
 				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
+				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
@@ -369,8 +387,10 @@
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
+				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
+				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
 				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
