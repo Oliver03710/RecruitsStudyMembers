@@ -20,9 +20,10 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(buttonColor: UIColor? = SSColors.gray6.color) {
+    convenience init(text: String, buttonColor: UIColor? = SSColors.gray6.color) {
         self.init()
         backgroundColor = buttonColor
+        setTitle(text, for: .normal)
     }
     
     
