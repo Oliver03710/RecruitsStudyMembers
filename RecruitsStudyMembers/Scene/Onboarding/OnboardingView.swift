@@ -13,7 +13,7 @@ final class OnboardingView: BaseView {
 
     // MARK: - Properties
     
-    private let startButton: CustomButton = {
+    let startButton: CustomButton = {
         let btn = CustomButton(text: "시작하기", buttonColor: SSColors.green.color)
         return btn
     }()
@@ -42,10 +42,11 @@ final class OnboardingView: BaseView {
         addSubview(startButton)
         
         startButton.snp.makeConstraints { make in
-            make.bottom.equalTo(self.snp.bottom).inset(50)
+            make.bottom.equalTo(self.snp.bottom).offset(-50)
             make.directionalHorizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
             make.height.equalTo(48)
         }
+        
     }
 
 }
