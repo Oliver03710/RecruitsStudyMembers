@@ -20,12 +20,22 @@ class OnboardingLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(text: String, textHighlightened: String) {
+    convenience init(text: String, textHighlightened: String, fontName: String, size: CGFloat, lineHeight: CGFloat) {
         self.init()
-        let titleAttString = NSMutableAttributedString(string: text)
+        
+        let style = NSMutableParagraphStyle()
+        let lineHeights = size * lineHeight
+        style.minimumLineHeight = lineHeights
+        style.maximumLineHeight = lineHeights
+        
+        let titleAttString = NSMutableAttributedString(string: text, attributes: [.paragraphStyle: style,
+                                                                                  .baselineOffset: (lineHeights - size) / 4])
+        
         let range: NSRange = (text as NSString).range(of: textHighlightened, options: .caseInsensitive)
         titleAttString.addAttribute(.foregroundColor, value: SSColors.green.color, range: range)
+        
         attributedText = titleAttString
+        font = UIFont(name: fontName, size: size)
     }
     
     
@@ -34,6 +44,12 @@ class OnboardingLabel: UILabel {
     func configureUI() {
         numberOfLines = 2
         textAlignment = .center
+        
+        let style = NSMutableParagraphStyle()
+        let fontSize: CGFloat = 20
+        let lineheight = fontSize * 1.6  //font size * multiple
+        style.minimumLineHeight = lineheight
+        style.maximumLineHeight = lineheight
     }
 
 }
