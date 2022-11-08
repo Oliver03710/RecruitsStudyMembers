@@ -32,7 +32,8 @@ class OnboardingLabel: UILabel {
     // MARK: - Helper Functions
     
     func configureUI() {
-        numberOfLines = 1
+        numberOfLines = 2
+        textAlignment = .center
     }
 
 }
