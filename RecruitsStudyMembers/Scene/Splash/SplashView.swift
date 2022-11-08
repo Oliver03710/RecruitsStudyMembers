@@ -11,7 +11,15 @@ final class SplashView: BaseView {
 
     // MARK: - Properties
     
+    private let logoImageView: CustomImageView = {
+        let iv = CustomImageView(frame: .zero, image: UIImage(named: SplashImages.splashLogo.rawValue))
+        return iv
+    }()
     
+    private let textImageView: CustomImageView = {
+        let iv = CustomImageView(frame: .zero, image: UIImage(named: SplashImages.splashText.rawValue))
+        return iv
+    }()
     
     
     // MARK: - Init
