@@ -49,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		AD60967E291A3FD900FF78CB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AD609681291A462200FF78CB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD5A6855291AACF600E84D18 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */,
+				AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		AD609664291A184900FF78CB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +250,7 @@
 		ADF9B3622918CD8B00D1F758 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD5A6855291AACF600E84D18 /* Fonts */,
 				AD9533B629195D42002126C0 /* Images */,
 				ADF9B36C2918FCE400D1F758 /* Icons */,
 				ADF9B3672918D48F00D1F758 /* Colors */,
