@@ -38,14 +38,14 @@ final class FirstViewController: BaseViewController {
         
         introImageView.snp.makeConstraints { make in
             make.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.centerY.equalTo(view.snp.centerY).dividedBy(1.2)
+            make.centerY.equalTo(view.snp.centerY).multipliedBy(1.2)
             make.height.equalTo(introImageView.snp.width)
         }
         
         introLabel.snp.makeConstraints { make in
             make.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(78)
-            make.bottom.equalTo(introImageView.snp.top).offset(-56)
-            make.height.equalTo(80)
+            make.bottom.equalTo(introImageView.snp.top).offset(-20)
+            make.height.equalTo(52)
         }
 
     }
