@@ -7,11 +7,16 @@
 
 import UIKit
 
+import SnapKit
+
 final class OnboardingView: BaseView {
 
     // MARK: - Properties
     
-    
+    private let startButton: CustomButton = {
+        let btn = CustomButton(text: "시작하기", buttonColor: SSColors.green.color)
+        return btn
+    }()
     
     
     // MARK: - Init
@@ -34,7 +39,13 @@ final class OnboardingView: BaseView {
     }
     
     override func setConstraints() {
+        addSubview(startButton)
         
+        startButton.snp.makeConstraints { make in
+            make.bottom.equalTo(self.snp.bottom).inset(50)
+            make.directionalHorizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(48)
+        }
     }
 
 }
