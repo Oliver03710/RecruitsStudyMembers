@@ -19,7 +19,7 @@ final class ThirdViewController: BaseViewController {
     }()
     
     private let introImageView: CustomImageView = {
-        let iv = CustomImageView(frame: .zero, image: UIImage(named: OnboardingImages.onboardingImg2.rawValue))
+        let iv = CustomImageView(frame: .zero, image: UIImage(named: OnboardingImages.onboardingImg3.rawValue))
         return iv
     }()
     
