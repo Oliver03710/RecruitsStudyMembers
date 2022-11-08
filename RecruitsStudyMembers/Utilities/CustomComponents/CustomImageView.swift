@@ -25,6 +25,9 @@ class CustomImageView: UIImageView {
         self.image = image
     }
     
+    
+    // MARK: - Helper Functions
+    
     func configureUI() {
         self.contentMode = .scaleAspectFill
     }
