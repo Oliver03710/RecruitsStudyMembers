@@ -59,12 +59,13 @@ final class OnboardingViewController: BaseViewController {
         [pageVC.view, pageControl].forEach { view.addSubview($0) }
         
         pageVC.view.snp.makeConstraints { make in
-            make.directionalHorizontalEdges.top.equalTo(self.view.safeAreaLayoutGuide)
-            make.bottom.equalTo(onboardingView.startButton.snp.top).offset(-100)
+            make.directionalHorizontalEdges.equalTo(self.view.safeAreaLayoutGuide)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(8)
+            make.bottom.equalTo(pageControl.snp.top).offset(-8)
         }
         
         pageControl.snp.makeConstraints { make in
-            make.top.equalTo(pageVC.view.snp.bottom).offset(12)
+            make.bottom.equalTo(onboardingView.startButton.snp.top).offset(-32)
             make.width.equalTo(view.snp.width).dividedBy(3.4)
             make.height.equalTo(pageControl.snp.width).dividedBy(3)
             make.centerX.equalTo(view.snp.centerX)
@@ -76,6 +77,7 @@ final class OnboardingViewController: BaseViewController {
     func setIndexDelegate() {
         pageVC.indexDelegate = self
         pageControl.numberOfPages = pageVC.pages.count
+        pageControl.allowsContinuousInteraction = false
         pageControl.addTarget(self, action: #selector(moveTo), for: .valueChanged)
     }
     
