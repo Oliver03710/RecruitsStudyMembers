@@ -24,5 +24,28 @@ final class SplashViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    
+    // MARK: - Helper Functions
+    
+    override func configureUI() {
+        transitionAfterAnimation()
+    }
+    
+    func transitionAfterAnimation() {
+    
+        UIView.animate(withDuration: 1.5) { [weak self] () -> Void in
+            self?.splashView.layoutIfNeeded()
+        } completion: { [weak self] bool in
+            if bool {
+                sleep(1)
+                let vc = OnboardingViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                self?.present(vc, animated: true)
+            }
+        }
+        
+    }
+
+    
 }
 
