@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class SplashView: BaseView {
 
     // MARK: - Properties
@@ -42,7 +44,21 @@ final class SplashView: BaseView {
     }
     
     override func setConstraints() {
+        [logoImageView, textImageView].forEach { addSubview($0) }
         
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY).dividedBy(1.2)
+            make.width.equalTo(220)
+            make.height.equalTo(264)
+        }
+        
+        textImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY).multipliedBy(1.35)
+            make.width.equalTo(328)
+            make.height.equalTo(112)
+        }
     }
 
 }
