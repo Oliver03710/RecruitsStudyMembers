@@ -29,7 +29,8 @@ class CustomButton: UIButton {
     // MARK: - Helper Functions
     
     func configureUI() {
-        
+        clipsToBounds = true
+        layer.cornerRadius = 8
     }
 
 }
