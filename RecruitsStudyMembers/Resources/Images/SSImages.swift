@@ -19,15 +19,21 @@ enum BackgroundImages: Int {
     case sesacBackground9
 }
 
-enum FaceImages: Int {
-    case sessacFace1 = 1
+enum FaceImages: String {
+    case sessacFace1
     case sessacFace2
     case sessacFace3
     case sessacFace4
     case sessacFace5
 }
 
-enum SplashImages {
+enum SplashImages: String {
     case splashLogo
     case splashText
+}
+
+enum OnboardingImages: String {
+    case onboardingImg1
+    case onboardingImg2
+    case onboardingImg3
 }
