@@ -7,23 +7,47 @@
 
 import UIKit
 
-class ThirdViewController: BaseViewController {
+import SnapKit
 
+final class ThirdViewController: BaseViewController {
+
+    // MARK: - Properties
+    
+    private let introLabel: OnboardingLabel = {
+        let label = OnboardingLabel(text: "SeSAC Study", textFont: SSFonts.body1M16.fonts, textHighlightened: "", textHLenedFont: SSFonts.body1M16.fonts, size: 24, lineHeight: SSFonts.display1R20.lineHeight)
+        return label
+    }()
+    
+    private let introImageView: CustomImageView = {
+        let iv = CustomImageView(frame: .zero, image: UIImage(named: OnboardingImages.onboardingImg2.rawValue))
+        return iv
+    }()
+    
+    
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
-        // Do any additional setup after loading the view.
     }
     
+    
+    // MARK: - Helper Functions
+    
+    override func setConstraints() {
+        [introLabel, introImageView].forEach { view.addSubview($0) }
+        
+        introImageView.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.centerY.equalTo(view.snp.centerY).multipliedBy(1.2)
+            make.height.equalTo(introImageView.snp.width)
+        }
+        
+        introLabel.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(80)
+            make.bottom.equalTo(introImageView.snp.top).offset(-8)
+            make.height.equalTo(view.snp.height).dividedBy(6)
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

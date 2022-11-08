@@ -14,7 +14,7 @@ final class FirstViewController: BaseViewController {
     // MARK: - Properties
     
     private let introLabel: OnboardingLabel = {
-        let label = OnboardingLabel(text: "위치 기반으로 빠르게 주위 친구를 확인", textHighlightened: "위치 기반")
+        let label = OnboardingLabel(text: "으로 빠르게 주위 친구를 확인", textFont: SSFonts.body2R16.fonts, textHighlightened: "위치 기반", textHLenedFont: SSFonts.body1M16.fonts, size: 24, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
@@ -43,9 +43,9 @@ final class FirstViewController: BaseViewController {
         }
         
         introLabel.snp.makeConstraints { make in
-            make.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(78)
-            make.bottom.equalTo(introImageView.snp.top).offset(-20)
-            make.height.equalTo(52)
+            make.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(80)
+            make.bottom.equalTo(introImageView.snp.top).offset(-8)
+            make.height.equalTo(view.snp.height).dividedBy(6)
         }
 
     }
