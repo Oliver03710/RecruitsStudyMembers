@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD609664291A184900FF78CB /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				AD609662291A184300FF78CB /* CustomImageView.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
 		AD9533B529195C41002126C0 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				AD9533BC2919605B002126C0 /* BaseComponents */,
+				AD609664291A184900FF78CB /* CustomComponents */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 			files = (
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
+				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
 				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
