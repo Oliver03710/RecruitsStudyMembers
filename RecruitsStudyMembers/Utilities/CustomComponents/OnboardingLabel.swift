@@ -28,9 +28,11 @@ class OnboardingLabel: UILabel {
         style.minimumLineHeight = lineHeights
         style.maximumLineHeight = lineHeights
         
-        let attributedTexts = NSMutableAttributedString(string: textHighlightened, attributes: [NSAttributedString.Key.font: UIFont(name: textHLenedFont, size: size), .paragraphStyle: style, NSAttributedString.Key.foregroundColor: SSColors.green.color,  .baselineOffset: (lineHeights - size) / 4])
+        guard let hledFont = UIFont(name: textHLenedFont, size: size), let txtFont = UIFont(name: textFont, size: size) else { return }
         
-        attributedTexts.append(NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: UIFont(name: textFont, size: size), .paragraphStyle: style, .baselineOffset: (lineHeights - size) / 4]))
+        let attributedTexts = NSMutableAttributedString(string: textHighlightened, attributes: [NSAttributedString.Key.font: hledFont, .paragraphStyle: style, NSAttributedString.Key.foregroundColor: SSColors.green.color,  .baselineOffset: (lineHeights - size) / 4])
+        
+        attributedTexts.append(NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: txtFont, .paragraphStyle: style, .baselineOffset: (lineHeights - size) / 4]))
         
         attributedText = attributedTexts
         textAlignment = .center
