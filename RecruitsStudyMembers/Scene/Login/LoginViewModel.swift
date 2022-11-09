@@ -23,12 +23,14 @@ final class LoginViewModel: CommonViewModel {
     struct Input {
         let textFieldText: ControlProperty<String?>
         let textFieldIsEditing: ControlEvent<()>
+        let tap: ControlEvent<Void>
     }
     
     struct Output {
         let phoneNum: Observable<Bool>
         let isEditing: Observable<Bool>
         let textChanged: Observable<ControlProperty<String>.Element>
+        let tap: ControlEvent<Void>
     }
     
     
@@ -60,7 +62,7 @@ final class LoginViewModel: CommonViewModel {
                 return leading + "-" + prefix + "-" + suffix
             }
         
-        let numberValid = input.textFieldText.orEmpty
+        let numValid = input.textFieldText.orEmpty
             .map { str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
                 let numTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
@@ -68,12 +70,12 @@ final class LoginViewModel: CommonViewModel {
             }
             .share()
         
-        numberValid
-            .withUnretained(self)
-            .bind { (vc, bool) in
-                vc.checkValid.accept(bool)
-            }
-            .disposed(by: disposeBag)
+//        numberValid
+//            .withUnretained(self)
+//            .bind { (vc, bool) in
+//                vc.checkValid.accept(bool)
+//            }
+//            .disposed(by: disposeBag)
         
 //        numberValid
 //            .withUnretained(self)
@@ -82,16 +84,17 @@ final class LoginViewModel: CommonViewModel {
 //            }
 //            .disposed(by: disposeBag)
         
+        
         let isEditing = input.textFieldIsEditing
             .scan(true, accumulator: { bool, _ in
                 return bool
             })
             .asObservable()
         
-        let numValid = checkValid
-            .asObservable()
+//        let numValid = checkValid
+//            .asObservable()
         
-        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat)
+        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat, tap: input.tap)
     }
 }
 

@@ -84,7 +84,7 @@ final class LoginView: BaseView {
     }
     
     func bindData() {
-        let input = LoginViewModel.Input(textFieldText: phoneNumTextField.rx.text, textFieldIsEditing: phoneNumTextField.rx.controlEvent([.editingChanged]))
+        let input = LoginViewModel.Input(textFieldText: phoneNumTextField.rx.text, textFieldIsEditing: phoneNumTextField.rx.controlEvent([.editingDidBegin, .editingChanged]), tap: getCertiNumButton.rx.tap)
         let output = viewModel.transform(input: input)
         
         output.phoneNum
@@ -106,11 +106,20 @@ final class LoginView: BaseView {
             }
             .disposed(by: viewModel.disposeBag)
 
-        
+        output.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.toNextPage()
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
+    }
+    
+    func toNextPage() {
+        
     }
 
 }
