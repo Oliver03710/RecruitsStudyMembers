@@ -7,9 +7,11 @@
 
 import UIKit
 
+import FirebaseAuth
 import RxCocoa
 import RxSwift
 import SnapKit
+import Toast
 
 final class LoginView: BaseView {
 

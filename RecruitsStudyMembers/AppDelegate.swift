@@ -7,6 +7,9 @@
 
 import UIKit
 
+import FirebaseAuth
+import Toast
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        PhoneAuthProvider.provider()
+          .verifyPhoneNumber("+82 10-3263-1515", uiDelegate: nil) { verificationID, error in
+              if let error = error {
+                  print(error.localizedDescription)
+                return
+              }
+              // Sign in using the verificationID and the code sent to the user
+              // ...
+          }
         return true
     }
 
