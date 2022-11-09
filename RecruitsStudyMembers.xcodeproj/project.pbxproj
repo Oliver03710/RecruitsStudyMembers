@@ -327,11 +327,11 @@
 		ADF9B3662918D0C100D1F758 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AD103A92291C13B00032E9EB /* PropertyWrapper */,
 				AD103A8F291C06AE0032E9EB /* Extensions */,
 				AD103A8C291B8F970032E9EB /* Protocols */,
 				AD9533BC2919605B002126C0 /* BaseComponents */,
 				AD609664291A184900FF78CB /* CustomComponents */,
+				AD103A92291C13B00032E9EB /* PropertyWrapper */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
