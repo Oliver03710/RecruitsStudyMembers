@@ -14,7 +14,7 @@ final class LoginView: BaseView {
     // MARK: - Properties
     
     let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "새싹 서비스 이용을 위해 휴대폰 번호를 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+        let label = SignUpLabel(text: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
@@ -30,7 +30,7 @@ final class LoginView: BaseView {
     }()
     
     let getCertiNumButton: CustomButton = {
-        let btn = CustomButton(text: "", buttonColor: SSColors.gray6.color)
+        let btn = CustomButton(text: "인증 문자 받기", buttonColor: SSColors.gray6.color)
         return btn
     }()
     
@@ -49,6 +49,32 @@ final class LoginView: BaseView {
     }
     
     override func setConstraints() {
+        [instructionLabel, phoneNumTextField, lineView, getCertiNumButton].forEach { addSubview($0) }
+        
+        getCertiNumButton.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(48)
+            make.centerY.equalTo(self.snp.centerY).multipliedBy(1.1)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(1)
+            make.bottom.equalTo(getCertiNumButton.snp.top).dividedBy(1.25)
+        }
+        
+        phoneNumTextField.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(28)
+            make.height.equalTo(24)
+            make.bottom.equalTo(lineView.snp.top).offset(-12)
+        }
+        
+        instructionLabel.snp.makeConstraints { make in
+            make.width.equalTo(self.snp.width).dividedBy(1.4)
+            make.height.equalTo(instructionLabel.snp.width).dividedBy(4)
+            make.bottom.equalTo(phoneNumTextField.snp.top).dividedBy(1.35)
+            make.centerX.equalTo(self.snp.centerX)
+        }
         
     }
 
