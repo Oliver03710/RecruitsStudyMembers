@@ -12,6 +12,7 @@
 		AD103A89291B8DD60032E9EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD103A88291B8DD60032E9EB /* .gitignore */; };
 		AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A8A291B8E130032E9EB /* LoginViewModel.swift */; };
 		AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A8D291B8FAA0032E9EB /* CommonViewModel+Protocol.swift */; };
+		AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A90291C06C20032E9EB /* String+Extension.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -61,6 +62,7 @@
 		AD103A88291B8DD60032E9EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AD103A8A291B8E130032E9EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AD103A8D291B8FAA0032E9EB /* CommonViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommonViewModel+Protocol.swift"; sourceTree = "<group>"; };
+		AD103A90291C06C20032E9EB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 				AD103A8D291B8FAA0032E9EB /* CommonViewModel+Protocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AD103A8F291C06AE0032E9EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD103A90291C06C20032E9EB /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
@@ -307,6 +317,7 @@
 		ADF9B3662918D0C100D1F758 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AD103A8F291C06AE0032E9EB /* Extensions */,
 				AD103A8C291B8F970032E9EB /* Protocols */,
 				AD9533BC2919605B002126C0 /* BaseComponents */,
 				AD609664291A184900FF78CB /* CustomComponents */,
@@ -430,6 +441,7 @@
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
+				AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
 				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
