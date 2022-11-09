@@ -19,6 +19,7 @@
 		AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		AD103A9E291C21290032E9EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9D291C21290032E9EB /* FirebaseAuth */; };
 		AD103AA0291C21290032E9EB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9F291C21290032E9EB /* FirebaseMessaging */; };
+		AD103AA3291C31130032E9EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD103AA2291C31130032E9EB /* GoogleService-Info.plist */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -73,6 +74,7 @@
 		AD103A96291C15050032E9EB /* Router+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		AD103A98291C194D0032E9EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AD103AA1291C298B0032E9EB /* RecruitsStudyMembers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecruitsStudyMembers.entitlements; sourceTree = "<group>"; };
+		AD103AA2291C31130032E9EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				AD103A88291B8DD60032E9EB /* .gitignore */,
+				AD103AA2291C31130032E9EB /* GoogleService-Info.plist */,
 				ADF9B34D2918CCE400D1F758 /* RecruitsStudyMembers */,
 				ADF9B34C2918CCE400D1F758 /* Products */,
 			);
@@ -460,6 +463,7 @@
 				AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */,
 				ADF9B35B2918CCE500D1F758 /* LaunchScreen.storyboard in Resources */,
 				ADF9B3582918CCE500D1F758 /* Assets.xcassets in Resources */,
+				AD103AA3291C31130032E9EB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
