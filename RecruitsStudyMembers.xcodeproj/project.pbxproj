@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A82291B77840032E9EB /* SignUpLabel.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD103A82291B77840032E9EB /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD103A84291B77890032E9EB /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				AD609687291A471700FF78CB /* OnboardingLabel.swift */,
+				AD103A82291B77840032E9EB /* SignUpLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,9 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				AD609662291A184300FF78CB /* CustomImageView.swift */,
-				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
-				AD609687291A471700FF78CB /* OnboardingLabel.swift */,
 				AD7EE673291B5AAA004B2B02 /* SignupView.swift */,
+				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
+				AD103A84291B77890032E9EB /* Labels */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -421,6 +432,7 @@
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
+				AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */,
 				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
 			);
