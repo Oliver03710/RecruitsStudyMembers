@@ -14,21 +14,20 @@ final class LoginViewModel: CommonViewModel {
     
     // MARK: - Properties
     
-    let photo = PublishSubject<Data>()
-    let userName = PublishRelay<String>()
-    let email = PublishRelay<String>()
+    let disposeBag = DisposeBag()
     
     
     // MARK: - In & Out Data
     
     struct Input {
-        let tap: ControlEvent<Void>
+        let textFieldText: ControlProperty<String?>
+        let textFieldIsEditing: ControlEvent<()>
     }
     
     struct Output {
-        let tap: ControlEvent<Void>
-        let name: SharedSequence<DriverSharingStrategy, String>
-        let email: SharedSequence<DriverSharingStrategy, String>
+        let phoneNum: Observable<Bool>
+        let isEditing: Observable<Bool>
+        let textChanged: Observable<ControlProperty<String>.Element>
     }
     
     
@@ -36,13 +35,45 @@ final class LoginViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        let nameTransformed = userName.asDriver(onErrorJustReturn: "")
-        let emailTransformed = email.asDriver(onErrorJustReturn: "")
+        let textFormat = input.textFieldText.orEmpty
+            .map { str in
+                
+                let numbersOnly = str.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                let length = numbersOnly.count
+                
+                guard length > 4 else { return str }
+                
+                var sourceIndex = 0
+                
+                let leadingLength = 3
+                guard let leading = numbersOnly.substring(start: sourceIndex, offsetBy: leadingLength) else { return str }
+                sourceIndex += leadingLength
+                
+                let prefixLength = length > 10 ? 4 : 3
+                guard let prefix = numbersOnly.substring(start: sourceIndex, offsetBy: prefixLength) else { return str }
+                sourceIndex += prefixLength
+                
+                let suffixLength = 4
+                guard let suffix = numbersOnly.substring(start: sourceIndex, offsetBy: suffixLength) else { return str }
+                
+                return leading + "-" + prefix + "-" + suffix
+            }
         
-        return Output(tap: input.tap, name: nameTransformed, email: emailTransformed)
+        let numValid = input.textFieldText.orEmpty
+            .map { str in
+                let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
+                let numTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
+                return numTest.evaluate(with: str)
+            }
+        
+        let isEditing = input.textFieldIsEditing
+            .scan(true, accumulator: { bool, _ in
+                return bool
+            })
+            .asObservable()
+        
+        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat)
     }
-    
-    
-    
-    
 }
+
+
