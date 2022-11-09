@@ -14,6 +14,7 @@ final class LoginViewModel: CommonViewModel {
     
     // MARK: - Properties
     
+    let checkValid = BehaviorRelay<Bool>(value: false)
     let disposeBag = DisposeBag()
     
     
@@ -59,17 +60,35 @@ final class LoginViewModel: CommonViewModel {
                 return leading + "-" + prefix + "-" + suffix
             }
         
-        let numValid = input.textFieldText.orEmpty
+        let numberValid = input.textFieldText.orEmpty
             .map { str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
                 let numTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
                 return numTest.evaluate(with: str)
             }
+            .share()
+        
+        numberValid
+            .withUnretained(self)
+            .bind { (vc, bool) in
+                vc.checkValid.accept(bool)
+            }
+            .disposed(by: disposeBag)
+        
+//        numberValid
+//            .withUnretained(self)
+//            .bind { (vc, bool) in
+//                <#code#>
+//            }
+//            .disposed(by: disposeBag)
         
         let isEditing = input.textFieldIsEditing
             .scan(true, accumulator: { bool, _ in
                 return bool
             })
+            .asObservable()
+        
+        let numValid = checkValid
             .asObservable()
         
         return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat)
