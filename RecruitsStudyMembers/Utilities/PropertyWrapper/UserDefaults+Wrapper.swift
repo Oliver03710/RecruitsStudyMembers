@@ -31,6 +31,15 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "token", defaultValue: nil)
     static var token: String?
     
+    @UserDefaultsWrapper(key: "baseURLPath", defaultValue: "http://api.sesac.co.kr:1207")
+    static var baseURLPath: String
+    
+    @UserDefaultsWrapper(key: "contentType", defaultValue: "application/x-www-form-urlencoded")
+    static var contentType: String
+    
+    @UserDefaultsWrapper(key: "loginPath", defaultValue: "/v1/user")
+    static var loginPath: String
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
