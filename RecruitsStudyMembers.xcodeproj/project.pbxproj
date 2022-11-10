@@ -10,6 +10,7 @@
 		AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */; };
 		AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047B291CE54F00377276 /* LoginVerificationView.swift */; };
 		AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */; };
+		AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047F291D002100377276 /* UINavigationBarAppearance+Extension.swift */; };
 		AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A82291B77840032E9EB /* SignUpLabel.swift */; };
 		AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A85291B79E30032E9EB /* SignupTextField.swift */; };
 		AD103A89291B8DD60032E9EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD103A88291B8DD60032E9EB /* .gitignore */; };
@@ -70,6 +71,7 @@
 		AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewController.swift; sourceTree = "<group>"; };
 		AD0D047B291CE54F00377276 /* LoginVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationView.swift; sourceTree = "<group>"; };
 		AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
+		AD0D047F291D002100377276 /* UINavigationBarAppearance+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBarAppearance+Extension.swift"; sourceTree = "<group>"; };
 		AD103A82291B77840032E9EB /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
 		AD103A85291B79E30032E9EB /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
 		AD103A88291B8DD60032E9EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				AD103A90291C06C20032E9EB /* String+Extension.swift */,
+				AD0D047F291D002100377276 /* UINavigationBarAppearance+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
 				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
+				AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
