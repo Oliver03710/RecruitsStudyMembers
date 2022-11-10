@@ -66,6 +66,12 @@ final class LoginViewModel: CommonViewModel {
             .map { str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
                 let numTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
+                
+                if numTest.evaluate(with: str) {
+                    let phoneNum = str.dropFirst()
+                    UserDefaultsManager.phoneNum = "+82 \(phoneNum)"
+                    print(UserDefaultsManager.phoneNum)
+                }
                 return numTest.evaluate(with: str)
             }
             .share()

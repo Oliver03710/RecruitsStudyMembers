@@ -121,7 +121,20 @@ final class LoginView: BaseView {
     }
     
     func toNextPage() {
-        
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber("+82 1012341234", uiDelegate: nil) { verificationID, error in
+                if let error = error {
+                    let code = (error as NSError).code
+                    print(code)
+                    self.makeToast(error.localizedDescription)
+                    return
+                }
+                
+                guard let id = verificationID else { return }
+                print(id)
+                // Sign in using the verificationID and the code sent to the user
+                // ...
+            }
     }
 
 }
