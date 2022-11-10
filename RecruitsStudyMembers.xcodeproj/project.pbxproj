@@ -11,6 +11,10 @@
 		AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047B291CE54F00377276 /* LoginVerificationView.swift */; };
 		AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */; };
 		AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047F291D002100377276 /* UINavigationBarAppearance+Extension.swift */; };
+		AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0481291D1B6900377276 /* NicknameViewModel.swift */; };
+		AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0483291D1CC200377276 /* BirthViewModel.swift */; };
+		AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0485291D1F0D00377276 /* EmailViewModel.swift */; };
+		AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0487291D20C200377276 /* GenderViewModel.swift */; };
 		AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A82291B77840032E9EB /* SignUpLabel.swift */; };
 		AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A85291B79E30032E9EB /* SignupTextField.swift */; };
 		AD103A89291B8DD60032E9EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD103A88291B8DD60032E9EB /* .gitignore */; };
@@ -72,6 +76,10 @@
 		AD0D047B291CE54F00377276 /* LoginVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationView.swift; sourceTree = "<group>"; };
 		AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD0D047F291D002100377276 /* UINavigationBarAppearance+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBarAppearance+Extension.swift"; sourceTree = "<group>"; };
+		AD0D0481291D1B6900377276 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		AD0D0483291D1CC200377276 /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
+		AD0D0485291D1F0D00377276 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		AD0D0487291D20C200377276 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		AD103A82291B77840032E9EB /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
 		AD103A85291B79E30032E9EB /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
 		AD103A88291B8DD60032E9EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -286,6 +294,7 @@
 			children = (
 				AD9533CE2919652F002126C0 /* NicknameViewController.swift */,
 				AD9533D029196539002126C0 /* NicknameView.swift */,
+				AD0D0481291D1B6900377276 /* NicknameViewModel.swift */,
 			);
 			path = Nickname;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 			children = (
 				AD9533D4291965BA002126C0 /* BirthViewController.swift */,
 				AD9533D6291965C3002126C0 /* BirthView.swift */,
+				AD0D0483291D1CC200377276 /* BirthViewModel.swift */,
 			);
 			path = Birth;
 			sourceTree = "<group>";
@@ -304,6 +314,7 @@
 			children = (
 				AD9533D82919660D002126C0 /* EmailViewController.swift */,
 				AD9533DA29196616002126C0 /* EmailView.swift */,
+				AD0D0485291D1F0D00377276 /* EmailViewModel.swift */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -313,6 +324,7 @@
 			children = (
 				AD9533DC29196653002126C0 /* GenderViewController.swift */,
 				AD9533DE2919665D002126C0 /* GenderView.swift */,
+				AD0D0487291D20C200377276 /* GenderViewModel.swift */,
 			);
 			path = Gender;
 			sourceTree = "<group>";
@@ -510,6 +522,7 @@
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
+				AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */,
 				AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
@@ -524,6 +537,7 @@
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
+				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
@@ -532,6 +546,7 @@
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
 				AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
+				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
@@ -540,6 +555,7 @@
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
+				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
 				AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */,
 				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
