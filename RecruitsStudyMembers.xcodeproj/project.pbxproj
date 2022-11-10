@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */; };
+		AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047B291CE54F00377276 /* LoginVerificationView.swift */; };
+		AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */; };
 		AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A82291B77840032E9EB /* SignUpLabel.swift */; };
 		AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A85291B79E30032E9EB /* SignupTextField.swift */; };
 		AD103A89291B8DD60032E9EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD103A88291B8DD60032E9EB /* .gitignore */; };
@@ -19,7 +22,7 @@
 		AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		AD103A9E291C21290032E9EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9D291C21290032E9EB /* FirebaseAuth */; };
 		AD103AA0291C21290032E9EB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9F291C21290032E9EB /* FirebaseMessaging */; };
-		AD103AA3291C31130032E9EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD103AA2291C31130032E9EB /* GoogleService-Info.plist */; };
+		AD103AA7291C3F6A0032E9EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD103AA6291C3F6A0032E9EB /* GoogleService-Info.plist */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -64,6 +67,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewController.swift; sourceTree = "<group>"; };
+		AD0D047B291CE54F00377276 /* LoginVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationView.swift; sourceTree = "<group>"; };
+		AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD103A82291B77840032E9EB /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
 		AD103A85291B79E30032E9EB /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
 		AD103A88291B8DD60032E9EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -74,7 +80,7 @@
 		AD103A96291C15050032E9EB /* Router+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		AD103A98291C194D0032E9EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AD103AA1291C298B0032E9EB /* RecruitsStudyMembers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecruitsStudyMembers.entitlements; sourceTree = "<group>"; };
-		AD103AA2291C31130032E9EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD103AA6291C3F6A0032E9EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -134,6 +140,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD0D0479291CE50C00377276 /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */,
+				AD0D047B291CE54F00377276 /* LoginVerificationView.swift */,
+				AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
+		AD0D047A291CE51C00377276 /* PhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533C629196460002126C0 /* LoginViewController.swift */,
+				AD9533C82919646C002126C0 /* LoginView.swift */,
+				AD103A8A291B8E130032E9EB /* LoginViewModel.swift */,
+			);
+			path = PhoneNumber;
+			sourceTree = "<group>";
+		};
 		AD103A84291B77890032E9EB /* Labels */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,9 +272,8 @@
 		AD9533C52919642E002126C0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AD9533C629196460002126C0 /* LoginViewController.swift */,
-				AD9533C82919646C002126C0 /* LoginView.swift */,
-				AD103A8A291B8E130032E9EB /* LoginViewModel.swift */,
+				AD0D047A291CE51C00377276 /* PhoneNumber */,
+				AD0D0479291CE50C00377276 /* Verification */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -293,7 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				AD103A88291B8DD60032E9EB /* .gitignore */,
-				AD103AA2291C31130032E9EB /* GoogleService-Info.plist */,
+				AD103AA6291C3F6A0032E9EB /* GoogleService-Info.plist */,
 				ADF9B34D2918CCE400D1F758 /* RecruitsStudyMembers */,
 				ADF9B34C2918CCE400D1F758 /* Products */,
 			);
@@ -463,7 +488,7 @@
 				AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */,
 				ADF9B35B2918CCE500D1F758 /* LaunchScreen.storyboard in Resources */,
 				ADF9B3582918CCE500D1F758 /* Assets.xcassets in Resources */,
-				AD103AA3291C31130032E9EB /* GoogleService-Info.plist in Resources */,
+				AD103AA7291C3F6A0032E9EB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,13 +513,16 @@
 				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
+				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
+				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
+				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
