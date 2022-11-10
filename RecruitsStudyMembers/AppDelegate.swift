@@ -8,24 +8,37 @@
 import UIKit
 
 import FirebaseAuth
-import Toast
+import FirebaseCore
+import UserNotifications
+import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+            
+            Messaging.messaging().apnsToken = deviceToken
+            Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
 
+//            Auth.auth().setAPNSToken(deviceToken, type: .prod) // issue
 
+             Auth.auth().setAPNSToken(deviceToken, type: .sandbox) // no issue
+    }
+
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        PhoneAuthProvider.provider()
-          .verifyPhoneNumber("+82 10-3263-1515", uiDelegate: nil) { verificationID, error in
-              if let error = error {
-                  print(error.localizedDescription)
-                return
-              }
-              // Sign in using the verificationID and the code sent to the user
-              // ...
-          }
+        
+        FirebaseApp.configure()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
+
+        }
+
+        application.registerForRemoteNotifications()
+        
+        
+        
         return true
     }
 
@@ -42,7 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
+    
 
 }
 

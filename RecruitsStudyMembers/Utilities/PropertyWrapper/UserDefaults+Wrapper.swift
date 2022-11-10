@@ -40,6 +40,12 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "loginPath", defaultValue: "/v1/user")
     static var loginPath: String
     
+    @UserDefaultsWrapper(key: "certiNum", defaultValue: "")
+    static var certiNum: String
+    
+    @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
+    static var phoneNum: String
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
