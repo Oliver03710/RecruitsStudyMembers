@@ -24,4 +24,19 @@ final class LoginVerificationViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    
+    // MARK: - Helper Functions
+    
+    override func configureUI() {
+        setNaigations()
+    }
+    
+    func setNaigations() {
+        setNaviBar()
+        
+        let yourBackImage = UIImage(named: GeneralIcons.arrow.rawValue)
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+    }
+    
 }

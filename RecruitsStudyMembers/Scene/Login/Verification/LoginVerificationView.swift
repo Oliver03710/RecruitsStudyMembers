@@ -18,12 +18,12 @@ final class LoginVerificationView: BaseView {
     // MARK: - Properties
     
     let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+        let label = SignUpLabel(text: "인증번호가 문자로 전송 되었어요.", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
     let phoneNumTextField: SignupTextField = {
-        let tf = SignupTextField(placeHolder: "휴대폰 번호(-없이 숫자만 입력)")
+        let tf = SignupTextField(placeHolder: "인증 번호 입력")
         tf.keyboardType = .decimalPad
         return tf
     }()
@@ -34,10 +34,21 @@ final class LoginVerificationView: BaseView {
         return view
     }()
     
-    let getCertiNumButton: CustomButton = {
-        let btn = CustomButton(text: "인증 문자 받기", buttonColor: SSColors.gray6.color)
+    let startButton: CustomButton = {
+        let btn = CustomButton(text: "인증하고 시작하기", buttonColor: SSColors.gray6.color)
         btn.isEnabled = false
         return btn
+    }()
+    
+    let resendButton: CustomButton = {
+        let btn = CustomButton(text: "재전송", buttonColor: SSColors.green.color)
+        return btn
+    }()
+    
+    let timerLabel: SignUpLabel = {
+        let label = SignUpLabel(text: "00:00", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
+        label.textColor = SSColors.green.color
+        return label
     }()
     
     let viewModel = LoginViewModel()
@@ -52,27 +63,25 @@ final class LoginVerificationView: BaseView {
     
     // MARK: - Helper Functions
     
-    override func configureUI() {
-        bindData()
-    }
-    
     override func setConstraints() {
-        [instructionLabel, phoneNumTextField, lineView, getCertiNumButton].forEach { addSubview($0) }
+        [instructionLabel, phoneNumTextField, lineView, startButton, resendButton, timerLabel].forEach { addSubview($0) }
         
-        getCertiNumButton.snp.makeConstraints { make in
+        startButton.snp.makeConstraints { make in
             make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
             make.height.equalTo(48)
             make.centerY.equalTo(self.snp.centerY).multipliedBy(1.1)
         }
         
         lineView.snp.makeConstraints { make in
-            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.leading.equalTo(safeAreaLayoutGuide).inset(16)
+            make.trailing.equalTo(resendButton.snp.leading).offset(-8)
             make.height.equalTo(1)
-            make.bottom.equalTo(getCertiNumButton.snp.top).dividedBy(1.25)
+            make.bottom.equalTo(startButton.snp.top).dividedBy(1.25)
         }
         
         phoneNumTextField.snp.makeConstraints { make in
-            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(28)
+            make.leading.equalTo(safeAreaLayoutGuide).inset(16)
+            make.trailing.equalTo(resendButton.snp.leading).offset(-8)
             make.height.equalTo(24)
             make.bottom.equalTo(lineView.snp.top).offset(-12)
         }
@@ -83,58 +92,20 @@ final class LoginVerificationView: BaseView {
             make.bottom.equalTo(phoneNumTextField.snp.top).dividedBy(1.35)
             make.centerX.equalTo(self.snp.centerX)
         }
-    }
-    
-    func bindData() {
-        let input = LoginViewModel.Input(textFieldText: phoneNumTextField.rx.text, textFieldIsEditing: phoneNumTextField.rx.controlEvent([.editingDidBegin, .editingChanged]), tap: getCertiNumButton.rx.tap)
-        let output = viewModel.transform(input: input)
         
-        output.phoneNum
-            .withUnretained(self)
-            .bind { (vc, bool) in
-                vc.getCertiNumButton.isEnabled = bool
-                vc.getCertiNumButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
-            }
-            .disposed(by: viewModel.disposeBag)
+        timerLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(resendButton.snp.leading).offset(-8)
+            make.width.equalTo(resendButton.snp.height).multipliedBy(1.5)
+            make.height.equalTo(16)
+            make.bottom.equalTo(lineView.snp.top).offset(-12)
+        }
         
-        output.textChanged
-            .bind(to: phoneNumTextField.rx.text)
-            .disposed(by: viewModel.disposeBag)
-        
-        output.isEditing
-            .withUnretained(self)
-            .bind { (vc, bool) in
-                vc.lineView.backgroundColor = bool ? SSColors.black.color : SSColors.gray6.color
-            }
-            .disposed(by: viewModel.disposeBag)
+        resendButton.snp.makeConstraints { make in
+            make.bottom.equalTo(startButton.snp.top).dividedBy(1.25)
+            make.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(40)
+            make.width.equalTo(resendButton.snp.height).multipliedBy(2)
+        }
 
-        output.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.toNextPage()
-            }
-            .disposed(by: viewModel.disposeBag)
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.endEditing(true)
-    }
-    
-    func toNextPage() {
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber("+82 1012341234", uiDelegate: nil) { verificationID, error in
-                if let error = error {
-                    let code = (error as NSError).code
-                    print(code)
-                    self.makeToast(error.localizedDescription)
-                    return
-                }
-                
-                guard let id = verificationID else { return }
-                print(id)
-                // Sign in using the verificationID and the code sent to the user
-                // ...
-            }
-    }
-
 }
