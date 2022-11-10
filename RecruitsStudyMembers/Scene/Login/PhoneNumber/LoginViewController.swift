@@ -34,7 +34,10 @@ final class LoginViewController: BaseViewController {
     }
     
     func bindData() {
-        let input = LoginViewModel.Input(textFieldText: loginView.phoneNumTextField.rx.text, textFieldIsEditing: loginView.phoneNumTextField.rx.controlEvent([.editingDidBegin, .editingChanged]), tap: loginView.getCertiNumButton.rx.tap)
+        let input = LoginViewModel.Input(textFieldText: loginView.phoneNumTextField.rx.text,
+                                         textFieldIsEditing: loginView.phoneNumTextField.rx.controlEvent(.editingDidBegin),
+                                         textFieldFiniedEditing: loginView.phoneNumTextField.rx.controlEvent(.editingDidEnd),
+                                         tap: loginView.getCertiNumButton.rx.tap)
         let output = loginView.viewModel.transform(input: input)
         
         output.phoneNum
@@ -49,10 +52,15 @@ final class LoginViewController: BaseViewController {
             .bind(to: loginView.phoneNumTextField.rx.text)
             .disposed(by: loginView.viewModel.disposeBag)
         
-        output.isEditing
+        output.textFieldActions
             .withUnretained(self)
-            .bind { (vc, bool) in
-                vc.loginView.lineView.backgroundColor = bool ? SSColors.black.color : SSColors.gray6.color
+            .bind { (vc, actions) in
+                switch actions {
+                case .editingDidBegin:
+                    vc.loginView.lineView.backgroundColor = SSColors.black.color
+                case .editingDidEnd:
+                    vc.loginView.lineView.backgroundColor = SSColors.gray6.color
+                }
             }
             .disposed(by: loginView.viewModel.disposeBag)
 
@@ -69,23 +77,29 @@ final class LoginViewController: BaseViewController {
     }
     
     func toNextPage() {
-        print(UserDefaultsManager.firebaseToken)
-        
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
-                
-                if let error = error {
-                    let code = (error as NSError).code
-                    print(code)
-                    self.view.makeToast(error.localizedDescription)
-                    return
-                }
-                
-                guard let id = verificationID else { return }
-                print(id)
-                UserDefaultsManager.firebaseToken = id
+//        
+//        PhoneAuthProvider.provider()
+//            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
+//                
+//                if let error = error {
+//                    let code = (error as NSError).code
+//                    print(code)
+//                    self.view.makeToast(error.localizedDescription)
+//                    return
+//                }
+//                
+//                guard let id = verificationID else { return }
+//                print(id)
+//                UserDefaultsManager.firebaseToken = id
                 let vc = LoginVerificationViewController()
+//        let backBarButtonItem = UIBarButtonItem(image: UIImage(named: GeneralIcons.arrow.rawValue), style: .plain, target: self, action: nil)
+//        self.navigationItem.backBarButtonItem = backBarButtonItem
+//        let yourBackImage = UIImage(named: GeneralIcons.arrow.rawValue)
+//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: GeneralIcons.arrow.rawValue)
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: GeneralIcons.arrow.rawValue)
+        
                 self.navigationController?.pushViewController(vc, animated: true)
-            }
+                
+//            }
     }
 }

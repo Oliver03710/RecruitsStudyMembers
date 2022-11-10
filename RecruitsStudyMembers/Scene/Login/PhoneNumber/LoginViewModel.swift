@@ -22,7 +22,8 @@ final class LoginViewModel: CommonViewModel {
     
     struct Input {
         let textFieldText: ControlProperty<String?>
-        let textFieldIsEditing: ControlEvent<()>
+        let textFieldIsEditing: ControlEvent<Void>
+        let textFieldFiniedEditing: ControlEvent<Void>
         let tap: ControlEvent<Void>
     }
     
@@ -31,6 +32,7 @@ final class LoginViewModel: CommonViewModel {
         let isEditing: Observable<Bool>
         let textChanged: Observable<ControlProperty<String>.Element>
         let tap: ControlEvent<Void>
+        let textFieldActions: Observable<TextFieldActions>
     }
     
     
@@ -74,21 +76,9 @@ final class LoginViewModel: CommonViewModel {
                 }
                 return numTest.evaluate(with: str)
             }
-            .share()
         
-//        numberValid
-//            .withUnretained(self)
-//            .bind { (vc, bool) in
-//                vc.checkValid.accept(bool)
-//            }
-//            .disposed(by: disposeBag)
-        
-//        numberValid
-//            .withUnretained(self)
-//            .bind { (vc, bool) in
-//                <#code#>
-//            }
-//            .disposed(by: disposeBag)
+        let textFieldActions = Observable.merge(input.textFieldIsEditing.map { _ in TextFieldActions.editingDidBegin },
+                                                input.textFieldFiniedEditing.map { _ in TextFieldActions.editingDidEnd })
         
         
         let isEditing = input.textFieldIsEditing
@@ -97,10 +87,7 @@ final class LoginViewModel: CommonViewModel {
             })
             .asObservable()
         
-//        let numValid = checkValid
-//            .asObservable()
-        
-        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat, tap: input.tap)
+        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat, tap: input.tap, textFieldActions: textFieldActions)
     }
 }
 
