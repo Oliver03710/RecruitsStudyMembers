@@ -7,6 +7,11 @@
 
 import UIKit
 
+import FirebaseAuth
+import RxCocoa
+import RxSwift
+import Toast
+
 final class LoginViewController: BaseViewController {
 
     // MARK: - Properties
@@ -24,4 +29,63 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func configureUI() {
+        bindData()
+    }
+    
+    func bindData() {
+        let input = LoginViewModel.Input(textFieldText: loginView.phoneNumTextField.rx.text, textFieldIsEditing: loginView.phoneNumTextField.rx.controlEvent([.editingDidBegin, .editingChanged]), tap: loginView.getCertiNumButton.rx.tap)
+        let output = loginView.viewModel.transform(input: input)
+        
+        output.phoneNum
+            .withUnretained(self)
+            .bind { (vc, bool) in
+                vc.loginView.getCertiNumButton.isEnabled = bool
+                vc.loginView.getCertiNumButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
+            }
+            .disposed(by: loginView.viewModel.disposeBag)
+        
+        output.textChanged
+            .bind(to: loginView.phoneNumTextField.rx.text)
+            .disposed(by: loginView.viewModel.disposeBag)
+        
+        output.isEditing
+            .withUnretained(self)
+            .bind { (vc, bool) in
+                vc.loginView.lineView.backgroundColor = bool ? SSColors.black.color : SSColors.gray6.color
+            }
+            .disposed(by: loginView.viewModel.disposeBag)
+
+        output.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.toNextPage()
+            }
+            .disposed(by: loginView.viewModel.disposeBag)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func toNextPage() {
+        print(UserDefaultsManager.firebaseToken)
+        
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
+                
+                if let error = error {
+                    let code = (error as NSError).code
+                    print(code)
+                    self.view.makeToast(error.localizedDescription)
+                    return
+                }
+                
+                guard let id = verificationID else { return }
+                print(id)
+                UserDefaultsManager.firebaseToken = id
+                let vc = LoginVerificationViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+    }
 }

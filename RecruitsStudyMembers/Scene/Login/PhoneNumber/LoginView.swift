@@ -7,11 +7,7 @@
 
 import UIKit
 
-import FirebaseAuth
-import RxCocoa
-import RxSwift
 import SnapKit
-import Toast
 
 final class LoginView: BaseView {
 
@@ -52,10 +48,6 @@ final class LoginView: BaseView {
     
     // MARK: - Helper Functions
     
-    override func configureUI() {
-        bindData()
-    }
-    
     override func setConstraints() {
         [instructionLabel, phoneNumTextField, lineView, getCertiNumButton].forEach { addSubview($0) }
         
@@ -83,58 +75,6 @@ final class LoginView: BaseView {
             make.bottom.equalTo(phoneNumTextField.snp.top).dividedBy(1.35)
             make.centerX.equalTo(self.snp.centerX)
         }
-    }
-    
-    func bindData() {
-        let input = LoginViewModel.Input(textFieldText: phoneNumTextField.rx.text, textFieldIsEditing: phoneNumTextField.rx.controlEvent([.editingDidBegin, .editingChanged]), tap: getCertiNumButton.rx.tap)
-        let output = viewModel.transform(input: input)
-        
-        output.phoneNum
-            .withUnretained(self)
-            .bind { (vc, bool) in
-                vc.getCertiNumButton.isEnabled = bool
-                vc.getCertiNumButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
-            }
-            .disposed(by: viewModel.disposeBag)
-        
-        output.textChanged
-            .bind(to: phoneNumTextField.rx.text)
-            .disposed(by: viewModel.disposeBag)
-        
-        output.isEditing
-            .withUnretained(self)
-            .bind { (vc, bool) in
-                vc.lineView.backgroundColor = bool ? SSColors.black.color : SSColors.gray6.color
-            }
-            .disposed(by: viewModel.disposeBag)
-
-        output.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.toNextPage()
-            }
-            .disposed(by: viewModel.disposeBag)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.endEditing(true)
-    }
-    
-    func toNextPage() {
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber("+82 1012341234", uiDelegate: nil) { verificationID, error in
-                if let error = error {
-                    let code = (error as NSError).code
-                    print(code)
-                    self.makeToast(error.localizedDescription)
-                    return
-                }
-                
-                guard let id = verificationID else { return }
-                print(id)
-                // Sign in using the verificationID and the code sent to the user
-                // ...
-            }
     }
 
 }
