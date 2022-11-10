@@ -60,6 +60,10 @@ final class NicknameViewController: BaseViewController {
                 vc.nicknameView.nextButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
             }
             .disposed(by: nicknameView.viewModel.disposeBag)
+        
+        output.textTransformed
+            .bind(to: nicknameView.nicknameTextField.rx.text)
+            .disposed(by: nicknameView.viewModel.disposeBag)
 
         output.tap
             .withUnretained(self)

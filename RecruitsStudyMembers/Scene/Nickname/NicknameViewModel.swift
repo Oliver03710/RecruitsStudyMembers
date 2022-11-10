@@ -27,6 +27,7 @@ final class NicknameViewModel: CommonViewModel {
     struct Output {
         let tap: ControlEvent<Void>
         let textValid: Observable<Bool>
+        let textTransformed: Observable<String>
     }
     
     
@@ -34,10 +35,14 @@ final class NicknameViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        let nicknameValid = input.textFieldText
+        let textTransformed = input.textFieldText
             .orEmpty
+            .map { $0.components(separatedBy: " ").joined() }
+            .share()
+        
+        let nicknameValid = textTransformed
             .map { $0.count <= 10 && !$0.isEmpty }
         
-        return Output(tap: input.tap, textValid: nicknameValid)
+        return Output(tap: input.tap, textValid: nicknameValid, textTransformed: textTransformed)
     }
 }
