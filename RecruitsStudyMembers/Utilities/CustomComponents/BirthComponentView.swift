@@ -29,31 +29,40 @@ final class BirthComponentView: BaseView {
         return view
     }()
     
+    let datePickerButton: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .clear
+        return btn
+    }()
+    
     
     // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
     }
     
     
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        [birthLabel, birthTextField, lineView].forEach { addSubview($0) }
+        [birthLabel, birthTextField, datePickerButton, lineView].forEach { addSubview($0) }
         
         lineView.snp.makeConstraints { make in
             make.leading.bottom.equalTo(safeAreaLayoutGuide)
-            make.trailing.equalTo(birthLabel.snp.leading).multipliedBy(1.1)
+            make.trailing.equalTo(birthLabel.snp.leading).dividedBy(1.1)
             make.height.equalTo(1)
         }
         
         birthTextField.snp.makeConstraints { make in
-            make.leading.equalTo(self.snp.leading).multipliedBy(1.2)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(12)
             make.height.equalTo(self.snp.height).dividedBy(2)
-            make.width.equalTo(self.snp.height).multipliedBy(1.8)
+            make.width.equalTo(birthTextField.snp.height).multipliedBy(1.8)
             make.centerY.equalTo(self.snp.centerY)
+        }
+        
+        datePickerButton.snp.makeConstraints { make in
+            make.edges.equalTo(birthTextField.snp.edges)
         }
         
         birthLabel.snp.makeConstraints { make in
