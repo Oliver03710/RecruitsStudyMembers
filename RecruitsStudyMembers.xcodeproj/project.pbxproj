@@ -61,6 +61,8 @@
 		AD9533DB29196616002126C0 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DA29196616002126C0 /* EmailView.swift */; };
 		AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DC29196653002126C0 /* GenderViewController.swift */; };
 		AD9533DF2919665D002126C0 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DE2919665D002126C0 /* GenderView.swift */; };
+		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
+		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */; };
 		ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */; };
 		ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3522918CCE400D1F758 /* SplashViewController.swift */; };
@@ -116,6 +118,8 @@
 		AD9533DA29196616002126C0 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		AD9533DC29196653002126C0 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		AD9533DE2919665D002126C0 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
+		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitsStudyMembers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				AD609662291A184300FF78CB /* CustomImageView.swift */,
+				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
 				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
 				AD103A85291B79E30032E9EB /* SignupTextField.swift */,
 				AD103A84291B77890032E9EB /* Labels */,
@@ -329,6 +334,14 @@
 			path = Gender;
 			sourceTree = "<group>";
 		};
+		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		ADF9B3422918CCE400D1F758 = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +404,7 @@
 		ADF9B3662918D0C100D1F758 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				ADEF3B77291D5ED6004B4CDE /* Enum */,
 				AD103A8F291C06AE0032E9EB /* Extensions */,
 				AD103A8C291B8F970032E9EB /* Protocols */,
 				AD9533BC2919605B002126C0 /* BaseComponents */,
@@ -531,6 +545,7 @@
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
 				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
 				AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */,
+				ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
@@ -539,6 +554,7 @@
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
+				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
