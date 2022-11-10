@@ -46,6 +46,10 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
     static var phoneNum: String
     
+    @UserDefaultsWrapper(key: "firebaseToken", defaultValue: "")
+    static var firebaseToken: String
+
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
