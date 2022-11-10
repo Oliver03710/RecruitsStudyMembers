@@ -7,11 +7,37 @@
 
 import UIKit
 
+import SnapKit
+
 final class NicknameView: BaseView {
 
     // MARK: - Properties
     
+    let instructionLabel: SignUpLabel = {
+        let label = SignUpLabel(text: "닉네임을 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+        return label
+    }()
     
+    let nicknameTextField: SignupTextField = {
+        let tf = SignupTextField(placeHolder: "10자 이내로 입력")
+        tf.keyboardType = .default
+        tf.becomeFirstResponder()
+        return tf
+    }()
+    
+    let lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = SSColors.gray6.color
+        return view
+    }()
+    
+    let nextButton: CustomButton = {
+        let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
+        btn.isEnabled = false
+        return btn
+    }()
+    
+    let viewModel = NicknameViewModel()
     
     
     // MARK: - Init
@@ -29,12 +55,36 @@ final class NicknameView: BaseView {
     
     // MARK: - Helper Functions
     
-    override func configureUI() {
+    override func setConstraints() {
+        [instructionLabel, nicknameTextField, lineView, nextButton].forEach { addSubview($0) }
         
+        nextButton.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(48)
+            make.centerY.equalTo(self.snp.centerY).multipliedBy(1.1)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(1)
+            make.bottom.equalTo(nextButton.snp.top).dividedBy(1.25)
+        }
+        
+        nicknameTextField.snp.makeConstraints { make in
+            make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(28)
+            make.height.equalTo(24)
+            make.bottom.equalTo(lineView.snp.top).offset(-12)
+        }
+        
+        instructionLabel.snp.makeConstraints { make in
+            make.width.equalTo(self.snp.width).dividedBy(1.4)
+            make.height.equalTo(instructionLabel.snp.width).dividedBy(4)
+            make.bottom.equalTo(nicknameTextField.snp.top).dividedBy(1.35)
+            make.centerX.equalTo(self.snp.centerX)
+        }
     }
     
-    override func setConstraints() {
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
     }
-
 }
