@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             
-            Messaging.messaging().apnsToken = deviceToken
-            Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
+        Messaging.messaging().apnsToken = deviceToken
+        Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
 
-//            Auth.auth().setAPNSToken(deviceToken, type: .prod) // issue
+//        Auth.auth().setAPNSToken(deviceToken, type: .prod) // issue
 
-             Auth.auth().setAPNSToken(deviceToken, type: .sandbox) // no issue
+        Auth.auth().setAPNSToken(deviceToken, type: .sandbox) // no issue
     }
 
     
