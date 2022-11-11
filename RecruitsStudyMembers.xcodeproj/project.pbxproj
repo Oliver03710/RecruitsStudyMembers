@@ -63,6 +63,7 @@
 		AD9533DF2919665D002126C0 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DE2919665D002126C0 /* GenderView.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
+		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
 		ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */; };
 		ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */; };
 		ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3522918CCE400D1F758 /* SplashViewController.swift */; };
@@ -120,6 +121,7 @@
 		AD9533DE2919665D002126C0 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
+		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
 		ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitsStudyMembers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,7 +234,7 @@
 				AD609662291A184300FF78CB /* CustomImageView.swift */,
 				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
 				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
-				AD103A85291B79E30032E9EB /* SignupTextField.swift */,
+				ADEF3B7E291D8B4F004B4CDE /* TextFields */,
 				AD103A84291B77890032E9EB /* Labels */,
 			);
 			path = CustomComponents;
@@ -340,6 +342,15 @@
 				ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		ADEF3B7E291D8B4F004B4CDE /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				AD103A85291B79E30032E9EB /* SignupTextField.swift */,
+				ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */,
+			);
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 		ADF9B3422918CCE400D1F758 = {
@@ -547,6 +558,7 @@
 				AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */,
 				ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
+				ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
