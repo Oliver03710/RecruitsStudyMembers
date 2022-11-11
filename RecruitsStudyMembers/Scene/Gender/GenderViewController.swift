@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 final class GenderViewController: BaseViewController {
 
     // MARK: - Properties
@@ -24,4 +27,29 @@ final class GenderViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    
+    // MARK: - Helper Functions
+    
+    override func configureUI() {
+        setNaigations()
+        bindData()
+    }
+    
+    func bindData() {
+        let input = GenderViewModel.Input(tap: genderView.nextButton.rx.tap)
+        let output = genderView.viewModel.transform(input: input)
+
+        output.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.toNextPage()
+            }
+            .disposed(by: genderView.viewModel.disposeBag)
+    }
+    
+    func toNextPage() {
+//        let vc = GenderViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
 }
