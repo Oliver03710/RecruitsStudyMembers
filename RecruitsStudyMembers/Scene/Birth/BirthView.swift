@@ -43,8 +43,6 @@ final class BirthView: BaseView {
         return btn
     }()
     
-    
-    
     let viewModel = BirthViewModel()
     
     
