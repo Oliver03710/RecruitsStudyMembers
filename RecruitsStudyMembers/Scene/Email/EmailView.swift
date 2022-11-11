@@ -18,6 +18,13 @@ final class EmailView: BaseView {
         return label
     }()
     
+    let subLabel: SignUpLabel = {
+        let label = SignUpLabel(text: "휴대폰 번호 변경 시 인증을 위해 사용해요.", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
+        label.textColor = SSColors.gray7.color
+        return label
+    }()
+
+    
     let emailTextField: SignupTextField = {
         let tf = SignupTextField(placeHolder: "SeSAC@email.com")
         tf.keyboardType = .emailAddress
@@ -49,7 +56,7 @@ final class EmailView: BaseView {
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        [instructionLabel, emailTextField, lineView, nextButton].forEach { addSubview($0) }
+        [instructionLabel, subLabel, emailTextField, lineView, nextButton].forEach { addSubview($0) }
         
         nextButton.snp.makeConstraints { make in
             make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
@@ -72,7 +79,14 @@ final class EmailView: BaseView {
         instructionLabel.snp.makeConstraints { make in
             make.width.equalTo(self.snp.width).dividedBy(1.4)
             make.height.equalTo(instructionLabel.snp.width).dividedBy(4)
-            make.bottom.equalTo(emailTextField.snp.top).dividedBy(1.35)
+            make.bottom.equalTo(emailTextField.snp.top).dividedBy(1.4)
+            make.centerX.equalTo(self.snp.centerX)
+        }
+        
+        subLabel.snp.makeConstraints { make in
+            make.width.equalTo(self.snp.width)
+            make.height.equalTo(instructionLabel.snp.width).dividedBy(4.2)
+            make.bottom.equalTo(emailTextField.snp.top).dividedBy(1.25)
             make.centerX.equalTo(self.snp.centerX)
         }
     }
