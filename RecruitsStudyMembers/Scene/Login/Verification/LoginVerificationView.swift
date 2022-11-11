@@ -22,7 +22,7 @@ final class LoginVerificationView: BaseView {
         return label
     }()
     
-    let phoneNumTextField: SignupTextField = {
+    let certiTextField: SignupTextField = {
         let tf = SignupTextField(placeHolder: "인증 번호 입력")
         tf.keyboardType = .decimalPad
         return tf
@@ -36,7 +36,7 @@ final class LoginVerificationView: BaseView {
     
     let startButton: CustomButton = {
         let btn = CustomButton(text: "인증하고 시작하기", buttonColor: SSColors.gray6.color)
-        btn.isEnabled = false
+//        btn.isEnabled = false
         return btn
     }()
     
@@ -51,7 +51,7 @@ final class LoginVerificationView: BaseView {
         return label
     }()
     
-    let viewModel = LoginViewModel()
+    let viewModel = LoginVerificationViewModel()
     
     
     // MARK: - Init
@@ -64,7 +64,7 @@ final class LoginVerificationView: BaseView {
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        [instructionLabel, phoneNumTextField, lineView, startButton, resendButton, timerLabel].forEach { addSubview($0) }
+        [instructionLabel, certiTextField, lineView, startButton, resendButton, timerLabel].forEach { addSubview($0) }
         
         startButton.snp.makeConstraints { make in
             make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
@@ -79,7 +79,7 @@ final class LoginVerificationView: BaseView {
             make.bottom.equalTo(startButton.snp.top).dividedBy(1.25)
         }
         
-        phoneNumTextField.snp.makeConstraints { make in
+        certiTextField.snp.makeConstraints { make in
             make.leading.equalTo(safeAreaLayoutGuide).inset(16)
             make.trailing.equalTo(resendButton.snp.leading).offset(-8)
             make.height.equalTo(24)
@@ -89,7 +89,7 @@ final class LoginVerificationView: BaseView {
         instructionLabel.snp.makeConstraints { make in
             make.width.equalTo(self.snp.width).dividedBy(1.4)
             make.height.equalTo(instructionLabel.snp.width).dividedBy(4)
-            make.bottom.equalTo(phoneNumTextField.snp.top).dividedBy(1.35)
+            make.bottom.equalTo(certiTextField.snp.top).dividedBy(1.35)
             make.centerX.equalTo(self.snp.centerX)
         }
         
