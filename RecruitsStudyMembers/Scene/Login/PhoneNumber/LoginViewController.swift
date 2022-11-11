@@ -77,29 +77,23 @@ final class LoginViewController: BaseViewController {
     }
     
     func toNextPage() {
-//        
-//        PhoneAuthProvider.provider()
-//            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
-//                
-//                if let error = error {
-//                    let code = (error as NSError).code
-//                    print(code)
-//                    self.view.makeToast(error.localizedDescription)
-//                    return
-//                }
-//                
-//                guard let id = verificationID else { return }
-//                print(id)
-//                UserDefaultsManager.firebaseToken = id
-                let vc = LoginVerificationViewController()
-//        let backBarButtonItem = UIBarButtonItem(image: UIImage(named: GeneralIcons.arrow.rawValue), style: .plain, target: self, action: nil)
-//        self.navigationItem.backBarButtonItem = backBarButtonItem
-//        let yourBackImage = UIImage(named: GeneralIcons.arrow.rawValue)
-//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: GeneralIcons.arrow.rawValue)
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: GeneralIcons.arrow.rawValue)
         
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
+
+                if let error = error {
+                    let code = (error as NSError).code
+                    print(code)
+                    self.view.makeToast(error.localizedDescription)
+                    return
+                }
+                
+                guard let id = verificationID else { return }
+                print(id)
+                UserDefaultsManager.verificationID = id
+                let vc = LoginVerificationViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 
-//            }
+            }
     }
 }

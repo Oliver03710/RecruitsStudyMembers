@@ -70,7 +70,7 @@ final class LoginViewModel: CommonViewModel {
                 let numTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
                 
                 if numTest.evaluate(with: str) {
-                    let phoneNum = str.dropFirst()
+                    let phoneNum = str.dropFirst().components(separatedBy: " ").joined()
                     UserDefaultsManager.phoneNum = "+82 \(phoneNum)"
                     print(UserDefaultsManager.phoneNum)
                 }
