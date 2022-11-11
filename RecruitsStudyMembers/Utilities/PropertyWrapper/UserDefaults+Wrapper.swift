@@ -46,8 +46,8 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
     static var phoneNum: String
     
-    @UserDefaultsWrapper(key: "firebaseToken", defaultValue: "")
-    static var firebaseToken: String
+    @UserDefaultsWrapper(key: "verificationID", defaultValue: "")
+    static var verificationID: String
 
     
     static func removeAll() {
