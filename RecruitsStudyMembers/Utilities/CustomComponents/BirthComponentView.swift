@@ -18,8 +18,10 @@ final class BirthComponentView: BaseView {
         return label
     }()
     
-    let birthTextField: SignupTextField = {
-        let tf = SignupTextField(placeHolder: "1990")
+    lazy var birthTextField: BirthDateTextField = {
+        let tf = BirthDateTextField(placeHolder: "1990")
+        tf.inputView = datePicker
+        tf.becomeFirstResponder()
         return tf
     }()
     
@@ -29,10 +31,11 @@ final class BirthComponentView: BaseView {
         return view
     }()
     
-    let datePickerButton: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = .clear
-        return btn
+    let datePicker: UIDatePicker = {
+        let dp = UIDatePicker()
+        dp.preferredDatePickerStyle = .wheels
+        dp.datePickerMode = .date
+        return dp
     }()
     
     
@@ -46,7 +49,7 @@ final class BirthComponentView: BaseView {
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        [birthLabel, birthTextField, datePickerButton, lineView].forEach { addSubview($0) }
+        [birthLabel, birthTextField, lineView].forEach { addSubview($0) }
         
         lineView.snp.makeConstraints { make in
             make.leading.bottom.equalTo(safeAreaLayoutGuide)
@@ -59,10 +62,6 @@ final class BirthComponentView: BaseView {
             make.height.equalTo(self.snp.height).dividedBy(2)
             make.width.equalTo(birthTextField.snp.height).multipliedBy(1.8)
             make.centerY.equalTo(self.snp.centerY)
-        }
-        
-        datePickerButton.snp.makeConstraints { make in
-            make.edges.equalTo(birthTextField.snp.edges)
         }
         
         birthLabel.snp.makeConstraints { make in
