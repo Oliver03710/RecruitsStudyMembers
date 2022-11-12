@@ -48,7 +48,15 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper(key: "verificationID", defaultValue: "")
     static var verificationID: String
-
+    
+    @UserDefaultsWrapper(key: "birthYear", defaultValue: "")
+    static var birthYear: String
+    
+    @UserDefaultsWrapper(key: "birthMonth", defaultValue: "")
+    static var birthMonth: String
+    
+    @UserDefaultsWrapper(key: "birthDay", defaultValue: "")
+    static var birthDay: String
     
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
