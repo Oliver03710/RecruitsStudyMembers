@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import Toast
 
 final class EmailViewController: BaseViewController {
 
@@ -42,16 +43,18 @@ final class EmailViewController: BaseViewController {
         output.emailValid
             .withUnretained(self)
             .bind { (vc, bool) in
-                vc.emailView.nextButton.isEnabled = bool
                 vc.emailView.nextButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
             }
             .disposed(by: emailView.viewModel.disposeBag)
         
         output.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.toNextPage()
+            .drive { [weak self] _ in
+                output.buttonValid.value ? self?.toNextPage() : self?.view.makeToast("이메일 형식이 유효하지 않습니다.", position: .top)
             }
+            .disposed(by: emailView.viewModel.disposeBag)
+        
+        output.emailValue
+            .drive(emailView.emailTextField.rx.text)
             .disposed(by: emailView.viewModel.disposeBag)
     }
     

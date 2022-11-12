@@ -14,6 +14,9 @@ final class EmailViewModel: CommonViewModel {
     
     // MARK: - Properties
     
+    private var emailValue = BehaviorRelay<String>(value: UserDefaultsManager.email)
+    private var buttonValid = BehaviorRelay<Bool>(value: false)
+    
     let disposeBag = DisposeBag()
     
     
@@ -25,8 +28,10 @@ final class EmailViewModel: CommonViewModel {
     }
     
     struct Output {
-        let tap: ControlEvent<Void>
+        let tap: SharedSequence<DriverSharingStrategy, Void>
         let emailValid: Observable<Bool>
+        let buttonValid: BehaviorRelay<Bool>
+        let emailValue: SharedSequence<DriverSharingStrategy, String>
     }
     
     
@@ -35,12 +40,21 @@ final class EmailViewModel: CommonViewModel {
     func transform(input: Input) -> Output {
         
         let emailValid = input.emailText.orEmpty
-            .map { str in
+            .withUnretained(self)
+            .map { vc, str in
                 let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
                 let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+                UserDefaultsManager.email = str
+                if emailTest.evaluate(with: str) {
+                    vc.buttonValid.accept(true)
+                }
                 return emailTest.evaluate(with: str)
             }
         
-        return Output(tap: input.tap, emailValid: emailValid)
+        let tap = input.tap.asDriver()
+        
+        let emailValue = emailValue.asDriver(onErrorJustReturn: "")
+        
+        return Output(tap: tap, emailValid: emailValid, buttonValid: buttonValid, emailValue: emailValue)
     }
 }
