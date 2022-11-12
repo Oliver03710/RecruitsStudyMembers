@@ -18,22 +18,25 @@ final class BirthView: BaseView {
         return label
     }()
     
-    let leftView: BirthComponentView = {
+    lazy var leftView: BirthComponentView = {
         let view = BirthComponentView()
+        view.birthTextField.inputView = datePicker
         return view
     }()
     
-    let centerView: BirthComponentView = {
+    lazy var centerView: BirthComponentView = {
         let view = BirthComponentView()
         view.birthLabel.text = "월"
         view.birthTextField.placeholder = "1"
+        view.birthTextField.inputView = datePicker
         return view
     }()
     
-    let rightView: BirthComponentView = {
+    lazy var rightView: BirthComponentView = {
         let view = BirthComponentView()
         view.birthLabel.text = "일"
         view.birthTextField.placeholder = "1"
+        view.birthTextField.inputView = datePicker
         return view
     }()
     
@@ -41,6 +44,13 @@ final class BirthView: BaseView {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
 //        btn.isEnabled = false
         return btn
+    }()
+    
+    let datePicker: UIDatePicker = {
+        let dp = UIDatePicker()
+        dp.preferredDatePickerStyle = .wheels
+        dp.datePickerMode = .date
+        return dp
     }()
     
     let viewModel = BirthViewModel()
