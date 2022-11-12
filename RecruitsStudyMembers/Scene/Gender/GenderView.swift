@@ -36,7 +36,6 @@ final class GenderView: BaseView {
     
     let nextButton: CustomButton = {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
-//        btn.isEnabled = false
         return btn
     }()
     
