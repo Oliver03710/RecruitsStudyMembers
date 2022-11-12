@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let vc = !UserDefaultsManager.certiNum.isEmpty ? NicknameViewController() : SplashViewController()
+        let vc = !UserDefaultsManager.certiNum.isEmpty ? BirthViewController() : SplashViewController()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         
