@@ -58,6 +58,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "birthDay", defaultValue: "")
     static var birthDay: String
     
+    @UserDefaultsWrapper(key: "email", defaultValue: "")
+    static var email: String
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
