@@ -18,9 +18,8 @@ final class BirthComponentView: BaseView {
         return label
     }()
     
-    lazy var birthTextField: BirthDateTextField = {
+    let birthTextField: BirthDateTextField = {
         let tf = BirthDateTextField(placeHolder: "1990")
-        tf.inputView = datePicker
         tf.becomeFirstResponder()
         return tf
     }()
@@ -29,13 +28,6 @@ final class BirthComponentView: BaseView {
         let view = UIView()
         view.backgroundColor = SSColors.gray6.color
         return view
-    }()
-    
-    let datePicker: UIDatePicker = {
-        let dp = UIDatePicker()
-        dp.preferredDatePickerStyle = .wheels
-        dp.datePickerMode = .date
-        return dp
     }()
     
     
