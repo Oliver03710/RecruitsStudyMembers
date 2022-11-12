@@ -30,7 +30,7 @@ final class BirthViewModel: CommonViewModel {
     }
     
     struct Output {
-        let tap: ControlEvent<Void>
+        let tap: SharedSequence<DriverSharingStrategy, Void>
         let year: SharedSequence<DriverSharingStrategy, String>
         let month: SharedSequence<DriverSharingStrategy, String>
         let day: SharedSequence<DriverSharingStrategy, String>
@@ -62,16 +62,18 @@ final class BirthViewModel: CommonViewModel {
                 UserDefaultsManager.birthYear = date.toString(withFormat: "YYYY")
                 UserDefaultsManager.birthMonth = date.toString(withFormat: "MM")
                 UserDefaultsManager.birthDay = date.toString(withFormat: "dd")
-                if timeInterval > 16 {
+                if timeInterval > 16 && !(timeInterval < 0) {
                     vc.buttonValid.accept(true)
                 }
-                return timeInterval > 16 ? true : false
+                return timeInterval > 16 && !(timeInterval < 0) ? true : false
             }
+        
+        let tap = input.tap.asDriver()
         
         let year = yearValue.asDriver(onErrorJustReturn: "")
         let month = monthValue.asDriver(onErrorJustReturn: "")
         let day = dayValue.asDriver(onErrorJustReturn: "")
         
-        return Output(tap: input.tap, year: year, month: month, day: day, ageValid: ageValid, buttonValid: buttonValid)
+        return Output(tap: tap, year: year, month: month, day: day, ageValid: ageValid, buttonValid: buttonValid)
     }
 }

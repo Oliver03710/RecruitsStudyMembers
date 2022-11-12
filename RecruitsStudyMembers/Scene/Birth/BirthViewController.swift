@@ -60,10 +60,8 @@ final class BirthViewController: BaseViewController {
             .disposed(by: birthView.viewModel.disposeBag)
         
         output.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                output.buttonValid.value ? vc.toNextPage() : vc.view.makeToast("만 17세 미만입니다.", position: .top)
-                
+            .drive { [weak self] _ in
+                output.buttonValid.value ? self?.toNextPage() : self?.view.makeToast("만 17세 미만입니다.", position: .top)
             }
             .disposed(by: birthView.viewModel.disposeBag)
 
