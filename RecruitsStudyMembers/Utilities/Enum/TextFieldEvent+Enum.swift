@@ -8,6 +8,6 @@
 import Foundation
 
 enum TextFieldActions {
-  case editingDidBegin
-  case editingDidEnd
+    case editingDidBegin
+    case editingDidEnd
 }
