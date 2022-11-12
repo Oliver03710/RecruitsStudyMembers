@@ -11,3 +11,8 @@ enum TextFieldActions {
     case editingDidBegin
     case editingDidEnd
 }
+
+enum GenderButtonTapped {
+    case male
+    case female
+}
