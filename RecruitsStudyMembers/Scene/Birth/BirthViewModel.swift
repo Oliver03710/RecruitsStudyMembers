@@ -14,11 +14,10 @@ final class BirthViewModel: CommonViewModel {
     
     // MARK: - Properties
     
-    var yearValue = PublishRelay<String>()
-    var monthValue = PublishRelay<String>()
-    var dayValue = PublishRelay<String>()
-    
-    let dateFormatter = DateFormatter()
+    private var yearValue = BehaviorRelay<String>(value: UserDefaultsManager.birthYear)
+    private var monthValue = BehaviorRelay<String>(value: UserDefaultsManager.birthMonth)
+    private var dayValue = BehaviorRelay<String>(value: UserDefaultsManager.birthDay)
+    private var buttonValid = BehaviorRelay<Bool>(value: false)
     
     let disposeBag = DisposeBag()
     
@@ -35,6 +34,8 @@ final class BirthViewModel: CommonViewModel {
         let year: SharedSequence<DriverSharingStrategy, String>
         let month: SharedSequence<DriverSharingStrategy, String>
         let day: SharedSequence<DriverSharingStrategy, String>
+        let ageValid: Observable<Bool>
+        let buttonValid: BehaviorRelay<Bool>
     }
     
     
@@ -46,44 +47,31 @@ final class BirthViewModel: CommonViewModel {
             .asObservable()
             .withUnretained(self)
             .subscribe { (vc, date) in
-                vc.dateFormatter.dateFormat = "YYYY"
-                vc.yearValue.accept(vc.dateFormatter.string(from: date))
                 
-                vc.dateFormatter.dateFormat = "MM"
-                vc.monthValue.accept(vc.dateFormatter.string(from: date))
-                
-                vc.dateFormatter.dateFormat = "dd"
-                vc.dayValue.accept(vc.dateFormatter.string(from: date))
-                
-                vc.dateFormatter.locale = Locale(identifier: "ko-KR")
-                vc.dateFormatter.timeZone = TimeZone.current
-                vc.dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
-                
-                let finalDate = vc.dateFormatter.string(from: date)
-                print(finalDate)
+                vc.yearValue.accept(date.toString(withFormat: "YYYY"))
+                vc.monthValue.accept(date.toString(withFormat: "MM"))
+                vc.dayValue.accept(date.toString(withFormat: "dd"))
             }
             .disposed(by: disposeBag)
 
-        input.date
+        let ageValid = input.date
             .asObservable()
-            .subscribe { date in
-                
-                print(date)
-                let formatter = RelativeDateTimeFormatter()
-                formatter.unitsStyle = .full
-                let relativeDate = formatter.localizedString(for: date, relativeTo: Date())
-                
-                print(relativeDate)
-                if relativeDate == "17년 전" {
-                    print("true")
+            .withUnretained(self)
+            .map { vc, date in
+                guard let timeInterval = (Date()-date).year else { return false }
+                UserDefaultsManager.birthYear = date.toString(withFormat: "YYYY")
+                UserDefaultsManager.birthMonth = date.toString(withFormat: "MM")
+                UserDefaultsManager.birthDay = date.toString(withFormat: "dd")
+                if timeInterval > 16 {
+                    vc.buttonValid.accept(true)
                 }
+                return timeInterval > 16 ? true : false
             }
-            .disposed(by: disposeBag)
         
         let year = yearValue.asDriver(onErrorJustReturn: "")
         let month = monthValue.asDriver(onErrorJustReturn: "")
         let day = dayValue.asDriver(onErrorJustReturn: "")
         
-        return Output(tap: input.tap, year: year, month: month, day: day)
+        return Output(tap: input.tap, year: year, month: month, day: day, ageValid: ageValid, buttonValid: buttonValid)
     }
 }
