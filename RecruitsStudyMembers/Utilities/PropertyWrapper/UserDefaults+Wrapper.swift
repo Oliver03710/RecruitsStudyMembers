@@ -61,6 +61,12 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "email", defaultValue: "")
     static var email: String
     
+    @UserDefaultsWrapper(key: "gender", defaultValue: 2)
+    static var gender: Int
+    
+    @UserDefaultsWrapper(key: "maleSelected", defaultValue: false)
+    static var maleSelected: Bool
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
