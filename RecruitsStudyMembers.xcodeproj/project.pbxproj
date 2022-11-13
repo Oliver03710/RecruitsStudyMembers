@@ -30,6 +30,7 @@
 		AD1B38A429209CAD006D7523 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */; };
 		AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38A52920A18B006D7523 /* CustomError.swift */; };
 		AD1B38AA2920E704006D7523 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD1B38A92920E704006D7523 /* GoogleService-Info.plist */; };
+		AD1B38AC2920F843006D7523 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38AB2920F843006D7523 /* UserData.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -99,6 +100,7 @@
 		AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		AD1B38A52920A18B006D7523 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		AD1B38A92920E704006D7523 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD1B38AB2920F843006D7523 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				AD1B38A52920A18B006D7523 /* CustomError.swift */,
+				AD1B38AB2920F843006D7523 /* UserData.swift */,
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
 				AD103A96291C15050032E9EB /* Router+URLRequestConvertible.swift */,
 			);
@@ -574,6 +577,7 @@
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
+				AD1B38AC2920F843006D7523 /* UserData.swift in Sources */,
 				AD1B38A429209CAD006D7523 /* OnboardingViewModel.swift in Sources */,
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
