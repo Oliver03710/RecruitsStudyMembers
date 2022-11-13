@@ -14,6 +14,7 @@ final class NicknameViewModel: CommonViewModel {
     
     // MARK: - Properties
     
+    private var buttonValid = BehaviorRelay<Bool>(value: false)
     let disposeBag = DisposeBag()
     
     
@@ -25,9 +26,10 @@ final class NicknameViewModel: CommonViewModel {
     }
     
     struct Output {
-        let tap: ControlEvent<Void>
+        let tapDriver: SharedSequence<DriverSharingStrategy, Void>
         let textValid: Observable<Bool>
         let textTransformed: Observable<String>
+        let buttonValid: BehaviorRelay<Bool>
     }
     
     
@@ -42,7 +44,17 @@ final class NicknameViewModel: CommonViewModel {
         
         let nicknameValid = textTransformed
             .map { $0.count <= 10 && !$0.isEmpty }
+            .share()
         
-        return Output(tap: input.tap, textValid: nicknameValid, textTransformed: textTransformed)
+        nicknameValid
+            .withUnretained(self)
+            .subscribe { vc, bool in
+                vc.buttonValid.accept(true)
+            }
+            .disposed(by: disposeBag)
+        
+        let tapDriver = input.tap.asDriver()
+        
+        return Output(tapDriver: tapDriver, textValid: nicknameValid, textTransformed: textTransformed, buttonValid: buttonValid)
     }
 }

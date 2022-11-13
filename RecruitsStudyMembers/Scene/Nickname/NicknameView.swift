@@ -21,6 +21,7 @@ final class NicknameView: BaseView {
     let nicknameTextField: SignupTextField = {
         let tf = SignupTextField(placeHolder: "10자 이내로 입력")
         tf.keyboardType = .default
+        tf.text = UserDefaultsManager.nickname
         tf.becomeFirstResponder()
         return tf
     }()
@@ -33,7 +34,7 @@ final class NicknameView: BaseView {
     
     let nextButton: CustomButton = {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
-        btn.isEnabled = false
+        btn.backgroundColor = !UserDefaultsManager.nickname.isEmpty ? SSColors.green.color : SSColors.gray6.color
         return btn
     }()
     

@@ -44,7 +44,6 @@ final class NicknameViewController: BaseViewController {
         output.textValid
             .withUnretained(self)
             .bind { (vc, bool) in
-                vc.nicknameView.nextButton.isEnabled = bool
                 vc.nicknameView.nextButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
             }
             .disposed(by: nicknameView.viewModel.disposeBag)
@@ -53,10 +52,15 @@ final class NicknameViewController: BaseViewController {
             .bind(to: nicknameView.nicknameTextField.rx.text)
             .disposed(by: nicknameView.viewModel.disposeBag)
 
-        output.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.toNextPage()
+        output.textTransformed
+            .bind { str in
+                UserDefaultsManager.email = str
+            }
+            .disposed(by: nicknameView.viewModel.disposeBag)
+        
+        output.tapDriver
+            .drive { [weak self] _ in
+                output.buttonValid.value ? self?.toNextPage() : self?.view.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요.", position: .top)
             }
             .disposed(by: nicknameView.viewModel.disposeBag)
     }
