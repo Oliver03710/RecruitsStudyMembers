@@ -14,7 +14,7 @@ final class LoginViewModel: CommonViewModel {
     
     // MARK: - Properties
     
-    let checkValid = BehaviorRelay<Bool>(value: false)
+    private var buttonValid = BehaviorRelay<Bool>(value: false)
     let disposeBag = DisposeBag()
     
     
@@ -31,8 +31,9 @@ final class LoginViewModel: CommonViewModel {
         let phoneNum: Observable<Bool>
         let isEditing: Observable<Bool>
         let textChanged: Observable<ControlProperty<String>.Element>
-        let tap: ControlEvent<Void>
+        let tapDriver: SharedSequence<DriverSharingStrategy, Void>
         let textFieldActions: Observable<TextFieldActions>
+        let buttonValid: BehaviorRelay<Bool>
     }
     
     
@@ -65,14 +66,16 @@ final class LoginViewModel: CommonViewModel {
             }
         
         let numValid = input.textFieldText.orEmpty
-            .map { str in
+            .withUnretained(self)
+            .map { vc, str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
                 let numTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
                 
                 if numTest.evaluate(with: str) {
-                    let phoneNum = str.dropFirst().components(separatedBy: " ").joined()
+                    let phoneNum = str.dropFirst().components(separatedBy: "-").joined()
                     UserDefaultsManager.phoneNum = "+82 \(phoneNum)"
                     print(UserDefaultsManager.phoneNum)
+                    vc.buttonValid.accept(true)
                 }
                 return numTest.evaluate(with: str)
             }
@@ -87,7 +90,9 @@ final class LoginViewModel: CommonViewModel {
             })
             .asObservable()
         
-        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat, tap: input.tap, textFieldActions: textFieldActions)
+        let tapDriver = input.tap.asDriver()
+        
+        return Output(phoneNum: numValid, isEditing: isEditing, textChanged: textFormat, tapDriver: tapDriver, textFieldActions: textFieldActions, buttonValid: buttonValid)
     }
 }
 

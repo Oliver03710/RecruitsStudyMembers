@@ -33,6 +33,7 @@ final class LoginViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
+        UserDefaultsManager.resetSingupData()
         bindData()
     }
     
@@ -46,7 +47,6 @@ final class LoginViewController: BaseViewController {
         output.phoneNum
             .withUnretained(self)
             .bind { (vc, bool) in
-                vc.loginView.getCertiNumButton.isEnabled = bool
                 vc.loginView.getCertiNumButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
             }
             .disposed(by: loginView.viewModel.disposeBag)
@@ -67,10 +67,10 @@ final class LoginViewController: BaseViewController {
             }
             .disposed(by: loginView.viewModel.disposeBag)
 
-        output.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.toNextPage()
+        output.tapDriver
+            .throttle(.seconds(3))
+            .drive { [weak self] _ in
+                output.buttonValid.value ? self?.toNextPage() : self?.view.makeToast("잘못된 전화번호 형식입니다.", position: .top)
             }
             .disposed(by: loginView.viewModel.disposeBag)
     }
@@ -80,22 +80,28 @@ final class LoginViewController: BaseViewController {
     }
     
     func toNextPage() {
+        view.makeToast("전화번호 인증 시작", position: .center)
         
         PhoneAuthProvider.provider()
-            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
+            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { [weak self] verificationID, error in
 
-                if let error = error {
-                    let code = (error as NSError).code
-                    print(code)
-                    self.view.makeToast(error.localizedDescription)
-                    return
+                if let error = error as NSError? {
+                    guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                    switch errorCode {
+                    case .tooManyRequests:
+                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.")
+                        return
+                    default:
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
+                        return
+                    }
                 }
                 
                 guard let id = verificationID else { return }
                 print(id)
                 UserDefaultsManager.verificationID = id
                 let vc = LoginVerificationViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
                 
             }
     }

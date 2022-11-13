@@ -32,7 +32,6 @@ final class LoginView: BaseView {
     
     let getCertiNumButton: CustomButton = {
         let btn = CustomButton(text: "인증 문자 받기", buttonColor: SSColors.gray6.color)
-        btn.isEnabled = false
         return btn
     }()
     
