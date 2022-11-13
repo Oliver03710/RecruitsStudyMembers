@@ -28,8 +28,8 @@ struct UserDefaultsWrapper<T> {
 
 struct UserDefaultsManager {
     
-    @UserDefaultsWrapper(key: "token", defaultValue: nil)
-    static var token: String?
+    @UserDefaultsWrapper(key: "token", defaultValue: "")
+    static var token: String
     
     @UserDefaultsWrapper(key: "baseURLPath", defaultValue: "http://api.sesac.co.kr:1207")
     static var baseURLPath: String
@@ -67,9 +67,28 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "maleSelected", defaultValue: false)
     static var maleSelected: Bool
     
+    @UserDefaultsWrapper(key: "nickname", defaultValue: "")
+    static var nickname: String
+    
+    @UserDefaultsWrapper(key: "passOnboarding", defaultValue: false)
+    static var passOnboarding: Bool
+    
+    @UserDefaultsWrapper(key: "statusCode", defaultValue: 0)
+    static var statusCode: Int
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
         }
+    }
+    
+    static func resetSingupData() {
+        UserDefaultsManager.nickname = ""
+        UserDefaultsManager.birthYear = ""
+        UserDefaultsManager.birthMonth = ""
+        UserDefaultsManager.birthDay = ""
+        UserDefaultsManager.email = ""
+        UserDefaultsManager.gender = 2
+        UserDefaultsManager.maleSelected = false
     }
 }
