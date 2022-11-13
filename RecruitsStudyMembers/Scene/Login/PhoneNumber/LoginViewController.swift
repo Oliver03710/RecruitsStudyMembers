@@ -29,6 +29,9 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    
+    // MARK: - Helper Functions
+    
     override func configureUI() {
         bindData()
     }
