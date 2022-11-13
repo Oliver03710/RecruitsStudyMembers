@@ -36,7 +36,6 @@ final class LoginVerificationView: BaseView {
     
     let startButton: CustomButton = {
         let btn = CustomButton(text: "인증하고 시작하기", buttonColor: SSColors.gray6.color)
-//        btn.isEnabled = false
         return btn
     }()
     

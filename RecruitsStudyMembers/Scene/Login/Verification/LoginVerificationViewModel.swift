@@ -56,7 +56,6 @@ final class LoginVerificationViewModel: CommonViewModel {
         
         let textValid = shareText
             .map { $0.count == 6 }
-            .share()
         
         let textChanged = shareText
             .asDriver(onErrorJustReturn: "")

@@ -55,6 +55,7 @@ final class LoginVerificationViewController: BaseViewController {
             .disposed(by: loginVerificationView.viewModel.disposeBag)
         
         output.resetButtonTapped
+            .throttle(.seconds(5), scheduler: MainScheduler.instance)
             .withUnretained(self)
             .bind { (vc, _) in
                 vc.resetButtonTapped()
@@ -84,31 +85,56 @@ final class LoginVerificationViewController: BaseViewController {
     }
     
     func logIn(credential: PhoneAuthCredential) {
-        Auth.auth().signIn(with: credential) { authResult, error in
+        Auth.auth().signIn(with: credential) { [weak self] authResult, error in
             
-            if let error = error {
-                let code = (error as NSError).code
-                print(code)
-                self.view.makeToast(error.localizedDescription)
+            if let error = error as NSError? {
+                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                switch errorCode {
+                case .userTokenExpired, .sessionExpired, .invalidVerificationID:
+                    self?.view.makeToast("전화 번호 인증 실패")
+                default:
+                    self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
+                }
                 return
             }
             
+            authResult?.user.getIDToken { idToken, error in
+                
+                if let error = error as NSError? {
+                    guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                    switch errorCode {
+                    case .userTokenExpired, .sessionExpired, .invalidVerificationID:
+                        self?.view.makeToast("전화 번호 인증 실패")
+                        return
+                    default:
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
+                        return
+                    }
+                }
+                
+                guard let idToken = idToken else { return }
+                UserDefaultsManager.token = idToken
+                print(idToken)
+            }
+            
             print("LogIn Success!!")
-            print("\(authResult!)")
-            let vc = NicknameViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.requestCheckUser()
         }
     }
     
     func resetButtonTapped() {
         
         PhoneAuthProvider.provider()
-            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { verificationID, error in
-
-                if let error = error {
-                    let code = (error as NSError).code
-                    print(code)
-                    self.view.makeToast(error.localizedDescription)
+            .verifyPhoneNumber(UserDefaultsManager.phoneNum, uiDelegate: nil) { [weak self] verificationID, error in
+                
+                if let error = error as NSError? {
+                    guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                    switch errorCode {
+                    case .tooManyRequests:
+                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .center)
+                    default:
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
+                    }
                     return
                 }
                 
@@ -117,5 +143,32 @@ final class LoginVerificationViewController: BaseViewController {
                 UserDefaultsManager.verificationID = id
             }
     }
-
+    
+    func requestCheckUser() {
+        NetworkManager.shared.request(UserData.self, router: SeSacApi.login)
+            .subscribe(onSuccess: { response in
+                print("Succeed")
+                print(response)
+            }, onFailure: { [weak self] error in
+                print("Error")
+                let errors = (error as NSError).code
+                print(errors)
+                guard let errCode = SeSacError(rawValue: errors) else { return }
+                switch errCode {
+                case .firebaseTokenError:
+                    self?.view.makeToast(errCode.errorDescription)
+                case .unsignedupUser:
+                    self?.view.makeToast(errCode.errorDescription, position: .top) { _ in
+                        UserDefaultsManager.statusCode = 406
+                        let vc = NicknameViewController()
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    }
+                case .ServerError:
+                    self?.view.makeToast(errCode.errorDescription)
+                case .ClientError:
+                    self?.view.makeToast(errCode.errorDescription)
+                }
+            })
+            .disposed(by: loginVerificationView.viewModel.disposeBag)
+    }
 }
