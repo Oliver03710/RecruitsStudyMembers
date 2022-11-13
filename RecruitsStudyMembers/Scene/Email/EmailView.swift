@@ -28,6 +28,7 @@ final class EmailView: BaseView {
     let emailTextField: SignupTextField = {
         let tf = SignupTextField(placeHolder: "SeSAC@email.com")
         tf.keyboardType = .emailAddress
+        tf.text = UserDefaultsManager.email
         return tf
     }()
     
@@ -39,6 +40,7 @@ final class EmailView: BaseView {
     
     let nextButton: CustomButton = {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
+        btn.backgroundColor = !UserDefaultsManager.email.isEmpty ? SSColors.green.color : SSColors.gray6.color
         return btn
     }()
     

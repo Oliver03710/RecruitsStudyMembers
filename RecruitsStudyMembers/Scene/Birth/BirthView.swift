@@ -21,6 +21,7 @@ final class BirthView: BaseView {
     lazy var leftView: BirthComponentView = {
         let view = BirthComponentView()
         view.birthTextField.inputView = datePicker
+        view.birthTextField.text = UserDefaultsManager.birthYear
         return view
     }()
     
@@ -29,6 +30,7 @@ final class BirthView: BaseView {
         view.birthLabel.text = "월"
         view.birthTextField.placeholder = "1"
         view.birthTextField.inputView = datePicker
+        view.birthTextField.text = UserDefaultsManager.birthMonth
         return view
     }()
     
@@ -37,11 +39,13 @@ final class BirthView: BaseView {
         view.birthLabel.text = "일"
         view.birthTextField.placeholder = "1"
         view.birthTextField.inputView = datePicker
+        view.birthTextField.text = UserDefaultsManager.birthDay
         return view
     }()
     
     let nextButton: CustomButton = {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
+        btn.backgroundColor = !UserDefaultsManager.birthYear.isEmpty ? SSColors.green.color : SSColors.gray6.color
         return btn
     }()
     
