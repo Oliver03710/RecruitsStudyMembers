@@ -96,10 +96,12 @@ final class OnboardingViewController: BaseViewController {
     }
     
     func toNextPage() {
+        UserDefaultsManager.passOnboarding = true
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         let vc = LoginViewController()
-        sceneDelegate?.window?.rootViewController = vc
+        let nav = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = nav
         sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
