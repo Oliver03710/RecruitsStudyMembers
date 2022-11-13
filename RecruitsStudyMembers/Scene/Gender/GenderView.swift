@@ -26,16 +26,21 @@ final class GenderView: BaseView {
     
     let maleButton: CustomButton = {
         let btn = CustomButton(text: "남자", image: GeneralIcons.man.rawValue)
+        btn.backgroundColor = UserDefaultsManager.gender == 1 ? SSColors.whiteGreen.color : SSColors.white.color
+        btn.layer.borderColor = UserDefaultsManager.gender == 1 ? SSColors.whiteGreen.color.cgColor : SSColors.gray3.color.cgColor
         return btn
     }()
     
     let femaleButton: CustomButton = {
         let btn = CustomButton(text: "여자", image: GeneralIcons.woman.rawValue)
+        btn.backgroundColor = UserDefaultsManager.gender == 0 ? SSColors.whiteGreen.color : SSColors.white.color
+        btn.layer.borderColor = UserDefaultsManager.gender == 0 ? SSColors.whiteGreen.color.cgColor : SSColors.gray3.color.cgColor
         return btn
     }()
     
     let nextButton: CustomButton = {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
+        btn.backgroundColor = UserDefaultsManager.gender == 0 || UserDefaultsManager.gender == 1 ? SSColors.green.color : SSColors.gray6.color
         return btn
     }()
     
