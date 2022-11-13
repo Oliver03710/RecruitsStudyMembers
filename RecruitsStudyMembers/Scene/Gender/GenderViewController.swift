@@ -55,6 +55,13 @@ final class GenderViewController: BaseViewController {
             }
             .disposed(by: genderView.viewModel.disposeBag)
         
+        output.buttonValid
+            .asDriver(onErrorJustReturn: false)
+            .drive { [weak self] bool in
+                self?.genderView.nextButton.backgroundColor = bool ? SSColors.green.color : SSColors.gray6.color
+            }
+            .disposed(by: genderView.viewModel.disposeBag)
+        
     }
     
     func toNextPage() {
