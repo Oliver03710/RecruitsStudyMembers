@@ -35,10 +35,6 @@ final class SplashView: BaseView {
     
     // MARK: - Helper Functions
     
-    override func configureUI() {
-        
-    }
-    
     override func setConstraints() {
         [logoImageView, textImageView].forEach { addSubview($0) }
         
