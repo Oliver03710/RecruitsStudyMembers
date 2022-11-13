@@ -9,28 +9,6 @@ import Foundation
 
 import Alamofire
 
-enum SeSacError: Int, Error {
-    case loginFailed = 400
-    case invalidAuthorization = 401
-    case emailTaken = 406
-    case internalError = 500
-    case emptyParameters = 501
-}
-
-extension SeSacError: LocalizedError {
-    
-    var errorDescription: String? {
-        switch self {
-        case .loginFailed: return "1"
-        case .invalidAuthorization: return "2"
-        case .emailTaken: return "3"
-        case .internalError: return "4"
-        case .emptyParameters: return "5"
-        }
-    }
-}
-
-
 enum SeSacApi {
     case login
 }
@@ -64,7 +42,7 @@ extension SeSacApi: URLRequestConvertible {
         
     var headers: HTTPHeaders {
         switch self {
-        case .login: return ["Content-Type": UserDefaultsManager.contentType]
+        case .login: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
         }
     }
     
