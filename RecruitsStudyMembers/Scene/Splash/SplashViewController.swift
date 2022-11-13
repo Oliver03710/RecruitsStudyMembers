@@ -33,11 +33,19 @@ final class SplashViewController: BaseViewController {
     
     func transitionAfterAnimation() {
     
-        UIView.animate(withDuration: 1.5) { [weak self] () -> Void in
+        UIView.animate(withDuration: 2) { [weak self] () -> Void in
             self?.splashView.layoutIfNeeded()
-        } completion: { [weak self] bool in
-            if bool {
-                sleep(1)
+        } completion: { [weak self] _ in
+            sleep(1)
+            
+            if UserDefaultsManager.passOnboarding {
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                let vc = LoginViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                sceneDelegate?.window?.rootViewController = nav
+                sceneDelegate?.window?.makeKeyAndVisible()
+            } else if !UserDefaultsManager.passOnboarding {
                 let vc = OnboardingViewController()
                 vc.modalPresentationStyle = .overFullScreen
                 self?.present(vc, animated: true)
