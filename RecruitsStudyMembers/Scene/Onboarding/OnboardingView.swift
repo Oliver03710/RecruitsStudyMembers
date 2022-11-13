@@ -18,6 +18,8 @@ final class OnboardingView: BaseView {
         return btn
     }()
     
+    let viewModel = OnboardingViewModel()
+    
     
     // MARK: - Init
     
@@ -30,7 +32,7 @@ final class OnboardingView: BaseView {
     
     override func setConstraints() {
         addSubview(startButton)
-        
+
         startButton.snp.makeConstraints { make in
             make.centerY.equalTo(self.snp.centerY).multipliedBy(1.8)
             make.directionalHorizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)

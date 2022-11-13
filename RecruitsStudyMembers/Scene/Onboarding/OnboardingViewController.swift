@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 protocol MovePageIndexDelegate: AnyObject {
@@ -52,6 +54,7 @@ final class OnboardingViewController: BaseViewController {
     
     override func configureUI() {
         setIndexDelegate()
+        bindData()
     }
     
     override func setConstraints() {
@@ -81,6 +84,24 @@ final class OnboardingViewController: BaseViewController {
         pageControl.addTarget(self, action: #selector(moveTo), for: .valueChanged)
     }
     
+    func bindData() {
+        let input = OnboardingViewModel.Input(tap: onboardingView.startButton.rx.tap)
+        let output = onboardingView.viewModel.transform(input: input)
+        
+        output.tapDriver
+            .drive { [weak self] _ in
+                self?.toNextPage()
+            }
+            .disposed(by: onboardingView.viewModel.disposeBag)
+    }
+    
+    func toNextPage() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let vc = LoginViewController()
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
 }
 
 
