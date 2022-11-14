@@ -47,7 +47,6 @@ final class BirthViewModel: CommonViewModel {
             .asObservable()
             .withUnretained(self)
             .subscribe { (vc, date) in
-                
                 vc.yearValue.accept(date.toString(withFormat: "YYYY"))
                 vc.monthValue.accept(date.toString(withFormat: "MM"))
                 vc.dayValue.accept(date.toString(withFormat: "dd"))
@@ -58,14 +57,31 @@ final class BirthViewModel: CommonViewModel {
             .asObservable()
             .withUnretained(self)
             .map { vc, date in
-                guard let timeInterval = (Date()-date).year else { return false }
+                guard let yearInterval = (Date()-date).year else { return false }
+                guard let monthInterval = (Date()-date).month else { return false }
+                guard let dayInterval = (Date()-date).day else { return false }
+                
                 UserDefaultsManager.birthYear = date.toString(withFormat: "YYYY")
                 UserDefaultsManager.birthMonth = date.toString(withFormat: "MM")
                 UserDefaultsManager.birthDay = date.toString(withFormat: "dd")
-                if timeInterval > 16 && !(timeInterval < 0) {
+                
+                UserDefaultsManager.birth = date.toString()
+                
+                guard yearInterval <= 17 else {
                     vc.buttonValid.accept(true)
+                    return true
                 }
-                return timeInterval > 16 && !(timeInterval < 0) ? true : false
+                
+                guard monthInterval % 12 <= 0 else {
+                    vc.buttonValid.accept(true)
+                    return true
+                }
+                
+                guard dayInterval % 30 < 0 else {
+                    vc.buttonValid.accept(true)
+                    return true
+                }
+                return false
             }
         
         let tap = input.tap.asDriver()
