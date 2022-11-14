@@ -11,6 +11,7 @@ import Alamofire
 
 enum SeSacApi {
     case login
+    case signup
 }
 
 
@@ -31,23 +32,32 @@ extension SeSacApi: URLRequestConvertible {
     var path: String {
         switch self {
         case .login: return UserDefaultsManager.loginPath
+        case .signup: return UserDefaultsManager.signupPath
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .login: return .get
+        case .signup: return .post
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
         case .login: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
+        case .signup: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
         }
     }
     
     var parameters: [String: String]? {
         switch self {
+        case .signup: return ["phoneNumber": UserDefaultsManager.phoneNum,
+                              "FCMtoken": UserDefaultsManager.fcmToken,
+                              "nick": UserDefaultsManager.nickname,
+                              "birth": UserDefaultsManager.birth,
+                              "email": UserDefaultsManager.email,
+                              "gender": "\(UserDefaultsManager.gender)"]
         default: return nil
         }
     }
@@ -55,6 +65,7 @@ extension SeSacApi: URLRequestConvertible {
     var encoding: ParameterEncoding {
         switch self {
         case .login: return URLEncoding.default
+        case .signup: return URLEncoding.default
         }
     }
     
