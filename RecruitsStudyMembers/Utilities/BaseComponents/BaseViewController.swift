@@ -30,8 +30,8 @@ class BaseViewController: UIViewController {
     func configureUI () { }
     func setConstraints() { }
     
-    func setNaigations() {
-        setNaviBar()
+    func setNaigations(naviTitle: String? = nil) {
+        setNaviBar(naviTitle: naviTitle)
         
         let backButton = UIBarButtonItem(image: UIImage(named: GeneralIcons.arrow.rawValue), style: .plain, target: self, action: #selector(backButtonTapped))
         self.navigationItem.leftBarButtonItem  = backButton
