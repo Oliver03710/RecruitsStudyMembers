@@ -73,7 +73,7 @@ final class LoginViewModel: CommonViewModel {
                 
                 if numTest.evaluate(with: str) {
                     let phoneNum = str.dropFirst().components(separatedBy: "-").joined()
-                    UserDefaultsManager.phoneNum = "+82 \(phoneNum)"
+                    UserDefaultsManager.phoneNum = "+82\(phoneNum)"
                     print(UserDefaultsManager.phoneNum)
                     vc.buttonValid.accept(true)
                 }
