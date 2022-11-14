@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomImageView: UIImageView {
+final class CustomImageView: UIImageView {
 
     // MARK: - Init
     
