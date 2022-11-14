@@ -40,8 +40,8 @@ final class GenderViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        Observable.merge(input.maleTapped.map { GenderButtonTapped.male},
-                         input.femaleTapped.map { GenderButtonTapped.female})
+        Observable.merge(input.maleTapped.map { GenderButtonTapped.male },
+                         input.femaleTapped.map { GenderButtonTapped.female })
         .withUnretained(self)
         .subscribe { vc, action in
             switch action {
