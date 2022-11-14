@@ -32,7 +32,7 @@ final class HomeViewController: BaseViewController {
         setNaigations()
     }
     
-    override func setNaigations() {
+    override func setNaigations(naviTitle: String? = nil) {
         navigationController?.isNavigationBarHidden = true
     }
     
