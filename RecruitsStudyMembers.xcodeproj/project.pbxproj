@@ -45,12 +45,15 @@
 		AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF129221830004FA34E /* MyinfoView.swift */; };
 		AD23FAF429221851004FA34E /* MyinfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF329221851004FA34E /* MyinfoViewModel.swift */; };
 		AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */; };
-		AD23FAF82922467F004FA34E /* MyinfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF72922467F004FA34E /* MyinfoCollectionViewCell.swift */; };
 		AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */; };
 		AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAFD29224F88004FA34E /* ManageInfoView.swift */; };
 		AD23FB0029224F9B004FA34E /* ManageInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAFF29224F9B004FA34E /* ManageInfoCollectionViewCell.swift */; };
 		AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */; };
 		AD23FB0429225144004FA34E /* ManageInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0329225144004FA34E /* ManageInfoData.swift */; };
+		AD23FB0829227EF8004FA34E /* MyInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0729227EF8004FA34E /* MyInfoData.swift */; };
+		AD23FB0A29229A0B004FA34E /* Reusable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */; };
+		AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */; };
+		AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0D29229E5E004FA34E /* CircleImageView.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -135,12 +138,15 @@
 		AD23FAF129221830004FA34E /* MyinfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoView.swift; sourceTree = "<group>"; };
 		AD23FAF329221851004FA34E /* MyinfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoViewModel.swift; sourceTree = "<group>"; };
 		AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenderButton+Enum.swift"; sourceTree = "<group>"; };
-		AD23FAF72922467F004FA34E /* MyinfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoViewController.swift; sourceTree = "<group>"; };
 		AD23FAFD29224F88004FA34E /* ManageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoView.swift; sourceTree = "<group>"; };
 		AD23FAFF29224F9B004FA34E /* ManageInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoViewModel.swift; sourceTree = "<group>"; };
 		AD23FB0329225144004FA34E /* ManageInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoData.swift; sourceTree = "<group>"; };
+		AD23FB0729227EF8004FA34E /* MyInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoData.swift; sourceTree = "<group>"; };
+		AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+Protocol.swift"; sourceTree = "<group>"; };
+		AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoTableViewCell.swift; sourceTree = "<group>"; };
+		AD23FB0D29229E5E004FA34E /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				AD103A8D291B8FAA0032E9EB /* CommonViewModel+Protocol.swift */,
+				AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -318,7 +325,7 @@
 				AD23FAFA29224F56004FA34E /* ManageInfo */,
 				AD23FAEF292214FA004FA34E /* MyinfoViewController.swift */,
 				AD23FAF129221830004FA34E /* MyinfoView.swift */,
-				AD23FAF72922467F004FA34E /* MyinfoCollectionViewCell.swift */,
+				AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */,
 				AD23FAF329221851004FA34E /* MyinfoViewModel.swift */,
 			);
 			path = MyInfo;
@@ -348,6 +355,23 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		AD23FB0629227EDA004FA34E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FB0729227EF8004FA34E /* MyInfoData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AD23FB0F29229E62004FA34E /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				AD609662291A184300FF78CB /* CustomImageView.swift */,
+				AD23FB0D29229E5E004FA34E /* CircleImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +384,7 @@
 		AD609664291A184900FF78CB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				AD609662291A184300FF78CB /* CustomImageView.swift */,
+				AD23FB0F29229E62004FA34E /* ImageViews */,
 				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
 				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
 				ADEF3B7E291D8B4F004B4CDE /* TextFields */,
@@ -550,6 +574,7 @@
 				AD609664291A184900FF78CB /* CustomComponents */,
 				AD103A92291C13B00032E9EB /* PropertyWrapper */,
 				AD103A95291C14CD0032E9EB /* Network */,
+				AD23FB0629227EDA004FA34E /* Data */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -682,11 +707,13 @@
 				AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
+				AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */,
 				AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */,
 				AD23FB0029224F9B004FA34E /* ManageInfoCollectionViewCell.swift in Sources */,
 				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD23FAE92922144C004FA34E /* FriendsViewController.swift in Sources */,
+				AD23FB0A29229A0B004FA34E /* Reusable+Protocol.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
 				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
 				AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */,
@@ -716,7 +743,6 @@
 				AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */,
-				AD23FAF82922467F004FA34E /* MyinfoCollectionViewCell.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
 				AD23FADD29221180004FA34E /* HomeView.swift in Sources */,
 				AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */,
@@ -724,6 +750,7 @@
 				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
 				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
+				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
@@ -734,6 +761,7 @@
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
+				AD23FB0829227EF8004FA34E /* MyInfoData.swift in Sources */,
 				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
 				AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */,
 				AD23FAF429221851004FA34E /* MyinfoViewModel.swift in Sources */,
