@@ -28,8 +28,6 @@ final class NicknameViewController: BaseViewController {
     }
     
     
-    
-    
     // MARK: - Helper Functions
     
     override func configureUI() {
@@ -54,7 +52,7 @@ final class NicknameViewController: BaseViewController {
 
         output.textTransformed
             .bind { str in
-                UserDefaultsManager.email = str
+                UserDefaultsManager.nickname = str
             }
             .disposed(by: nicknameView.viewModel.disposeBag)
         
