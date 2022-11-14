@@ -31,6 +31,26 @@
 		AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38A52920A18B006D7523 /* CustomError.swift */; };
 		AD1B38AA2920E704006D7523 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD1B38A92920E704006D7523 /* GoogleService-Info.plist */; };
 		AD1B38AC2920F843006D7523 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38AB2920F843006D7523 /* UserData.swift */; };
+		AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAD729221070004FA34E /* MainTabBarController.swift */; };
+		AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FADA29221176004FA34E /* HomeViewController.swift */; };
+		AD23FADD29221180004FA34E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FADC29221180004FA34E /* HomeView.swift */; };
+		AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FADE2922124A004FA34E /* HomeViewModel.swift */; };
+		AD23FAE22922133F004FA34E /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAE12922133F004FA34E /* ShopViewController.swift */; };
+		AD23FAE429221352004FA34E /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAE329221352004FA34E /* ShopView.swift */; };
+		AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAE529221377004FA34E /* ShopViewModel.swift */; };
+		AD23FAE92922144C004FA34E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAE82922144C004FA34E /* FriendsViewController.swift */; };
+		AD23FAEB2922145D004FA34E /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAEA2922145D004FA34E /* FriendsView.swift */; };
+		AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAEC29221471004FA34E /* FriendsViewModel.swift */; };
+		AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAEF292214FA004FA34E /* MyinfoViewController.swift */; };
+		AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF129221830004FA34E /* MyinfoView.swift */; };
+		AD23FAF429221851004FA34E /* MyinfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF329221851004FA34E /* MyinfoViewModel.swift */; };
+		AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */; };
+		AD23FAF82922467F004FA34E /* MyinfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAF72922467F004FA34E /* MyinfoCollectionViewCell.swift */; };
+		AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */; };
+		AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAFD29224F88004FA34E /* ManageInfoView.swift */; };
+		AD23FB0029224F9B004FA34E /* ManageInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FAFF29224F9B004FA34E /* ManageInfoCollectionViewCell.swift */; };
+		AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */; };
+		AD23FB0429225144004FA34E /* ManageInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0329225144004FA34E /* ManageInfoData.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -101,6 +121,26 @@
 		AD1B38A52920A18B006D7523 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		AD1B38A92920E704006D7523 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD1B38AB2920F843006D7523 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		AD23FAD729221070004FA34E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		AD23FADA29221176004FA34E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AD23FADC29221180004FA34E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AD23FADE2922124A004FA34E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AD23FAE12922133F004FA34E /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		AD23FAE329221352004FA34E /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		AD23FAE529221377004FA34E /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		AD23FAE82922144C004FA34E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		AD23FAEA2922145D004FA34E /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		AD23FAEC29221471004FA34E /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
+		AD23FAEF292214FA004FA34E /* MyinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoViewController.swift; sourceTree = "<group>"; };
+		AD23FAF129221830004FA34E /* MyinfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoView.swift; sourceTree = "<group>"; };
+		AD23FAF329221851004FA34E /* MyinfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoViewModel.swift; sourceTree = "<group>"; };
+		AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenderButton+Enum.swift"; sourceTree = "<group>"; };
+		AD23FAF72922467F004FA34E /* MyinfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoViewController.swift; sourceTree = "<group>"; };
+		AD23FAFD29224F88004FA34E /* ManageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoView.swift; sourceTree = "<group>"; };
+		AD23FAFF29224F9B004FA34E /* ManageInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoViewModel.swift; sourceTree = "<group>"; };
+		AD23FB0329225144004FA34E /* ManageInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageInfoData.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -230,6 +270,84 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		AD23FAD229220BF5004FA34E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAD729221070004FA34E /* MainTabBarController.swift */,
+				AD23FAD929221148004FA34E /* Home */,
+				AD23FAE02922129D004FA34E /* Shop */,
+				AD23FAE72922139F004FA34E /* Friends */,
+				AD23FAEE29221495004FA34E /* MyInfo */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AD23FAD929221148004FA34E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FADA29221176004FA34E /* HomeViewController.swift */,
+				AD23FADC29221180004FA34E /* HomeView.swift */,
+				AD23FADE2922124A004FA34E /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AD23FAE02922129D004FA34E /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAE12922133F004FA34E /* ShopViewController.swift */,
+				AD23FAE329221352004FA34E /* ShopView.swift */,
+				AD23FAE529221377004FA34E /* ShopViewModel.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		AD23FAE72922139F004FA34E /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAE82922144C004FA34E /* FriendsViewController.swift */,
+				AD23FAEA2922145D004FA34E /* FriendsView.swift */,
+				AD23FAEC29221471004FA34E /* FriendsViewModel.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		AD23FAEE29221495004FA34E /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAFA29224F56004FA34E /* ManageInfo */,
+				AD23FAEF292214FA004FA34E /* MyinfoViewController.swift */,
+				AD23FAF129221830004FA34E /* MyinfoView.swift */,
+				AD23FAF72922467F004FA34E /* MyinfoCollectionViewCell.swift */,
+				AD23FAF329221851004FA34E /* MyinfoViewModel.swift */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		AD23FAFA29224F56004FA34E /* ManageInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FB0329225144004FA34E /* ManageInfoData.swift */,
+				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
+				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
+				AD23FAFF29224F9B004FA34E /* ManageInfoCollectionViewCell.swift */,
+				AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */,
+			);
+			path = ManageInfo;
+			sourceTree = "<group>";
+		};
+		AD23FB0529227881004FA34E /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533C52919642E002126C0 /* Login */,
+				AD9533CA291964D7002126C0 /* Nickname */,
+				AD9533CB291964EB002126C0 /* Birth */,
+				AD9533CC29196508002126C0 /* Email */,
+				AD9533CD2919650C002126C0 /* Gender */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */,
+				AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -415,11 +534,8 @@
 			children = (
 				AD9533B529195C41002126C0 /* Splash */,
 				AD9533B929195FE3002126C0 /* Onboarding */,
-				AD9533C52919642E002126C0 /* Login */,
-				AD9533CA291964D7002126C0 /* Nickname */,
-				AD9533CB291964EB002126C0 /* Birth */,
-				AD9533CC29196508002126C0 /* Email */,
-				AD9533CD2919650C002126C0 /* Gender */,
+				AD23FB0529227881004FA34E /* SignUp */,
+				AD23FAD229220BF5004FA34E /* Main */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -553,54 +669,74 @@
 			files = (
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
+				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
 				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
+				AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
 				AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */,
 				AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
+				AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */,
+				AD23FB0029224F9B004FA34E /* ManageInfoCollectionViewCell.swift in Sources */,
 				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
+				AD23FAE92922144C004FA34E /* FriendsViewController.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
 				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
 				AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */,
 				ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
 				ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */,
+				AD23FAEB2922145D004FA34E /* FriendsView.swift in Sources */,
+				AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */,
+				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
+				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,
 				AD1B38AC2920F843006D7523 /* UserData.swift in Sources */,
 				AD1B38A429209CAD006D7523 /* OnboardingViewModel.swift in Sources */,
+				AD23FAE22922133F004FA34E /* ShopViewController.swift in Sources */,
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
 				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
+				AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
+				AD23FAE429221352004FA34E /* ShopView.swift in Sources */,
+				AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */,
+				AD23FAF82922467F004FA34E /* MyinfoCollectionViewCell.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
+				AD23FADD29221180004FA34E /* HomeView.swift in Sources */,
 				AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
 				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
+				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
+				AD23FB0429225144004FA34E /* ManageInfoData.swift in Sources */,
+				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
+				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
 				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
 				AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */,
+				AD23FAF429221851004FA34E /* MyinfoViewModel.swift in Sources */,
 				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
 			);
