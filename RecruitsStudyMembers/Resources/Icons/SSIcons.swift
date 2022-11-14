@@ -16,29 +16,21 @@ enum GeneralIcons: String {
     case check
     case closeBig
     case closeSmall
-    case faq
     case filterControl
-    case friendsAct
-    case friendsInact
     case friendsPlus
     case graySprout
     case logout
-    case man
+    case man, woman
     case mapMarker
     case message
     case more
     case moreArrow
-    case notice
-    case permit
+    case notice, permit, qna, siren, faq
     case place
     case plus
-    case qna
     case search
-    case sendAct
-    case sendInact
+    case sendAct, sendInact
     case settingAlarm
-    case siren
-    case woman
     case write
 }
 
