@@ -20,11 +20,11 @@ enum BackgroundImages: Int {
 }
 
 enum FaceImages: String {
-    case sessacFace1
-    case sessacFace2
-    case sessacFace3
-    case sessacFace4
-    case sessacFace5
+    case sesacFace1
+    case sesacFace2
+    case sesacFace3
+    case sesacFace4
+    case sesacFace5
 }
 
 enum SplashImages: String {
