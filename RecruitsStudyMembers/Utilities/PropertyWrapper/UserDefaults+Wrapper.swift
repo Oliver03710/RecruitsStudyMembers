@@ -40,6 +40,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "loginPath", defaultValue: "/v1/user")
     static var loginPath: String
     
+    @UserDefaultsWrapper(key: "signupPath", defaultValue: "/v1/user")
+    static var signupPath: String
+    
     @UserDefaultsWrapper(key: "certiNum", defaultValue: "")
     static var certiNum: String
     
@@ -58,6 +61,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "birthDay", defaultValue: "")
     static var birthDay: String
     
+    @UserDefaultsWrapper(key: "birth", defaultValue: "")
+    static var birth: String
+    
     @UserDefaultsWrapper(key: "email", defaultValue: "")
     static var email: String
     
@@ -75,6 +81,21 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper(key: "statusCode", defaultValue: 0)
     static var statusCode: Int
+    
+    @UserDefaultsWrapper(key: "fcmToken", defaultValue: "")
+    static var fcmToken: String
+    
+    @UserDefaultsWrapper(key: "homeTabName", defaultValue: "홈")
+    static var homeTabName: String
+    
+    @UserDefaultsWrapper(key: "shopTabName", defaultValue: "새싹샵")
+    static var shopTabName: String
+    
+    @UserDefaultsWrapper(key: "friendsTabName", defaultValue: "새싹친구")
+    static var friendsTabName: String
+    
+    @UserDefaultsWrapper(key: "MyinfoTabName", defaultValue: "내정보")
+    static var MyinfoTabName: String
     
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
