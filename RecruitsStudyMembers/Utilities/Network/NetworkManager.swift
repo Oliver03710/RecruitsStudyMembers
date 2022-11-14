@@ -8,6 +8,7 @@
 import Foundation
 
 import Alamofire
+import FirebaseAuth
 import RxSwift
 
 final class NetworkManager {
@@ -46,7 +47,7 @@ final class NetworkManager {
     func request(router: SeSacApi) -> Single<String> {
         return Single<String>.create { single in
             
-            AF.request(router).validate(statusCode: 200..<400).responseString() { response in
+            AF.request(router).validate(statusCode: 100...200).responseString() { response in
                 switch response.result {
                 case .success(let data):
                     single(.success(data))
@@ -58,6 +59,23 @@ final class NetworkManager {
             }
             return Disposables.create()
         }
+    }
+    
+    func refreshToken() -> Int? {
+        let currentUser = Auth.auth().currentUser
+        var errCode = 0
+        
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            
+            if let error = error as NSError? {
+                errCode = error.code
+                return
+            }
+            
+            guard let token = idToken else { return }
+            UserDefaultsManager.token = token
+        }
+        return errCode
     }
 }
 
