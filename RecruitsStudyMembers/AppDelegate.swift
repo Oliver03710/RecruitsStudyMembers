@@ -37,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         application.registerForRemoteNotifications()
         
-        
+        guard let token = Messaging.messaging().fcmToken else { return true }
+        print(token)
+        UserDefaultsManager.fcmToken = token
         
         return true
     }
