@@ -26,6 +26,7 @@ class CustomButton: UIButton {
         setTitle(text, for: .normal)
     }
     
+    // 회원가입 화면 성별 버튼
     convenience init(text: String, borderColor: UIColor? = SSColors.gray3.color, image: String) {
         self.init()
         var configuration = UIButton.Configuration.plain()
@@ -52,6 +53,16 @@ class CustomButton: UIButton {
         
         layer.borderWidth = 1
         layer.borderColor = borderColor?.cgColor
+    }
+    
+    // 정보관리 화면 성별 버튼
+    convenience init(text: String, borderColor: UIColor? = SSColors.gray3.color, backgroundColor: UIColor? = SSColors.white.color) {
+        self.init()
+        setTitle(text, for: .normal)
+        self.backgroundColor = backgroundColor
+        layer.borderWidth = 1
+        layer.borderColor = borderColor?.cgColor
+        setTitleColor(backgroundColor == SSColors.green.color ? SSColors.white.color : SSColors.black.color, for: .normal)
     }
     
     
