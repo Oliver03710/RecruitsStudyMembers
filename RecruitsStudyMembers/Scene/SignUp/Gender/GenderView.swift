@@ -13,13 +13,13 @@ final class GenderView: BaseView {
 
     // MARK: - Properties
     
-    let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "성별을 선택해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+    let instructionLabel: CustomLabel = {
+        let label = CustomLabel(text: "성별을 선택해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
-    let subLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "새싹 찾기 기능을 이용하기 위해서 필요해요!", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
+    let subLabel: CustomLabel = {
+        let label = CustomLabel(text: "새싹 찾기 기능을 이용하기 위해서 필요해요!", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
         label.textColor = SSColors.gray7.color
         return label
     }()

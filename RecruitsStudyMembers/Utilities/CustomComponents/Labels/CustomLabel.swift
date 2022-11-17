@@ -1,5 +1,5 @@
 //
-//  SignUpLabel.swift
+//  CustomLabel.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/09.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpLabel: UILabel {
+class CustomLabel: UILabel {
 
     // MARK: - Init
     
@@ -34,5 +34,11 @@ class SignUpLabel: UILabel {
         attributedText = attributedTexts
         textAlignment = .center
         numberOfLines = 2
+    }
+    
+    convenience init(text: String) {
+        self.init()
+        self.text = text
+        font = UIFont(name: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
     }
 }

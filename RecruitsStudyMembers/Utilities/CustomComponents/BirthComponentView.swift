@@ -13,8 +13,8 @@ final class BirthComponentView: BaseView {
 
     // MARK: - Properties
     
-    let birthLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "년", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
+    let birthLabel: CustomLabel = {
+        let label = CustomLabel(text: "년", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
         return label
     }()
     

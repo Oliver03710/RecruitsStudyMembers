@@ -13,13 +13,13 @@ final class EmailView: BaseView {
 
     // MARK: - Properties
     
-    let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "이메일을 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+    let instructionLabel: CustomLabel = {
+        let label = CustomLabel(text: "이메일을 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
-    let subLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "휴대폰 번호 변경 시 인증을 위해 사용해요.", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
+    let subLabel: CustomLabel = {
+        let label = CustomLabel(text: "휴대폰 번호 변경 시 인증을 위해 사용해요.", textFont: SSFonts.title2R16.fonts, size: SSFonts.title2R16.size, lineHeight: SSFonts.title2R16.lineHeight)
         label.textColor = SSColors.gray7.color
         return label
     }()

@@ -13,8 +13,8 @@ final class BirthView: BaseView {
 
     // MARK: - Properties
     
-    let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "생년월일을 알려주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+    let instructionLabel: CustomLabel = {
+        let label = CustomLabel(text: "생년월일을 알려주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     

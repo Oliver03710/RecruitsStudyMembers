@@ -17,8 +17,8 @@ final class LoginVerificationView: BaseView {
 
     // MARK: - Properties
     
-    let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "인증번호가 문자로 전송 되었어요.", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+    let instructionLabel: CustomLabel = {
+        let label = CustomLabel(text: "인증번호가 문자로 전송 되었어요.", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
@@ -44,8 +44,8 @@ final class LoginVerificationView: BaseView {
         return btn
     }()
     
-    let timerLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "00:00", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
+    let timerLabel: CustomLabel = {
+        let label = CustomLabel(text: "00:00", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
         label.textColor = SSColors.green.color
         return label
     }()

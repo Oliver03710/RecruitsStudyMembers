@@ -13,8 +13,8 @@ final class LoginView: BaseView {
 
     // MARK: - Properties
     
-    let instructionLabel: SignUpLabel = {
-        let label = SignUpLabel(text: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
+    let instructionLabel: CustomLabel = {
+        let label = CustomLabel(text: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요", textFont: SSFonts.display1R20.fonts, size: SSFonts.display1R20.size, lineHeight: SSFonts.display1R20.lineHeight)
         return label
     }()
     
