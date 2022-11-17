@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class ImageCollectionViewCell: UICollectionViewCell {
+final class ImageCollectionViewCell: CustomCollectionViewCell {
     
     // MARK: - Properties
     
@@ -20,17 +20,18 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         iv.contentMode = .scaleAspectFit
         return iv
     }()
+    
+    
+    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("not implemnted")
-    }
     
-    private func setConstraints() {
+    // MARK: - Helper Functions
+    
+    override func setConstraints() {
         [foreImageView].forEach { contentView.addSubview($0) }
         
         foreImageView.snp.makeConstraints {
