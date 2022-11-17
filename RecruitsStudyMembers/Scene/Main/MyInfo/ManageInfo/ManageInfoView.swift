@@ -83,23 +83,6 @@ extension ManageInfoView {
                 let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                         heightDimension: .estimated(estimatedHeight))
                 
-//                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-//                                                      heightDimension: .estimated(estimatedHeight))
-//                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//                let itemSize2 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-//                                                      heightDimension: .estimated(estimatedHeight2))
-//                let item2 = NSCollectionLayoutItem(layoutSize: itemSize2)
-//
-//                let itemSize3 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-//                                                      heightDimension: .estimated(estimatedHeight3))
-//                let item3 = NSCollectionLayoutItem(layoutSize: itemSize3)
-//
-//                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-//                                                       heightDimension: .estimated(estimatedHeight))
-//                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
-//                                                               subitems: [item, item2, item3])
-                
                 let item = NSCollectionLayoutItem(layoutSize: layoutSize)
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize,
                                                                subitem: item,
@@ -156,11 +139,10 @@ extension ManageInfoView {
         }
         
         let studyCellRegistration = UICollectionView.CellRegistration<StudyCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.backgroundColor = .brown
         }
         
         let searchMeCellRegistration = UICollectionView.CellRegistration<SearchMeCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.backgroundColor = .brown
+            cell.backgroundColor = .cyan
         }
         
         dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView)
@@ -190,6 +172,7 @@ extension ManageInfoView {
 //
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .gender)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .searchMe)
 
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
