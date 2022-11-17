@@ -91,6 +91,9 @@
 		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
 		ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */; };
 		ADAC0D672926788700424D39 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D662926788700424D39 /* UnderlinedTextField.swift */; };
+		ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */; };
+		ADAC0D6E29269A1800424D39 /* ThumbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D6D29269A1800424D39 /* ThumbButton.swift */; };
+		ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */; };
 		ADB604BB292377E20081CEC2 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BA292377E20081CEC2 /* DummyData.swift */; };
 		ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */; };
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
@@ -183,6 +186,9 @@
 		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMeCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D662926788700424D39 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADAC0D6D29269A1800424D39 /* ThumbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbButton.swift; sourceTree = "<group>"; };
+		ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		ADB604BA292377E20081CEC2 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -401,7 +407,8 @@
 			children = (
 				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
 				ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */,
-				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
+				ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */,
+				ADAC0D6C292699E900424D39 /* Buttons */,
 				AD23FB0F29229E62004FA34E /* ImageViews */,
 				ADEF3B7E291D8B4F004B4CDE /* TextFields */,
 				AD103A84291B77890032E9EB /* Labels */,
@@ -514,8 +521,18 @@
 				ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */,
 				ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */,
 				ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */,
+				ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		ADAC0D6C292699E900424D39 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
+				ADAC0D6D29269A1800424D39 /* ThumbButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
@@ -724,6 +741,7 @@
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
 				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
+				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
@@ -789,6 +807,7 @@
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
+				ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */,
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
@@ -798,6 +817,7 @@
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
 				AD23FB0829227EF8004FA34E /* MyInfoData.swift in Sources */,
 				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
+				ADAC0D6E29269A1800424D39 /* ThumbButton.swift in Sources */,
 				ADAC0D672926788700424D39 /* UnderlinedTextField.swift in Sources */,
 				AD103A83291B77840032E9EB /* CustomLabel.swift in Sources */,
 				AD23FAF429221851004FA34E /* MyinfoViewModel.swift in Sources */,
