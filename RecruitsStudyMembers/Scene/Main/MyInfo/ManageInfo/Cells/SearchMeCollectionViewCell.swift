@@ -12,8 +12,14 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Properties
     
     private let studyLabel: CustomLabel = {
-        let label = CustomLabel(text: "자주 하는 스터디")
+        let label = CustomLabel(text: "내 번호 검색 허용")
         return label
+    }()
+    
+    private let numSwitch: UISwitch = {
+        let swit = UISwitch()
+        swit.isOn = false
+        return swit
     }()
     
     
@@ -27,12 +33,16 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        [studyLabel].forEach { contentView.addSubview($0) }
+        [studyLabel, numSwitch].forEach { contentView.addSubview($0) }
                 
         studyLabel.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide)
         }
+        
+        numSwitch.snp.makeConstraints {
+            $0.trailing.centerY.equalTo(studyLabel)
+            $0.height.equalTo(28)
+            $0.width.equalTo(52)
+        }
     }
-
-    
 }
