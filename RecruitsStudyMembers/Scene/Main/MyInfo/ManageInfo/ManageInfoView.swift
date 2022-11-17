@@ -14,7 +14,7 @@ final class ManageInfoView: BaseView {
     // MARK: - Enum
     
     enum Section: Int, CaseIterable, Hashable {
-        case image, foldable, rest
+        case image, foldable, gender, study, searchMe
     }
     
     
@@ -58,7 +58,7 @@ extension ManageInfoView {
     
     private func createLayout() -> UICollectionViewLayout {
         
-        let layout = UICollectionViewCompositionalLayout { (section, env) -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout { [weak self] (section, env) -> NSCollectionLayoutSection? in
 
             guard let customSection = Section(rawValue: section) else { return nil }
 
@@ -78,28 +78,50 @@ extension ManageInfoView {
                 return section
 
             case .foldable:
-                let estimatedHeight = CGFloat(50)
+                let estimatedHeight = CGFloat(800)
+                
                 let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                         heightDimension: .estimated(estimatedHeight))
+                
+//                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+//                                                      heightDimension: .estimated(estimatedHeight))
+//                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+//
+//                let itemSize2 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+//                                                      heightDimension: .estimated(estimatedHeight2))
+//                let item2 = NSCollectionLayoutItem(layoutSize: itemSize2)
+//
+//                let itemSize3 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+//                                                      heightDimension: .estimated(estimatedHeight3))
+//                let item3 = NSCollectionLayoutItem(layoutSize: itemSize3)
+//
+//                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+//                                                       heightDimension: .estimated(estimatedHeight))
+//                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
+//                                                               subitems: [item, item2, item3])
+                
                 let item = NSCollectionLayoutItem(layoutSize: layoutSize)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize,
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize,
                                                                subitem: item,
-                                                               count: 1)
+                                                               count: 3)
+                
                 let section = NSCollectionLayoutSection(group: group)
                 
                 let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(elementKind: "reusableView")
                 section.decorationItems = [sectionBackgroundDecoration]
                 return section
 
-            case .rest:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .fractionalHeight(1.0))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .fractionalWidth(0.2))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
-                                                               subitems: [item])
+            case .gender, .study, .searchMe:
+                guard let height = self?.window?.windowScene?.screen.bounds.height else { return nil }
+                let estimatedHeight = CGFloat(height / 10)
+                
+                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .estimated(estimatedHeight))
+                
+                let item = NSCollectionLayoutItem(layoutSize: layoutSize)
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize,
+                                                               subitem: item,
+                                                               count: 1)
 
                 let section = NSCollectionLayoutSection(group: group)
 
@@ -114,10 +136,8 @@ extension ManageInfoView {
     private func configureDataSource() {
         
         let imageCellRegistration = UICollectionView.CellRegistration<ImageCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            
             cell.foreImageView.image = UIImage(named: identifier.foregroundImage!)
-            
-            
-            
             var backConfig = UIBackgroundConfiguration.listPlainCell()
             backConfig.image = UIImage(named: identifier.backgroundImage!)
             backConfig.cornerRadius = 8
@@ -127,30 +147,20 @@ extension ManageInfoView {
         
         let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
             
-
-            
             cell.nameLabel.text = identifier.name
             cell.titleLabel.text = identifier.title
-            cell.configureCell(indexPath: indexPath, bool: self.isHiddens, count: self.count)
-//            cell.configureCell(indexPath: indexPath, bool: self.isHiddens)
-//            cell.configureCell(isHidden: self.isHiddens)
-//            var backConfig = UIBackgroundConfiguration.listPlainCell()
-//            backConfig.cornerRadius = 8
-            
-//            view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-//            backConfig.strokeColor = SSColors.gray2.color
-//            backConfig.strokeWidth = 1
-//            cell.backgroundConfiguration = backConfig
         }
 
-        let restCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            // Populate the cell with our item description.
-//            cell.label.text = "\(identifier)"
-//            cell.contentView.backgroundColor = SSColors.yellowGreen.color
-//            cell.layer.borderColor = UIColor.black.cgColor
-//            cell.layer.borderWidth = 1
-//            cell.label.textAlignment = .center
-//            cell.label.font = UIFont.preferredFont(forTextStyle: .title1)
+        let genderCellRegistration = UICollectionView.CellRegistration<GenderCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            cell.backgroundColor = .yellow
+        }
+        
+        let studyCellRegistration = UICollectionView.CellRegistration<StudyCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            cell.backgroundColor = .brown
+        }
+        
+        let searchMeCellRegistration = UICollectionView.CellRegistration<SearchMeCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            cell.backgroundColor = .brown
         }
         
         dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView)
@@ -159,38 +169,28 @@ extension ManageInfoView {
             guard let customSection = Section(rawValue: indexPath.section) else { return nil }
             
             switch customSection {
-            case .image:
-                print(indexPath)
-                return collectionView.dequeueConfiguredReusableCell(using: imageCellRegistration, for: indexPath, item: identifier)
-            case .foldable:
-                print(indexPath)
-                return collectionView.dequeueConfiguredReusableCell(using: foldableCellRegistration, for: indexPath, item: identifier)
-            case .rest:
-                print(indexPath)
-                return collectionView.dequeueConfiguredReusableCell(using: imageCellRegistration, for: indexPath, item: identifier)
+            case .image: return collectionView.dequeueConfiguredReusableCell(using: imageCellRegistration, for: indexPath, item: identifier)
+            case .foldable: return collectionView.dequeueConfiguredReusableCell(using: foldableCellRegistration, for: indexPath, item: identifier)
+            case .gender: return collectionView.dequeueConfiguredReusableCell(using: genderCellRegistration, for: indexPath, item: identifier)
+            case .study: return collectionView.dequeueConfiguredReusableCell(using: studyCellRegistration, for: indexPath, item: identifier)
+            case .searchMe: return collectionView.dequeueConfiguredReusableCell(using: searchMeCellRegistration, for: indexPath, item: identifier)
             }
         }
         updateUI()
-
-//        currentSnapshot = NSDiffableDataSourceSnapshot<Section, DummyData>()
-//        Section.allCases.forEach { section in
-//            currentSnapshot.appendSections([section])
-//            currentSnapshot.appendItems(DummyData.callDummy(), toSection: section)
-//        }
-//        dataSource.apply(currentSnapshot, animatingDifferences: true)
-
     }
     
     func updateUI() {
         currentSnapshot = NSDiffableDataSourceSnapshot<Section, DummyData>()
         currentSnapshot.appendSections(Section.allCases)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .image)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .rest)
-        if !isHiddens {
-            currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable)
-        } else {
-            currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
-        }
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable)
+        
+//        !isHiddens ?
+//        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable) : currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
+//
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .gender)
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)
+
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
     
