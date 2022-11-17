@@ -14,7 +14,7 @@ final class ManageInfoView: BaseView {
     // MARK: - Enum
     
     enum Section: Int, CaseIterable, Hashable {
-        case image, foldable, gender, study, searchMe
+        case image, foldable, gender, study, searchMe, age
     }
     
     
@@ -94,7 +94,7 @@ extension ManageInfoView {
                 section.decorationItems = [sectionBackgroundDecoration]
                 return section
 
-            case .gender, .study, .searchMe:
+            case .gender, .study, .searchMe, .age:
                 guard let height = self?.window?.windowScene?.screen.bounds.height else { return nil }
                 let estimatedHeight = CGFloat(height / 10)
                 
@@ -119,34 +119,36 @@ extension ManageInfoView {
     private func configureDataSource() {
         
         let imageCellRegistration = UICollectionView.CellRegistration<ImageCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            
             cell.foreImageView.image = UIImage(named: identifier.foregroundImage!)
             var backConfig = UIBackgroundConfiguration.listPlainCell()
             backConfig.image = UIImage(named: identifier.backgroundImage!)
             backConfig.cornerRadius = 8
             cell.backgroundConfiguration = backConfig
-            
         }
         
         let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            
             cell.nameLabel.text = identifier.name
             cell.titleLabel.text = identifier.title
         }
 
         let genderCellRegistration = UICollectionView.CellRegistration<GenderCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.backgroundColor = .yellow
+            
         }
         
         let studyCellRegistration = UICollectionView.CellRegistration<StudyCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            
         }
         
         let searchMeCellRegistration = UICollectionView.CellRegistration<SearchMeCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.backgroundColor = .cyan
+            
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView)
-        { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+        let ageCellRegistration = UICollectionView.CellRegistration<AgeChoiceCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView) {
+            (collectionView, indexPath, identifier) -> UICollectionViewCell? in
             
             guard let customSection = Section(rawValue: indexPath.section) else { return nil }
             
@@ -156,6 +158,7 @@ extension ManageInfoView {
             case .gender: return collectionView.dequeueConfiguredReusableCell(using: genderCellRegistration, for: indexPath, item: identifier)
             case .study: return collectionView.dequeueConfiguredReusableCell(using: studyCellRegistration, for: indexPath, item: identifier)
             case .searchMe: return collectionView.dequeueConfiguredReusableCell(using: searchMeCellRegistration, for: indexPath, item: identifier)
+            case .age: return collectionView.dequeueConfiguredReusableCell(using: ageCellRegistration, for: indexPath, item: identifier)
             }
         }
         updateUI()
@@ -169,10 +172,11 @@ extension ManageInfoView {
         
 //        !isHiddens ?
 //        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable) : currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
-//
+
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .gender)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .searchMe)
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .age)
 
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
