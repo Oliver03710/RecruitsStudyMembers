@@ -15,7 +15,7 @@
 		AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0483291D1CC200377276 /* BirthViewModel.swift */; };
 		AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0485291D1F0D00377276 /* EmailViewModel.swift */; };
 		AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0487291D20C200377276 /* GenderViewModel.swift */; };
-		AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A82291B77840032E9EB /* SignUpLabel.swift */; };
+		AD103A83291B77840032E9EB /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A82291B77840032E9EB /* CustomLabel.swift */; };
 		AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A85291B79E30032E9EB /* SignupTextField.swift */; };
 		AD103A89291B8DD60032E9EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD103A88291B8DD60032E9EB /* .gitignore */; };
 		AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A8A291B8E130032E9EB /* LoginViewModel.swift */; };
@@ -86,6 +86,11 @@
 		AD9533DB29196616002126C0 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DA29196616002126C0 /* EmailView.swift */; };
 		AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DC29196653002126C0 /* GenderViewController.swift */; };
 		AD9533DF2919665D002126C0 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DE2919665D002126C0 /* GenderView.swift */; };
+		ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */; };
+		ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */; };
+		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
+		ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */; };
+		ADAC0D672926788700424D39 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D662926788700424D39 /* UnderlinedTextField.swift */; };
 		ADB604BB292377E20081CEC2 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BA292377E20081CEC2 /* DummyData.swift */; };
 		ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */; };
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
@@ -112,7 +117,7 @@
 		AD0D0483291D1CC200377276 /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
 		AD0D0485291D1F0D00377276 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
 		AD0D0487291D20C200377276 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
-		AD103A82291B77840032E9EB /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
+		AD103A82291B77840032E9EB /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		AD103A85291B79E30032E9EB /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
 		AD103A88291B8DD60032E9EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AD103A8A291B8E130032E9EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -173,6 +178,11 @@
 		AD9533DA29196616002126C0 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		AD9533DC29196653002126C0 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		AD9533DE2919665D002126C0 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMeCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADAC0D662926788700424D39 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		ADB604BA292377E20081CEC2 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -238,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				AD609687291A471700FF78CB /* OnboardingLabel.swift */,
-				AD103A82291B77840032E9EB /* SignUpLabel.swift */,
+				AD103A82291B77840032E9EB /* CustomLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -338,12 +348,11 @@
 		AD23FAFA29224F56004FA34E /* ManageInfo */ = {
 			isa = PBXGroup;
 			children = (
+				ADAC0D5D29260F1C00424D39 /* Cells */,
 				ADB604BA292377E20081CEC2 /* DummyData.swift */,
 				ADB604BE2923EA320081CEC2 /* ReusableView.swift */,
 				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
 				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
-				AD23FAFF29224F9B004FA34E /* ImageCollectionViewCell.swift */,
-				ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */,
 				AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */,
 			);
 			path = ManageInfo;
@@ -390,9 +399,10 @@
 		AD609664291A184900FF78CB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				AD23FB0F29229E62004FA34E /* ImageViews */,
 				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
+				ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */,
 				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
+				AD23FB0F29229E62004FA34E /* ImageViews */,
 				ADEF3B7E291D8B4F004B4CDE /* TextFields */,
 				AD103A84291B77890032E9EB /* Labels */,
 			);
@@ -496,6 +506,18 @@
 			path = Gender;
 			sourceTree = "<group>";
 		};
+		ADAC0D5D29260F1C00424D39 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAFF29224F9B004FA34E /* ImageCollectionViewCell.swift */,
+				ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */,
+				ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */,
+				ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */,
+				ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +532,7 @@
 			children = (
 				AD103A85291B79E30032E9EB /* SignupTextField.swift */,
 				ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */,
+				ADAC0D662926788700424D39 /* UnderlinedTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -700,6 +723,7 @@
 			files = (
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
+				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
@@ -722,6 +746,7 @@
 				AD23FB0A29229A0B004FA34E /* Reusable+Protocol.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
 				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
+				ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */,
 				AD0D0480291D002100377276 /* UINavigationBarAppearance+Extension.swift in Sources */,
 				ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */,
 				ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */,
@@ -757,8 +782,10 @@
 				AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
 				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
+				ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */,
 				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
+				ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */,
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
@@ -771,7 +798,8 @@
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
 				AD23FB0829227EF8004FA34E /* MyInfoData.swift in Sources */,
 				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
-				AD103A83291B77840032E9EB /* SignUpLabel.swift in Sources */,
+				ADAC0D672926788700424D39 /* UnderlinedTextField.swift in Sources */,
+				AD103A83291B77840032E9EB /* CustomLabel.swift in Sources */,
 				AD23FAF429221851004FA34E /* MyinfoViewModel.swift in Sources */,
 				AD9533D129196539002126C0 /* NicknameView.swift in Sources */,
 				ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */,
