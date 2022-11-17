@@ -30,13 +30,13 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
         super.init(frame: frame)
     }
     
-    override func layoutSubviews() {
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRectMake(0.0, self.frame.height - 1, self.frame.width, 1.0)
-        bottomLine.backgroundColor = SSColors.gray3.color.cgColor
-        underlinedTextField.borderStyle = .none
-        underlinedTextField.layer.addSublayer(bottomLine)
-    }
+//    override func layoutSubviews() {
+//        let bottomLine = CALayer()
+//        bottomLine.frame = CGRectMake(0.0, underlinedTextField.frame.height - 1, underlinedTextField.frame.width, 1.0)
+//        bottomLine.backgroundColor = SSColors.gray3.color.cgColor
+//        underlinedTextField.borderStyle = .none
+//        underlinedTextField.layer.addSublayer(bottomLine)
+//    }
     
     
     // MARK: - Helper Functions
