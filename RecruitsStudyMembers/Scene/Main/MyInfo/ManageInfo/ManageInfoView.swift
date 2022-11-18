@@ -14,7 +14,7 @@ final class ManageInfoView: BaseView {
     // MARK: - Enum
     
     enum Section: Int, CaseIterable, Hashable {
-        case image, foldable, gender, study, searchMe, age
+        case image, foldable, gender, study, searchMe, age, resign
     }
     
     
@@ -24,6 +24,7 @@ final class ManageInfoView: BaseView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         return cv
     }()
+    
     var isHiddens = false
     var count = 0
     
@@ -94,7 +95,7 @@ extension ManageInfoView {
                 section.decorationItems = [sectionBackgroundDecoration]
                 return section
 
-            case .gender, .study, .searchMe, .age:
+            case .gender, .study, .searchMe, .age, .resign:
                 guard let height = self?.window?.windowScene?.screen.bounds.height else { return nil }
                 let estimatedHeight = CGFloat(height / 10)
                 
@@ -147,6 +148,10 @@ extension ManageInfoView {
             
         }
         
+        let resignCellRegistration = UICollectionView.CellRegistration<DeleteAccountCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+            cell.backgroundColor = .lightGray
+        }
+        
         dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView) {
             (collectionView, indexPath, identifier) -> UICollectionViewCell? in
             
@@ -159,6 +164,7 @@ extension ManageInfoView {
             case .study: return collectionView.dequeueConfiguredReusableCell(using: studyCellRegistration, for: indexPath, item: identifier)
             case .searchMe: return collectionView.dequeueConfiguredReusableCell(using: searchMeCellRegistration, for: indexPath, item: identifier)
             case .age: return collectionView.dequeueConfiguredReusableCell(using: ageCellRegistration, for: indexPath, item: identifier)
+            case .resign: return collectionView.dequeueConfiguredReusableCell(using: resignCellRegistration, for: indexPath, item: identifier)
             }
         }
         updateUI()
@@ -177,6 +183,7 @@ extension ManageInfoView {
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .searchMe)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .age)
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .resign)
 
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
