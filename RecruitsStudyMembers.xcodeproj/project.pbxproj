@@ -98,6 +98,7 @@
 		ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */; };
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
 		ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */; };
+		ADC259DB292777B4004E5121 /* BaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259DA292777B4004E5121 /* BaseObservable.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
@@ -194,6 +195,7 @@
 		ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADC259DA292777B4004E5121 /* BaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObservable.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */,
 				AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */,
 				AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */,
 			);
@@ -538,6 +541,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		ADC259D9292776DE004E5121 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				ADC259DA292777B4004E5121 /* BaseObservable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +627,7 @@
 		ADF9B3662918D0C100D1F758 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				ADC259D9292776DE004E5121 /* Observable */,
 				ADEF3B77291D5ED6004B4CDE /* Enum */,
 				AD103A8F291C06AE0032E9EB /* Extensions */,
 				AD103A8C291B8F970032E9EB /* Protocols */,
@@ -632,7 +644,6 @@
 			isa = PBXGroup;
 			children = (
 				ADF9B3682918D49B00D1F758 /* SSColors.swift */,
-				ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -774,6 +785,7 @@
 				ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */,
 				AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */,
 				ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */,
+				ADC259DB292777B4004E5121 /* BaseObservable.swift in Sources */,
 				AD23FAEB2922145D004FA34E /* FriendsView.swift in Sources */,
 				AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */,
 				ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */,
