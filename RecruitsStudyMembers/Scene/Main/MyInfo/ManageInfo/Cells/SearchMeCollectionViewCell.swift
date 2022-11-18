@@ -19,6 +19,7 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     private let numSwitch: UISwitch = {
         let swit = UISwitch()
         swit.isOn = false
+        swit.onTintColor = SSColors.green.color
         return swit
     }()
     
