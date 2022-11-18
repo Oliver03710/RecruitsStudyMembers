@@ -181,10 +181,10 @@ final class CustomSlider: UIControl {
         
         if self.isLowerThumbViewTouched {
             self.lower = (self.lower + scaledDrag)
-//                .clamped(to: (self.minValue...self.upper))
+                .clamped(to: (self.minValue...self.upper))
         } else {
             self.upper = (self.upper + scaledDrag)
-//                .clamped(to: (self.lower...self.maxValue))
+                .clamped(to: (self.lower...self.maxValue))
         }
         return true
     }
@@ -210,4 +210,15 @@ final class CustomSlider: UIControl {
             }
         }
     }
+}
+
+
+// MARK: - Extension: Comparable
+
+extension Comparable {
+    
+  func clamped(to limits: ClosedRange<Self>) -> Self {
+    min(max(self, limits.lowerBound), limits.upperBound)
+  }
+    
 }
