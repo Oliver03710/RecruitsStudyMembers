@@ -25,12 +25,13 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
         return label
     }()
     
-    private let slider: CustomSlider = {
+    lazy var slider: CustomSlider = {
         let slider = CustomSlider()
         slider.minValue = 18
         slider.maxValue = 65
         slider.lower = 18
         slider.upper = 65
+        slider.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
         return slider
     }()
     
@@ -39,6 +40,15 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    
+    // MARK: - Selector
+    
+    @objc func valueChanged() {
+        let min = Int(slider.lower)
+        let max = Int(slider.upper)
+        ageRangeLabel.text = "\(min) - \(max)"
     }
     
     
