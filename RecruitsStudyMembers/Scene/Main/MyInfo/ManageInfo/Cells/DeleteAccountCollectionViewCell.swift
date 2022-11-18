@@ -16,8 +16,8 @@ final class DeleteAccountCollectionViewCell: CustomCollectionViewCell {
     let resignButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("회원탈퇴", for: .normal)
+        btn.setTitleColor(SSColors.black.color, for: .normal)
         btn.titleLabel?.font = UIFont(name: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size)
-        btn.backgroundColor = .red
         return btn
     }()
     
@@ -34,11 +34,11 @@ final class DeleteAccountCollectionViewCell: CustomCollectionViewCell {
     override func setConstraints() {
         contentView.addSubview(resignButton)
         
+        resignButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         resignButton.snp.makeConstraints {
             $0.height.equalTo(20)
             $0.centerY.equalTo(safeAreaLayoutGuide)
             $0.leading.equalTo(safeAreaLayoutGuide)
-            $0.width.equalTo(10).priority(999)
         }
     }
 }
