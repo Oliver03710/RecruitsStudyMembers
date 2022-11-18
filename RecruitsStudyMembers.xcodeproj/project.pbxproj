@@ -97,6 +97,7 @@
 		ADB604BB292377E20081CEC2 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BA292377E20081CEC2 /* DummyData.swift */; };
 		ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */; };
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
+		ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
@@ -192,6 +193,7 @@
 		ADB604BA292377E20081CEC2 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */,
 				ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */,
 				ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */,
+				ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */,
 				AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */,
 				AD23FB0029224F9B004FA34E /* ImageCollectionViewCell.swift in Sources */,
+				ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */,
 				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD23FAE92922144C004FA34E /* FriendsViewController.swift in Sources */,
