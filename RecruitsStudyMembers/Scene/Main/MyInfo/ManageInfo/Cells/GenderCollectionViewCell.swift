@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class GenderCollectionViewCell: CustomCollectionViewCell {
@@ -28,11 +30,14 @@ final class GenderCollectionViewCell: CustomCollectionViewCell {
         return btn
     }()
     
+    let disposeBag = DisposeBag()
+    
     
     // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bindData()
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
@@ -73,6 +78,23 @@ final class GenderCollectionViewCell: CustomCollectionViewCell {
 //            $0.height.equalTo(maleButton).inset(12)
 //            $0.width.equalTo(genderLabel.snp.height).multipliedBy(3)
         }
+    }
+    
+    private func bindData() {
+        Observable.merge(maleButton.rx.tap.map { GenderButtonTapped.male },
+                         femaleButton.rx.tap.map { GenderButtonTapped.female })
+        .asDriver(onErrorJustReturn: .male)
+        .drive { [weak self] action in
+            self?.maleButton.backgroundColor = action == .male ? SSColors.green.color : SSColors.white.color
+            self?.maleButton.setTitleColor(action == .male ? SSColors.white.color : SSColors.black.color, for: .normal)
+            self?.maleButton.layer.borderColor = action == .male ? SSColors.green.color.cgColor : SSColors.gray3.color.cgColor
+            
+            self?.femaleButton.backgroundColor = action == .female ? SSColors.green.color : SSColors.white.color
+            self?.femaleButton.setTitleColor(action == .female ? SSColors.white.color : SSColors.black.color, for: .normal)
+            self?.femaleButton.layer.borderColor = action == .female ? SSColors.green.color.cgColor : SSColors.gray3.color.cgColor
+
+        }
+        .disposed(by: disposeBag)
     }
     
 }
