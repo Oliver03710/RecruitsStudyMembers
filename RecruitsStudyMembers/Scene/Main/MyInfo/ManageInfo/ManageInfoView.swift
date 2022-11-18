@@ -14,7 +14,7 @@ final class ManageInfoView: BaseView {
     // MARK: - Enum
     
     enum Section: Int, CaseIterable, Hashable {
-        case image, foldable, gender, study, searchMe, age, resign
+        case image, foldable, gender, study, searchMe, age, deleteAccount
     }
     
     
@@ -62,6 +62,7 @@ extension ManageInfoView {
         let layout = UICollectionViewCompositionalLayout { [weak self] (section, env) -> NSCollectionLayoutSection? in
 
             guard let customSection = Section(rawValue: section) else { return nil }
+            guard let height = self?.window?.windowScene?.screen.bounds.height else { return nil }
 
             switch customSection {
             case .image:
@@ -95,9 +96,25 @@ extension ManageInfoView {
                 section.decorationItems = [sectionBackgroundDecoration]
                 return section
 
-            case .gender, .study, .searchMe, .age, .resign:
-                guard let height = self?.window?.windowScene?.screen.bounds.height else { return nil }
+            case .gender, .study, .searchMe, .age:
+                
                 let estimatedHeight = CGFloat(height / 10)
+                
+                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .estimated(estimatedHeight))
+                
+                let item = NSCollectionLayoutItem(layoutSize: layoutSize)
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize,
+                                                               subitem: item,
+                                                               count: 1)
+
+                let section = NSCollectionLayoutSection(group: group)
+
+                return section
+                
+            case .deleteAccount:
+                
+                let estimatedHeight = CGFloat(height / 13)
                 
                 let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                         heightDimension: .estimated(estimatedHeight))
@@ -149,7 +166,7 @@ extension ManageInfoView {
         }
         
         let resignCellRegistration = UICollectionView.CellRegistration<DeleteAccountCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.backgroundColor = .lightGray
+
         }
         
         dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView) {
@@ -164,7 +181,7 @@ extension ManageInfoView {
             case .study: return collectionView.dequeueConfiguredReusableCell(using: studyCellRegistration, for: indexPath, item: identifier)
             case .searchMe: return collectionView.dequeueConfiguredReusableCell(using: searchMeCellRegistration, for: indexPath, item: identifier)
             case .age: return collectionView.dequeueConfiguredReusableCell(using: ageCellRegistration, for: indexPath, item: identifier)
-            case .resign: return collectionView.dequeueConfiguredReusableCell(using: resignCellRegistration, for: indexPath, item: identifier)
+            case .deleteAccount: return collectionView.dequeueConfiguredReusableCell(using: resignCellRegistration, for: indexPath, item: identifier)
             }
         }
         updateUI()
@@ -183,7 +200,7 @@ extension ManageInfoView {
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .searchMe)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .age)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .resign)
+        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .deleteAccount)
 
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
