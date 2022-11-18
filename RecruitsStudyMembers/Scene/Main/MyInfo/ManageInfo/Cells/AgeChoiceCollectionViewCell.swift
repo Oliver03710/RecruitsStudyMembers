@@ -27,10 +27,10 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
     
     private let slider: CustomSlider = {
         let slider = CustomSlider()
-        slider.minValue = 1//18
-        slider.maxValue = 100//65
-        slider.lower = 1//18
-        slider.upper = 125//65
+        slider.minValue = 18
+        slider.maxValue = 65
+        slider.lower = 18
+        slider.upper = 65
         return slider
     }()
     
@@ -58,9 +58,9 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
         }
         
         slider.snp.makeConstraints {
-            $0.top.equalTo(ageLabel.snp.bottom).offset(8)
+            $0.top.equalTo(ageLabel.snp.bottom).offset(16)
             $0.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(12)
-            $0.height.equalTo(12)
+            $0.height.equalTo(20)
         }
     }
 }
