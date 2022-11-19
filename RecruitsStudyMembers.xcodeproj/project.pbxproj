@@ -72,6 +72,7 @@
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
 		AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B782929415F000F7828 /* GenderButtonOnMap.swift */; };
+		AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -171,6 +172,7 @@
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
 		AD910B782929415F000F7828 /* GenderButtonOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButtonOnMap.swift; sourceTree = "<group>"; };
+		AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+Extension.swift"; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				AD103A90291C06C20032E9EB /* String+Extension.swift */,
 				AD0D047F291D002100377276 /* UINavigationBarAppearance+Extension.swift */,
 				ADD65505291FB85800CA435D /* Date+Extension.swift */,
+				AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
 				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
+				AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
 				AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
