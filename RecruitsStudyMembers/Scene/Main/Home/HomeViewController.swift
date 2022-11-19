@@ -144,7 +144,7 @@ extension HomeViewController: CLLocationManagerDelegate {
                 print("Denied, 아이폰 설정으로 유도")
                 showRequestLocationServiceAlert()
             case .authorizedWhenInUse:
-                print("When In Use")
+                removeAllAnnotations()
                 myView.locationManager.startUpdatingLocation()
             default:
                 break
