@@ -24,6 +24,7 @@ enum GeneralIcons: String {
     case mapMarker
     case message
     case more
+    case seek, matching, matched
     case moreArrow, moreArrow90
     case notice, permit, qna, siren, faq
     case place
