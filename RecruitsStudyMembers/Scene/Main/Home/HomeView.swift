@@ -5,7 +5,9 @@
 //  Created by Junhee Yoon on 2022/11/14.
 //
 
+
 import UIKit
+import CoreLocation
 import MapKit
 
 import SnapKit
@@ -17,6 +19,12 @@ final class HomeView: BaseView {
     let mapView: MKMapView = {
         let mv = MKMapView()
         return mv
+    }()
+    
+    let locationManager: CLLocationManager = {
+        let lm = CLLocationManager()
+        lm.requestWhenInUseAuthorization()
+        return lm
     }()
     
     // MARK: - Init
