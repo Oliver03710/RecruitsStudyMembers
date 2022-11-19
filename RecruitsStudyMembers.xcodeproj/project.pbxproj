@@ -73,6 +73,7 @@
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
 		AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B782929415F000F7828 /* GenderButtonOnMap.swift */; };
 		AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */; };
+		AD910B7D29295A2A000F7828 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7C29295A2A000F7828 /* CircleButton.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -173,6 +174,7 @@
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
 		AD910B782929415F000F7828 /* GenderButtonOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButtonOnMap.swift; sourceTree = "<group>"; };
 		AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+Extension.swift"; sourceTree = "<group>"; };
+		AD910B7C29295A2A000F7828 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
 				AD910B782929415F000F7828 /* GenderButtonOnMap.swift */,
 				ADAC0D6D29269A1800424D39 /* ThumbButton.swift */,
+				AD910B7C29295A2A000F7828 /* CircleButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */,
 				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
+				AD910B7D29295A2A000F7828 /* CircleButton.swift in Sources */,
 				ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */,
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
