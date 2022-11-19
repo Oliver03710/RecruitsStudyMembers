@@ -19,11 +19,12 @@ final class GenderButtonOnMap: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(text: String, textColor: UIColor? = SSColors.black.color) {
+    convenience init(text: String, isSelected: Bool = false) {
         self.init()
         setTitle(text, for: .normal)
-        backgroundColor = SSColors.white.color
-        setTitleColor(textColor, for: .normal)
+        titleLabel?.font = UIFont(name: isSelected ? SSFonts.title3M14.fonts : SSFonts.title4R14.fonts, size: isSelected ? SSFonts.title3M14.size : SSFonts.title4R14.size)
+        backgroundColor = isSelected ? SSColors.green.color : SSColors.white.color
+        setTitleColor(isSelected ? SSColors.white.color : SSColors.black.color, for: .normal)
     }
     
 }
