@@ -99,10 +99,15 @@ extension HomeViewController {
 extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
-            // 스터디 멤버 찾기 메서드 추가
-            self?.removeAllFromMap()
-            self?.setAnnotations()
+        removeAllFromMap()
+        setAnnotations()
+        // 스터디 멤버 찾기 메서드 추가
+    }
+    
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        mapView.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            mapView.isUserInteractionEnabled = true
         }
     }
     
