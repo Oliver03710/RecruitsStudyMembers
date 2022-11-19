@@ -64,8 +64,10 @@ extension ManageInfoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-//        myView.isHiddens = myView.isHiddens ? false : true
-//        myView.count += 1
-//        myView.updateUI()
+        if indexPath == [1, 0] {
+            myView.isFolded = myView.isFolded ? false : true
+            myView.updateUI()
+        }
+        
     }
 }

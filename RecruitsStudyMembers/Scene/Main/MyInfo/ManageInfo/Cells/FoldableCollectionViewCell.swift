@@ -16,12 +16,15 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: SSFonts.title1M16.fonts, size: SSFonts.title1M16.size)
+        label.text = "이름"
+        label.backgroundColor = .orange
         return label
     }()
     
     let foldableButton: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: GeneralIcons.moreArrow90.rawValue), for: .normal)
+        btn.backgroundColor = .red
         return btn
     }()
     
@@ -58,17 +61,46 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        
         [nameLabel, view].forEach { contentView.addSubview($0) }
-        
-        nameLabel.snp.makeConstraints {
-            $0.top.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
-            $0.height.equalTo(32)
-        }
-        
-        view.snp.makeConstraints {
-            $0.top.equalTo(nameLabel.snp.bottom).offset(16)
-            $0.directionalHorizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(16)
-        }
+        contentView.addSubview(foldableButton)
     }
+    
+    func setComponents(isFolded: Bool, item: Int) {
+        if isFolded {
+            nameLabel.snp.makeConstraints {
+                $0.top.directionalHorizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+                $0.height.equalTo(40)
+            }
+            
+            foldableButton.snp.makeConstraints {
+                $0.centerY.equalTo(nameLabel)
+                $0.trailing.equalTo(nameLabel.snp.trailing).inset(16)
+                $0.height.equalTo(12)
+                $0.width.equalTo(foldableButton.snp.height).multipliedBy(2)
+            }
+            
+        } else {
+            nameLabel.snp.makeConstraints {
+                $0.top.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+                $0.height.equalTo(40)
+            }
+            
+            foldableButton.snp.makeConstraints {
+                $0.centerY.equalTo(nameLabel)
+                $0.trailing.equalTo(nameLabel.snp.trailing).inset(16)
+                $0.height.equalTo(12)
+                $0.width.equalTo(foldableButton.snp.height).multipliedBy(2)
+            }
+            
+            view.snp.makeConstraints {
+                $0.top.equalTo(nameLabel.snp.bottom).offset(16)
+                $0.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+                $0.height.equalTo(24)
+                $0.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+            }
+        }
+        
+    }
+    
+    
 }

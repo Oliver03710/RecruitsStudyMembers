@@ -25,8 +25,7 @@ final class ManageInfoView: BaseView {
         return cv
     }()
     
-    var isHiddens = false
-    var count = 0
+    var isFolded = true
     
     var dataSource: UICollectionViewDiffableDataSource<Section, DummyData>! = nil
     var currentSnapshot = NSDiffableDataSourceSnapshot<Section, DummyData>()
@@ -80,7 +79,7 @@ extension ManageInfoView {
                 return section
 
             case .foldable:
-                let estimatedHeight = CGFloat(800)
+                let estimatedHeight = CGFloat(100)
                 
                 let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                         heightDimension: .estimated(estimatedHeight))
@@ -88,7 +87,7 @@ extension ManageInfoView {
                 let item = NSCollectionLayoutItem(layoutSize: layoutSize)
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize,
                                                                subitem: item,
-                                                               count: 3)
+                                                               count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
                 
@@ -144,9 +143,10 @@ extension ManageInfoView {
             cell.backgroundConfiguration = backConfig
         }
         
-        let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.nameLabel.text = identifier.name
-            cell.titleLabel.text = identifier.title
+        let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DummyData> { [weak self] (cell, indexPath, identifier) in
+            guard let bool = self?.isFolded else { return }
+            cell.titleLabel.text = identifier.name
+            cell.setComponents(isFolded: bool, item: indexPath.item)
         }
 
         let genderCellRegistration = UICollectionView.CellRegistration<GenderCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
@@ -191,10 +191,8 @@ extension ManageInfoView {
         currentSnapshot = NSDiffableDataSourceSnapshot<Section, DummyData>()
         currentSnapshot.appendSections(Section.allCases)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .image)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable)
         
-//        !isHiddens ?
-//        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable) : currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
+        isFolded ? currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable) : currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
 
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .gender)
         currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)

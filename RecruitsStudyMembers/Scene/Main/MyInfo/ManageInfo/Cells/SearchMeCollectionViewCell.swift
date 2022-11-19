@@ -7,6 +7,10 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import SnapKit
+
 final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     
     // MARK: - Properties
@@ -23,11 +27,14 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
         return swit
     }()
     
+    private let disposeBag = DisposeBag()
+    
     
     // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bindData()
     }
     
     
@@ -46,4 +53,9 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
             $0.width.equalTo(52)
         }
     }
+    
+    private func bindData() {
+        numSwitch.rx.value
+    }
+
 }
