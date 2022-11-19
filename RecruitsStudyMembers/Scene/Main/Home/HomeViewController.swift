@@ -99,8 +99,11 @@ extension HomeViewController {
 extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        removeAllFromMap()
-        setAnnotations()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
+            // 스터디 멤버 찾기 메서드 추가
+            self?.removeAllFromMap()
+            self?.setAnnotations()
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
