@@ -80,6 +80,11 @@ final class HomeView: BaseView {
         return btn
     }()
     
+    private let seekButton: CircleButton = {
+        let btn = CircleButton(image: GeneralIcons.seek.rawValue)
+        return btn
+    }()
+    
     
     // MARK: - Init
     
@@ -92,7 +97,7 @@ final class HomeView: BaseView {
     
     override func setConstraints() {
         addSubview(mapView)
-        [verticalStackView, shadowView].forEach { mapView.addSubview($0) }
+        [verticalStackView, shadowView, seekButton].forEach { mapView.addSubview($0) }
         shadowView.addSubview(currentButton)
         
         mapView.snp.makeConstraints {
@@ -105,6 +110,11 @@ final class HomeView: BaseView {
             $0.top.leading.equalTo(safeAreaLayoutGuide).inset(16)
             $0.width.equalTo(48)
             $0.height.equalTo(verticalStackView.snp.width).multipliedBy(3)
+        }
+        
+        seekButton.snp.makeConstraints {
+            $0.bottom.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+            $0.width.height.equalTo(56)
         }
         
         shadowView.snp.makeConstraints {
