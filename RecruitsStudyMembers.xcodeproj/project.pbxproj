@@ -71,6 +71,7 @@
 		AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609687291A471700FF78CB /* OnboardingLabel.swift */; };
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
+		AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B782929415F000F7828 /* GenderButtonOnMap.swift */; };
 		AD9533B829195D4E002126C0 /* SSImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533B729195D4E002126C0 /* SSImages.swift */; };
 		AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BA29196019002126C0 /* OnboardingViewController.swift */; };
 		AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533BD2919606D002126C0 /* BaseViewController.swift */; };
@@ -169,6 +170,7 @@
 		AD609687291A471700FF78CB /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
+		AD910B782929415F000F7828 /* GenderButtonOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButtonOnMap.swift; sourceTree = "<group>"; };
 		AD9533B729195D4E002126C0 /* SSImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImages.swift; sourceTree = "<group>"; };
 		AD9533BA29196019002126C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AD9533BD2919606D002126C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				AD60967E291A3FD900FF78CB /* CustomButton.swift */,
+				AD910B782929415F000F7828 /* GenderButtonOnMap.swift */,
 				ADAC0D6D29269A1800424D39 /* ThumbButton.swift */,
 			);
 			path = Buttons;
@@ -759,6 +762,7 @@
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
 				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
+				AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
