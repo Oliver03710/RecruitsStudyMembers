@@ -66,10 +66,9 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
     }
     
     func setComponents(isFolded: Bool, item: Int) {
-        if isFolded {
+        if item == 0 {
             nameLabel.snp.makeConstraints {
-                $0.top.directionalHorizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(16)
-                $0.height.equalTo(40)
+                $0.edges.equalTo(safeAreaLayoutGuide).inset(16)
             }
             
             foldableButton.snp.makeConstraints {
@@ -79,28 +78,15 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
                 $0.width.equalTo(foldableButton.snp.height).multipliedBy(2)
             }
             
-        } else {
-            nameLabel.snp.makeConstraints {
-                $0.top.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
-                $0.height.equalTo(40)
-            }
-            
-            foldableButton.snp.makeConstraints {
-                $0.centerY.equalTo(nameLabel)
-                $0.trailing.equalTo(nameLabel.snp.trailing).inset(16)
-                $0.height.equalTo(12)
-                $0.width.equalTo(foldableButton.snp.height).multipliedBy(2)
-            }
-            
+        } else if !isFolded && item == 1 {
             view.snp.makeConstraints {
-                $0.top.equalTo(nameLabel.snp.bottom).offset(16)
-                $0.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
-                $0.height.equalTo(24)
-                $0.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+                $0.edges.equalTo(safeAreaLayoutGuide).inset(16)
+            }
+            
+        } else if !isFolded && item == 2 {
+            view.snp.makeConstraints {
+                $0.edges.equalTo(safeAreaLayoutGuide).inset(16)
             }
         }
-        
     }
-    
-    
 }
