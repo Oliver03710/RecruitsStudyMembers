@@ -74,7 +74,39 @@ final class HomeViewController: BaseViewController {
 
 extension HomeViewController {
     
-    func showRequestLocationServiceAlert() {
+    private func checkUserDeviceLocationServiceAuthorization() {
+        
+        let authorizationStatus: CLAuthorizationStatus
+        if #available(iOS 14.0, *) {
+            authorizationStatus = myView.locationManager.authorizationStatus
+        } else {
+            authorizationStatus = CLLocationManager.authorizationStatus()
+        }
+        
+        if CLLocationManager.locationServicesEnabled() {
+            self.checkUserCurrentLocationAuthorization(authorizationStatus)
+        } else {
+            view.makeToast("위치 서비스가 꺼져 있습니다.")
+        }
+        
+    }
+    
+    private func checkUserCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
+        
+        switch authorizationStatus {
+        case .notDetermined:
+            myView.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            myView.locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            showRequestLocationServiceAlert()
+        case .authorizedWhenInUse:
+            myView.locationManager.startUpdatingLocation()
+        default:
+            print("Default")
+        }
+    }
+    
+    private func showRequestLocationServiceAlert() {
         
       let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
         
@@ -155,21 +187,7 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
         
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if #available(iOS 14.0, *) {
-            switch manager.authorizationStatus {
-            case .notDetermined:
-                myView.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                myView.locationManager.requestWhenInUseAuthorization()
-            case .restricted, .denied:
-                print("Denied, 아이폰 설정으로 유도")
-                showRequestLocationServiceAlert()
-            case .authorizedWhenInUse:
-                removeAllFromMap()
-                myView.locationManager.startUpdatingLocation()
-            default:
-                break
-            }
-        }
+        checkUserDeviceLocationServiceAuthorization()
     }
     
 }
