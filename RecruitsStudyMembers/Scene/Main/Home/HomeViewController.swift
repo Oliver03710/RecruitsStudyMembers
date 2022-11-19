@@ -50,13 +50,21 @@ final class HomeViewController: BaseViewController {
         let annotation = SeSacAnnotation(0)
         annotation.coordinate = myView.mapView.region.center
         myView.mapView.addAnnotation(annotation)
+        
+        let radius = 700.0
+        let circle = MKCircle(center: myView.mapView.region.center, radius: radius)
+        myView.mapView.addOverlay(circle)
     }
     
-    func removeAllAnnotations() {
+    func removeAllFromMap() {
         myView.mapView.annotations.forEach { (annotation) in
             if let annotation = annotation as? MKPointAnnotation {
                 myView.mapView.removeAnnotation(annotation)
             }
+        }
+        
+        myView.mapView.overlays.forEach { (overlay) in
+            myView.mapView.removeOverlay(overlay)
         }
     }
 }
@@ -91,12 +99,16 @@ extension HomeViewController {
 extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        removeAllAnnotations()
+        removeAllFromMap()
         setAnnotations()
     }
     
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.strokeColor = SSColors.green.color
+        circleRenderer.lineWidth = 1.0
+        circleRenderer.fillColor = UIColor(red: 0.2862745098, green: 0.862745098, blue: 0.5725490196, alpha: 0.1)
+        return circleRenderer
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -144,7 +156,7 @@ extension HomeViewController: CLLocationManagerDelegate {
                 print("Denied, 아이폰 설정으로 유도")
                 showRequestLocationServiceAlert()
             case .authorizedWhenInUse:
-                removeAllAnnotations()
+                removeAllFromMap()
                 myView.locationManager.startUpdatingLocation()
             default:
                 break
