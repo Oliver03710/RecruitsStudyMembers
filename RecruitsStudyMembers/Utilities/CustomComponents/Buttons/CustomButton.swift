@@ -65,6 +65,13 @@ final class CustomButton: UIButton {
         setTitleColor(backgroundColor == SSColors.green.color ? SSColors.white.color : SSColors.black.color, for: .normal)
     }
     
+    // 지도 화면의 현재 위치 버튼
+    convenience init(image: String) {
+        self.init()
+        setImage(UIImage(named: image), for: .normal)
+        backgroundColor = SSColors.white.color
+    }
+    
     
     // MARK: - Helper Functions
     
