@@ -29,18 +29,23 @@ final class HomeView: BaseView {
     
     lazy var verticalStackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [allGenderButton, maleButton, femaleButton])
-        sv.backgroundColor = SSColors.white.color
         sv.axis = .vertical
         sv.distribution = .fillEqually
         sv.spacing = 0
-        sv.clipsToBounds = true
-        sv.layer.cornerRadius = 8
-        
+        sv.layer.cornerRadius = 1
+        sv.layer.masksToBounds = false
+        sv.layer.shadowColor = UIColor.black.cgColor
+        sv.layer.shadowOpacity = 0.4
+        sv.layer.shadowOffset = CGSize(width: 0, height: 4)
+        sv.layer.shadowRadius = 4
         return sv
     }()
     
     private let allGenderButton: GenderButtonOnMap = {
         let btn = GenderButtonOnMap(text: "전체", isSelected: true)
+        btn.clipsToBounds = true
+        btn.layer.cornerRadius = 8
+        btn.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return btn
     }()
     
@@ -51,11 +56,27 @@ final class HomeView: BaseView {
     
     private let femaleButton: GenderButtonOnMap = {
         let btn = GenderButtonOnMap(text: "여자")
+        btn.clipsToBounds = true
+        btn.layer.cornerRadius = 8
+        btn.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return btn
+    }()
+    
+    private let shadowView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 1
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.layer.shadowRadius = 4
+        return view
     }()
     
     private let currentButton: CustomButton = {
         let btn = CustomButton(image: GeneralIcons.place.rawValue)
+        btn.clipsToBounds = true
+        btn.layer.cornerRadius = 8
         return btn
     }()
     
@@ -71,7 +92,8 @@ final class HomeView: BaseView {
     
     override func setConstraints() {
         addSubview(mapView)
-        [verticalStackView, currentButton].forEach { mapView.addSubview($0) }
+        [verticalStackView, shadowView].forEach { mapView.addSubview($0) }
+        shadowView.addSubview(currentButton)
         
         mapView.snp.makeConstraints {
             $0.top.equalTo(self.snp.top)
@@ -85,10 +107,14 @@ final class HomeView: BaseView {
             $0.height.equalTo(verticalStackView.snp.width).multipliedBy(3)
         }
         
-        currentButton.snp.makeConstraints {
+        shadowView.snp.makeConstraints {
             $0.leading.equalTo(safeAreaLayoutGuide).inset(16)
             $0.top.equalTo(verticalStackView.snp.bottom).offset(16)
             $0.width.height.equalTo(48)
+        }
+        
+        currentButton.snp.makeConstraints {
+            $0.edges.equalTo(shadowView)
         }
     }
 }
