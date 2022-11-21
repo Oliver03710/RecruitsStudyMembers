@@ -11,8 +11,14 @@ final class SearchViewController: BaseViewController {
     
     // MARK: - Properties
     
+    private let myView = SearchView()
+    
     
     // MARK: - Init
+    
+    override func loadView() {
+        view = myView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
