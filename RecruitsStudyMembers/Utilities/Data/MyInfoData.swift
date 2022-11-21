@@ -18,7 +18,7 @@ struct MyInfo: Hashable {
     }
     
     static func itemsInternal() -> [MyInfo] {
-        return [ MyInfo(title: "이름", image: FaceImages.sesacFace1.rawValue),
+        return [ MyInfo(title: UserDefaultsManager.userName, image: FaceImages.sesacFace1.rawValue),
                  MyInfo(title: "공지사항", image: GeneralIcons.notice.rawValue),
                  MyInfo(title: "자주묻는 질문", image: GeneralIcons.faq.rawValue),
                  MyInfo(title: "1:1 문의", image: GeneralIcons.qna.rawValue),
