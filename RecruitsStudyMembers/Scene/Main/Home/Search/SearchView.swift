@@ -11,7 +11,10 @@ final class SearchView: BaseView {
     
     // MARK: - Properties
     
-    
+    let seekButton: CustomButton = {
+        let btn = CustomButton(text: "새싹 찾기", buttonColor: SSColors.green.color)
+        return btn
+    }()
     
     
     // MARK: - Init
