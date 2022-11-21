@@ -61,8 +61,6 @@
 		AD60966D291A1A5F00FF78CB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = AD60966C291A1A5F00FF78CB /* RxCocoa */; };
 		AD60966F291A1A5F00FF78CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD60966E291A1A5F00FF78CB /* RxSwift */; };
 		AD609672291A1A7000FF78CB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AD609671291A1A7000FF78CB /* Alamofire */; };
-		AD609675291A1A8300FF78CB /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = AD609674291A1A8300FF78CB /* Differentiator */; };
-		AD609677291A1A8300FF78CB /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = AD609676291A1A8300FF78CB /* RxDataSources */; };
 		AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AD609679291A1AAA00FF78CB /* JGProgressHUD */; };
 		AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD60967E291A3FD900FF78CB /* CustomButton.swift */; };
 		AD609682291A462200FF78CB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609681291A462200FF78CB /* FirstViewController.swift */; };
@@ -233,8 +231,6 @@
 				AD60966A291A1A4F00FF78CB /* Toast in Frameworks */,
 				AD60966F291A1A5F00FF78CB /* RxSwift in Frameworks */,
 				AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */,
-				AD609677291A1A8300FF78CB /* RxDataSources in Frameworks */,
-				AD609675291A1A8300FF78CB /* Differentiator in Frameworks */,
 				AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				AD103AA0291C21290032E9EB /* FirebaseMessaging in Frameworks */,
 				AD609667291A1A4300FF78CB /* SnapKit in Frameworks */,
@@ -701,8 +697,6 @@
 				AD60966C291A1A5F00FF78CB /* RxCocoa */,
 				AD60966E291A1A5F00FF78CB /* RxSwift */,
 				AD609671291A1A7000FF78CB /* Alamofire */,
-				AD609674291A1A8300FF78CB /* Differentiator */,
-				AD609676291A1A8300FF78CB /* RxDataSources */,
 				AD609679291A1AAA00FF78CB /* JGProgressHUD */,
 				AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */,
 				AD103A9D291C21290032E9EB /* FirebaseAuth */,
@@ -741,7 +735,6 @@
 				AD609668291A1A4F00FF78CB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				AD60966B291A1A5F00FF78CB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				AD609670291A1A7000FF78CB /* XCRemoteSwiftPackageReference "Alamofire" */,
-				AD609673291A1A8300FF78CB /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				AD609678291A1AAA00FF78CB /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AD103A9A291C21290032E9EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
@@ -1130,14 +1123,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		AD609673291A1A8300FF78CB /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		AD609678291A1AAA00FF78CB /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
@@ -1188,16 +1173,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AD609670291A1A7000FF78CB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		AD609674291A1A8300FF78CB /* Differentiator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AD609673291A1A8300FF78CB /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = Differentiator;
-		};
-		AD609676291A1A8300FF78CB /* RxDataSources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AD609673291A1A8300FF78CB /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = RxDataSources;
 		};
 		AD609679291A1AAA00FF78CB /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
