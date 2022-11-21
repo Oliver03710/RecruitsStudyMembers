@@ -45,7 +45,7 @@ final class SplashViewController: BaseViewController {
             
             if !UserDefaultsManager.token.isEmpty {
                 self?.requestCheckUser()
-                print("First")
+        
             } else if !UserDefaultsManager.passOnboarding {
                 let vc = OnboardingViewController()
                 vc.modalPresentationStyle = .overFullScreen
@@ -82,7 +82,7 @@ final class SplashViewController: BaseViewController {
                 case .firebaseTokenError:
                     guard let codeNum = NetworkManager.shared.refreshToken() else {
                         self?.requestCheckUser()
-                        print("Second")
+                        print("Success")
                         return
                     }
                     guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }

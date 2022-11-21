@@ -3,4 +3,166 @@
    uuid = "A81858A3-EB27-410C-B25F-5CCB695BB79A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FC25269-A038-46A4-93A4-0FEB4F8A099E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "transitionAfterAnimation()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9FC25269-A038-46A4-93A4-0FEB4F8A099E - a9c96fa47afdac4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecruitsStudyMembers.SplashViewController.transitionAfterAnimation() -&gt; ()"
+                  moduleName = "RecruitsStudyMembers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/junheeyoon/Documents/01_iOSDevelopments/01_Xcode/02_PersonalProjects/RecruitsStudyMembers/RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "9FC25269-A038-46A4-93A4-0FEB4F8A099E - cb515b7e181da246"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in RecruitsStudyMembers.SplashViewController.transitionAfterAnimation() -&gt; ()"
+                  moduleName = "RecruitsStudyMembers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/junheeyoon/Documents/01_iOSDevelopments/01_Xcode/02_PersonalProjects/RecruitsStudyMembers/RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BEFB341B-9EE5-481D-BBAE-B7DDF6811586"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "transitionAfterAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC3264AC-E863-4E0E-AA1B-ACE382B7813D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "requestCheckUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AAB0CAC-8E12-48FB-9FEE-0D2879FA250A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "requestCheckUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "983A606E-8B51-4311-911E-C70BFE602513"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "requestCheckUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "983A606E-8B51-4311-911E-C70BFE602513 - f7d892d8151cc62e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RecruitsStudyMembers.UserData) -&gt; () in RecruitsStudyMembers.SplashViewController.requestCheckUser() -&gt; ()"
+                  moduleName = "RecruitsStudyMembers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/junheeyoon/Documents/01_iOSDevelopments/01_Xcode/02_PersonalProjects/RecruitsStudyMembers/RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "983A606E-8B51-4311-911E-C70BFE602513 - f7d892d8151cc62e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RecruitsStudyMembers.UserData) -&gt; () in RecruitsStudyMembers.SplashViewController.requestCheckUser() -&gt; ()"
+                  moduleName = "RecruitsStudyMembers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/junheeyoon/Documents/01_iOSDevelopments/01_Xcode/02_PersonalProjects/RecruitsStudyMembers/RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "476">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6ABEB92-D720-407F-A3E0-0513F11A536F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecruitsStudyMembers/Scene/Splash/SplashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "requestCheckUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
