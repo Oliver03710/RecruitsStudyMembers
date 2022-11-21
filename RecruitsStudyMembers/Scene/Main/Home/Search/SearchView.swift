@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class SearchView: BaseView {
     
     // MARK: - Properties
@@ -27,7 +29,12 @@ final class SearchView: BaseView {
     // MARK: - Helper Functions
     
     override func setConstraints() {
+        addSubview(seekButton)
         
+        seekButton.snp.makeConstraints {
+            $0.directionalHorizontalEdges.bottom.equalTo(safeAreaInsets)
+            $0.height.equalTo(48)
+        }
     }
 
 }
