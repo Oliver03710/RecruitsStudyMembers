@@ -97,6 +97,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "MyinfoTabName", defaultValue: "내정보")
     static var MyinfoTabName: String
     
+    @UserDefaultsWrapper(key: "userName", defaultValue: "이름")
+    static var userName: String
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
