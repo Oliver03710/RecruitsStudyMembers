@@ -369,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				ADAC0D5D29260F1C00424D39 /* Cells */,
-				ADB604BA292377E20081CEC2 /* DummyData.swift */,
 				ADB604BE2923EA320081CEC2 /* ReusableView.swift */,
 				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
 				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
@@ -394,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23FB0729227EF8004FA34E /* MyInfoData.swift */,
+				ADB604BA292377E20081CEC2 /* DummyData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
