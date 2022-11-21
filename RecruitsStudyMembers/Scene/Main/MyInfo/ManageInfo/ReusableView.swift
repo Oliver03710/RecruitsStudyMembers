@@ -7,22 +7,25 @@
 
 import UIKit
 
-class ReusableView: UICollectionReusableView {
+final class ReusableView: UICollectionReusableView {
 
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("not implemented")
     }
-}
-
-extension ReusableView {
+    
+    // MARK: - Helper Functions
+    
     func configure() {
-//        backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         layer.borderColor = UIColor.red.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 8
     }
+    
 }
