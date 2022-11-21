@@ -63,7 +63,7 @@ final class NetworkManager {
     
     func refreshToken() -> Int? {
         let currentUser = Auth.auth().currentUser
-        var errCode = 0
+        var errCode: Int? = nil
         
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             
@@ -74,6 +74,7 @@ final class NetworkManager {
             
             guard let token = idToken else { return }
             UserDefaultsManager.token = token
+            return
         }
         return errCode
     }
