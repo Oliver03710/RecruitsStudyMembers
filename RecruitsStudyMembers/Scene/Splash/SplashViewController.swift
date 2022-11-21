@@ -82,8 +82,10 @@ final class SplashViewController: BaseViewController {
                     
                 case .firebaseTokenError:
                     guard let codeNum = NetworkManager.shared.refreshToken() else {
-                        self?.requestCheckUser()
-                        print("Success")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                            self?.requestCheckUser()
+                            print("Success")
+                        }
                         return
                     }
                     guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
