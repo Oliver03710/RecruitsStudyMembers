@@ -20,6 +20,7 @@ final class ReusableView: UICollectionReusableView {
         fatalError("not implemented")
     }
     
+    
     // MARK: - Helper Functions
     
     func configure() {
