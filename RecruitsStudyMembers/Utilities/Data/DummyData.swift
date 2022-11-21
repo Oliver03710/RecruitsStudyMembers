@@ -25,3 +25,25 @@ struct DummyData: Hashable {
     }
 
 }
+
+
+struct DummyItem: Hashable {
+    
+    let text: String?
+    private let identifier = UUID()
+    
+    static func callDummy() -> [DummyItem] {
+        return [DummyItem(text: "trash"),
+                DummyItem(text: "folder"),
+                DummyItem(text: "paperplane"),
+                DummyItem(text: "book"),
+                DummyItem(text: "tag"),
+                DummyItem(text: "camera"),
+                DummyItem(text: "pin"),
+                DummyItem(text: "lock.shield"),
+                DummyItem(text: "cube.box"),
+                DummyItem(text: "gift"),
+                DummyItem(text: "eyeglasses"),
+                DummyItem(text: "lightbulb")]
+    }
+}
