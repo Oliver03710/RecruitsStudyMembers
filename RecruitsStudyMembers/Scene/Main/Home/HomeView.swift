@@ -80,7 +80,7 @@ final class HomeView: BaseView {
         return btn
     }()
     
-    private let seekButton: CircleButton = {
+    let seekButton: CircleButton = {
         let btn = CircleButton(image: GeneralIcons.seek.rawValue)
         return btn
     }()
