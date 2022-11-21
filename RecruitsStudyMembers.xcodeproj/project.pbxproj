@@ -104,6 +104,7 @@
 		ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */; };
 		ADC259DB292777B4004E5121 /* BaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259DA292777B4004E5121 /* BaseObservable.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
+		ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96239292B6FA7003D5191 /* SearchViewController.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
@@ -205,6 +206,7 @@
 		ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADC259DA292777B4004E5121 /* BaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObservable.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		ADE96239292B6FA7003D5191 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		AD23FAD929221148004FA34E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				ADE96238292B6F94003D5191 /* Search */,
 				AD23FADA29221176004FA34E /* HomeViewController.swift */,
 				AD23FADC29221180004FA34E /* HomeView.swift */,
 				AD23FADE2922124A004FA34E /* HomeViewModel.swift */,
@@ -559,6 +562,14 @@
 				ADC259DA292777B4004E5121 /* BaseObservable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		ADE96238292B6F94003D5191 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				ADE96239292B6FA7003D5191 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
@@ -846,6 +857,7 @@
 				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
+				ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */,
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
 				AD23FB0829227EF8004FA34E /* MyInfoData.swift in Sources */,
 				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
