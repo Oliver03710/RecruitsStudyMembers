@@ -9,6 +9,8 @@ import UIKit
 import CoreLocation
 import MapKit
 
+import RxCocoa
+import RxSwift
 import Toast
 
 final class HomeViewController: BaseViewController {
@@ -16,7 +18,7 @@ final class HomeViewController: BaseViewController {
     // MARK: - Properties
     
     private let myView = HomeView()
-    
+    private let disposeBag = DisposeBag()
     
     // MARK: - Init
     
@@ -29,24 +31,30 @@ final class HomeViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     
     // MARK: - Helper Functions
     
     override func configureUI() {
         setNaigations()
         setDelegates()
+        bindData()
     }
     
     override func setNaigations(naviTitle: String? = nil) {
         navigationController?.isNavigationBarHidden = true
     }
     
-    func setDelegates() {
+    private func setDelegates() {
         myView.mapView.delegate = self
         myView.locationManager.delegate = self
     }
     
-    func setAnnotations() {
+    private func setAnnotations() {
         let annotation = SeSacAnnotation(0)
         annotation.coordinate = myView.mapView.region.center
         myView.mapView.addAnnotation(annotation)
@@ -56,7 +64,7 @@ final class HomeViewController: BaseViewController {
         myView.mapView.addOverlay(circle)
     }
     
-    func removeAllFromMap() {
+    private func removeAllFromMap() {
         myView.mapView.annotations.forEach { (annotation) in
             if let annotation = annotation as? MKPointAnnotation {
                 myView.mapView.removeAnnotation(annotation)
@@ -66,6 +74,21 @@ final class HomeViewController: BaseViewController {
         myView.mapView.overlays.forEach { (overlay) in
             myView.mapView.removeOverlay(overlay)
         }
+    }
+    
+    private func bindData() {
+        myView.seekButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                self?.PresentToSearchVC()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func PresentToSearchVC() {
+        let vc = SearchViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 
