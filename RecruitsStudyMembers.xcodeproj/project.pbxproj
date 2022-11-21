@@ -103,6 +103,7 @@
 		ADC259DB292777B4004E5121 /* BaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259DA292777B4004E5121 /* BaseObservable.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96239292B6FA7003D5191 /* SearchViewController.swift */; };
+		ADE9623C292B7401003D5191 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623B292B7401003D5191 /* SearchView.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
@@ -205,6 +206,7 @@
 		ADC259DA292777B4004E5121 /* BaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObservable.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADE96239292B6FA7003D5191 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		ADE9623B292B7401003D5191 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 			isa = PBXGroup;
 			children = (
 				ADE96239292B6FA7003D5191 /* SearchViewController.swift */,
+				ADE9623B292B7401003D5191 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				ADB604BB292377E20081CEC2 /* DummyData.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
+				ADE9623C292B7401003D5191 /* SearchView.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
 				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,
 				AD1B38AC2920F843006D7523 /* UserData.swift in Sources */,
