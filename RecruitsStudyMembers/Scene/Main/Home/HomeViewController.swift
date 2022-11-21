@@ -83,12 +83,13 @@ extension HomeViewController {
             authorizationStatus = CLLocationManager.authorizationStatus()
         }
         
-        if CLLocationManager.locationServicesEnabled() {
-            self.checkUserCurrentLocationAuthorization(authorizationStatus)
-        } else {
-            view.makeToast("위치 서비스가 꺼져 있습니다.")
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.checkUserCurrentLocationAuthorization(authorizationStatus)
+            } else {
+                self.view.makeToast("위치 서비스가 꺼져 있습니다.")
+            }
         }
-        
     }
     
     private func checkUserCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
