@@ -96,7 +96,7 @@
 		ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */; };
 		ADAC0D6E29269A1800424D39 /* ThumbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D6D29269A1800424D39 /* ThumbButton.swift */; };
 		ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */; };
-		ADB604BB292377E20081CEC2 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BA292377E20081CEC2 /* DummyData.swift */; };
+		ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BA292377E20081CEC2 /* DefaultUserData.swift */; };
 		ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */; };
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
 		ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */; };
@@ -203,7 +203,7 @@
 		ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D6D29269A1800424D39 /* ThumbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbButton.swift; sourceTree = "<group>"; };
 		ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
-		ADB604BA292377E20081CEC2 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		ADB604BA292377E20081CEC2 /* DefaultUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserData.swift; sourceTree = "<group>"; };
 		ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23FB0729227EF8004FA34E /* MyInfoData.swift */,
-				ADB604BA292377E20081CEC2 /* DummyData.swift */,
+				ADB604BA292377E20081CEC2 /* DefaultUserData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -836,7 +836,7 @@
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
-				ADB604BB292377E20081CEC2 /* DummyData.swift in Sources */,
+				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
 				ADE9623C292B7401003D5191 /* SearchView.swift in Sources */,
