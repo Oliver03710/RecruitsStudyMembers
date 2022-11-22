@@ -15,7 +15,10 @@ final class NetworkManager {
     
     // MARK: - Properties
     
+    var userData: UserData = UserData(id: "", v: 0, uid: "", phoneNumber: "", email: "", fcMtoken: "", nick: "", birth: "", gender: 0, study: "", comment: [], reputation: [], sesac: 0, sesacCollection: [], background: 0, backgroundCollection: [], purchaseToken: [], transactionID: [], reviewedBefore: [], reportedNum: 0, reportedUser: [], dodgepenalty: 0, dodgeNum: 0, ageMin: 0, ageMax: 0, searchable: 0, createdAt: "")
+    
     static let shared = NetworkManager()
+    private let disposeBag = DisposeBag()
     
     
     // MARK: - Init
@@ -77,6 +80,10 @@ final class NetworkManager {
             return
         }
         return errCode
+    }
+    
+    func saveUserData(data: UserData) {
+        userData = data
     }
 }
 
