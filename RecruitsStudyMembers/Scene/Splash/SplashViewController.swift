@@ -73,6 +73,7 @@ final class SplashViewController: BaseViewController {
                 sceneDelegate?.window?.rootViewController = vc
                 sceneDelegate?.window?.makeKeyAndVisible()
                 UserDefaultsManager.userName = response.nick
+                UserDefaultsManager.userImage = response.sesac
                 
             }, onFailure: { [weak self] error in
                 let errors = (error as NSError).code
