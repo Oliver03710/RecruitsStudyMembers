@@ -22,7 +22,14 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
     
     private let underlinedTextField: UnderlinedTextField = {
         let tf = UnderlinedTextField(placeHolder: "스터디를 입력해 주세요")
+        tf.text = NetworkManager.shared.userData.study
         return tf
+    }()
+    
+    private let lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = SSColors.gray3.color
+        return view
     }()
     
     private let disposeBag = DisposeBag()
@@ -34,14 +41,6 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
         super.init(frame: frame)
     }
     
-//    override func layoutSubviews() {
-//        let bottomLine = CALayer()
-//        bottomLine.frame = CGRectMake(0.0, underlinedTextField.frame.height - 1, underlinedTextField.frame.width, 1.0)
-//        bottomLine.backgroundColor = SSColors.gray3.color.cgColor
-//        underlinedTextField.borderStyle = .none
-//        underlinedTextField.layer.addSublayer(bottomLine)
-//    }
-    
     
     // MARK: - Helper Functions
     
@@ -50,7 +49,7 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
     }
     
     override func setConstraints() {
-        [studyLabel, underlinedTextField].forEach { contentView.addSubview($0) }
+        [studyLabel, underlinedTextField, lineView].forEach { contentView.addSubview($0) }
                 
         studyLabel.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide)
@@ -60,6 +59,12 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
             $0.centerY.equalTo(safeAreaLayoutGuide)
             $0.width.equalTo(safeAreaLayoutGuide).dividedBy(2)
             $0.height.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.top.equalTo(underlinedTextField.snp.bottom)
+            $0.height.equalTo(1)
+            $0.directionalHorizontalEdges.equalTo(underlinedTextField.snp.directionalHorizontalEdges)
         }
     }
     
@@ -73,7 +78,7 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
             .disposed(by: disposeBag)
     }
     
-    func setComponents() {
-        
+    func setComponents(text: String?) {
+        underlinedTextField.text = text
     }
 }
