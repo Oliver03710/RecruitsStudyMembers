@@ -49,6 +49,8 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
         let min = Int(slider.lower)
         let max = Int(slider.upper)
         ageRangeLabel.text = "\(min) - \(max)"
+        NetworkManager.shared.userData.ageMin = min
+        NetworkManager.shared.userData.ageMax = max
     }
     
     
