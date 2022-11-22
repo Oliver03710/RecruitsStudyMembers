@@ -8,24 +8,24 @@
 import Foundation
 
 struct UserData: Codable, Hashable {
-    let id: String
-    let v: Int
-    let uid, phoneNumber, email, fcMtoken: String
-    let nick, birth: String
-    let gender: Int
-    let study: String
-    let comment: [String]
-    let reputation: [Int]
-    let sesac: Int
-    let sesacCollection: [Int]
-    let background: Int
-    let backgroundCollection: [Int]
-    let purchaseToken, transactionID, reviewedBefore: [String]
-    let reportedNum: Int
-    let reportedUser: [String]
-    let dodgepenalty, dodgeNum, ageMin, ageMax: Int
-    let searchable: Int
-    let createdAt: String
+    var id: String
+    var v: Int
+    var uid, phoneNumber, email, fcMtoken: String
+    var nick, birth: String
+    var gender: Int
+    var study: String
+    var comment: [String]
+    var reputation: [Int]
+    var sesac: Int
+    var sesacCollection: [Int]
+    var background: Int
+    var backgroundCollection: [Int]
+    var purchaseToken, transactionID, reviewedBefore: [String]
+    var reportedNum: Int
+    var reportedUser: [String]
+    var dodgepenalty, dodgeNum, ageMin, ageMax: Int
+    var searchable: Int
+    var createdAt: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
