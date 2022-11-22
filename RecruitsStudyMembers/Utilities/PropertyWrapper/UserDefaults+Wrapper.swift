@@ -100,6 +100,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "userName", defaultValue: "이름")
     static var userName: String
     
+    @UserDefaultsWrapper(key: "userImage", defaultValue: 0)
+    static var userImage: Int
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
