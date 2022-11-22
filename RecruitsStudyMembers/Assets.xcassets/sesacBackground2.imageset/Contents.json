@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "sesacBackground2.png",
+      "filename" : "sesacBackground3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "sesacBackground2@2x.png",
+      "filename" : "sesacBackground3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "sesacBackground2@3x.png",
+      "filename" : "sesacBackground3@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
