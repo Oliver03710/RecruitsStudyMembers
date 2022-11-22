@@ -146,7 +146,7 @@ extension ManageInfoView {
         }
 
         let genderCellRegistration = UICollectionView.CellRegistration<GenderCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
-            
+            cell.setComponents(gender: NetworkManager.shared.userData.gender)
         }
         
         let studyCellRegistration = UICollectionView.CellRegistration<StudyCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
