@@ -15,12 +15,12 @@ struct DummyData: Hashable {
     private let identifier = UUID()
     
     static func callDummy() -> [DummyData] {
-        return [DummyData(backgroundImage: BackgroundImages.sesacBackground1.rawValue,foregroundImage: FaceImages.sesacFace1.rawValue , name: "김새싹", title: nil)]
+        return [DummyData(backgroundImage: BackgroundImages.sesacBackground1.rawValue, foregroundImage: "sesacFace\(0)", name: "김새싹", title: nil)]
     }
     
     static func diffDummy() -> [DummyData] {
-        return [DummyData(backgroundImage: BackgroundImages.sesacBackground1.rawValue,foregroundImage: FaceImages.sesacFace1.rawValue , name: "김새싹", title: nil),
-                DummyData(backgroundImage: BackgroundImages.sesacBackground1.rawValue,foregroundImage: FaceImages.sesacFace1.rawValue , name: "김새싹", title: "타이틀")]
+        return [DummyData(backgroundImage: BackgroundImages.sesacBackground1.rawValue, foregroundImage: "sesacFace\(0)", name: "김새싹", title: nil),
+                DummyData(backgroundImage: BackgroundImages.sesacBackground1.rawValue, foregroundImage: "sesacFace\(0)", name: "김새싹", title: "타이틀")]
     }
 }
 
