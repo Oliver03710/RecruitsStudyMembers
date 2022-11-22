@@ -38,7 +38,7 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
         let label = UILabel()
         label.font = UIFont(name: SSFonts.title1M16.fonts, size: SSFonts.title1M16.size)
         label.text = "이름"
-        label.backgroundColor = .orange
+        label.textColor = SSColors.black.color
         return label
     }()
     
