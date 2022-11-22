@@ -26,16 +26,5 @@ final class UnderlinedTextField: UITextField {
         textAlignment = .center
     }
     
-    override func layoutSubviews() {
-        let border = CALayer()
-        let width = CGFloat(1.0)
-        border.borderColor = SSColors.gray3.color.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
-        
-        border.borderWidth = width
-        layer.addSublayer(border)
-        layer.masksToBounds = true
-    }
-    
 }
 
