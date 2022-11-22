@@ -28,8 +28,8 @@ final class ManageInfoView: BaseView {
     
     var isFolded = true
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, DummyData>! = nil
-    var currentSnapshot = NSDiffableDataSourceSnapshot<Section, DummyData>()
+    var dataSource: UICollectionViewDiffableDataSource<Section, DefaultUserData>! = nil
+    var currentSnapshot = NSDiffableDataSourceSnapshot<Section, DefaultUserData>()
     
     let viewModel = ManageInfoViewModel()
     
@@ -80,7 +80,7 @@ extension ManageInfoView {
                 return section
 
             case .foldable:
-                let estimatedHeight = CGFloat(400)
+                let estimatedHeight = CGFloat(350)
 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -90,8 +90,8 @@ extension ManageInfoView {
 
                 let section = NSCollectionLayoutSection(group: group)
 
-//                let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(elementKind: ReusableView.reuseIdentifier)
-//                section.decorationItems = [sectionBackgroundDecoration]
+                let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(elementKind: ReusableView.reuseIdentifier)
+                section.decorationItems = [sectionBackgroundDecoration]
                 return section
 
             case .gender, .study, .searchMe, .age:
@@ -125,54 +125,47 @@ extension ManageInfoView {
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
         let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider, configuration: config)
-//        layout.register(ReusableView.self, forDecorationViewOfKind: ReusableView.reuseIdentifier)
+        layout.register(ReusableView.self, forDecorationViewOfKind: ReusableView.reuseIdentifier)
         layout.collectionView?.layoutIfNeeded()
         return layout
     }
     
     private func configureDataSource() {
         
-        let imageCellRegistration = UICollectionView.CellRegistration<ImageCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-            cell.foreImageView.image = UIImage(named: identifier.foregroundImage!)
+        let imageCellRegistration = UICollectionView.CellRegistration<ImageCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
             var backConfig = UIBackgroundConfiguration.listPlainCell()
-            backConfig.image = UIImage(named: identifier.backgroundImage!)
+            backConfig.image = UIImage(named: "sesacBackground\(NetworkManager.shared.userData.background)")
             backConfig.cornerRadius = 8
             cell.backgroundConfiguration = backConfig
         }
         
-        let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DummyData> { [weak self] (cell, indexPath, identifier) in
+        let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DefaultUserData> { [weak self] (cell, indexPath, identifier) in
             guard let bool = self?.isFolded else { return }
-            cell.setComponents(text: identifier.name)
             cell.setAutoLayout(isFolded: bool)
-            
-            var backConfig = UIBackgroundConfiguration.listPlainCell()
-            backConfig.strokeColor = SSColors.gray2.color
-            backConfig.strokeWidth = 1.0
-            backConfig.cornerRadius = 8.0
-            cell.backgroundConfiguration = backConfig
+            cell.setComponents(text: UserDefaultsManager.userName)
         }
 
-        let genderCellRegistration = UICollectionView.CellRegistration<GenderCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+        let genderCellRegistration = UICollectionView.CellRegistration<GenderCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
             
         }
         
-        let studyCellRegistration = UICollectionView.CellRegistration<StudyCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+        let studyCellRegistration = UICollectionView.CellRegistration<StudyCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
             
         }
         
-        let searchMeCellRegistration = UICollectionView.CellRegistration<SearchMeCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+        let searchMeCellRegistration = UICollectionView.CellRegistration<SearchMeCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
             
         }
         
-        let ageCellRegistration = UICollectionView.CellRegistration<AgeChoiceCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
+        let ageCellRegistration = UICollectionView.CellRegistration<AgeChoiceCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
             
         }
         
-        let resignCellRegistration = UICollectionView.CellRegistration<DeleteAccountCollectionViewCell, DummyData> { (cell, indexPath, identifier) in
-
+        let resignCellRegistration = UICollectionView.CellRegistration<DeleteAccountCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
+            
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, DummyData>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<Section, DefaultUserData>(collectionView: collectionView) {
             (collectionView, indexPath, identifier) -> UICollectionViewCell? in
             
             guard let customSection = Section(rawValue: indexPath.section) else { return nil }
@@ -191,17 +184,17 @@ extension ManageInfoView {
     }
     
     func updateUI() {
-        currentSnapshot = NSDiffableDataSourceSnapshot<Section, DummyData>()
+        currentSnapshot = NSDiffableDataSourceSnapshot<Section, DefaultUserData>()
         currentSnapshot.appendSections(Section.allCases)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .image)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .image)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .foldable)
 //        isFolded ? currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable) : currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
 
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .gender)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .study)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .searchMe)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .age)
-        currentSnapshot.appendItems(DummyData.callDummy(), toSection: .deleteAccount)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .gender)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .study)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .searchMe)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .age)
+        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .deleteAccount)
 
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
