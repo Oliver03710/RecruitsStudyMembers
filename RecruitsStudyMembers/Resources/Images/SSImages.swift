@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum BackgroundImages: String {
+enum BackgroundImages: Int {
+    case sesacBackground0
     case sesacBackground1
     case sesacBackground2
     case sesacBackground3
@@ -16,7 +17,6 @@ enum BackgroundImages: String {
     case sesacBackground6
     case sesacBackground7
     case sesacBackground8
-    case sesacBackground9
 }
 
 enum FaceImages: Int {
