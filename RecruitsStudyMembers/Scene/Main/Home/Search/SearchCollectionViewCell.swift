@@ -40,8 +40,11 @@ final class SearchCollectionViewCell: CustomCollectionViewCell {
         }
     }
     
-    func setCellComponents(text: String?) {
+    func setCellComponents(text: String?, indexPath: IndexPath) {
         selectButton.setTitle(text, for: .normal)
+        
+        selectButton.layer.borderColor = indexPath.section == 0 && (0...2).contains(indexPath.item) ? SSColors.error.color.cgColor : SSColors.gray4.color.cgColor
+        selectButton.setTitleColor(indexPath.section == 0 && (0...2).contains(indexPath.item) ? SSColors.error.color : SSColors.black.color, for: .normal)
     }
     
 }
