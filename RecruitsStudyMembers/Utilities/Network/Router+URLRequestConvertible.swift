@@ -10,8 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApi {
-    case login
-    case signup
+    case login, signup, myPage, withdraw
 }
 
 
@@ -33,20 +32,23 @@ extension SeSacApi: URLRequestConvertible {
         switch self {
         case .login: return UserDefaultsManager.loginPath
         case .signup: return UserDefaultsManager.signupPath
+        case .myPage: return UserDefaultsManager.myPagePath
+        case .withdraw: return UserDefaultsManager.withdrawPath
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .login: return .get
-        case .signup: return .post
+        case .signup, .withdraw: return .post
+        case .myPage: return .put
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
-        case .login: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
-        case .signup: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
+        case .login, .signup, .myPage: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
+        case .withdraw: return ["idtoken": UserDefaultsManager.token]
         }
     }
     
@@ -58,14 +60,19 @@ extension SeSacApi: URLRequestConvertible {
                               "birth": UserDefaultsManager.birth,
                               "email": UserDefaultsManager.email,
                               "gender": "\(UserDefaultsManager.gender)"]
+            
+        case .myPage: return ["searchable": "\(NetworkManager.shared.userData.searchable)",
+                              "ageMin": "\(NetworkManager.shared.userData.ageMin)",
+                              "ageMax": "\(NetworkManager.shared.userData.ageMax)",
+                              "gender": "\(NetworkManager.shared.userData.gender)",
+                              "study": "\(NetworkManager.shared.userData.study)"]
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .login: return URLEncoding.default
-        case .signup: return URLEncoding.default
+        case .login, .signup, .myPage, .withdraw: return URLEncoding.default
         }
     }
     
