@@ -24,7 +24,7 @@ final class ReusableView: UICollectionReusableView {
     // MARK: - Helper Functions
     
     func configure() {
-        layer.borderColor = UIColor.red.cgColor
+        layer.borderColor = SSColors.gray2.color.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 8
     }
