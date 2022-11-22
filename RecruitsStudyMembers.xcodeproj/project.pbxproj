@@ -106,6 +106,8 @@
 		ADE9623C292B7401003D5191 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623B292B7401003D5191 /* SearchView.swift */; };
 		ADE9623E292BEB52003D5191 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */; };
 		ADE96240292C1032003D5191 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */; };
+		ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */; };
+		ADE96245292C2526003D5191 /* SesacReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
@@ -211,6 +213,8 @@
 		ADE9623B292B7401003D5191 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
+		ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 		ADAC0D5D29260F1C00424D39 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ADE96241292C24F2003D5191 /* CellInCardView */,
 				AD23FAFF29224F9B004FA34E /* ImageCollectionViewCell.swift */,
 				ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */,
 				ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */,
@@ -575,6 +580,15 @@
 				ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		ADE96241292C24F2003D5191 /* CellInCardView */ = {
+			isa = PBXGroup;
+			children = (
+				ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */,
+				ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */,
+			);
+			path = CellInCardView;
 			sourceTree = "<group>";
 		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
@@ -818,6 +832,7 @@
 				AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */,
 				ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */,
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
+				ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
@@ -858,6 +873,7 @@
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
+				ADE96245292C2526003D5191 /* SesacReviewCollectionViewCell.swift in Sources */,
 				ADE96240292C1032003D5191 /* SearchCollectionReusableView.swift in Sources */,
 				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
