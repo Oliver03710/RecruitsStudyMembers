@@ -18,6 +18,7 @@ final class ImageCollectionViewCell: CustomCollectionViewCell {
         iv.layer.masksToBounds = true
         iv.layer.cornerRadius = 8
         iv.contentMode = .scaleAspectFit
+        iv.image = UIImage(named: "sesacFace\(NetworkManager.shared.userData.sesac)")
         return iv
     }()
     

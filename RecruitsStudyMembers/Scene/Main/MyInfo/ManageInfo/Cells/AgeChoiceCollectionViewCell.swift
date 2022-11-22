@@ -19,7 +19,7 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
     }()
     
     private let ageRangeLabel: CustomLabel = {
-        let label = CustomLabel(text: "18 - 35")
+        let label = CustomLabel(text: "\(NetworkManager.shared.userData.ageMin) - \(NetworkManager.shared.userData.ageMax)")
         label.textColor = SSColors.green.color
         label.font = UIFont(name: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size)
         return label
@@ -29,8 +29,8 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
         let slider = CustomSlider()
         slider.minValue = 18
         slider.maxValue = 65
-        slider.lower = 18
-        slider.upper = 65
+        slider.lower = Double(NetworkManager.shared.userData.ageMin)
+        slider.upper = Double(NetworkManager.shared.userData.ageMax)
         slider.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
         return slider
     }()

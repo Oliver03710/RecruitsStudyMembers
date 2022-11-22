@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class StudyCollectionViewCell: CustomCollectionViewCell {
@@ -22,6 +24,8 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
         let tf = UnderlinedTextField(placeHolder: "스터디를 입력해 주세요")
         return tf
     }()
+    
+    private let disposeBag = DisposeBag()
     
     
     // MARK: - Init
@@ -41,6 +45,10 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
     
     // MARK: - Helper Functions
     
+    override func configureUI() {
+        bindData()
+    }
+    
     override func setConstraints() {
         [studyLabel, underlinedTextField].forEach { contentView.addSubview($0) }
                 
@@ -53,5 +61,19 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
             $0.width.equalTo(safeAreaLayoutGuide).dividedBy(2)
             $0.height.trailing.equalTo(safeAreaLayoutGuide).inset(16)
         }
+    }
+    
+    private func bindData() {
+        underlinedTextField.rx.text
+            .orEmpty
+            .asDriver()
+            .drive { text in
+                NetworkManager.shared.userData.study = text
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func setComponents() {
+        
     }
 }

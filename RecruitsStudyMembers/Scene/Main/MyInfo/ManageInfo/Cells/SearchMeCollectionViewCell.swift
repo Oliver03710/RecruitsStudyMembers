@@ -22,7 +22,7 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     
     private let numSwitch: UISwitch = {
         let swit = UISwitch()
-        swit.isOn = false
+        swit.isOn = NetworkManager.shared.userData.searchable == 0 ? false : true
         swit.onTintColor = SSColors.green.color
         return swit
     }()
@@ -34,11 +34,14 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        bindData()
     }
     
     
     // MARK: - Helper Functions
+    
+    override func configureUI() {
+        bindData()
+    }
     
     override func setConstraints() {
         [studyLabel, numSwitch].forEach { contentView.addSubview($0) }
@@ -56,6 +59,11 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     
     private func bindData() {
         numSwitch.rx.value
+            .asDriver()
+            .drive { bool in
+                NetworkManager.shared.userData.searchable = bool ? 1 : 0
+            }
+            .disposed(by: disposeBag)
     }
 
 }

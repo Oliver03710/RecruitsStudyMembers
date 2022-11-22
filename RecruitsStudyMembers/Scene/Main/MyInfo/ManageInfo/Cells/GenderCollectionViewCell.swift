@@ -80,6 +80,16 @@ final class GenderCollectionViewCell: CustomCollectionViewCell {
         }
     }
     
+    func setComponents(gender: Int) {
+        maleButton.backgroundColor = gender == 1 ? SSColors.green.color : SSColors.white.color
+        maleButton.setTitleColor(gender == 1 ? SSColors.white.color : SSColors.black.color, for: .normal)
+        maleButton.layer.borderColor = gender == 1 ? SSColors.green.color.cgColor : SSColors.gray3.color.cgColor
+        
+        femaleButton.backgroundColor = gender == 0 ? SSColors.green.color : SSColors.white.color
+        femaleButton.setTitleColor(gender == 0 ? SSColors.white.color : SSColors.black.color, for: .normal)
+        femaleButton.layer.borderColor = gender == 0 ? SSColors.green.color.cgColor : SSColors.gray3.color.cgColor
+    }
+    
     private func bindData() {
         Observable.merge(maleButton.rx.tap.map { GenderButtonTapped.male },
                          femaleButton.rx.tap.map { GenderButtonTapped.female })
@@ -93,6 +103,7 @@ final class GenderCollectionViewCell: CustomCollectionViewCell {
             self?.femaleButton.setTitleColor(action == .female ? SSColors.white.color : SSColors.black.color, for: .normal)
             self?.femaleButton.layer.borderColor = action == .female ? SSColors.green.color.cgColor : SSColors.gray3.color.cgColor
 
+            NetworkManager.shared.userData.gender = action == .male ? 1 : 0
         }
         .disposed(by: disposeBag)
     }
