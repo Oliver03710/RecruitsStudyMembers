@@ -48,6 +48,7 @@ final class SearchView: BaseView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         cv.backgroundColor = SSColors.white.color
         cv.autoresizingMask = [.flexibleWidth]
+        cv.keyboardDismissMode = .onDrag
         return cv
     }()
     
@@ -102,16 +103,19 @@ extension SearchView {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 0, bottom: 12, trailing: 0)
             
-            let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                  heightDimension: .estimated(44))
+            if sectionIndex == 0 || sectionIndex == 2 {
+//                section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 0, bottom: 12, trailing: 0)
+                
+                let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+                
+                let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: titleSize,
+                    elementKind: SearchCollectionReusableView.reuseIdentifier,
+                    alignment: .top)
+                section.boundarySupplementaryItems = [titleSupplementary]
+            }
             
-            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: titleSize,
-                elementKind: SearchCollectionReusableView.reuseIdentifier,
-                alignment: .top)
-            section.boundarySupplementaryItems = [titleSupplementary]
             return section
         }
 
@@ -125,7 +129,7 @@ extension SearchView {
     private func configureDataSource() {
         
         let cellRegistration = UICollectionView.CellRegistration<SearchCollectionViewCell, DummyItem> { (cell, indexPath, item) in
-            cell.setCellComponents(text: item.text)
+            cell.setCellComponents(text: item.text, indexPath: indexPath)
         }
         
         dataSource = UICollectionViewDiffableDataSource<Item, DummyItem>(collectionView: collectionView) {
@@ -150,17 +154,19 @@ extension SearchView {
         aroundNow.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
         aroundNow.label.textColor = SSColors.black.color
         
+        let aroundNowSecond = Item()
+        
         let willingTo = Item()
         willingTo.label.text = "내가 하고 싶은"
         willingTo.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
         willingTo.label.textColor = SSColors.black.color
         
         currentSnapshot = NSDiffableDataSourceSnapshot<Item, DummyItem>()
-        currentSnapshot.appendSections([aroundNow, willingTo])
+        currentSnapshot.appendSections([aroundNow, aroundNowSecond, willingTo])
         
-        [aroundNow, willingTo].forEach { section in
-            currentSnapshot.appendItems(DummyItem.callDummy(), toSection: section)
-        }
+        currentSnapshot.appendItems(DummyItem.baseDummy(), toSection: aroundNow)
+        currentSnapshot.appendItems(DummyItem.callDummy(), toSection: aroundNowSecond)
+        currentSnapshot.appendItems(DummyItem.callDummy(), toSection: willingTo)
         
         dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
