@@ -43,6 +43,12 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "signupPath", defaultValue: "/v1/user")
     static var signupPath: String
     
+    @UserDefaultsWrapper(key: "myPagePath", defaultValue: "/v1/user/mypage")
+    static var myPagePath: String
+    
+    @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/v1/user/withdraw")
+    static var withdrawPath: String
+    
     @UserDefaultsWrapper(key: "certiNum", defaultValue: "")
     static var certiNum: String
     
