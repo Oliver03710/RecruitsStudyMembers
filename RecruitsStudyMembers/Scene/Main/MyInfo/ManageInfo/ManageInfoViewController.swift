@@ -60,6 +60,8 @@ final class ManageInfoViewController: BaseViewController {
 }
 
 
+// MARK: - Extension: UICollectionViewDelegate
+
 extension ManageInfoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
