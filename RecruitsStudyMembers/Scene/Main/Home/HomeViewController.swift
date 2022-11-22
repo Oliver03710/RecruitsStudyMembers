@@ -34,19 +34,15 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        navigationController?.isNavigationBarHidden = true
     }
     
     
     // MARK: - Helper Functions
     
     override func configureUI() {
-        setNaigations()
         setDelegates()
         bindData()
-    }
-    
-    override func setNaigations(naviTitle: String? = nil) {
-        navigationController?.isNavigationBarHidden = true
     }
     
     private func setDelegates() {
