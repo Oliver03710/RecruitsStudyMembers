@@ -74,7 +74,7 @@ final class HomeView: BaseView {
         return view
     }()
     
-    private let currentButton: CustomButton = {
+    let currentButton: CustomButton = {
         let btn = CustomButton(image: GeneralIcons.place.rawValue)
         btn.clipsToBounds = true
         btn.layer.cornerRadius = 8
