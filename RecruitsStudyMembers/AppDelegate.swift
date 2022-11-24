@@ -40,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let token = Messaging.messaging().fcmToken else { return true }
         print(token)
         UserDefaultsManager.fcmToken = token
-        print("ID Token: \(UserDefaultsManager.token)")
         
         return true
     }
