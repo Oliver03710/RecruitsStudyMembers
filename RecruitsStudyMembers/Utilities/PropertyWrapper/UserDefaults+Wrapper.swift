@@ -93,6 +93,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "maleSelected", defaultValue: false)
     static var maleSelected: Bool
     
+    @UserDefaultsWrapper(key: "genderSelected", defaultValue: false)
+    static var genderSelected: Bool
+    
     // MARK: - Tab Names
     @UserDefaultsWrapper(key: "homeTabName", defaultValue: "홈")
     static var homeTabName: String
@@ -128,5 +131,6 @@ struct UserDefaultsManager {
         UserDefaultsManager.email = ""
         UserDefaultsManager.gender = 2
         UserDefaultsManager.maleSelected = false
+        UserDefaultsManager.genderSelected = false
     }
 }
