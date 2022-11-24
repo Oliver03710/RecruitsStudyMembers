@@ -82,7 +82,7 @@ final class HomeViewController: BaseViewController {
         
         output.seekButtonDriver
             .drive { [weak self] _ in
-                self?.PresentToSearchVC()
+                self?.myView.locationManager.authorizationStatus == .denied || self?.myView.locationManager.authorizationStatus == .restricted ? self?.checkUserDeviceLocationServiceAuthorization() : self?.PresentToSearchVC()
             }
             .disposed(by: viewModel.disposeBag)
         
