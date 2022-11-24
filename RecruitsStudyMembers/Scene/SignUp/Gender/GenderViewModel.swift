@@ -16,7 +16,7 @@ final class GenderViewModel: CommonViewModel {
     
     private var genderValue = BehaviorRelay<Int>(value: UserDefaultsManager.gender)
     private var maleSelected = BehaviorRelay<Bool>(value: UserDefaultsManager.maleSelected)
-    private var buttonValid = BehaviorRelay<Bool>(value: false)
+    private var buttonValid = BehaviorRelay<Bool>(value: UserDefaultsManager.genderSelected)
     
     let disposeBag = DisposeBag()
     
@@ -57,6 +57,7 @@ final class GenderViewModel: CommonViewModel {
                 UserDefaultsManager.gender = 0
             }
             vc.buttonValid.accept(true)
+            UserDefaultsManager.genderSelected = true
         }
         .disposed(by: disposeBag)
         
