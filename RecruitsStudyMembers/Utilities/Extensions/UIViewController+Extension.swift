@@ -1,5 +1,5 @@
 //
-//  UINavigationBarAppearance+Extension.swift
+//  UIViewController+Extension.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/10.
