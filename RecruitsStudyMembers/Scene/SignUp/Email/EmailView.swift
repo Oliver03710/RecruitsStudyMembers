@@ -28,6 +28,8 @@ final class EmailView: BaseView {
     let emailTextField: SignupTextField = {
         let tf = SignupTextField(placeHolder: "SeSAC@email.com")
         tf.keyboardType = .emailAddress
+        tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
         tf.text = UserDefaultsManager.email
         return tf
     }()

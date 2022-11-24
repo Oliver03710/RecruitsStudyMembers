@@ -21,6 +21,8 @@ final class NicknameView: BaseView {
     let nicknameTextField: SignupTextField = {
         let tf = SignupTextField(placeHolder: "10자 이내로 입력")
         tf.keyboardType = .default
+        tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
         tf.text = UserDefaultsManager.nickname
         tf.becomeFirstResponder()
         return tf
