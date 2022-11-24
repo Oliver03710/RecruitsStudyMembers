@@ -60,7 +60,7 @@ final class BirthViewController: BaseViewController {
         
         output.tap
             .drive { [weak self] _ in
-                output.buttonValid.value ? self?.toNextPage() : self?.view.makeToast("만 17세 미만입니다.", position: .top)
+                output.buttonValid.value ? self?.toNextPage() : self?.view.makeToast("새싹스터디는 만 17세 이상만 사용할 수 있습니다.", position: .top)
             }
             .disposed(by: birthView.viewModel.disposeBag)
 
