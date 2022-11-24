@@ -49,7 +49,7 @@ final class NicknameViewModel: CommonViewModel {
         nicknameValid
             .withUnretained(self)
             .subscribe { vc, bool in
-                vc.buttonValid.accept(true)
+                vc.buttonValid.accept(bool)
             }
             .disposed(by: disposeBag)
         
