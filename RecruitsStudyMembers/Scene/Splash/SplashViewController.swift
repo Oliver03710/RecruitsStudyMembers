@@ -45,7 +45,7 @@ final class SplashViewController: BaseViewController {
             
             if !UserDefaultsManager.token.isEmpty {
                 self?.requestCheckUser()
-        
+                
             } else if !UserDefaultsManager.passOnboarding {
                 let vc = OnboardingViewController()
                 vc.modalPresentationStyle = .overFullScreen
@@ -84,7 +84,8 @@ final class SplashViewController: BaseViewController {
                 case .firebaseTokenError:
                     guard let codeNum = NetworkManager.shared.refreshToken() else {
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self?.requestCheckUser()                        }
+                            self?.requestCheckUser()
+                        }
                         return
                     }
                     guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
@@ -95,14 +96,27 @@ final class SplashViewController: BaseViewController {
                         self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
                     }
                     
-                case .unsignedupUser, .ServerError, .ClientError:
+                case .unsignedupUser:
+                    UserDefaultsManager.resetSignupData()
+                    
+                    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                    let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                    let vc = LoginViewController()
+                    let nav = UINavigationController(rootViewController: vc)
+                    
+                    let firstVC = LoginVerificationViewController()
+                    let targetVC = NicknameViewController()
+                    let vcs = [firstVC, targetVC]
+                    
+                    sceneDelegate?.window?.rootViewController = nav
+                    sceneDelegate?.window?.makeKeyAndVisible()
+                    nav.push(vcs)
+                    
+                case .ServerError, .ClientError:
                     self?.view.makeToast(errCode.errorDescription)
                 default: break
                 }
             })
             .disposed(by: disposeBag)
     }
-
-    
 }
-
