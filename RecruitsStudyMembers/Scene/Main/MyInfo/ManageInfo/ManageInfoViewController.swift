@@ -96,9 +96,7 @@ final class ManageInfoViewController: BaseViewController {
     func login() {
         NetworkManager.shared.request(UserData.self, router: SeSacApi.login)
             .subscribe(onSuccess: { response in
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                    NetworkManager.shared.userData = response
-                }
+                NetworkManager.shared.userData = response
                 print(response)
                 
             }, onFailure: { [weak self] error in
