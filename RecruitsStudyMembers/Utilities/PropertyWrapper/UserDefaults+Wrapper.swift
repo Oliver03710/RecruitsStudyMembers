@@ -28,9 +28,20 @@ struct UserDefaultsWrapper<T> {
 
 struct UserDefaultsManager {
     
+    // MARK: - Token
     @UserDefaultsWrapper(key: "token", defaultValue: "")
     static var token: String
     
+    @UserDefaultsWrapper(key: "verificationID", defaultValue: "")
+    static var verificationID: String
+    
+    @UserDefaultsWrapper(key: "certiNum", defaultValue: "")
+    static var certiNum: String
+    
+    @UserDefaultsWrapper(key: "fcmToken", defaultValue: "")
+    static var fcmToken: String
+    
+    // MARK: - API
     @UserDefaultsWrapper(key: "baseURLPath", defaultValue: "http://api.sesac.co.kr:1210")
     static var baseURLPath: String
     
@@ -49,15 +60,18 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/v1/user/withdraw")
     static var withdrawPath: String
     
-    @UserDefaultsWrapper(key: "certiNum", defaultValue: "")
-    static var certiNum: String
-    
+    // MARK: - Parameters
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
     static var phoneNum: String
     
-    @UserDefaultsWrapper(key: "verificationID", defaultValue: "")
-    static var verificationID: String
+    // MARK: - Splash View
+    @UserDefaultsWrapper(key: "passOnboarding", defaultValue: false)
+    static var passOnboarding: Bool
     
+    // MARK: - Sign Up
+    @UserDefaultsWrapper(key: "nickname", defaultValue: "")
+    static var nickname: String
+        
     @UserDefaultsWrapper(key: "birthYear", defaultValue: "")
     static var birthYear: String
     
@@ -79,18 +93,7 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "maleSelected", defaultValue: false)
     static var maleSelected: Bool
     
-    @UserDefaultsWrapper(key: "nickname", defaultValue: "")
-    static var nickname: String
-    
-    @UserDefaultsWrapper(key: "passOnboarding", defaultValue: false)
-    static var passOnboarding: Bool
-    
-    @UserDefaultsWrapper(key: "statusCode", defaultValue: 0)
-    static var statusCode: Int
-    
-    @UserDefaultsWrapper(key: "fcmToken", defaultValue: "")
-    static var fcmToken: String
-    
+    // MARK: - Tab Names
     @UserDefaultsWrapper(key: "homeTabName", defaultValue: "홈")
     static var homeTabName: String
     
@@ -103,6 +106,7 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "MyinfoTabName", defaultValue: "내정보")
     static var MyinfoTabName: String
     
+    // MARK: - My Page Tab
     @UserDefaultsWrapper(key: "userName", defaultValue: "이름")
     static var userName: String
     
@@ -115,11 +119,12 @@ struct UserDefaultsManager {
         }
     }
     
-    static func resetSingupData() {
+    static func resetSignupData() {
         UserDefaultsManager.nickname = ""
         UserDefaultsManager.birthYear = ""
         UserDefaultsManager.birthMonth = ""
         UserDefaultsManager.birthDay = ""
+        UserDefaultsManager.birth = ""
         UserDefaultsManager.email = ""
         UserDefaultsManager.gender = 2
         UserDefaultsManager.maleSelected = false
