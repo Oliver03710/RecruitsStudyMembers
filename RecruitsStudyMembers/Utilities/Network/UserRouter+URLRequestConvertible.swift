@@ -23,15 +23,14 @@ extension SeSacApiUser: URLRequestConvertible {
     var url: URL {
         switch self {
         default:
-            guard let url = URL(string: UserDefaultsManager.baseURLPath) else { return URL(fileURLWithPath: "") }
+            guard let url = URL(string: UserDefaultsManager.userBaseURLPath) else { return URL(fileURLWithPath: "") }
             return url
         }
     }
     
     var path: String {
         switch self {
-        case .login: return UserDefaultsManager.loginPath
-        case .signup: return UserDefaultsManager.signupPath
+        case .login, .signup: return UserDefaultsManager.loginAndSignupPath
         case .myPage: return UserDefaultsManager.myPagePath
         case .withdraw: return UserDefaultsManager.withdrawPath
         }
