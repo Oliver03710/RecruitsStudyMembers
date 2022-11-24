@@ -21,14 +21,28 @@ extension Date {
         return str
     }
     
-    static func -(recent: Date, previous: Date) -> (year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?) {
-        let year = Calendar.current.dateComponents([.year], from: previous, to: recent).year
-        let day = Calendar.current.dateComponents([.day], from: previous, to: recent).day
-        let month = Calendar.current.dateComponents([.month], from: previous, to: recent).month
-        let hour = Calendar.current.dateComponents([.hour], from: previous, to: recent).hour
-        let minute = Calendar.current.dateComponents([.minute], from: previous, to: recent).minute
-        let second = Calendar.current.dateComponents([.second], from: previous, to: recent).second
-
-        return (year: year, month: month, day: day, hour: hour, minute: minute, second: second)
+    func toCalendar() -> (year: Int?, month: Int?, day: Int?) {
+        let year = Calendar.current.dateComponents([.year], from: self).year
+        let month = Calendar.current.dateComponents([.month], from: self).month
+        let day = Calendar.current.dateComponents([.day], from: self).day
+        
+        return (year: year, month: month, day: day)
+    }
+    
+    func calculateDates() -> (year: Int, month: Int, day: Int) {
+        guard let targetYear = self.toCalendar().year,
+              let targetMonth = self.toCalendar().month,
+              let targetDay = self.toCalendar().day,
+              let currentYear = Date().toCalendar().year,
+              let currentMonth = Date().toCalendar().month,
+              let currentDay = Date().toCalendar().day else {
+            return (-1, -1 ,-1)
+        }
+        
+        let yearInterval = currentYear - targetYear
+        let monthInterval = currentMonth - targetMonth
+        let dayInterval = currentDay - targetDay
+        
+        return (year: yearInterval, month: monthInterval, day: dayInterval)
     }
 }
