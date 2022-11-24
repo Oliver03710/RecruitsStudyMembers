@@ -117,8 +117,9 @@ final class LoginVerificationViewController: BaseViewController {
                 print(idToken)
             }
             
-            print("LogIn Success!!")
-            self?.requestCheckUser()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                self?.requestCheckUser()
+            }
         }
     }
     
@@ -162,7 +163,9 @@ final class LoginVerificationViewController: BaseViewController {
                     
                 case .firebaseTokenError:
                     guard let codeNum = NetworkManager.shared.refreshToken() else {
-                        self?.requestCheckUser()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                            self?.requestCheckUser()
+                        }
                         return
                     }
                     guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
