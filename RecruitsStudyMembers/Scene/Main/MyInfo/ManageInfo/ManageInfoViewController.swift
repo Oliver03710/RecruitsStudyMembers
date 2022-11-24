@@ -38,7 +38,7 @@ final class ManageInfoViewController: BaseViewController {
     // MARK: - Selectors
     
     @objc func saveAction() {
-        NetworkManager.shared.request(router: SeSacApi.myPage)
+        NetworkManager.shared.request(router: SeSacApiUser.myPage)
             .subscribe(onSuccess: { [weak self] response in
                 print(response)
                 self?.view.makeToast("업데이트 성공!") { [weak self] _ in
@@ -94,7 +94,7 @@ final class ManageInfoViewController: BaseViewController {
     }
     
     func login() {
-        NetworkManager.shared.request(UserData.self, router: SeSacApi.login)
+        NetworkManager.shared.request(UserData.self, router: SeSacApiUser.login)
             .subscribe(onSuccess: { response in
                 NetworkManager.shared.userData = response
                 print(response)

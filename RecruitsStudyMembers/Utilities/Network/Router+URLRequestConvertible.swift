@@ -9,14 +9,14 @@ import Foundation
 
 import Alamofire
 
-enum SeSacApi {
+enum SeSacApiUser {
     case login, signup, myPage, withdraw
 }
 
 
 // MARK: - Extension: URLRequestConvertible
 
-extension SeSacApi: URLRequestConvertible {
+extension SeSacApiUser: URLRequestConvertible {
     
     // MARK: - Properties
     

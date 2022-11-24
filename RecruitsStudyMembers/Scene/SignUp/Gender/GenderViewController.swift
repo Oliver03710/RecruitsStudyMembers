@@ -75,7 +75,7 @@ final class GenderViewController: BaseViewController {
     }
     
     func postUserInto() {
-        NetworkManager.shared.request(UserData.self, router: SeSacApi.signup)
+        NetworkManager.shared.request(UserData.self, router: SeSacApiUser.signup)
             .subscribe(onSuccess: { response in
                 print(response)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

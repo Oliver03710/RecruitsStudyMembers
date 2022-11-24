@@ -28,7 +28,7 @@ final class NetworkManager {
     
     // MARK: - Helper Functions
         
-    func request<T: Codable>(_ types: T.Type = T.self, router: SeSacApi) -> Single<T> {
+    func request<T: Codable>(_ types: T.Type = T.self, router: SeSacApiUser) -> Single<T> {
         return Single<T>.create { single in
 
             AF.request(router).validate(statusCode: 200..<400).responseDecodable(of: types.self) { response in
@@ -47,7 +47,7 @@ final class NetworkManager {
         }
     }
     
-    func request(router: SeSacApi) -> Single<String> {
+    func request(router: SeSacApiUser) -> Single<String> {
         return Single<String>.create { single in
             
             AF.request(router).validate(statusCode: 100...200).responseString() { response in

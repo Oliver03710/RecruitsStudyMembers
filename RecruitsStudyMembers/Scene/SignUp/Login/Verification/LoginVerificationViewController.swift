@@ -146,7 +146,7 @@ final class LoginVerificationViewController: BaseViewController {
     }
     
     func requestCheckUser() {
-        NetworkManager.shared.request(UserData.self, router: SeSacApi.login)
+        NetworkManager.shared.request(UserData.self, router: SeSacApiUser.login)
             .subscribe(onSuccess: { response in
                 print(response)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

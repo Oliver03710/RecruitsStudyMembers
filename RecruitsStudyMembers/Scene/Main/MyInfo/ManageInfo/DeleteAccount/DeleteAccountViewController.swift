@@ -54,7 +54,7 @@ final class DeleteAccountViewController: BaseViewController {
     }
     
     private func deleteAccount() {
-        NetworkManager.shared.request(router: SeSacApi.withdraw)
+        NetworkManager.shared.request(router: SeSacApiUser.withdraw)
             .subscribe(onSuccess: { response in
                 print(response)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
