@@ -37,19 +37,18 @@ final class BirthViewController: BaseViewController {
     }
     
     func bindData() {
-        let input = BirthViewModel.Input(tap: birthView.nextButton.rx.tap, date: birthView.datePicker.rx.date)
+        let input = BirthViewModel.Input(tap: birthView.nextButton.rx.tap,
+                                         date: birthView.datePicker.rx.date)
+        
         let output = birthView.viewModel.transform(input: input)
 
-        output.year
-            .drive(birthView.leftView.birthTextField.rx.text)
-            .disposed(by: birthView.viewModel.disposeBag)
-        
-        output.month
-            .drive(birthView.centerView.birthTextField.rx.text)
-            .disposed(by: birthView.viewModel.disposeBag)
-        
-        output.day
-            .drive(birthView.rightView.birthTextField.rx.text)
+        output.dateTransformed
+            .drive { [weak self] date in
+                guard let year = date?.year, let month = date?.month, let day = date?.day else { return }
+                self?.birthView.leftView.birthTextField.text = "\(year)"
+                self?.birthView.centerView.birthTextField.text = "\(month)"
+                self?.birthView.rightView.birthTextField.text = "\(day)"
+            }
             .disposed(by: birthView.viewModel.disposeBag)
         
         output.ageValid

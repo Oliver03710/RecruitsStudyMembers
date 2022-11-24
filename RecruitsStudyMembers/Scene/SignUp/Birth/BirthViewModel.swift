@@ -14,9 +14,6 @@ final class BirthViewModel: CommonViewModel {
     
     // MARK: - Properties
     
-    private var yearValue = BehaviorRelay<String>(value: UserDefaultsManager.birthYear)
-    private var monthValue = BehaviorRelay<String>(value: UserDefaultsManager.birthMonth)
-    private var dayValue = BehaviorRelay<String>(value: UserDefaultsManager.birthDay)
     private var buttonValid = BehaviorRelay<Bool>(value: false)
     
     let disposeBag = DisposeBag()
@@ -31,9 +28,7 @@ final class BirthViewModel: CommonViewModel {
     
     struct Output {
         let tap: SharedSequence<DriverSharingStrategy, Void>
-        let year: SharedSequence<DriverSharingStrategy, String>
-        let month: SharedSequence<DriverSharingStrategy, String>
-        let day: SharedSequence<DriverSharingStrategy, String>
+        let dateTransformed: SharedSequence<DriverSharingStrategy, (year: Int?, month: Int?, day: Int?)?>
         let ageValid: Observable<Bool>
         let buttonValid: BehaviorRelay<Bool>
     }
@@ -43,53 +38,55 @@ final class BirthViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        input.date
-            .asObservable()
-            .withUnretained(self)
-            .subscribe { (vc, date) in
-                vc.yearValue.accept(date.toString(withFormat: "YYYY"))
-                vc.monthValue.accept(date.toString(withFormat: "MM"))
-                vc.dayValue.accept(date.toString(withFormat: "dd"))
+        let dateTransformed = input.date
+            .map { date in
+                date.toCalendar()
             }
-            .disposed(by: disposeBag)
-
+            .asDriver(onErrorJustReturn: nil)
+        
         let ageValid = input.date
-            .asObservable()
             .withUnretained(self)
             .map { vc, date in
-                guard let yearInterval = (Date()-date).year else { return false }
-                guard let monthInterval = (Date()-date).month else { return false }
-                guard let dayInterval = (Date()-date).day else { return false }
                 
-                UserDefaultsManager.birthYear = date.toString(withFormat: "YYYY")
-                UserDefaultsManager.birthMonth = date.toString(withFormat: "MM")
-                UserDefaultsManager.birthDay = date.toString(withFormat: "dd")
+                guard let year = date.toCalendar().year, let month = date.toCalendar().month, let day = date.toCalendar().day else {
+                    vc.buttonValid.accept(false)
+                    return false
+                }
                 
+                if date.calculateDates().year > 17 {
+                    vc.buttonValid.accept(true)
+                    UserDefaultsManager.birth = date.toString()
+                    UserDefaultsManager.birthYear = "\(year)"
+                    UserDefaultsManager.birthMonth = "\(month)"
+                    UserDefaultsManager.birthDay = "\(day)"
+                    return true
+                }
+                
+                guard date.calculateDates().year == 17 else {
+                    vc.buttonValid.accept(false)
+                    return false
+                }
+                
+                guard date.calculateDates().month >= 0 else {
+                    vc.buttonValid.accept(false)
+                    return false
+                }
+                
+                guard date.calculateDates().day >= 0 else {
+                    vc.buttonValid.accept(false)
+                    return false
+                }
+                
+                vc.buttonValid.accept(true)
                 UserDefaultsManager.birth = date.toString()
-                
-                guard yearInterval <= 17 else {
-                    vc.buttonValid.accept(true)
-                    return true
-                }
-                
-                guard monthInterval % 12 <= 0 else {
-                    vc.buttonValid.accept(true)
-                    return true
-                }
-                
-                guard dayInterval % 30 < 0 else {
-                    vc.buttonValid.accept(true)
-                    return true
-                }
-                return false
+                UserDefaultsManager.birthYear = "\(year)"
+                UserDefaultsManager.birthMonth = "\(month)"
+                UserDefaultsManager.birthDay = "\(day)"
+                return true
             }
         
         let tap = input.tap.asDriver()
         
-        let year = yearValue.asDriver(onErrorJustReturn: "")
-        let month = monthValue.asDriver(onErrorJustReturn: "")
-        let day = dayValue.asDriver(onErrorJustReturn: "")
-        
-        return Output(tap: tap, year: year, month: month, day: day, ageValid: ageValid, buttonValid: buttonValid)
+        return Output(tap: tap, dateTransformed: dateTransformed, ageValid: ageValid, buttonValid: buttonValid)
     }
 }
