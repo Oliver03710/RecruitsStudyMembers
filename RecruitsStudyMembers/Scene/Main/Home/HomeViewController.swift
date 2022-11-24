@@ -18,7 +18,8 @@ final class HomeViewController: BaseViewController {
     // MARK: - Properties
     
     private let myView = HomeView()
-    private let disposeBag = DisposeBag()
+    private let viewModel = HomeViewModel()
+    
     
     // MARK: - Init
     
@@ -41,6 +42,7 @@ final class HomeViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
+        checkUserDeviceLocationServiceAuthorization()
         setDelegates()
         bindData()
     }
@@ -50,11 +52,13 @@ final class HomeViewController: BaseViewController {
         myView.locationManager.delegate = self
     }
     
-    private func setAnnotations() {
-        let annotation = SeSacAnnotation(0)
+    private func setAnnotations(identifier: Int) {
+        let annotation = SeSacAnnotation(identifier)
         annotation.coordinate = myView.mapView.region.center
         myView.mapView.addAnnotation(annotation)
-        
+    }
+    
+    private func setCircleOverlay() {
         let radius = 700.0
         let circle = MKCircle(center: myView.mapView.region.center, radius: radius)
         myView.mapView.addOverlay(circle)
@@ -73,23 +77,30 @@ final class HomeViewController: BaseViewController {
     }
     
     private func bindData() {
-        myView.seekButton.rx.tap
-            .asDriver()
+        let input = HomeViewModel.Input(currentButtonTapped: myView.currentButton.rx.tap, seekButtonTapped: myView.seekButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.seekButtonDriver
             .drive { [weak self] _ in
                 self?.PresentToSearchVC()
             }
-            .disposed(by: disposeBag)
+            .disposed(by: viewModel.disposeBag)
+        
+        output.currentButtonDriver
+            .drive { [weak self] _ in
+                self?.checkUserDeviceLocationServiceAuthorization()
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
     private func PresentToSearchVC() {
         let vc = SearchViewController()
         navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 
 
-// MARK: - Authorizations
+// MARK: - Extension: Authorizations
 
 extension HomeViewController {
     
@@ -102,13 +113,7 @@ extension HomeViewController {
             authorizationStatus = CLLocationManager.authorizationStatus()
         }
         
-        DispatchQueue.global().async {
-            if CLLocationManager.locationServicesEnabled() {
-                self.checkUserCurrentLocationAuthorization(authorizationStatus)
-            } else {
-                self.view.makeToast("위치 서비스가 꺼져 있습니다.")
-            }
-        }
+        self.checkUserCurrentLocationAuthorization(authorizationStatus)
     }
     
     private func checkUserCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
@@ -117,10 +122,14 @@ extension HomeViewController {
         case .notDetermined:
             myView.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             myView.locationManager.requestWhenInUseAuthorization()
+            
         case .restricted, .denied:
+            myView.mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.517819364682694, longitude: 126.88647317074734), latitudinalMeters: 700, longitudinalMeters: 700), animated: true)
             showRequestLocationServiceAlert()
+            
         case .authorizedWhenInUse:
             myView.locationManager.startUpdatingLocation()
+            
         default:
             print("Default")
         }
@@ -152,7 +161,8 @@ extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         removeAllFromMap()
-        setAnnotations()
+        setAnnotations(identifier: 0)
+        setCircleOverlay()
         // 스터디 멤버 찾기 메서드 추가
     }
     
