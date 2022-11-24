@@ -42,23 +42,43 @@ struct UserDefaultsManager {
     static var fcmToken: String
     
     // MARK: - API
-    @UserDefaultsWrapper(key: "baseURLPath", defaultValue: "http://api.sesac.co.kr:1210")
-    static var baseURLPath: String
-    
     @UserDefaultsWrapper(key: "contentType", defaultValue: "application/x-www-form-urlencoded")
     static var contentType: String
     
-    @UserDefaultsWrapper(key: "loginPath", defaultValue: "/v1/user")
-    static var loginPath: String
+    // MARK: - User API
+    @UserDefaultsWrapper(key: "userBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210/v1/user")
+    static var userBaseURLPath: String
     
-    @UserDefaultsWrapper(key: "signupPath", defaultValue: "/v1/user")
-    static var signupPath: String
+    @UserDefaultsWrapper(key: "loginAndSignupPath", defaultValue: "")
+    static var loginAndSignupPath: String
     
-    @UserDefaultsWrapper(key: "myPagePath", defaultValue: "/v1/user/mypage")
+    @UserDefaultsWrapper(key: "myPagePath", defaultValue: "/mypage")
     static var myPagePath: String
     
-    @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/v1/user/withdraw")
+    @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/withdraw")
     static var withdrawPath: String
+    
+    // MARK: - Queue API
+    @UserDefaultsWrapper(key: "queueBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210/v1/queue")
+    static var queueBaseURLPath: String
+    
+    @UserDefaultsWrapper(key: "requestAndStop", defaultValue: "")
+    static var requestAndStop: String
+    
+    @UserDefaultsWrapper(key: "search", defaultValue: "/search")
+    static var search: String
+    
+    @UserDefaultsWrapper(key: "myQueueState", defaultValue: "/myQueueState")
+    static var myQueueState: String
+    
+    @UserDefaultsWrapper(key: "studyRequest", defaultValue: "/studyrequest")
+    static var studyRequest: String
+    
+    @UserDefaultsWrapper(key: "studyAccept", defaultValue: "/studyaccept")
+    static var studyAccept: String
+    
+    @UserDefaultsWrapper(key: "dodge", defaultValue: "/dodge")
+    static var dodge: String
     
     // MARK: - Parameters
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
