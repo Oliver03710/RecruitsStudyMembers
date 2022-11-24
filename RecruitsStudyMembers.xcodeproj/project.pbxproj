@@ -68,6 +68,8 @@
 		AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609685291A463D00FF78CB /* ThirdViewController.swift */; };
 		AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609687291A471700FF78CB /* OnboardingLabel.swift */; };
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
+		AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */; };
+		AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
 		AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B782929415F000F7828 /* GenderButtonOnMap.swift */; };
 		AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */; };
@@ -175,6 +177,8 @@
 		AD609685291A463D00FF78CB /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		AD609687291A471700FF78CB /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
 		AD910B782929415F000F7828 /* GenderButtonOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButtonOnMap.swift; sourceTree = "<group>"; };
 		AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+Extension.swift"; sourceTree = "<group>"; };
@@ -377,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAC0D5D29260F1C00424D39 /* Cells */,
+				AD90630C292D69CD007A70E2 /* DeleteAccount */,
 				ADB604BE2923EA320081CEC2 /* ReusableView.swift */,
 				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
 				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
@@ -449,6 +454,15 @@
 				AD609685291A463D00FF78CB /* ThirdViewController.swift */,
 			);
 			path = NestedViewController;
+			sourceTree = "<group>";
+		};
+		AD90630C292D69CD007A70E2 /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */,
+				AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */,
+			);
+			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
 		AD9533B529195C41002126C0 /* Splash */ = {
@@ -806,6 +820,7 @@
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */,
+				AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
 				AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */,
 				AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */,
@@ -837,6 +852,7 @@
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
+				AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
 				ADE9623C292B7401003D5191 /* SearchView.swift in Sources */,
