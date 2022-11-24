@@ -41,31 +41,34 @@ final class LoginViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        let textFormat = input.textFieldText.orEmpty
+        let textFormat = input.textFieldText.orEmpty.changed
             .map { str in
-                
-                let numbersOnly = str.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                print(str)
+                var numbersOnly = str.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
                 let length = numbersOnly.count
                 
-                guard length > 4 else { return str }
+                if length >= 12 {
+                    numbersOnly.insert("-", at: numbersOnly.index(numbersOnly.startIndex, offsetBy: 3))
+                    numbersOnly.insert("-", at: numbersOnly.index(numbersOnly.startIndex, offsetBy: 8))
+                    let maxStr = numbersOnly.index(numbersOnly.startIndex, offsetBy: 13)
+                    return String(numbersOnly[..<maxStr])
+                    
+                } else if length >= 7 && length < 12 {
+                    numbersOnly.insert("-", at: numbersOnly.index(numbersOnly.startIndex, offsetBy: 3))
+                    length == 11 ? numbersOnly.insert("-", at: numbersOnly.index(numbersOnly.startIndex, offsetBy: 8)) :
+                    numbersOnly.insert("-", at: numbersOnly.index(numbersOnly.startIndex, offsetBy: 7))
+                    return numbersOnly
+                    
+                } else if length >= 4 && length < 7 {
+                    numbersOnly.insert("-", at: numbersOnly.index(numbersOnly.startIndex, offsetBy: 3))
+                    return numbersOnly
+                }
                 
-                var sourceIndex = 0
-                
-                let leadingLength = 3
-                guard let leading = numbersOnly.substring(start: sourceIndex, offsetBy: leadingLength) else { return str }
-                sourceIndex += leadingLength
-                
-                let prefixLength = length > 10 ? 4 : 3
-                guard let prefix = numbersOnly.substring(start: sourceIndex, offsetBy: prefixLength) else { return str }
-                sourceIndex += prefixLength
-                
-                let suffixLength = 4
-                guard let suffix = numbersOnly.substring(start: sourceIndex, offsetBy: suffixLength) else { return str }
-                
-                return leading + "-" + prefix + "-" + suffix
+                return numbersOnly
             }
+            .share()
         
-        let numValid = input.textFieldText.orEmpty
+        let numValid = textFormat
             .withUnretained(self)
             .map { vc, str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
