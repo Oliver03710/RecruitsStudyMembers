@@ -43,7 +43,6 @@ final class LoginViewModel: CommonViewModel {
         
         let textFormat = input.textFieldText.orEmpty.changed
             .map { str in
-                print(str)
                 var numbersOnly = str.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
                 let length = numbersOnly.count
                 
