@@ -40,7 +40,7 @@ final class GenderView: BaseView {
     
     let nextButton: CustomButton = {
         let btn = CustomButton(text: "다음", buttonColor: SSColors.gray6.color)
-        btn.backgroundColor = UserDefaultsManager.gender == 0 || UserDefaultsManager.gender == 1 ? SSColors.green.color : SSColors.gray6.color
+        btn.backgroundColor = SSColors.gray6.color
         return btn
     }()
     
