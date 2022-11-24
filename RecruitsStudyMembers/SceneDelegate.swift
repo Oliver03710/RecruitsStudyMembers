@@ -17,14 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
-        
-//        UserDefaultsManager.token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjE5MTI0MGZjZmYzMDdkYzQ3NTg1OWEyYmUzNzgzZGMxYWY4OWYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2VzYWMtMSIsImF1ZCI6InNlc2FjLTEiLCJhdXRoX3RpbWUiOjE2NjgzMzA1MjcsInVzZXJfaWQiOiJRV1M4eEZsa0lPZjlHUU1wYVFwV0pCa2hXOWUyIiwic3ViIjoiUVdTOHhGbGtJT2Y5R1FNcGFRcFdKQmtoVzllMiIsImlhdCI6MTY2ODMzMDUyNywiZXhwIjoxNjY4MzM0MTI3LCJwaG9uZV9udW1iZXIiOiIrODIxMDMyNjMxNTE1IiwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJwaG9uZSI6WyIrODIxMDMyNjMxNTE1Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGhvbmUifX0.Ba18TwG4oQUlxU6vg-ZYGzIrrpfl-fGejpSzGBPBlWAst3tVGGZGHC6EqujsXZtFJ-xiI4pH2K2HAcPdQ1Qz3bgF5Zq3kB8tfQMoz1HdD7KCEU4OjTcIfjbK4v7wTqGqzIDYtiHCA7-AdMtwaAiEPEzSovnlBS1NS4Opy3_reC-9gsntOEALWtGgkDp8ki0YcefpIaD8gteF_yXLt3VfzCgxyd8q-LytkywBcXOlxMS8tCrTgAPhppjl4Gn__vQFxWMP5ExA62LVDQfdzxxUkldLJt48IToZ9ilvcKTdAbWM6mvl34j-WzY3PpsVvFS17Pi-2HKSIvkPNIr1saLGPQ"
-        
-        let vc = /*!UserDefaultsManager.certiNum.isEmpty ? GenderViewController() : */SplashViewController()
-//        let vc = MainTabBarController()
+        let vc = SplashViewController()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
-        
         window?.makeKeyAndVisible()
         
     }
