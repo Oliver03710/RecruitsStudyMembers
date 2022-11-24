@@ -7,13 +7,15 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class DeleteAccountCollectionViewCell: CustomCollectionViewCell {
     
     // MARK: - Properties
     
-    let resignButton: UIButton = {
+    let deleteButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("회원탈퇴", for: .normal)
         btn.setTitleColor(SSColors.black.color, for: .normal)
@@ -32,10 +34,10 @@ final class DeleteAccountCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Helper Functions
     
     override func setConstraints() {
-        contentView.addSubview(resignButton)
+        contentView.addSubview(deleteButton)
         
-        resignButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        resignButton.snp.makeConstraints {
+        deleteButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        deleteButton.snp.makeConstraints {
             $0.height.equalTo(20)
             $0.centerY.equalTo(safeAreaLayoutGuide)
             $0.leading.equalTo(safeAreaLayoutGuide)
