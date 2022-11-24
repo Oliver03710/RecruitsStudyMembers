@@ -33,7 +33,6 @@ final class LoginViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
-        UserDefaultsManager.resetSingupData()
         bindData()
     }
     
