@@ -18,6 +18,7 @@ final class HomeView: BaseView {
     
     let mapView: MKMapView = {
         let mv = MKMapView()
+        mv.cameraZoomRange = MKMapView.CameraZoomRange(minCenterCoordinateDistance: 100, maxCenterCoordinateDistance: 6000)
         return mv
     }()
     
