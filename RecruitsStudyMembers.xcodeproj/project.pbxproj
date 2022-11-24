@@ -22,7 +22,7 @@
 		AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A8D291B8FAA0032E9EB /* CommonViewModel+Protocol.swift */; };
 		AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A90291C06C20032E9EB /* String+Extension.swift */; };
 		AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A93291C13DA0032E9EB /* UserDefaults+Wrapper.swift */; };
-		AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A96291C15050032E9EB /* Router+URLRequestConvertible.swift */; };
+		AD103A97291C15050032E9EB /* UserRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */; };
 		AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD103A98291C194D0032E9EB /* NetworkManager.swift */; };
 		AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		AD103A9E291C21290032E9EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9D291C21290032E9EB /* FirebaseAuth */; };
@@ -140,7 +140,7 @@
 		AD103A8D291B8FAA0032E9EB /* CommonViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommonViewModel+Protocol.swift"; sourceTree = "<group>"; };
 		AD103A90291C06C20032E9EB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AD103A93291C13DA0032E9EB /* UserDefaults+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Wrapper.swift"; sourceTree = "<group>"; };
-		AD103A96291C15050032E9EB /* Router+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+URLRequestConvertible.swift"; sourceTree = "<group>"; };
+		AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		AD103A98291C194D0032E9EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AD103AA1291C298B0032E9EB /* RecruitsStudyMembers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecruitsStudyMembers.entitlements; sourceTree = "<group>"; };
 		AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 				AD1B38A52920A18B006D7523 /* CustomError.swift */,
 				AD1B38AB2920F843006D7523 /* UserData.swift */,
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
-				AD103A96291C15050032E9EB /* Router+URLRequestConvertible.swift */,
+				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -856,7 +856,7 @@
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
 				AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
-				AD103A97291C15050032E9EB /* Router+URLRequestConvertible.swift in Sources */,
+				AD103A97291C15050032E9EB /* UserRouter+URLRequestConvertible.swift in Sources */,
 				ADE9623C292B7401003D5191 /* SearchView.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
 				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,

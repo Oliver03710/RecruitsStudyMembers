@@ -1,5 +1,5 @@
 //
-//  Router+URLRequestConvertible.swift
+//  UserRouter+URLRequestConvertible.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/10.
