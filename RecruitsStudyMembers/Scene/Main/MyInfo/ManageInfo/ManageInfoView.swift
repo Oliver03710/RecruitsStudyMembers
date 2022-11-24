@@ -26,7 +26,7 @@ final class ManageInfoView: BaseView {
         return cv
     }()
     
-    var isFolded = true
+    var isFolded = false
     
     var dataSource: UICollectionViewDiffableDataSource<Section, DefaultUserData>! = nil
     var currentSnapshot = NSDiffableDataSourceSnapshot<Section, DefaultUserData>()
@@ -80,7 +80,7 @@ extension ManageInfoView {
                 return section
 
             case .foldable:
-                let estimatedHeight = CGFloat(350)
+                let estimatedHeight = CGFloat(self?.isFolded ?? false ? 72 : 330)
 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
