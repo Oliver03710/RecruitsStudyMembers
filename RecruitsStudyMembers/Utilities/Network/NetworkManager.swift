@@ -28,7 +28,7 @@ final class NetworkManager {
     
     // MARK: - Helper Functions
         
-    func request<T: Codable>(_ types: T.Type = T.self, router: SeSacApiUser) -> Single<T> {
+    func request<T: Codable>(_ types: T.Type = T.self, router: URLRequestConvertible) -> Single<T> {
         return Single<T>.create { single in
 
             AF.request(router).validate(statusCode: 200..<400).responseDecodable(of: types.self) { response in
@@ -47,7 +47,7 @@ final class NetworkManager {
         }
     }
     
-    func request(router: SeSacApiUser) -> Single<String> {
+    func request(router: URLRequestConvertible) -> Single<String> {
         return Single<String>.create { single in
             
             AF.request(router).validate(statusCode: 100...200).responseString() { response in
@@ -84,6 +84,22 @@ final class NetworkManager {
     
     func saveUserData(data: UserData) {
         userData = data
+    }
+    
+    func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void, defaultErrorHandler: @escaping () -> Void) {
+        guard let codeNum = NetworkManager.shared.refreshToken() else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                competionHandler()
+            }
+            return
+        }
+        guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
+        switch errorCode {
+        case .tooManyRequests:
+            errorHandler()
+        default:
+            defaultErrorHandler()
+        }
     }
 }
 
