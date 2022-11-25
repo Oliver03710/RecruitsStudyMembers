@@ -97,6 +97,34 @@ final class HomeViewController: BaseViewController {
         let vc = SearchViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    private func checkMyQueueState() {
+        NetworkManager.shared.request(router: SeSacApiQueue.myQueueState)
+            .subscribe(onSuccess: { response in
+                print(response)
+                
+            }, onFailure: { [weak self] error in
+                let errors = (error as NSError).code
+                print(errors)
+                guard let errCode = SeSacError(rawValue: errors) else { return }
+                switch errCode {
+                    
+                case .firebaseTokenError:
+                    NetworkManager.shared.fireBaseError {
+                        self?.checkMyQueueState()
+                    } errorHandler: {
+                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
+                    } defaultErrorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.", position: .top)
+                    }
+                    
+                case .unsignedupUser, .ServerError, .ClientError:
+                    self?.view.makeToast(errCode.errorDescription)
+                default: break
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
 }
 
 
