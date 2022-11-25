@@ -68,6 +68,7 @@
 		AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609687291A471700FF78CB /* OnboardingLabel.swift */; };
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */; };
+		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
 		AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */; };
 		AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
@@ -179,6 +180,7 @@
 		AD609687291A471700FF78CB /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
+		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
 		AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			children = (
 				AD1B38A52920A18B006D7523 /* CustomError.swift */,
 				AD1B38AB2920F843006D7523 /* UserData.swift */,
+				AD7803DE2930D4870007B19C /* QueueData.swift */,
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
 				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
 				ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */,
@@ -814,6 +817,7 @@
 				ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */,
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
 				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
+				AD7803DF2930D4870007B19C /* QueueData.swift in Sources */,
 				AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */,
 				ADE9623E292BEB52003D5191 /* SearchCollectionViewCell.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
