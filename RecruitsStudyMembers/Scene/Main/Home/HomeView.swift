@@ -86,6 +86,12 @@ final class HomeView: BaseView {
         return btn
     }()
     
+    private let markerImageView: UIImageView = {
+        let iv = UIImageView(image: UIImage(named: GeneralIcons.mapMarker.rawValue))
+        iv.contentMode = .scaleAspectFit
+        return iv
+    }()
+    
     
     // MARK: - Init
     
@@ -98,7 +104,7 @@ final class HomeView: BaseView {
     
     override func setConstraints() {
         addSubview(mapView)
-        [verticalStackView, shadowView, seekButton].forEach { mapView.addSubview($0) }
+        [verticalStackView, shadowView, seekButton, markerImageView].forEach { mapView.addSubview($0) }
         shadowView.addSubview(currentButton)
         
         mapView.snp.makeConstraints {
@@ -126,6 +132,11 @@ final class HomeView: BaseView {
         
         currentButton.snp.makeConstraints {
             $0.edges.equalTo(shadowView)
+        }
+        
+        markerImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.height.equalTo(48)
         }
     }
 }
