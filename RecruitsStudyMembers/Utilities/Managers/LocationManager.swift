@@ -12,6 +12,7 @@ final class LocationManager {
     // MARK: - Properties
     
     static let shared = LocationManager()
+    var currentPosition: (lat: Double, lon: Double) = (0.0, 0.0)
     
     
     // MARK: - Init
