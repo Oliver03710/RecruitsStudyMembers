@@ -2,7 +2,7 @@
 //  LoginVerificationViewModel.swift
 //  RecruitsStudyMembers
 //
-//  Created by Junhee Yoon on 2022/11/10.
+//  Created by Junhee Yoon on 2022/11/25.
 //
 
 import Foundation

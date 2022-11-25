@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */; };
 		AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047B291CE54F00377276 /* LoginVerificationView.swift */; };
-		AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */; };
 		AD0D0480291D002100377276 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047F291D002100377276 /* UIViewController+Extension.swift */; };
 		AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0481291D1B6900377276 /* NicknameViewModel.swift */; };
 		AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0483291D1CC200377276 /* BirthViewModel.swift */; };
@@ -68,6 +67,7 @@
 		AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609685291A463D00FF78CB /* ThirdViewController.swift */; };
 		AD609688291A471700FF78CB /* OnboardingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609687291A471700FF78CB /* OnboardingLabel.swift */; };
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
+		AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */; };
 		AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */; };
 		AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
@@ -105,6 +105,7 @@
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADD78636292F8387001B63AC /* UINavigationViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */; };
 		ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24AD9292FE55C000C08AB /* LocationManager.swift */; };
+		ADE24ADC292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */; };
 		ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96239292B6FA7003D5191 /* SearchViewController.swift */; };
 		ADE9623C292B7401003D5191 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623B292B7401003D5191 /* SearchView.swift */; };
 		ADE9623E292BEB52003D5191 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */; };
@@ -127,7 +128,6 @@
 /* Begin PBXFileReference section */
 		AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewController.swift; sourceTree = "<group>"; };
 		AD0D047B291CE54F00377276 /* LoginVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationView.swift; sourceTree = "<group>"; };
-		AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD0D047F291D002100377276 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AD0D0481291D1B6900377276 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		AD0D0483291D1CC200377276 /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +178,7 @@
 		AD609685291A463D00FF78CB /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		AD609687291A471700FF78CB /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADE24AD9292FE55C000C08AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		ADE96239292B6FA7003D5191 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ADE9623B292B7401003D5191 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -261,7 +263,7 @@
 			children = (
 				AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */,
 				AD0D047B291CE54F00377276 /* LoginVerificationView.swift */,
-				AD0D047D291CE55E00377276 /* LoginVerificationViewModel.swift */,
+				AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -321,6 +323,7 @@
 				AD1B38AB2920F843006D7523 /* UserData.swift */,
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
 				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
+				ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -834,11 +837,11 @@
 				AD23FB0029224F9B004FA34E /* ImageCollectionViewCell.swift in Sources */,
 				ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */,
 				AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */,
+				ADE24ADC292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift in Sources */,
 				AD9533BB29196019002126C0 /* OnboardingViewController.swift in Sources */,
 				AD23FAE92922144C004FA34E /* FriendsViewController.swift in Sources */,
 				AD23FB0A29229A0B004FA34E /* Reusable+Protocol.swift in Sources */,
 				AD9533B829195D4E002126C0 /* SSImages.swift in Sources */,
-				AD0D047E291CE55E00377276 /* LoginVerificationViewModel.swift in Sources */,
 				ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */,
 				AD0D0480291D002100377276 /* UIViewController+Extension.swift in Sources */,
 				ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */,
@@ -873,6 +876,7 @@
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
 				AD23FAE429221352004FA34E /* ShopView.swift in Sources */,
 				AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */,
+				AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
