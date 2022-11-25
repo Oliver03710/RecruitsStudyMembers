@@ -5,7 +5,7 @@
 //  Created by Junhee Yoon on 2022/11/08.
 //
 
-import Foundation
+import UIKit
 
 enum BackgroundImages: Int {
     case sesacBackground0
@@ -25,6 +25,16 @@ enum FaceImages: Int {
     case sesacFace2
     case sesacFace3
     case sesacFace4
+    
+    var images: UIImage? {
+        switch self {
+        case .sesacFace0: return UIImage(named: "sesacFace0")
+        case .sesacFace1: return UIImage(named: "sesacFace1")
+        case .sesacFace2: return UIImage(named: "sesacFace2")
+        case .sesacFace3: return UIImage(named: "sesacFace3")
+        case .sesacFace4: return UIImage(named: "sesacFace4")
+        }
+    }
 }
 
 enum SplashImages: String {
