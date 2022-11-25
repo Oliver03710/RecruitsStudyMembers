@@ -8,9 +8,8 @@
 import MapKit
 
 final class SeSacAnnotation: MKPointAnnotation {
-    var identifier: Int
     
-    init(_ identifier: Int) {
-        self.identifier = identifier
-    }
+    let uuid = UUID()
+    var image: Int = 0
+    
 }
