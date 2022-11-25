@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiQueue {
-    case myQueueState
+    case myQueueState, search
 }
 
 
@@ -31,18 +31,20 @@ extension SeSacApiQueue: URLRequestConvertible {
     var path: String {
         switch self {
         case .myQueueState: return UserDefaultsManager.myQueueState
+        case .search: return UserDefaultsManager.search
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .myQueueState: return .get
+        case .search: return .post
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
-        case .myQueueState: return ["idtoken": UserDefaultsManager.token]
+        case .myQueueState, .search: return ["idtoken": UserDefaultsManager.token]
         }
     }
     
@@ -54,7 +56,7 @@ extension SeSacApiQueue: URLRequestConvertible {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .myQueueState: return JSONEncoding.default
+        case .myQueueState, .search: return JSONEncoding.default
         }
     }
     
