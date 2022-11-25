@@ -38,7 +38,7 @@ final class NetworkManager {
                     single(.success(value))
                 case .failure:
                     guard let statusCode = response.response?.statusCode else { return }
-                    guard let error = SeSacError(rawValue: statusCode) else { return }
+                    guard let error = SeSacUserError(rawValue: statusCode) else { return }
                     single(.failure(error))
                 }
 
@@ -56,7 +56,7 @@ final class NetworkManager {
                     single(.success(data))
                 case .failure:
                     guard let statusCode = response.response?.statusCode else { return }
-                    guard let error = SeSacError(rawValue: statusCode) else { return }
+                    guard let error = SeSacUserError(rawValue: statusCode) else { return }
                     single(.failure(error))
                 }
             }
@@ -80,10 +80,6 @@ final class NetworkManager {
             return
         }
         return errCode
-    }
-    
-    func saveUserData(data: UserData) {
-        userData = data
     }
     
     func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void, defaultErrorHandler: @escaping () -> Void) {
