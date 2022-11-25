@@ -52,27 +52,11 @@ final class HomeViewController: BaseViewController {
         myView.locationManager.delegate = self
     }
     
-    private func setAnnotations(identifier: Int) {
-        let annotation = SeSacAnnotation(identifier)
-        annotation.coordinate = myView.mapView.region.center
-        myView.mapView.addAnnotation(annotation)
-    }
-    
-    private func setCircleOverlay() {
-        let radius = 700.0
-        let circle = MKCircle(center: myView.mapView.region.center, radius: radius)
-        myView.mapView.addOverlay(circle)
-    }
-    
-    private func removeAllFromMap() {
+    func removeAnnotations() {
         myView.mapView.annotations.forEach { (annotation) in
             if let annotation = annotation as? MKPointAnnotation {
                 myView.mapView.removeAnnotation(annotation)
             }
-        }
-        
-        myView.mapView.overlays.forEach { (overlay) in
-            myView.mapView.removeOverlay(overlay)
         }
     }
     
@@ -88,7 +72,25 @@ final class HomeViewController: BaseViewController {
         
         output.currentButtonDriver
             .drive { [weak self] _ in
-                self?.checkUserDeviceLocationServiceAuthorization()
+                guard let self = self else { return }
+                self.checkUserDeviceLocationServiceAuthorization()
+                if !(self.myView.locationManager.authorizationStatus == .denied) || !(self.myView.locationManager.authorizationStatus == .restricted) {
+                    LocationManager.shared.currentPosition = (self.myView.mapView.region.center.latitude, self.myView.mapView.region.center.longitude)
+                    self.searchStudyMembers()
+                }
+            }
+            .disposed(by: viewModel.disposeBag)
+        
+        output.memberDriver
+            .drive { [weak self] dataArr in
+                guard let self = self else { return }
+                self.removeAnnotations()
+                dataArr.forEach { data in
+                    let anno = SeSacAnnotation()
+                    anno.coordinate = CLLocationCoordinate2D(latitude: data.lat, longitude: data.long)
+                    anno.image = data.sesac
+                    self.myView.mapView.addAnnotation(anno)
+                }
             }
             .disposed(by: viewModel.disposeBag)
     }
@@ -106,12 +108,41 @@ final class HomeViewController: BaseViewController {
             }, onFailure: { [weak self] error in
                 let errors = (error as NSError).code
                 print(errors)
-                guard let errCode = SeSacError(rawValue: errors) else { return }
+                guard let errCode = SeSacUserError(rawValue: errors) else { return }
                 switch errCode {
                     
                 case .firebaseTokenError:
                     NetworkManager.shared.fireBaseError {
                         self?.checkMyQueueState()
+                    } errorHandler: {
+                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
+                    } defaultErrorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.", position: .top)
+                    }
+                    
+                case .unsignedupUser, .ServerError, .ClientError:
+                    self?.view.makeToast(errCode.errorDescription)
+                default: break
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func searchStudyMembers() {
+        NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.search)
+            .subscribe(onSuccess: { [weak self] response in
+                dump(response)
+                self?.viewModel.members.accept(response.fromQueueDB)
+                
+            }, onFailure: { [weak self] error in
+                let errors = (error as NSError).code
+                print(errors)
+                guard let errCode = SeSacUserError(rawValue: errors) else { return }
+                switch errCode {
+                    
+                case .firebaseTokenError:
+                    NetworkManager.shared.fireBaseError {
+                        self?.searchStudyMembers()
                     } errorHandler: {
                         self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
                     } defaultErrorHandler: {
@@ -188,10 +219,8 @@ extension HomeViewController {
 extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        removeAllFromMap()
-        setAnnotations(identifier: 0)
-        setCircleOverlay()
-        // 스터디 멤버 찾기 메서드 추가
+        LocationManager.shared.currentPosition = (mapView.region.center.latitude, mapView.region.center.longitude)
+        searchStudyMembers()
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
@@ -201,24 +230,26 @@ extension HomeViewController: MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let circleRenderer = MKCircleRenderer(overlay: overlay)
-        circleRenderer.strokeColor = SSColors.green.color
-        circleRenderer.lineWidth = 1.0
-        circleRenderer.fillColor = UIColor(red: 0.2862745098, green: 0.862745098, blue: 0.5725490196, alpha: 0.1)
-        return circleRenderer
-    }
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         guard let annotation = annotation as? SeSacAnnotation else { return nil }
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "\(annotation.identifier)")
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "\(annotation.uuid)")
+        
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "\(annotation.identifier)")
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "\(annotation.uuid)")
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: GeneralIcons.mapMarker.rawValue)
+        
+        switch annotation.image {
+        case 0: annotationView?.image = FaceImages(rawValue: 0)?.images
+        case 1: annotationView?.image = FaceImages(rawValue: 1)?.images
+        case 2: annotationView?.image = FaceImages(rawValue: 2)?.images
+        case 3: annotationView?.image = FaceImages(rawValue: 3)?.images
+        case 4: annotationView?.image = FaceImages(rawValue: 4)?.images
+        default: break
+        }
 
         return annotationView
     }
@@ -233,7 +264,8 @@ extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let coordinate = locations.last?.coordinate {
-            let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            LocationManager.shared.currentPosition = (coordinate.latitude, coordinate.longitude)
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 700, longitudinalMeters: 700)
             myView.mapView.setRegion(region, animated: true)
         }
         
@@ -246,6 +278,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkUserDeviceLocationServiceAuthorization()
+        LocationManager.shared.currentPosition = (myView.mapView.region.center.latitude, myView.mapView.region.center.longitude)
+        searchStudyMembers()
     }
     
 }
