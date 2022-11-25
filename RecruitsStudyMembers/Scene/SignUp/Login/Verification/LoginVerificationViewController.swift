@@ -158,7 +158,7 @@ final class LoginVerificationViewController: BaseViewController {
             }, onFailure: { [weak self] error in
                 let errors = (error as NSError).code
                 print(errors)
-                guard let errCode = SeSacError(rawValue: errors) else { return }
+                guard let errCode = SeSacUserError(rawValue: errors) else { return }
                 switch errCode {
                     
                 case .firebaseTokenError:
