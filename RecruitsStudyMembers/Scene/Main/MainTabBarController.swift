@@ -79,3 +79,18 @@ final class MainTabBarController: UITabBarController {
         return navController
     }
 }
+
+
+// MARK: - Extension: UITabBarControllerDelegate
+
+extension MainTabBarController: UITabBarControllerDelegate {
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        guard let theItems = self.tabBar.items, let idx = theItems.firstIndex(of: item), let controllers = self.viewControllers else { return }
+        
+        if let nav = controllers[idx] as? UINavigationController, let homeVC = nav.topViewController as? HomeViewController {
+            homeVC.searchStudyMembers()
+        }
+    }
+}
