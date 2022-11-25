@@ -23,7 +23,7 @@ extension SeSacApiQueue: URLRequestConvertible {
     var url: URL {
         switch self {
         default:
-            guard let url = URL(string: UserDefaultsManager.userBaseURLPath) else { return URL(fileURLWithPath: "") }
+            guard let url = URL(string: UserDefaultsManager.queueBaseURLPath) else { return URL(fileURLWithPath: "") }
             return url
         }
     }
@@ -44,19 +44,23 @@ extension SeSacApiQueue: URLRequestConvertible {
         
     var headers: HTTPHeaders {
         switch self {
-        case .myQueueState, .search: return ["idtoken": UserDefaultsManager.token]
+        case .myQueueState: return ["idtoken": UserDefaultsManager.token]
+        case .search: return ["Content-Type": UserDefaultsManager.contentType,
+                              "idtoken": UserDefaultsManager.token]
         }
     }
     
     var parameters: [String: String]? {
         switch self {
+        case .search: return ["lat": "\(LocationManager.shared.currentPosition.lat)",
+                              "long": "\(LocationManager.shared.currentPosition.lon)"]
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .myQueueState, .search: return JSONEncoding.default
+        case .myQueueState, .search: return URLEncoding.default
         }
     }
     
