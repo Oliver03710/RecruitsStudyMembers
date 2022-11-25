@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let token = Messaging.messaging().fcmToken else { return true }
         print(token)
+        print(UserDefaultsManager.token)
         UserDefaultsManager.fcmToken = token
         
         return true
