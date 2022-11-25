@@ -1,2 +1,2 @@
-# 개발공수
-https://fluffy-comte-126.notion.site/9fbdc10d4244491aa8c281501ce9dc78?v=1b644af5941247ac8d9b1fe0f16a410a
+# 개발일지
+https://jhee2619.notion.site/d464e41fb5af4199a085135e0f16c4d8
