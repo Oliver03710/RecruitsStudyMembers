@@ -14,6 +14,8 @@ final class HomeViewModel: CommonViewModel {
     
     // MARK: - Properties
     
+    var members = PublishRelay<[FromQueueDB]>()
+    
     let disposeBag = DisposeBag()
     
     
@@ -27,6 +29,7 @@ final class HomeViewModel: CommonViewModel {
     struct Output {
         let currentButtonDriver : SharedSequence<DriverSharingStrategy, Void>
         let seekButtonDriver: SharedSequence<DriverSharingStrategy, Void>
+        let memberDriver: SharedSequence<DriverSharingStrategy, [FromQueueDB]>
     }
     
     
@@ -36,7 +39,8 @@ final class HomeViewModel: CommonViewModel {
         
         let currentButtonDriver = input.currentButtonTapped.asDriver()
         let seekButtonDriver = input.seekButtonTapped.asDriver()
+        let memberDriver = members.asDriver(onErrorJustReturn: [])
        
-        return Output(currentButtonDriver: currentButtonDriver, seekButtonDriver: seekButtonDriver)
+        return Output(currentButtonDriver: currentButtonDriver, seekButtonDriver: seekButtonDriver, memberDriver: memberDriver)
     }
 }
