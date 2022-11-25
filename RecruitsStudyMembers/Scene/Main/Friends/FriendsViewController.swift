@@ -31,4 +31,7 @@ final class FriendsViewController: BaseViewController {
         
     }
     
+    deinit {
+        print("친구화면 Deinit")
+    }
 }
