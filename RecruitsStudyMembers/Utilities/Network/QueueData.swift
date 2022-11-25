@@ -8,14 +8,14 @@
 import Foundation
 
 struct QueueData: Codable {
-    let fromQueueDB, fromQueueDBRequested: [FromQueueDB]
-    let fromRecommend: [String]
+    var fromQueueDB, fromQueueDBRequested: [FromQueueDB]
+    var fromRecommend: [String]
 }
 
 struct FromQueueDB: Codable {
-    let uid, nick: String
-    let lat, long: Double
-    let reputation: [Int]
-    let studylist, reviews: [String]
-    let gender, type, sesac, background: Int
+    var uid, nick: String
+    var lat, long: Double
+    var reputation: [Int]
+    var studylist, reviews: [String]
+    var gender, type, sesac, background: Int
 }
