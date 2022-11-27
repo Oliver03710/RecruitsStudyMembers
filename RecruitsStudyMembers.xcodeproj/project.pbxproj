@@ -69,6 +69,8 @@
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */; };
 		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
+		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
+		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
 		AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */; };
 		AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
@@ -181,6 +183,8 @@
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
+		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
@@ -415,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				AD23FB0729227EF8004FA34E /* MyInfoData.swift */,
+				AD7AE608293391B10089D747 /* SearchData.swift */,
 				ADB604BA292377E20081CEC2 /* DefaultUserData.swift */,
 			);
 			path = Data;
@@ -601,6 +606,7 @@
 				ADE9623B292B7401003D5191 /* SearchView.swift */,
 				ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */,
 				ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */,
+				AD7AE60629338F5C0089D747 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -826,6 +832,7 @@
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
 				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
+				AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
@@ -896,6 +903,7 @@
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
+				AD7AE609293391B10089D747 /* SearchData.swift in Sources */,
 				ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */,
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
