@@ -71,6 +71,7 @@
 		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
 		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
 		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
+		AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */; };
 		AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */; };
 		AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
@@ -185,6 +186,7 @@
 		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
 		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
+		AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
 		AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				ADD65505291FB85800CA435D /* Date+Extension.swift */,
 				ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */,
 				AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */,
+				AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -605,8 +608,8 @@
 				ADE96239292B6FA7003D5191 /* SearchViewController.swift */,
 				ADE9623B292B7401003D5191 /* SearchView.swift */,
 				ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */,
-				ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */,
 				AD7AE60629338F5C0089D747 /* SearchViewModel.swift */,
+				ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -915,6 +918,7 @@
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
 				ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */,
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
+				AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */,
 				AD23FB0829227EF8004FA34E /* MyInfoData.swift in Sources */,
 				AD0D0482291D1B6900377276 /* NicknameViewModel.swift in Sources */,
 				ADAC0D6E29269A1800424D39 /* ThumbButton.swift in Sources */,
