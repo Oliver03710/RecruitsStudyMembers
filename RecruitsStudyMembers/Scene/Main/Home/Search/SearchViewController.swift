@@ -36,19 +36,11 @@ final class SearchViewController: BaseViewController {
     }
     
     
-    // MARK: - Selectors
-    
-    @objc func endEdit() {
-        myView.searchBar.resignFirstResponder()
-    }
-    
-    
     // MARK: - Helper Functions
     
     override func configureUI() {
         settingNavibars()
         bindData()
-        tapGesture()
     }
     
     private func settingNavibars() {
@@ -86,9 +78,4 @@ final class SearchViewController: BaseViewController {
         .disposed(by: disposeBag)
 
     }
-    
-    func tapGesture() {
-        myView.tap.addTarget(self, action: #selector(endEdit))
-    }
-    
 }
