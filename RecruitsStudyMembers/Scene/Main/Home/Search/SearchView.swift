@@ -39,11 +39,6 @@ final class SearchView: BaseView {
         return sb
     }()
     
-    let tap: UITapGestureRecognizer = {
-        let tap = UITapGestureRecognizer()
-        return tap
-    }()
-    
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         cv.backgroundColor = SSColors.white.color
@@ -71,7 +66,6 @@ final class SearchView: BaseView {
     
     override func setConstraints() {
         [collectionView, seekButton].forEach { addSubview($0) }
-        addGestureRecognizer(tap)
         
         seekButton.snp.makeConstraints {
             $0.directionalHorizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(16)
@@ -104,25 +98,23 @@ extension SearchView {
             
             let section = NSCollectionLayoutSection(group: group)
             
-            if sectionIndex == 0 || sectionIndex == 2 {
-//                section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 0, bottom: 12, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0)
                 
-                let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
-                
-                let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: titleSize,
-                    elementKind: SearchCollectionReusableView.reuseIdentifier,
-                    alignment: .top)
-                section.boundarySupplementaryItems = [titleSupplementary]
-            }
+            let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+            
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: titleSize,
+                elementKind: SearchCollectionReusableView.reuseIdentifier,
+                alignment: .top)
+            
+            section.boundarySupplementaryItems = [titleSupplementary]
             
             return section
         }
 
         let config = UICollectionViewCompositionalLayoutConfiguration()
 
-        let layout = UICollectionViewCompositionalLayout(
-            sectionProvider: sectionProvider, configuration: config)
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider, configuration: config)
         return layout
     }
     
@@ -154,18 +146,15 @@ extension SearchView {
         aroundNow.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
         aroundNow.label.textColor = SSColors.black.color
         
-        let aroundNowSecond = Item()
-        
         let willingTo = Item()
         willingTo.label.text = "내가 하고 싶은"
         willingTo.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
         willingTo.label.textColor = SSColors.black.color
         
         currentSnapshot = NSDiffableDataSourceSnapshot<Item, DummyItem>()
-        currentSnapshot.appendSections([aroundNow, aroundNowSecond, willingTo])
+        currentSnapshot.appendSections([aroundNow, willingTo])
         
         currentSnapshot.appendItems(DummyItem.baseDummy(), toSection: aroundNow)
-        currentSnapshot.appendItems(DummyItem.callDummy(), toSection: aroundNowSecond)
         currentSnapshot.appendItems(DummyItem.callDummy(), toSection: willingTo)
         
         dataSource.apply(currentSnapshot, animatingDifferences: false)
