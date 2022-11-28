@@ -94,6 +94,8 @@
 		AD9533DB29196616002126C0 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DA29196616002126C0 /* EmailView.swift */; };
 		AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DC29196653002126C0 /* GenderViewController.swift */; };
 		AD9533DF2919665D002126C0 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DE2919665D002126C0 /* GenderView.swift */; };
+		ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0C29349C6500150C26 /* MemberListViewController.swift */; };
+		ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0E29349C7F00150C26 /* MemberListView.swift */; };
 		ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */; };
 		ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */; };
 		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
@@ -209,6 +211,8 @@
 		AD9533DA29196616002126C0 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		AD9533DC29196653002126C0 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		AD9533DE2919665D002126C0 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		ADA27D0C29349C6500150C26 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
+		ADA27D0E29349C7F00150C26 /* MemberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListView.swift; sourceTree = "<group>"; };
 		ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				ADE96238292B6F94003D5191 /* Search */,
+				ADA27D0B293495E800150C26 /* StudyMemberList */,
 				AD23FADA29221176004FA34E /* HomeViewController.swift */,
 				AD23FADC29221180004FA34E /* HomeView.swift */,
 				AD23FADE2922124A004FA34E /* HomeViewModel.swift */,
@@ -566,6 +571,15 @@
 				AD0D0487291D20C200377276 /* GenderViewModel.swift */,
 			);
 			path = Gender;
+			sourceTree = "<group>";
+		};
+		ADA27D0B293495E800150C26 /* StudyMemberList */ = {
+			isa = PBXGroup;
+			children = (
+				ADA27D0C29349C6500150C26 /* MemberListViewController.swift */,
+				ADA27D0E29349C7F00150C26 /* MemberListView.swift */,
+			);
+			path = StudyMemberList;
 			sourceTree = "<group>";
 		};
 		ADAC0D5D29260F1C00424D39 /* Cells */ = {
@@ -883,6 +897,7 @@
 				AD23FAE22922133F004FA34E /* ShopViewController.swift in Sources */,
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
+				ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */,
 				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
 				AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */,
@@ -906,6 +921,7 @@
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
+				ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */,
 				AD7AE609293391B10089D747 /* SearchData.swift in Sources */,
 				ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */,
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
