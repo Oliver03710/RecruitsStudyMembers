@@ -18,15 +18,15 @@ final class MemberListViewController: BaseViewController {
         return segmentedControl
     }()
     
-    private let vc1: UIViewController = {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
+    private let vc1: BaseViewController = {
+        let vc = SesacNearByViewController()
+        vc.nearbyView.mainLabel.text = "아쉽게도 주변에 새싹이 없어요ㅠ"
         return vc
     }()
     
-    private let vc2: UIViewController = {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .green
+    private let vc2: BaseViewController = {
+        let vc = ReceivedRequestViewController()
+        vc.receivedView.mainLabel.text = "아직 받은 요청이 없어요ㅠ"
         return vc
     }()
     
@@ -50,6 +50,16 @@ final class MemberListViewController: BaseViewController {
         }
     }
     
+    let changeStudyButton: CustomButton = {
+        let btn = CustomButton(text: "스터디 변경하기", buttonColor: SSColors.green.color)
+        return btn
+    }()
+    
+    let refreshButton: CustomButton = {
+        let btn = CustomButton(image: GeneralIcons.refresh.rawValue)
+        return btn
+    }()
+    
     
     // MARK: - Init
     
@@ -60,38 +70,75 @@ final class MemberListViewController: BaseViewController {
     
     // MARK: - Selectors
     
-    @objc private func changeValue(control: UISegmentedControl) {
+    @objc private func valueChanged(control: UISegmentedControl) {
         self.currentPage = control.selectedSegmentIndex
+    }
+    
+    @objc private func backToHome() {
+        navigationController?.popViewControllers(2)
     }
     
     
     // MARK: - Helper Functions
     
     override func configureUI() {
+        view.backgroundColor = SSColors.white.color
+        setNaigations(naviTitle: "새싹 찾기")
         setSegmentedControl()
     }
     
     override func setConstraints() {
-        view.addSubview(segmentedControl)
-        view.addSubview(pageViewController.view)
+        [segmentedControl, pageViewController.view, changeStudyButton, refreshButton].forEach { view.addSubview($0) }
         
         segmentedControl.snp.makeConstraints {
             $0.directionalHorizontalEdges.top.equalTo(view.safeAreaLayoutGuide).inset(4)
             $0.height.equalTo(44)
         }
         
-        pageViewController.view.snp.makeConstraints {
-            $0.directionalHorizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(4)
-            $0.top.equalTo(segmentedControl.snp.bottom).offset(4)
+        refreshButton.snp.makeConstraints {
+            $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.height.width.equalTo(48)
         }
+
+        changeStudyButton.snp.makeConstraints {
+            $0.leading.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.trailing.equalTo(refreshButton.snp.leading).offset(-8)
+            $0.height.equalTo(48)
+        }
+        
+        pageViewController.view.snp.makeConstraints {
+            $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(4)
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(4)
+            $0.bottom.equalTo(refreshButton.snp.top).offset(-8)
+        }
+
+    }
+    
+    override func setNaigations(naviTitle: String? = nil) {
+        super.setNaigations(naviTitle: naviTitle)
+        guard let title4 = UIFont(name: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size) else { return }
+        let stopButton = UIBarButtonItem(title: "찾기중단", style: .plain, target: self, action: #selector(backToHome))
+        stopButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SSColors.black.color,
+                                           .font: title4], for: .normal)
+        stopButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SSColors.gray3.color,
+                                           .font: title4], for: .selected)
+        
+        self.navigationItem.rightBarButtonItem = stopButton
     }
     
     private func setSegmentedControl() {
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.green, .font: UIFont.systemFont(ofSize: 13, weight: .semibold)], for: .selected)
-        segmentedControl.addTarget(self, action: #selector(changeValue(control:)), for: .valueChanged)
+        guard let title4 = UIFont(name: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size) else { return }
+        guard let title3 = UIFont(name: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size) else { return }
+        
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SSColors.gray6.color,
+                                                 .font: title4], for: .normal)
+        
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SSColors.green.color,
+                                                 .font: title3], for: .selected)
+        
+        segmentedControl.addTarget(self, action: #selector(valueChanged(control:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = 0
-        changeValue(control: segmentedControl)
+        valueChanged(control: segmentedControl)
     }
 
 }
