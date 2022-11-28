@@ -14,12 +14,12 @@ final class AgeChoiceCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Properties
     
     private let ageLabel: CustomLabel = {
-        let label = CustomLabel(text: "상대방 연령대")
+        let label = CustomLabel(text: "상대방 연령대", font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
         return label
     }()
     
     private let ageRangeLabel: CustomLabel = {
-        let label = CustomLabel(text: "\(NetworkManager.shared.userData.ageMin) - \(NetworkManager.shared.userData.ageMax)")
+        let label = CustomLabel(text: "\(NetworkManager.shared.userData.ageMin) - \(NetworkManager.shared.userData.ageMax)", font: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size)
         label.textColor = SSColors.green.color
         label.font = UIFont(name: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size)
         return label

@@ -16,7 +16,7 @@ final class StudyCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Properties
     
     private let studyLabel: CustomLabel = {
-        let label = CustomLabel(text: "자주 하는 스터디")
+        let label = CustomLabel(text: "자주 하는 스터디", font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
         return label
     }()
     

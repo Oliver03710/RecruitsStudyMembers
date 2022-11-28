@@ -16,7 +16,7 @@ final class GenderCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Properties
     
     private let genderLabel: CustomLabel = {
-        let label = CustomLabel(text: "내 성별")
+        let label = CustomLabel(text: "내 성별", font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
         return label
     }()
     

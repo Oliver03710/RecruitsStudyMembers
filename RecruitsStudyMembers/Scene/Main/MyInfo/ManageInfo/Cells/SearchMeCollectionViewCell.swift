@@ -16,7 +16,7 @@ final class SearchMeCollectionViewCell: CustomCollectionViewCell {
     // MARK: - Properties
     
     private let studyLabel: CustomLabel = {
-        let label = CustomLabel(text: "내 번호 검색 허용")
+        let label = CustomLabel(text: "내 번호 검색 허용", font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
         return label
     }()
     
