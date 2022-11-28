@@ -97,6 +97,10 @@
 		ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0C29349C6500150C26 /* MemberListViewController.swift */; };
 		ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0E29349C7F00150C26 /* MemberListView.swift */; };
 		ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */; };
+		ADA27D132934C17500150C26 /* ButtonCombined.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D122934C17500150C26 /* ButtonCombined.swift */; };
+		ADA27D162934CA0E00150C26 /* SesacNearByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */; };
+		ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */; };
+		ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */; };
 		ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */; };
 		ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */; };
 		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
@@ -215,6 +219,10 @@
 		ADA27D0C29349C6500150C26 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		ADA27D0E29349C7F00150C26 /* MemberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListView.swift; sourceTree = "<group>"; };
 		ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustromSegmentedControl.swift; sourceTree = "<group>"; };
+		ADA27D122934C17500150C26 /* ButtonCombined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCombined.swift; sourceTree = "<group>"; };
+		ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacNearByViewController.swift; sourceTree = "<group>"; };
+		ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedRequestViewController.swift; sourceTree = "<group>"; };
+		ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSegmentedView.swift; sourceTree = "<group>"; };
 		ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -579,10 +587,21 @@
 		ADA27D0B293495E800150C26 /* StudyMemberList */ = {
 			isa = PBXGroup;
 			children = (
+				ADA27D142934C96F00150C26 /* NestedViewControllers */,
 				ADA27D0C29349C6500150C26 /* MemberListViewController.swift */,
 				ADA27D0E29349C7F00150C26 /* MemberListView.swift */,
 			);
 			path = StudyMemberList;
+			sourceTree = "<group>";
+		};
+		ADA27D142934C96F00150C26 /* NestedViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */,
+				ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */,
+				ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */,
+			);
+			path = NestedViewControllers;
 			sourceTree = "<group>";
 		};
 		ADAC0D5D29260F1C00424D39 /* Cells */ = {
@@ -645,6 +664,7 @@
 			children = (
 				ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */,
 				AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */,
+				ADA27D122934C17500150C26 /* ButtonCombined.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -860,6 +880,7 @@
 				AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */,
 				AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
+				ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */,
 				AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */,
 				AD103A91291C06C20032E9EB /* String+Extension.swift in Sources */,
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
@@ -893,7 +914,9 @@
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* UserRouter+URLRequestConvertible.swift in Sources */,
 				ADE9623C292B7401003D5191 /* SearchView.swift in Sources */,
+				ADA27D162934CA0E00150C26 /* SesacNearByViewController.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
+				ADA27D132934C17500150C26 /* ButtonCombined.swift in Sources */,
 				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,
 				ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */,
 				AD1B38AC2920F843006D7523 /* UserData.swift in Sources */,
@@ -935,6 +958,7 @@
 				ADE96240292C1032003D5191 /* SearchCollectionReusableView.swift in Sources */,
 				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
+				ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
 				ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */,
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
