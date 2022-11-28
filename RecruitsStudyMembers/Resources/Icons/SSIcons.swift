@@ -33,6 +33,7 @@ enum GeneralIcons: String {
     case sendAct, sendInact
     case settingAlarm
     case write
+    case refresh
 }
 
 enum TapIcons: String {
