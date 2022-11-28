@@ -14,8 +14,9 @@ final class SearchViewModel: CommonViewModel {
 
     // MARK: - Properties
     
-    var studyList = PublishRelay<[FromQueueDB]>()
-    var mychoiceList = PublishRelay<[FromQueueDB]>()
+    var studyList = BehaviorRelay<[SearchData]>(value: [])
+    var mychoiceList = BehaviorRelay<[SearchData]>(value: [])
+    var numberOfRecommend = BehaviorRelay<Int>(value: 0)
     
     let disposeBag = DisposeBag()
     
@@ -23,14 +24,15 @@ final class SearchViewModel: CommonViewModel {
     // MARK: - In & Out Data
     
     struct Input {
-        let currentButtonTapped: ControlEvent<Void>
+        let textDidBeginEditing: ControlEvent<Void>
+        let textDidEndEditing: ControlEvent<Void>
         let seekButtonTapped: ControlEvent<Void>
+        let accButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
-        let currentButtonDriver : SharedSequence<DriverSharingStrategy, Void>
-        let seekButtonDriver: SharedSequence<DriverSharingStrategy, Void>
-        let memberDriver: SharedSequence<DriverSharingStrategy, [FromQueueDB]>
+        let textEditingAction : SharedSequence<DriverSharingStrategy, TextFieldActions>
+        let actionsCombined : SharedSequence<DriverSharingStrategy, ButtonCombined>
     }
     
     
@@ -38,11 +40,15 @@ final class SearchViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        let currentButtonDriver = input.currentButtonTapped.asDriver()
-        let seekButtonDriver = input.seekButtonTapped.asDriver()
-        let memberDriver = members.asDriver(onErrorJustReturn: [])
+        let actionsCombined = Observable.merge(input.seekButtonTapped.map { _ in ButtonCombined.action1 },
+                         input.accButtonTapped.map { _ in ButtonCombined.action2 })
+        .asDriver(onErrorJustReturn: .action1)
+        
+        let textEditingAction = Observable.merge(input.textDidBeginEditing.map { _ in TextFieldActions.editingDidBegin },
+                                                 input.textDidEndEditing.map { _ in TextFieldActions.editingDidEnd })
+        .asDriver(onErrorJustReturn: .editingDidBegin)
        
-        return Output(currentButtonDriver: currentButtonDriver, seekButtonDriver: seekButtonDriver, memberDriver: memberDriver)
+        return Output(textEditingAction: textEditingAction, actionsCombined: actionsCombined)
     }
     
 }
