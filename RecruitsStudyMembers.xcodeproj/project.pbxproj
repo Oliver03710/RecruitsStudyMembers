@@ -96,6 +96,7 @@
 		AD9533DF2919665D002126C0 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DE2919665D002126C0 /* GenderView.swift */; };
 		ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0C29349C6500150C26 /* MemberListViewController.swift */; };
 		ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0E29349C7F00150C26 /* MemberListView.swift */; };
+		ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */; };
 		ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */; };
 		ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */; };
 		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
@@ -213,6 +214,7 @@
 		AD9533DE2919665D002126C0 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		ADA27D0C29349C6500150C26 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		ADA27D0E29349C7F00150C26 /* MemberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListView.swift; sourceTree = "<group>"; };
+		ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustromSegmentedControl.swift; sourceTree = "<group>"; };
 		ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
 				ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */,
 				ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */,
+				ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */,
 				AD910B7629290709000F7828 /* SeSacAnnotation.swift */,
 				ADAC0D6C292699E900424D39 /* Buttons */,
 				AD23FB0F29229E62004FA34E /* ImageViews */,
@@ -843,6 +846,7 @@
 				AD7803DF2930D4870007B19C /* QueueData.swift in Sources */,
 				AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */,
 				ADE9623E292BEB52003D5191 /* SearchCollectionViewCell.swift in Sources */,
+				ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
 				AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
