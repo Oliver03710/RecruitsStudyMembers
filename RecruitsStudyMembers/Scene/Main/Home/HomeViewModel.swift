@@ -14,7 +14,8 @@ final class HomeViewModel: CommonViewModel {
     
     // MARK: - Properties
     
-    var members = PublishRelay<[FromQueueDB]>()
+    var members = BehaviorRelay<[FromQueueDB]>(value: [])
+    var recommendData = BehaviorRelay<[String]>(value: [])
     
     let disposeBag = DisposeBag()
     
