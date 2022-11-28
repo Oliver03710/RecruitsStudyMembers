@@ -18,7 +18,7 @@ final class CustromSegmentedControl: UISegmentedControl {
         let yPosition = self.bounds.size.height - 1.0
         let frame = CGRect(x: xPosition, y: yPosition, width: width, height: height)
         let view = UIView(frame: frame)
-        view.backgroundColor = .green
+        view.backgroundColor = SSColors.green.color
         self.addSubview(view)
         return view
     }()
