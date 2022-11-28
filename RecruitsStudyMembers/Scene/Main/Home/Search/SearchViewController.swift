@@ -15,8 +15,7 @@ final class SearchViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private let myView = SearchView()
-    private let disposeBag = DisposeBag()
+    let myView = SearchView()
     
     
     // MARK: - Init
@@ -61,9 +60,16 @@ final class SearchViewController: BaseViewController {
     }
     
     private func bindData() {
-        Observable.merge(myView.searchBar.rx.textDidBeginEditing.map { _ in TextFieldActions.editingDidBegin },
-                         myView.searchBar.rx.textDidEndEditing.map { _ in TextFieldActions.editingDidEnd })
-        .asDriver(onErrorJustReturn: .editingDidBegin)
+        
+        let input = SearchViewModel.Input(textDidBeginEditing: myView.searchBar.rx.textDidBeginEditing,
+                                          textDidEndEditing: myView.searchBar.rx.textDidEndEditing,
+                                          seekButtonTapped: myView.seekButton.rx.tap,
+                                          accButtonTapped: myView.accButton.rx.tap)
+        
+        let output = myView.viewModel.transform(input: input)
+        
+        
+        output.textEditingAction
         .drive { [weak self] actions in
             guard let self = self else { return }
             switch actions {
@@ -75,7 +81,18 @@ final class SearchViewController: BaseViewController {
                 self.myView.seekButton.isHidden = false
             }
         }
-        .disposed(by: disposeBag)
-
+        .disposed(by: myView.viewModel.disposeBag)
+        
+        output.actionsCombined
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                self.showListTapped()
+            }
+            .disposed(by: myView.viewModel.disposeBag)
+    }
+    
+    private func showListTapped() {
+        let vc = MemberListViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
