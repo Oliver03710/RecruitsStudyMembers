@@ -13,7 +13,7 @@ final class SharedSegmentedView: BaseView {
 
     // MARK: - Properties
     
-    let grayImageView: UIImageView = {
+    private let grayImageView: UIImageView = {
         let iv = UIImageView(image: UIImage(named: GeneralIcons.graySprout.rawValue))
         return iv
     }()
@@ -24,11 +24,13 @@ final class SharedSegmentedView: BaseView {
         return label
     }()
     
-    let subLabel: CustomLabel = {
+    private let subLabel: CustomLabel = {
         let label = CustomLabel(text: "스터디를 변경하거나 조금만 더 기다려 주세요!", font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size, color: SSColors.gray7.color)
         label.textAlignment = .center
         return label
     }()
+    
+    
     
     
     // MARK: - Init
