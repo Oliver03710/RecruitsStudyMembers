@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct SearchData: Hashable {
+    let title: String
+    let identifier = UUID()
+    
+    init(title: String) {
+        self.title = title
+    }
+}
