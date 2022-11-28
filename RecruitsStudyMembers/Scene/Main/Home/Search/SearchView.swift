@@ -35,6 +35,7 @@ final class SearchView: BaseView {
     
     let searchBar: UISearchBar = {
         let sb = UISearchBar()
+        sb.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         sb.sizeToFit()
         return sb
     }()
@@ -47,8 +48,10 @@ final class SearchView: BaseView {
         return cv
     }()
     
-    var dataSource: UICollectionViewDiffableDataSource<Item, DummyItem>! = nil
-    var currentSnapshot: NSDiffableDataSourceSnapshot<Item, DummyItem>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Item, SearchData>! = nil
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Item, SearchData>! = nil
+    
+    let viewModel = SearchViewModel()
     
     
     // MARK: - Init
@@ -120,11 +123,12 @@ extension SearchView {
     
     private func configureDataSource() {
         
-        let cellRegistration = UICollectionView.CellRegistration<SearchCollectionViewCell, DummyItem> { (cell, indexPath, item) in
-            cell.setCellComponents(text: item.text, indexPath: indexPath)
+        let cellRegistration = UICollectionView.CellRegistration<SearchCollectionViewCell, SearchData> { [weak self] (cell, indexPath, item) in
+            guard let self = self else { return }
+            cell.setCellComponents(text: item.title, indexPath: indexPath, NumberOfRecommend: self.viewModel.numberOfRecommend.value)
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Item, DummyItem>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<Item, SearchData>(collectionView: collectionView) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
@@ -140,6 +144,9 @@ extension SearchView {
         dataSource.supplementaryViewProvider = { (view, kind, index) in
             return self.collectionView.dequeueConfiguredReusableSupplementary(using: supplementaryRegistration, for: index)
         }
+    }
+    
+    func updateUI() {
         
         let aroundNow = Item()
         aroundNow.label.text = "지금 주변에는"
@@ -151,11 +158,11 @@ extension SearchView {
         willingTo.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
         willingTo.label.textColor = SSColors.black.color
         
-        currentSnapshot = NSDiffableDataSourceSnapshot<Item, DummyItem>()
+        currentSnapshot = NSDiffableDataSourceSnapshot<Item, SearchData>()
         currentSnapshot.appendSections([aroundNow, willingTo])
         
-        currentSnapshot.appendItems(DummyItem.baseDummy(), toSection: aroundNow)
-        currentSnapshot.appendItems(DummyItem.callDummy(), toSection: willingTo)
+        currentSnapshot.appendItems(viewModel.studyList.value, toSection: aroundNow)
+        currentSnapshot.appendItems(viewModel.mychoiceList.value, toSection: willingTo)
         
         dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
