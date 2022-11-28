@@ -97,7 +97,25 @@ final class HomeViewController: BaseViewController {
     
     private func PresentToSearchVC() {
         let vc = SearchViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        
+        vc.myView.viewModel.numberOfRecommend.accept(viewModel.recommendData.value.count)
+        
+        viewModel.recommendData.value.forEach { str in
+            let data = SearchData(title: str)
+            vc.myView.viewModel.studyList.acceptAppending(data)
+        }
+        
+        viewModel.members.value.forEach { data in
+            data.studylist.forEach { str in
+                let data = SearchData(title: str)
+                vc.myView.viewModel.studyList.acceptAppending(data)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150)) {
+            vc.myView.updateUI()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func checkMyQueueState() {
@@ -133,6 +151,7 @@ final class HomeViewController: BaseViewController {
             .subscribe(onSuccess: { [weak self] response in
                 dump(response)
                 self?.viewModel.members.accept(response.fromQueueDB)
+                self?.viewModel.recommendData.accept(response.fromRecommend)
                 
             }, onFailure: { [weak self] error in
                 let errors = (error as NSError).code
