@@ -36,9 +36,10 @@ class CustomLabel: UILabel {
         numberOfLines = 2
     }
     
-    convenience init(text: String) {
+    convenience init(text: String, font: String, size: CGFloat, color: UIColor? = SSColors.black.color) {
         self.init()
         self.text = text
-        font = UIFont(name: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
+        self.font = UIFont(name: font, size: size)
+        self.textColor = color
     }
 }
