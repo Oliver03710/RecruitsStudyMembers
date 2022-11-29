@@ -106,7 +106,7 @@ final class SearchViewController: BaseViewController {
                     guard let text = self?.searchView.searchBar.text else { return }
                     let study = text.split(separator: " ", omittingEmptySubsequences: true)
                     self?.searchView.searchBar.searchTextField.text = ""
-
+                    
                     study.forEach { str in
                         NetworkManager.shared.myStudyList.forEach { item in
                             if item.title.lowercased() == str.lowercased() {
@@ -115,20 +115,20 @@ final class SearchViewController: BaseViewController {
                             }
                             return
                         }
-
+                        
                         if NetworkManager.shared.myStudyList.count > 7 && !bool {
                             self?.view.makeToast("더 이상 추가할 수 없습니다.", position: .top)
-
+                            
                         } else if !bool {
                             let data = SearchView.Item(title: String(str))
                             NetworkManager.shared.myStudyList.append(data)
                             self?.searchView.updateUI()
-
+                            
                         } else {
                             bool = false
                         }
                     }
-
+                    
                 default: break
                 }
 
@@ -137,8 +137,33 @@ final class SearchViewController: BaseViewController {
     }
     
     private func showListTapped() {
-        let vc = MemberListViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        
+        NetworkManager.shared.request(router: SeSacApiQueue.queue)
+            .subscribe(onSuccess: { [weak self] response in
+                let vc = MemberListViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+                
+            }, onFailure: { [weak self] error in
+                let errors = (error as NSError).code
+                print(errors)
+                guard let errCode = SeSacUserError(rawValue: errors) else { return }
+                switch errCode {
+                    
+                case .firebaseTokenError:
+                    NetworkManager.shared.fireBaseError {
+                        self?.showListTapped()
+                    } errorHandler: {
+                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
+                    } defaultErrorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.", position: .top)
+                    }
+                    
+                case .unsignedupUser, .ServerError, .ClientError:
+                    self?.view.makeToast(errCode.errorDescription)
+                default: break
+                }
+            })
+            .disposed(by: searchView.viewModel.disposeBag)
     }
     
 }
@@ -153,26 +178,26 @@ extension SearchViewController: UICollectionViewDelegate {
         if indexPath.section == 0 {
             
             var bool = false
-                
-                NetworkManager.shared.myStudyList.forEach { myItem in
-                    if myItem.title.lowercased() == NetworkManager.shared.nearByStudyList[indexPath.item].title.lowercased() {
-                        view.makeToast("이미 있는 항목입니다.", position: .top)
-                        bool = true
-                    }
-                    return
+            
+            NetworkManager.shared.myStudyList.forEach { myItem in
+                if myItem.title.lowercased() == NetworkManager.shared.nearByStudyList[indexPath.item].title.lowercased() {
+                    view.makeToast("이미 있는 항목입니다.", position: .top)
+                    bool = true
                 }
+                return
+            }
+            
+            if NetworkManager.shared.myStudyList.count > 7 && !bool {
+                view.makeToast("더 이상 추가할 수 없습니다.", position: .top)
                 
-                if NetworkManager.shared.myStudyList.count > 7 && !bool {
-                    view.makeToast("더 이상 추가할 수 없습니다.", position: .top)
-                    
-                } else if !bool {
-                    let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
-                    NetworkManager.shared.myStudyList.append(data)
-                    searchView.updateUI()
-                    
-                } else {
-                    bool = false
-                }
+            } else if !bool {
+                let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
+                NetworkManager.shared.myStudyList.append(data)
+                searchView.updateUI()
+                
+            } else {
+                bool = false
+            }
             
         } else {
             NetworkManager.shared.myStudyList.remove(at: indexPath.item)
