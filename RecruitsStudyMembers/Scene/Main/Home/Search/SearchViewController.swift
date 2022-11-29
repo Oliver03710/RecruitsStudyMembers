@@ -15,13 +15,13 @@ final class SearchViewController: BaseViewController {
     
     // MARK: - Properties
     
-    let myView = SearchView()
+    let searchView = SearchView()
     
     
     // MARK: - Init
     
     override func loadView() {
-        view = myView
+        view = searchView
     }
     
     override func viewDidLoad() {
@@ -39,6 +39,7 @@ final class SearchViewController: BaseViewController {
     
     override func configureUI() {
         settingNavibars()
+        collectionViewDelegate()
         bindData()
     }
     
@@ -56,17 +57,21 @@ final class SearchViewController: BaseViewController {
         let backButton = UIBarButtonItem(image: UIImage(named: GeneralIcons.arrow.rawValue), style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem  = backButton
         
-        navigationItem.titleView = myView.searchBar
+        navigationItem.titleView = searchView.searchBar
+    }
+    
+    private func collectionViewDelegate() {
+        searchView.collectionView.delegate = self
     }
     
     private func bindData() {
         
-        let input = SearchViewModel.Input(textDidBeginEditing: myView.searchBar.rx.textDidBeginEditing,
-                                          textDidEndEditing: myView.searchBar.rx.textDidEndEditing,
-                                          seekButtonTapped: myView.seekButton.rx.tap,
-                                          accButtonTapped: myView.accButton.rx.tap)
+        let input = SearchViewModel.Input(textDidBeginEditing: searchView.searchBar.rx.textDidBeginEditing,
+                                          textDidEndEditing: searchView.searchBar.rx.textDidEndEditing,
+                                          seekButtonTapped: searchView.seekButton.rx.tap,
+                                          accButtonTapped: searchView.accButton.rx.tap)
         
-        let output = myView.viewModel.transform(input: input)
+        let output = searchView.viewModel.transform(input: input)
         
         
         output.textEditingAction
@@ -74,25 +79,63 @@ final class SearchViewController: BaseViewController {
             guard let self = self else { return }
             switch actions {
             case .editingDidBegin:
-                self.myView.seekButton.isHidden = true
-                self.myView.searchBar.searchTextField.inputAccessoryView = self.myView.accButton
+                self.searchView.seekButton.isHidden = true
+                self.searchView.searchBar.searchTextField.inputAccessoryView = self.searchView.accButton
                 
             case .editingDidEnd:
-                self.myView.seekButton.isHidden = false
+                self.searchView.seekButton.isHidden = false
             }
         }
-        .disposed(by: myView.viewModel.disposeBag)
+        .disposed(by: searchView.viewModel.disposeBag)
         
         output.actionsCombined
             .drive { [weak self] _ in
                 guard let self = self else { return }
                 self.showListTapped()
             }
-            .disposed(by: myView.viewModel.disposeBag)
+            .disposed(by: searchView.viewModel.disposeBag)
     }
     
     private func showListTapped() {
         let vc = MemberListViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+// MARK: - Extension: UICollectionViewDelegate
+
+extension SearchViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+//        guard let newData = searchView.dataSource.itemIdentifier(for: indexPath) else {
+//            collectionView.deselectItem(at: indexPath, animated: true)
+//            return
+//        }
+//
+//        if indexPath.section == 0 {
+//            let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
+//            NetworkManager.shared.myStudyList.append(data)
+//        } else {
+//            NetworkManager.shared.myStudyList.remove(at: indexPath.item)
+//        }
+//
+//        var currentSnapshot = searchView.dataSource.snapshot()
+//
+//        currentSnapshot.reconfigureItems([newData])
+//        searchView.dataSource.apply(currentSnapshot)
+//
+//        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        
+        collectionView.deselectItem(at: indexPath, animated: false)
+        if indexPath.section == 0 {
+            let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
+            NetworkManager.shared.myStudyList.append(data)
+        } else {
+            NetworkManager.shared.myStudyList.remove(at: indexPath.item)
+        }
+        searchView.updateUI()
     }
 }
