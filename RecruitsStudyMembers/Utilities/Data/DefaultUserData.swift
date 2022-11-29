@@ -22,22 +22,7 @@ struct DefaultUserData: Hashable {
 }
 
 
-struct DummyItem: Hashable {
-    
-    let text: String?
+struct MemberListData: Hashable {
+    let data: FromQueueDB
     private let identifier = UUID()
-    
-    static func callDummy() -> [DummyItem] {
-        return [DummyItem(text: "Swift"),
-                DummyItem(text: "SwiftUI"),
-                DummyItem(text: "CoreData"),
-                DummyItem(text: "Python"),
-                DummyItem(text: "Java")]
-    }
-    
-    static func baseDummy() -> [DummyItem] {
-        return [DummyItem(text: "아무거나"),
-                DummyItem(text: "SeSAC"),
-                DummyItem(text: "코딩")]
-    }
 }
