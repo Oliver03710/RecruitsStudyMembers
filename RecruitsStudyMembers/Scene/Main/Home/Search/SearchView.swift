@@ -36,6 +36,7 @@ final class SearchView: BaseView {
     let searchBar: UISearchBar = {
         let sb = UISearchBar()
         sb.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        sb.returnKeyType = .default
         sb.sizeToFit()
         return sb
     }()
