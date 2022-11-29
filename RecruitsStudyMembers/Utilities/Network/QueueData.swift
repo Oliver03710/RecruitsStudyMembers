@@ -12,7 +12,7 @@ struct QueueData: Codable {
     var fromRecommend: [String]
 }
 
-struct FromQueueDB: Codable {
+struct FromQueueDB: Codable, Hashable {
     var uid, nick: String
     var lat, long: Double
     var reputation: [Int]
