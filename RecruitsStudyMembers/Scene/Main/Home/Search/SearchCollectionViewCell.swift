@@ -46,7 +46,7 @@ final class SearchCollectionViewCell: CustomCollectionViewCell {
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 
-        let targetSize = CGSize(width: sections == 0 ? studyLabel.intrinsicContentSize.width + 44 : studyLabel.intrinsicContentSize.width + 68, height: 50)
+        let targetSize = CGSize(width: sections == 0 ? studyLabel.intrinsicContentSize.width + 36 : studyLabel.intrinsicContentSize.width + 68, height: 50)
         layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .defaultHigh, verticalFittingPriority: .fittingSizeLevel)
         return layoutAttributes
     }
@@ -60,7 +60,7 @@ final class SearchCollectionViewCell: CustomCollectionViewCell {
         baseView.addSubview(xMarkImageView)
 
         baseView.snp.makeConstraints {
-            $0.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(8)
+            $0.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(4)
             $0.directionalVerticalEdges.equalTo(safeAreaLayoutGuide).inset(4)
         }
 
