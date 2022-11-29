@@ -140,7 +140,6 @@ final class MemberListViewController: BaseViewController {
         segmentedControl.selectedSegmentIndex = 0
         valueChanged(control: segmentedControl)
     }
-
 }
 
 
