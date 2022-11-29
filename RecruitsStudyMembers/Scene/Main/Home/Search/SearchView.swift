@@ -14,7 +14,7 @@ final class SearchView: BaseView {
     // MARK: - Struct For Collection View Header
     
     struct Item: Hashable {
-        let label = UILabel()
+        let title: String
         private let identifier = UUID()
     }
     
@@ -43,13 +43,13 @@ final class SearchView: BaseView {
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         cv.backgroundColor = SSColors.white.color
-        cv.autoresizingMask = [.flexibleWidth]
+        cv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         cv.keyboardDismissMode = .onDrag
         return cv
     }()
     
-    var dataSource: UICollectionViewDiffableDataSource<Item, SearchData>! = nil
-    var currentSnapshot: NSDiffableDataSourceSnapshot<Item, SearchData>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Item, Item>! = nil
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Item, Item>! = nil
     
     let viewModel = SearchViewModel()
     
@@ -123,22 +123,19 @@ extension SearchView {
     
     private func configureDataSource() {
         
-        let cellRegistration = UICollectionView.CellRegistration<SearchCollectionViewCell, SearchData> { [weak self] (cell, indexPath, item) in
+        let cellRegistration = UICollectionView.CellRegistration<SearchCollectionViewCell, Item> { [weak self] (cell, indexPath, item) in
             guard let self = self else { return }
             cell.setCellComponents(text: item.title, indexPath: indexPath, NumberOfRecommend: self.viewModel.numberOfRecommend.value)
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Item, SearchData>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<Item, Item>(collectionView: collectionView) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
         
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<SearchCollectionReusableView>(elementKind: SearchCollectionReusableView.reuseIdentifier) {
-            [weak self] supplementaryView, elementKind, indexPath in
-            if let snapshot = self?.currentSnapshot {
-                let category = snapshot.sectionIdentifiers[indexPath.section]
-                supplementaryView.setComponents(text: category.label.text)
-            }
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setComponents(indexPath: indexPath)
         }
         
         dataSource.supplementaryViewProvider = { (view, kind, index) in
@@ -148,21 +145,14 @@ extension SearchView {
     
     func updateUI() {
         
-        let aroundNow = Item()
-        aroundNow.label.text = "지금 주변에는"
-        aroundNow.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
-        aroundNow.label.textColor = SSColors.black.color
+        let aroundNow = Item(title: "")
+        let willingTo = Item(title: "")
         
-        let willingTo = Item()
-        willingTo.label.text = "내가 하고 싶은"
-        willingTo.label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
-        willingTo.label.textColor = SSColors.black.color
-        
-        currentSnapshot = NSDiffableDataSourceSnapshot<Item, SearchData>()
+        currentSnapshot = NSDiffableDataSourceSnapshot<Item, Item>()
         currentSnapshot.appendSections([aroundNow, willingTo])
         
-        currentSnapshot.appendItems(viewModel.studyList.value, toSection: aroundNow)
-        currentSnapshot.appendItems(viewModel.mychoiceList.value, toSection: willingTo)
+        currentSnapshot.appendItems(NetworkManager.shared.nearByStudyList, toSection: aroundNow)
+        currentSnapshot.appendItems(NetworkManager.shared.myStudyList, toSection: willingTo)
         
         dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
