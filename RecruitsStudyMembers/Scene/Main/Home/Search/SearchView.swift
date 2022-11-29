@@ -126,6 +126,7 @@ extension SearchView {
         let cellRegistration = UICollectionView.CellRegistration<SearchCollectionViewCell, Item> { [weak self] (cell, indexPath, item) in
             guard let self = self else { return }
             cell.setCellComponents(text: item.title, indexPath: indexPath, NumberOfRecommend: self.viewModel.numberOfRecommend.value)
+            cell.sections = indexPath.section
         }
         
         dataSource = UICollectionViewDiffableDataSource<Item, Item>(collectionView: collectionView) {
