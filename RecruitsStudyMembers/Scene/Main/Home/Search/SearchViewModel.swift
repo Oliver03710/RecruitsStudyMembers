@@ -14,8 +14,6 @@ final class SearchViewModel: CommonViewModel {
 
     // MARK: - Properties
     
-    var studyList = BehaviorRelay<[SearchData]>(value: [])
-    var mychoiceList = BehaviorRelay<[SearchData]>(value: [])
     var numberOfRecommend = BehaviorRelay<Int>(value: 0)
     
     let disposeBag = DisposeBag()
@@ -28,11 +26,13 @@ final class SearchViewModel: CommonViewModel {
         let textDidEndEditing: ControlEvent<Void>
         let seekButtonTapped: ControlEvent<Void>
         let accButtonTapped: ControlEvent<Void>
+        let searchButtonClicked: ControlEvent<Void>
     }
     
     struct Output {
         let textEditingAction : SharedSequence<DriverSharingStrategy, TextFieldActions>
         let actionsCombined : SharedSequence<DriverSharingStrategy, ButtonCombined>
+        let searchButtonDriver: SharedSequence<DriverSharingStrategy, ButtonCombined>
     }
     
     
@@ -47,8 +47,10 @@ final class SearchViewModel: CommonViewModel {
         let textEditingAction = Observable.merge(input.textDidBeginEditing.map { _ in TextFieldActions.editingDidBegin },
                                                  input.textDidEndEditing.map { _ in TextFieldActions.editingDidEnd })
         .asDriver(onErrorJustReturn: .editingDidBegin)
+        
+        let searchButtonDriver = input.searchButtonClicked.map { _ in ButtonCombined.action1 }.asDriver(onErrorJustReturn: .action1)
        
-        return Output(textEditingAction: textEditingAction, actionsCombined: actionsCombined)
+        return Output(textEditingAction: textEditingAction, actionsCombined: actionsCombined, searchButtonDriver: searchButtonDriver)
     }
     
 }
