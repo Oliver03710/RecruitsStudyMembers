@@ -17,6 +17,9 @@ final class NetworkManager {
     
     var userData: UserData = UserData(id: "", v: 0, uid: "", phoneNumber: "", email: "", fcMtoken: "", nick: "", birth: "", gender: 0, study: "", comment: [], reputation: [], sesac: 0, sesacCollection: [], background: 0, backgroundCollection: [], purchaseToken: [], transactionID: [], reviewedBefore: [], reportedNum: 0, reportedUser: [], dodgepenalty: 0, dodgeNum: 0, ageMin: 0, ageMax: 0, searchable: 0, createdAt: "")
     
+    var nearByStudyList: [SearchView.Item] = []
+    var myStudyList: [SearchView.Item] = []
+    
     static let shared = NetworkManager()
     private let disposeBag = DisposeBag()
     
