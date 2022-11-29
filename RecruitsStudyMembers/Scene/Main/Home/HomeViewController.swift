@@ -98,24 +98,45 @@ final class HomeViewController: BaseViewController {
     private func PresentToSearchVC() {
         let vc = SearchViewController()
         
-        vc.myView.viewModel.numberOfRecommend.accept(viewModel.recommendData.value.count)
+        vc.searchView.viewModel.numberOfRecommend.accept(viewModel.recommendData.value.count)
+        
+        NetworkManager.shared.nearByStudyList.removeAll(keepingCapacity: true)
+        
+        var tempData = Array<String>()
+        var removingData = Set<String>()
         
         viewModel.recommendData.value.forEach { str in
-            let data = SearchData(title: str)
-            vc.myView.viewModel.studyList.acceptAppending(data)
+            tempData.append(str)
         }
         
         viewModel.members.value.forEach { data in
             data.studylist.forEach { str in
-                let data = SearchData(title: str)
-                vc.myView.viewModel.studyList.acceptAppending(data)
+                removingData.insert(str)
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150)) {
-            vc.myView.updateUI()
-            self.navigationController?.pushViewController(vc, animated: true)
+        var filteredArr = Set<String>()
+        
+        removingData.forEach { data in
+            tempData.forEach { str in
+                if data.lowercased() == str.lowercased() {
+                    filteredArr.insert(data)
+                }
+            }
         }
+        
+        tempData.forEach { str in
+            let data = SearchView.Item(title: str)
+            NetworkManager.shared.nearByStudyList.append(data)
+        }
+        
+        removingData.subtracting(filteredArr).forEach { str in
+            let data = SearchView.Item(title: str)
+            NetworkManager.shared.nearByStudyList.append(data)
+        }
+        
+        vc.searchView.updateUI()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func checkMyQueueState() {
