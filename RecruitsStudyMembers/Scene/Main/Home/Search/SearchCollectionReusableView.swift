@@ -16,6 +16,7 @@ final class SearchCollectionReusableView: UICollectionReusableView {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: SSFonts.title6R12.fonts, size: SSFonts.title6R12.size)
+        label.textColor = SSColors.black.color
         label.adjustsFontForContentSizeCategory = true
         return label
     }()
@@ -43,8 +44,8 @@ final class SearchCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    func setComponents(text: String?) {
-        headerLabel.text = text
+    func setComponents(indexPath: IndexPath) {
+        headerLabel.text = indexPath.section == 0 ? "지금 주변에는" : "내가 하고 싶은"
     }
     
 }
