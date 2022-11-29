@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SnapKit
+import Toast
 
 final class SearchViewController: BaseViewController {
     
@@ -69,7 +70,8 @@ final class SearchViewController: BaseViewController {
         let input = SearchViewModel.Input(textDidBeginEditing: searchView.searchBar.rx.textDidBeginEditing,
                                           textDidEndEditing: searchView.searchBar.rx.textDidEndEditing,
                                           seekButtonTapped: searchView.seekButton.rx.tap,
-                                          accButtonTapped: searchView.accButton.rx.tap)
+                                          accButtonTapped: searchView.accButton.rx.tap,
+                                          searchButtonClicked: searchView.searchBar.rx.searchButtonClicked)
         
         let output = searchView.viewModel.transform(input: input)
         
@@ -94,12 +96,51 @@ final class SearchViewController: BaseViewController {
                 self.showListTapped()
             }
             .disposed(by: searchView.viewModel.disposeBag)
+        
+        output.searchButtonDriver
+            .drive { [weak self] action in
+                switch action {
+                case .action1:
+                    var bool = false
+                    
+                    guard let text = self?.searchView.searchBar.text else { return }
+                    let study = text.split(separator: " ", omittingEmptySubsequences: true)
+                    self?.searchView.searchBar.searchTextField.text = ""
+
+                    study.forEach { str in
+                        NetworkManager.shared.myStudyList.forEach { item in
+                            if item.title.lowercased() == str.lowercased() {
+                                self?.view.makeToast("이미 있는 항목입니다.", position: .top)
+                                bool = true
+                            }
+                            return
+                        }
+
+                        if NetworkManager.shared.myStudyList.count > 7 && !bool {
+                            self?.view.makeToast("더 이상 추가할 수 없습니다.", position: .top)
+
+                        } else if !bool {
+                            let data = SearchView.Item(title: String(str))
+                            NetworkManager.shared.myStudyList.append(data)
+                            self?.searchView.updateUI()
+
+                        } else {
+                            bool = false
+                        }
+                    }
+
+                default: break
+                }
+
+            }
+            .disposed(by: searchView.viewModel.disposeBag)
     }
     
     private func showListTapped() {
         let vc = MemberListViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 
@@ -108,31 +149,31 @@ final class SearchViewController: BaseViewController {
 extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        guard let newData = searchView.dataSource.itemIdentifier(for: indexPath) else {
-//            collectionView.deselectItem(at: indexPath, animated: true)
-//            return
-//        }
-//
-//        if indexPath.section == 0 {
-//            let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
-//            NetworkManager.shared.myStudyList.append(data)
-//        } else {
-//            NetworkManager.shared.myStudyList.remove(at: indexPath.item)
-//        }
-//
-//        var currentSnapshot = searchView.dataSource.snapshot()
-//
-//        currentSnapshot.reconfigureItems([newData])
-//        searchView.dataSource.apply(currentSnapshot)
-//
-//        collectionView.deselectItem(at: indexPath, animated: true)
-        
-        
         collectionView.deselectItem(at: indexPath, animated: false)
         if indexPath.section == 0 {
-            let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
-            NetworkManager.shared.myStudyList.append(data)
+            
+            var bool = false
+                
+                NetworkManager.shared.myStudyList.forEach { myItem in
+                    if myItem.title.lowercased() == NetworkManager.shared.nearByStudyList[indexPath.item].title.lowercased() {
+                        view.makeToast("이미 있는 항목입니다.", position: .top)
+                        bool = true
+                    }
+                    return
+                }
+                
+                if NetworkManager.shared.myStudyList.count > 7 && !bool {
+                    view.makeToast("더 이상 추가할 수 없습니다.", position: .top)
+                    
+                } else if !bool {
+                    let data = SearchView.Item(title: NetworkManager.shared.nearByStudyList[indexPath.item].title)
+                    NetworkManager.shared.myStudyList.append(data)
+                    searchView.updateUI()
+                    
+                } else {
+                    bool = false
+                }
+            
         } else {
             NetworkManager.shared.myStudyList.remove(at: indexPath.item)
         }
