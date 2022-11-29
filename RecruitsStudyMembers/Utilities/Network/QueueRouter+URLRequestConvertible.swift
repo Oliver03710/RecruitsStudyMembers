@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiQueue {
-    case myQueueState, search
+    case myQueueState, search, queue
 }
 
 
@@ -32,28 +32,39 @@ extension SeSacApiQueue: URLRequestConvertible {
         switch self {
         case .myQueueState: return UserDefaultsManager.myQueueState
         case .search: return UserDefaultsManager.search
+        case .queue: return ""
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .myQueueState: return .get
-        case .search: return .post
+        case .search, .queue: return .post
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
         case .myQueueState: return ["idtoken": UserDefaultsManager.token]
-        case .search: return ["Content-Type": UserDefaultsManager.contentType,
-                              "idtoken": UserDefaultsManager.token]
+        case .search, .queue: return ["Content-Type": UserDefaultsManager.contentType,
+                                      "idtoken": UserDefaultsManager.token]
         }
     }
     
-    var parameters: [String: String]? {
+    var parameters: [String: Any]? {
         switch self {
         case .search: return ["lat": "\(LocationManager.shared.currentPosition.lat)",
                               "long": "\(LocationManager.shared.currentPosition.lon)"]
+            
+        case .queue:
+            var arr = Array<String>()
+            NetworkManager.shared.myStudyList.forEach { item in
+                arr.append(item.title)
+            }
+            return ["lat": "\(LocationManager.shared.currentPosition.lat)",
+                    "long": "\(LocationManager.shared.currentPosition.lon)",
+                    "studylist": arr]
+            
         default: return nil
         }
     }
@@ -61,6 +72,7 @@ extension SeSacApiQueue: URLRequestConvertible {
     var encoding: ParameterEncoding {
         switch self {
         case .myQueueState, .search: return URLEncoding.default
+        case .queue: return URLEncoding(arrayEncoding: .noBrackets)
         }
     }
     
@@ -74,6 +86,6 @@ extension SeSacApiQueue: URLRequestConvertible {
         urlRequest.method = method
         urlRequest.headers = headers
         
-        return try URLEncoding.default.encode(urlRequest, with: parameters)
+        return try URLEncoding(arrayEncoding: .noBrackets).encode(urlRequest, with: parameters)
     }
 }
