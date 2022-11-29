@@ -18,7 +18,7 @@ final class ImageCollectionViewCell: CustomCollectionViewCell {
         iv.layer.masksToBounds = true
         iv.layer.cornerRadius = 8
         iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(named: "sesacFace\(NetworkManager.shared.userData.sesac)")
+        iv.image = UIImage(named: "")
         return iv
     }()
     
@@ -39,6 +39,10 @@ final class ImageCollectionViewCell: CustomCollectionViewCell {
             $0.edges.equalTo(safeAreaLayoutGuide)
         }
         
+    }
+    
+    func ConfigureCells(image: String) {
+        foreImageView.image = UIImage(named: image)
     }
     
 }
