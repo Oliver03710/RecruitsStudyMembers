@@ -113,6 +113,8 @@
 		ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */; };
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
 		ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */; };
+		ADD5AE31293677B20092B3B5 /* NearByViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5AE30293677B20092B3B5 /* NearByViewModel.swift */; };
+		ADD5AE33293677C80092B3B5 /* ReceivedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5AE32293677C80092B3B5 /* ReceivedViewModel.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADD78636292F8387001B63AC /* UINavigationViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */; };
 		ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24AD9292FE55C000C08AB /* LocationManager.swift */; };
@@ -235,6 +237,8 @@
 		ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADD5AE30293677B20092B3B5 /* NearByViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByViewModel.swift; sourceTree = "<group>"; };
+		ADD5AE32293677C80092B3B5 /* ReceivedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedViewModel.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADE24AD9292FE55C000C08AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 				ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */,
 				ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */,
 				ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */,
+				ADD5AE30293677B20092B3B5 /* NearByViewModel.swift */,
+				ADD5AE32293677C80092B3B5 /* ReceivedViewModel.swift */,
 			);
 			path = NestedViewControllers;
 			sourceTree = "<group>";
@@ -869,6 +875,7 @@
 				ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
 				AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */,
+				ADD5AE31293677B20092B3B5 /* NearByViewModel.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
@@ -910,6 +917,7 @@
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
+				ADD5AE33293677C80092B3B5 /* ReceivedViewModel.swift in Sources */,
 				AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* UserRouter+URLRequestConvertible.swift in Sources */,
