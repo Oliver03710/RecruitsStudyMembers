@@ -209,11 +209,8 @@ extension FoldableCollectionViewCell {
         }
         
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<SearchCollectionReusableView>(elementKind: SearchCollectionReusableView.reuseIdentifier) {
-            [weak self] supplementaryView, elementKind, indexPath in
-            if let snapshot = self?.currentSnapshot {
-                let category = snapshot.sectionIdentifiers[indexPath.section]
-                supplementaryView.setComponents(text: category.label.text)
-            }
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setComponents(indexPath: indexPath)
         }
         
         dataSource.supplementaryViewProvider = { (view, kind, index) in
