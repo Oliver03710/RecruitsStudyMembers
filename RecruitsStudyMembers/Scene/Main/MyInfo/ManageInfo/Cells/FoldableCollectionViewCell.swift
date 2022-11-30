@@ -68,37 +68,10 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        var frame = layoutAttributes.frame
-        frame.size.height = ceil(size.height)
-        layoutAttributes.frame = frame
+        print("collectionView's Intrinsic Content Size: ", collectionView.intrinsicContentSize)
+        let targetSize = CGSize(width: layoutAttributes.frame.width, height: nameLabel.intrinsicContentSize.height + 32)
+        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .defaultHigh)
         return layoutAttributes
-    }
-    
-    override func systemLayoutSizeFitting(
-        _ targetSize: CGSize,
-        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
-        verticalFittingPriority: UILayoutPriority) -> CGSize {
-        
-        // Replace the height in the target size to
-        // allow the cell to flexibly compute its height
-        var targetSize = targetSize
-        targetSize.height = CGFloat.greatestFiniteMagnitude
-        
-        // The .required horizontal fitting priority means
-        // the desired cell width (targetSize.width) will be
-        // preserved. However, the vertical fitting priority is
-        // .fittingSizeLevel meaning the cell will find the
-        // height that best fits the content
-        let size = super.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: .fittingSizeLevel
-        )
-        
-        return size
     }
     
     
@@ -108,8 +81,7 @@ final class FoldableCollectionViewCell: CustomCollectionViewCell {
         [nameLabel, foldableImageView, collectionView].forEach { contentView.addSubview($0) }
         
         nameLabel.snp.makeConstraints {
-            $0.top.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
-            $0.height.greaterThanOrEqualTo(40)
+            $0.edges.equalTo(safeAreaLayoutGuide).inset(16)
         }
         
         foldableImageView.snp.makeConstraints {
