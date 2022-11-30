@@ -10,11 +10,10 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class NearByViewModel: CommonViewModel {
+final class MemberListViewModel: CommonViewModel {
     
     // MARK: - Properties
     
-    var memberImageList = BehaviorRelay<[MemberListData]>(value: [])
     var memberList = BehaviorRelay<[MemberListData]>(value: [])
     
     let disposeBag = DisposeBag()
@@ -32,7 +31,7 @@ final class NearByViewModel: CommonViewModel {
     // MARK: - Helper Functions
     
     func transform(input: Input) -> Output {
-       
+        
         return Output()
     }
 }
