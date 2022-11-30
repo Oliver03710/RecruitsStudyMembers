@@ -72,6 +72,30 @@ final class CustomButton: UIButton {
         backgroundColor = SSColors.white.color
     }
     
+    // 새싹 찾기의 요청 버튼
+    convenience init(text: String, backgroundColor: UIColor?, borderColor: UIColor?) {
+        self.init()
+        let style = NSMutableParagraphStyle()
+        let lineHeights = SSFonts.title3M14.size * SSFonts.title3M14.lineHeight
+        style.minimumLineHeight = lineHeights
+        style.maximumLineHeight = lineHeights
+        
+        var container = AttributeContainer()
+        container.font = UIFont(name: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size)
+        container.foregroundColor = SSColors.white.color
+        container.paragraphStyle = style
+        container.baselineOffset = (lineHeights - SSFonts.title2R16.size) / 4
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString(text, attributes: container)
+        configuration.titleAlignment = .center
+        self.configuration = configuration
+        
+        self.backgroundColor = backgroundColor
+        layer.borderWidth = 1
+        layer.borderColor = borderColor?.cgColor
+    }
+    
     
     // MARK: - Helper Functions
     
