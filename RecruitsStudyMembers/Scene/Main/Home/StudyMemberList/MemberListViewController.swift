@@ -50,16 +50,6 @@ final class MemberListViewController: BaseViewController {
         }
     }
     
-    let changeStudyButton: CustomButton = {
-        let btn = CustomButton(text: "스터디 변경하기", buttonColor: SSColors.green.color)
-        return btn
-    }()
-    
-    let refreshButton: CustomButton = {
-        let btn = CustomButton(image: GeneralIcons.refresh.rawValue)
-        return btn
-    }()
-    
     
     // MARK: - Init
     
@@ -88,28 +78,16 @@ final class MemberListViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        [segmentedControl, pageViewController.view, changeStudyButton, refreshButton].forEach { view.addSubview($0) }
+        [segmentedControl, pageViewController.view].forEach { view.addSubview($0) }
         
         segmentedControl.snp.makeConstraints {
             $0.directionalHorizontalEdges.top.equalTo(view.safeAreaLayoutGuide).inset(4)
             $0.height.equalTo(44)
         }
         
-        refreshButton.snp.makeConstraints {
-            $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
-            $0.height.width.equalTo(48)
-        }
-
-        changeStudyButton.snp.makeConstraints {
-            $0.leading.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
-            $0.trailing.equalTo(refreshButton.snp.leading).offset(-8)
-            $0.height.equalTo(48)
-        }
-        
         pageViewController.view.snp.makeConstraints {
-            $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(4)
+            $0.directionalHorizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(4)
             $0.top.equalTo(segmentedControl.snp.bottom).offset(4)
-            $0.bottom.equalTo(refreshButton.snp.top).offset(-8)
         }
 
     }
