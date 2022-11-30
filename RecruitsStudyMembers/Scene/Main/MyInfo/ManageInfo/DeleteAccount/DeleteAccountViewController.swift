@@ -15,7 +15,7 @@ final class DeleteAccountViewController: BaseViewController {
 
     // MARK: - Properties
     
-    private let myView = DeleteAccountView()
+    private let deleteView = DeleteAccountView()
     
     private let disposeBag = DisposeBag()
     
@@ -23,7 +23,7 @@ final class DeleteAccountViewController: BaseViewController {
     // MARK: - Init
     
     override func loadView() {
-        view = myView
+        view = deleteView
     }
     
     override func viewDidLoad() {
@@ -38,14 +38,14 @@ final class DeleteAccountViewController: BaseViewController {
     }
     
     private func bindData() {
-        myView.cancelButton.rx.tap
+        deleteView.cancelButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
                 self?.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
         
-        myView.confirmButton.rx.tap
+        deleteView.confirmButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
                 self?.deleteAccount()
@@ -72,18 +72,12 @@ final class DeleteAccountViewController: BaseViewController {
                 switch errCode {
                     
                 case .firebaseTokenError:
-                    guard let codeNum = NetworkManager.shared.refreshToken() else {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self?.deleteAccount()
-                        }
-                        return
-                    }
-                    guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
-                    switch errorCode {
-                    case .tooManyRequests:
-                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .center)
-                    default:
-                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
+                    NetworkManager.shared.fireBaseError {
+                        self?.deleteAccount()
+                    } errorHandler: {
+                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
+                    } defaultErrorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.", position: .top)
                     }
                     
                 case .unsignedupUser, .ServerError, .ClientError:
@@ -93,5 +87,4 @@ final class DeleteAccountViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
-
 }
