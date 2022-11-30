@@ -61,6 +61,11 @@ extension SeSacApiQueue: URLRequestConvertible {
             NetworkManager.shared.myStudyList.forEach { item in
                 arr.append(item.title)
             }
+            
+            if arr.isEmpty {
+                arr.append("Anything")
+            }
+            
             return ["lat": "\(LocationManager.shared.currentPosition.lat)",
                     "long": "\(LocationManager.shared.currentPosition.lon)",
                     "studylist": arr]
