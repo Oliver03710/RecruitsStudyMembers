@@ -7,17 +7,11 @@
 
 import UIKit
 
+import RxSwift
 import SnapKit
 
 final class SharedSegmentedView: BaseView {
 
-    // MARK: - Enum
-    
-    enum Section: Int, CaseIterable, Hashable {
-        case image, foldable
-    }
-    
-    
     // MARK: - Properties
     
     private let grayImageView: UIImageView = {
@@ -37,14 +31,27 @@ final class SharedSegmentedView: BaseView {
         return label
     }()
     
+    let changeStudyButton: CustomButton = {
+        let btn = CustomButton(text: "스터디 변경하기", buttonColor: SSColors.green.color)
+        return btn
+    }()
+    
+    let refreshButton: CustomButton = {
+        let btn = CustomButton(image: GeneralIcons.refresh.rawValue)
+        return btn
+    }()
+    
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        cv.autoresizingMask = [.flexibleHeight]
+        cv.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        cv.isHidden = true
         return cv
     }()
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, DefaultUserData>! = nil
-    var currentSnapshot = NSDiffableDataSourceSnapshot<Section, DefaultUserData>()
+    var dataSource: UICollectionViewDiffableDataSource<MemberListData, MemberListData>! = nil
+    var currentSnapshot = NSDiffableDataSourceSnapshot<MemberListData, MemberListData>()
+    
+    let viewModel = MemberListViewModel()
     
     var isFolded = true
     
@@ -58,8 +65,12 @@ final class SharedSegmentedView: BaseView {
     
     // MARK: - Helper Functions
     
+    override func configureUI() {
+        configureDataSource()
+    }
+    
     override func setConstraints() {
-        [grayImageView, mainLabel, subLabel].forEach { addSubview($0) }
+        [grayImageView, mainLabel, subLabel, refreshButton, changeStudyButton, collectionView].forEach { addSubview($0) }
         
         mainLabel.snp.makeConstraints {
             $0.center.equalTo(safeAreaLayoutGuide)
@@ -79,6 +90,31 @@ final class SharedSegmentedView: BaseView {
             $0.height.equalTo(48)
             $0.width.equalTo(64)
         }
+        
+        refreshButton.snp.makeConstraints {
+            $0.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+            $0.height.width.equalTo(48)
+        }
+
+        changeStudyButton.snp.makeConstraints {
+            $0.leading.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+            $0.trailing.equalTo(refreshButton.snp.leading).offset(-8)
+            $0.height.equalTo(48)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalTo(safeAreaLayoutGuide).inset(16)
+        }
+    }
+    
+    func makeHidden(isHidden: Bool = false) {
+        grayImageView.isHidden = isHidden
+        mainLabel.isHidden = isHidden
+        subLabel.isHidden = isHidden
+        refreshButton.isHidden = isHidden
+        changeStudyButton.isHidden = isHidden
+        
+        collectionView.isHidden = !isHidden
     }
 }
 
@@ -89,89 +125,81 @@ extension SharedSegmentedView {
     
     private func createLayout() -> UICollectionViewLayout {
         
-        let sectionProvider = { [weak self] (sectionIndex: Int,
-            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
-            guard let customSection = Section(rawValue: sectionIndex) else { return nil }
-
-            switch customSection {
-            case .image:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.56))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-
-                let section = NSCollectionLayoutSection(group: group)
-
-                return section
-
-            case .foldable:
-                let estimatedHeight = CGFloat(self?.isFolded ?? false ? 72 : 330)
-
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
-                let section = NSCollectionLayoutSection(group: group)
-
-                let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(elementKind: ReusableView.reuseIdentifier)
-                section.decorationItems = [sectionBackgroundDecoration]
-                return section
-            }
+        let sectionProvider = { (sectionIndex: Int,
+                                 layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
+            guard let width = self.window?.windowScene?.screen.bounds.width else { return nil }
+            let estimatedHeight = CGFloat(72)
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            
+            let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(width * 0.54))
+            
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: titleSize,
+                elementKind: HeaderImageCollectionReusableView.reuseIdentifier,
+                alignment: .top)
+            
+//            let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(elementKind: ReusableView.reuseIdentifier)
+//            section.decorationItems = [sectionBackgroundDecoration]
+            section.boundarySupplementaryItems = [titleSupplementary]
+            return section
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 16
         let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider, configuration: config)
-        layout.register(ReusableView.self, forDecorationViewOfKind: ReusableView.reuseIdentifier)
-        layout.collectionView?.layoutIfNeeded()
+//        layout.register(ReusableView.self, forDecorationViewOfKind: ReusableView.reuseIdentifier)
         return layout
     }
     
-    private func configureDataSource() {
-        
-        let imageCellRegistration = UICollectionView.CellRegistration<ImageCollectionViewCell, DefaultUserData> { (cell, indexPath, identifier) in
-            var backConfig = UIBackgroundConfiguration.listPlainCell()
-            backConfig.image = UIImage(named: "sesacBackground\(NetworkManager.shared.userData.background)")
-            backConfig.cornerRadius = 8
-            cell.backgroundConfiguration = backConfig
-        }
-        
-        let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DefaultUserData> { [weak self] (cell, indexPath, identifier) in
+    func configureDataSource() {
+        let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, MemberListData> { [weak self] (cell, indexPath, identifier) in
             guard let bool = self?.isFolded else { return }
+            
+            var backConfig = UIBackgroundConfiguration.listPlainCell()
+            backConfig.strokeColor = SSColors.gray2.color
+            backConfig.strokeWidth = 1
+            backConfig.cornerRadius = 8
+            
+            cell.backgroundConfiguration = backConfig
             cell.setAutoLayout(isFolded: bool)
-            cell.setComponents(text: UserDefaultsManager.userName)
+            cell.setComponents(text: identifier.data.nick)
+            
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, DefaultUserData>(collectionView: collectionView) {
-            (collectionView, indexPath, identifier) -> UICollectionViewCell? in
-            
-            if indexPath.section % 2 != 0 {
-                return collectionView.dequeueConfiguredReusableCell(using: imageCellRegistration, for: indexPath, item: identifier)
-            } else {
-                return collectionView.dequeueConfiguredReusableCell(using: foldableCellRegistration, for: indexPath, item: identifier)
-            }
-//            guard let customSection = Section(rawValue: indexPath.section) else { return nil }
-//
-//            switch customSection {
-//            case .image: return collectionView.dequeueConfiguredReusableCell(using: imageCellRegistration, for: indexPath, item: identifier)
-//            case .foldable: return collectionView.dequeueConfiguredReusableCell(using: foldableCellRegistration, for: indexPath, item: identifier)
-//            }
+        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<HeaderImageCollectionReusableView>(elementKind: HeaderImageCollectionReusableView.reuseIdentifier) {
+            [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else { return }
+            supplementaryView.setComponents(indexPath: indexPath, backgroundImg: self.viewModel.memberList.value[indexPath.section].data.background, foregroundImg: self.viewModel.memberList.value[indexPath.section].data.sesac)
         }
+        
+        dataSource = UICollectionViewDiffableDataSource<MemberListData, MemberListData>(collectionView: collectionView) {
+            (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: foldableCellRegistration, for: indexPath, item: identifier)
+        }
+        
+        dataSource.supplementaryViewProvider = { (view, kind, index) in
+            return self.collectionView.dequeueConfiguredReusableSupplementary(using: supplementaryRegistration, for: index)
+        }
+        
         updateUI()
     }
     
     func updateUI() {
-        currentSnapshot = NSDiffableDataSourceSnapshot<Section, DefaultUserData>()
-        currentSnapshot.appendSections(Section.allCases)
-        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .image)
-        currentSnapshot.appendItems(DefaultUserData.callOne(), toSection: .foldable)
-//        isFolded ? currentSnapshot.appendItems(DummyData.callDummy(), toSection: .foldable) : currentSnapshot.appendItems(DummyData.diffDummy(), toSection: .foldable)
-
-        dataSource.apply(currentSnapshot, animatingDifferences: true)
+        currentSnapshot = NSDiffableDataSourceSnapshot<MemberListData, MemberListData>()
+        
+        viewModel.memberList.value.forEach { data in
+            currentSnapshot.appendSections([data])
+            currentSnapshot.appendItems([data], toSection: data)
+        }
+        dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
     
 }
