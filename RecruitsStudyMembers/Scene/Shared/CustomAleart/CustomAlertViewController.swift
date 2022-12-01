@@ -1,5 +1,5 @@
 //
-//  DeleteAccountViewController.swift
+//  CustomAlertViewController.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/23.
@@ -11,11 +11,11 @@ import FirebaseAuth
 import RxCocoa
 import RxSwift
 
-final class DeleteAccountViewController: BaseViewController {
+final class CustomAlertViewController: BaseViewController {
 
     // MARK: - Properties
     
-    private let deleteView = DeleteAccountView()
+    let deleteView = CustomAlertView()
     
     private let disposeBag = DisposeBag()
     

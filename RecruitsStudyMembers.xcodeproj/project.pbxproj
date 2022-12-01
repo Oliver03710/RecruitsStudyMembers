@@ -73,8 +73,8 @@
 		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
 		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
 		AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */; };
-		AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */; };
-		AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */; };
+		AD90630E292D6A35007A70E2 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630D292D6A35007A70E2 /* CustomAlertViewController.swift */; };
+		AD906310292D6A42007A70E2 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90630F292D6A42007A70E2 /* CustomAlertView.swift */; };
 		AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7629290709000F7828 /* SeSacAnnotation.swift */; };
 		AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B782929415F000F7828 /* GenderButtonOnMap.swift */; };
 		AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */; };
@@ -197,8 +197,8 @@
 		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
-		AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
-		AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		AD90630D292D6A35007A70E2 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		AD90630F292D6A42007A70E2 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		AD910B7629290709000F7828 /* SeSacAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotation.swift; sourceTree = "<group>"; };
 		AD910B782929415F000F7828 /* GenderButtonOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButtonOnMap.swift; sourceTree = "<group>"; };
 		AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+Extension.swift"; sourceTree = "<group>"; };
@@ -356,6 +356,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		AD22E6FE2937A0EB00D50B99 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		AD23FAD229220BF5004FA34E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				ADAC0D5D29260F1C00424D39 /* Cells */,
-				AD90630C292D69CD007A70E2 /* DeleteAccount */,
 				ADB604BE2923EA320081CEC2 /* ReusableView.swift */,
 				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
 				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
@@ -493,13 +499,21 @@
 			path = NestedViewController;
 			sourceTree = "<group>";
 		};
-		AD90630C292D69CD007A70E2 /* DeleteAccount */ = {
+		AD6EF3162938DD6B006CA502 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				AD90630D292D6A35007A70E2 /* DeleteAccountViewController.swift */,
-				AD90630F292D6A42007A70E2 /* DeleteAccountView.swift */,
+				AD90630C292D69CD007A70E2 /* CustomAleart */,
 			);
-			path = DeleteAccount;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AD90630C292D69CD007A70E2 /* CustomAleart */ = {
+			isa = PBXGroup;
+			children = (
+				AD90630D292D6A35007A70E2 /* CustomAlertViewController.swift */,
+				AD90630F292D6A42007A70E2 /* CustomAlertView.swift */,
+			);
+			path = CustomAleart;
 			sourceTree = "<group>";
 		};
 		AD9533B529195C41002126C0 /* Splash */ = {
@@ -601,6 +615,7 @@
 		ADA27D142934C96F00150C26 /* NestedViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AD22E6FE2937A0EB00D50B99 /* AlertView */,
 				ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */,
 				ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */,
 				ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */,
@@ -733,6 +748,7 @@
 		ADF9B3632918CE0200D1F758 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				AD6EF3162938DD6B006CA502 /* Shared */,
 				AD9533B529195C41002126C0 /* Splash */,
 				AD9533B929195FE3002126C0 /* Onboarding */,
 				AD23FB0529227881004FA34E /* SignUp */,
@@ -885,7 +901,7 @@
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */,
-				AD90630E292D6A35007A70E2 /* DeleteAccountViewController.swift in Sources */,
+				AD90630E292D6A35007A70E2 /* CustomAlertViewController.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
 				ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */,
 				AD0D0484291D1CC200377276 /* BirthViewModel.swift in Sources */,
@@ -918,7 +934,7 @@
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
-				AD906310292D6A42007A70E2 /* DeleteAccountView.swift in Sources */,
+				AD906310292D6A42007A70E2 /* CustomAlertView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* UserRouter+URLRequestConvertible.swift in Sources */,
 				ADE9623C292B7401003D5191 /* SearchView.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DeleteAccountView.swift
+//  CustomAlertView.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/23.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class DeleteAccountView: BaseView {
+final class CustomAlertView: BaseView {
     
     // MARK: - Properties
     
@@ -21,7 +21,7 @@ final class DeleteAccountView: BaseView {
         return view
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "정말 탈퇴하시겠습니까?"
         label.font = UIFont(name: SSFonts.body1M16.fonts, size: SSFonts.body1M16.size)
@@ -29,11 +29,12 @@ final class DeleteAccountView: BaseView {
         return label
     }()
     
-    private let bodyLabel: UILabel = {
+    let bodyLabel: UILabel = {
         let label = UILabel()
         label.text = "탈퇴하시면 새싹 스터디를 이용할 수 없어요 ㅠ"
         label.font = UIFont(name: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size)
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     
@@ -81,7 +82,7 @@ final class DeleteAccountView: BaseView {
         alertView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalToSuperview().inset(16)
-            $0.height.equalToSuperview().dividedBy(5.5)
+            $0.height.equalToSuperview().dividedBy(4.5)
         }
         
         titleLabel.snp.makeConstraints {
@@ -95,7 +96,7 @@ final class DeleteAccountView: BaseView {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.width.equalToSuperview().inset(16)
-            $0.height.equalTo(16)
+            $0.height.equalTo(60)
         }
         
         confirmButton.snp.makeConstraints {
