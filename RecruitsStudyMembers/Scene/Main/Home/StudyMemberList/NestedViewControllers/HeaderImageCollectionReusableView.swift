@@ -18,6 +18,7 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         iv.contentMode = .scaleAspectFill
         iv.layer.masksToBounds = true
         iv.layer.cornerRadius = 8
+        iv.isUserInteractionEnabled = true
         return iv
     }()
     
@@ -27,8 +28,9 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         return iv
     }()
     
-    let requestButton: UIButton = {
+    lazy var requestButton: UIButton = {
         let btn = CustomButton(text: "요청하기", backgroundColor: SSColors.error.color, borderColor: SSColors.error.color)
+        btn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -42,6 +44,19 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Selectors
+    
+    @objc func buttonTapped() {
+        let vc = CustomAlertViewController()
+        vc.deleteView.titleLabel.text = "스터디를 요청할게요!"
+        vc.deleteView.bodyLabel.text = "상대방이 요청을 수락하면\n채팅창에서 대화를 나눌 수 있어요"
+        let currentVC = self.getCurrentViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        currentVC?.present(vc, animated: true)
+        print(requestButton.tag)
     }
     
     
@@ -75,4 +90,14 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         requestButton.tag = indexPath.section
     }
     
+    func getCurrentViewController() -> UIViewController? {
+       if let rootController = UIApplication.shared.keyWindow?.rootViewController {
+           var currentController: UIViewController! = rootController
+           while( currentController.presentedViewController != nil ) {
+               currentController = currentController.presentedViewController
+           }
+           return currentController
+       }
+       return nil
+   }
 }
