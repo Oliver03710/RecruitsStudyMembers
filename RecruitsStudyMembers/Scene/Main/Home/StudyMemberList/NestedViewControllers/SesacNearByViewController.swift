@@ -32,6 +32,8 @@ final class SesacNearByViewController: BaseViewController {
     
     override func configureUI() {
         searchStudyMembers()
+        bindData()
+        nearbyView.collectionView.delegate = self
     }
     
     private func searchStudyMembers() {
@@ -44,7 +46,7 @@ final class SesacNearByViewController: BaseViewController {
                     self.nearbyView.viewModel.memberList.acceptAppending(data)
                 }
                 
-                self.nearbyView.configureUI()
+                self.nearbyView.updateUI()
                 if !self.nearbyView.viewModel.memberList.value.isEmpty {
                     self.nearbyView.makeHidden(isHidden: true)
                 }
@@ -70,5 +72,17 @@ final class SesacNearByViewController: BaseViewController {
                 }
             })
             .disposed(by: nearbyView.viewModel.disposeBag)
+    }
+    
+    private func bindData() {
+        
+    }
+}
+
+
+extension SesacNearByViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
