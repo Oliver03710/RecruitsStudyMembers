@@ -37,12 +37,17 @@ final class ReceivedRequestViewController: BaseViewController {
     private func searchStudyMembers() {
         NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.search)
             .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
                 dump(response)
                 response.fromQueueDBRequested.forEach { data in
                     let data = MemberListData(data: data)
-                    self?.receivedView.viewModel.memberList.acceptAppending(data)
+                    self.receivedView.viewModel.memberList.acceptAppending(data)
                 }
-                self?.receivedView.updateUI()
+                
+                self.receivedView.updateUI()
+                if !self.receivedView.viewModel.memberList.value.isEmpty {
+                    self.receivedView.makeHidden(isHidden: true)
+                }
                 
             }, onFailure: { [weak self] error in
                 let errors = (error as NSError).code
