@@ -141,7 +141,7 @@ extension ManageInfoViewController: UICollectionViewDelegate {
             myView.isFolded = myView.isFolded ? false : true
             myView.updateUI()
         } else if indexPath == [6, 0] {
-            let vc = DeleteAccountViewController()
+            let vc = CustomAlertViewController()
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true)
         }
