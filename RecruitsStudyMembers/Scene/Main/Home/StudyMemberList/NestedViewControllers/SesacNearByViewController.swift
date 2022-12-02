@@ -31,6 +31,7 @@ final class SesacNearByViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
+        nearbyView.state = .sendRequest
         searchStudyMembers()
         bindData()
         nearbyView.collectionView.delegate = self

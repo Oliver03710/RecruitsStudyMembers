@@ -31,6 +31,7 @@ final class ReceivedRequestViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
+        receivedView.state = .acceptRequest
         searchStudyMembers()
     }
     
