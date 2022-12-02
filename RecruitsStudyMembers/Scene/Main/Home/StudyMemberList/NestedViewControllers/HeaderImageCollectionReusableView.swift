@@ -28,11 +28,13 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         return iv
     }()
     
-    lazy var requestButton: UIButton = {
-        let btn = CustomButton(text: "요청하기", backgroundColor: SSColors.error.color, borderColor: SSColors.error.color)
+    lazy var requestButton: CustomButton = {
+        let btn = CustomButton(state: currentState)
         btn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return btn
     }()
+    
+    private var currentState = CustomAlertState.sendRequest
     
     
     // MARK: - Init
@@ -54,6 +56,7 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         vc.deleteView.titleLabel.text = "스터디를 요청할게요!"
         vc.deleteView.bodyLabel.text = "상대방이 요청을 수락하면\n채팅창에서 대화를 나눌 수 있어요"
         let currentVC = self.getCurrentViewController()
+        vc.deleteView.state = currentState
         vc.modalPresentationStyle = .overFullScreen
         currentVC?.present(vc, animated: true)
         print(requestButton.tag)
@@ -84,13 +87,14 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    func setComponents(indexPath: IndexPath, backgroundImg: Int, foregroundImg: Int) {
+    func setComponents(state: CustomAlertState, indexPath: IndexPath, backgroundImg: Int, foregroundImg: Int) {
+        currentState = state
         backgroundImageView.image = UIImage(named: "sesacBackground\(backgroundImg)")
         foregroundImageView.image = UIImage(named: "sesacFace\(foregroundImg)")
         requestButton.tag = indexPath.section
     }
     
-    func getCurrentViewController() -> UIViewController? {
+    private func getCurrentViewController() -> UIViewController? {
        if let rootController = UIApplication.shared.keyWindow?.rootViewController {
            var currentController: UIViewController! = rootController
            while( currentController.presentedViewController != nil ) {
