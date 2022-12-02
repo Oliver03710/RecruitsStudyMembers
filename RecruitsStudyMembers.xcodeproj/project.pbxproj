@@ -103,6 +103,7 @@
 		ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */; };
 		ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */; };
 		ADA59A7F2939BA1000A7A8A0 /* CustomAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */; };
+		ADA59A812939BED400A7A8A0 /* CustomAlertStates+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA59A802939BED400A7A8A0 /* CustomAlertStates+Enum.swift */; };
 		ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */; };
 		ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */; };
 		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
@@ -228,6 +229,7 @@
 		ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedRequestViewController.swift; sourceTree = "<group>"; };
 		ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSegmentedView.swift; sourceTree = "<group>"; };
 		ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewModel.swift; sourceTree = "<group>"; };
+		ADA59A802939BED400A7A8A0 /* CustomAlertStates+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomAlertStates+Enum.swift"; sourceTree = "<group>"; };
 		ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 				ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */,
 				AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */,
 				ADA27D122934C17500150C26 /* ButtonCombined+Enum.swift */,
+				ADA59A802939BED400A7A8A0 /* CustomAlertStates+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
 				AD7803DF2930D4870007B19C /* QueueData.swift in Sources */,
 				AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */,
+				ADA59A812939BED400A7A8A0 /* CustomAlertStates+Enum.swift in Sources */,
 				ADE9623E292BEB52003D5191 /* SearchCollectionViewCell.swift in Sources */,
 				ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
