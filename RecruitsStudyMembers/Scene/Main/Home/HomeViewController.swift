@@ -145,23 +145,18 @@ final class HomeViewController: BaseViewController {
                 print(response)
                 
             }, onFailure: { [weak self] error in
-                let errors = (error as NSError).code
-                print(errors)
-                guard let errCode = SeSacUserError(rawValue: errors) else { return }
-                switch errCode {
-                    
-                case .firebaseTokenError:
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
                     NetworkManager.shared.fireBaseError {
                         self?.checkMyQueueState()
                     } errorHandler: {
-                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
-                    } defaultErrorHandler: {
-                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.", position: .top)
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
                     }
                     
-                case .unsignedupUser, .ServerError, .ClientError:
-                    self?.view.makeToast(errCode.errorDescription)
-                default: break
+                default: self?.view.makeToast(errStatus.errorDescription)
                 }
             })
             .disposed(by: viewModel.disposeBag)
@@ -169,29 +164,24 @@ final class HomeViewController: BaseViewController {
     
     func searchStudyMembers() {
         NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.search)
-            .subscribe(onSuccess: { [weak self] response in
+            .subscribe(onSuccess: { [weak self] response, _ in
                 dump(response)
                 self?.viewModel.members.accept(response.fromQueueDB)
                 self?.viewModel.recommendData.accept(response.fromRecommend)
                 
             }, onFailure: { [weak self] error in
-                let errors = (error as NSError).code
-                print(errors)
-                guard let errCode = SeSacUserError(rawValue: errors) else { return }
-                switch errCode {
-                    
-                case .firebaseTokenError:
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
                     NetworkManager.shared.fireBaseError {
                         self?.searchStudyMembers()
                     } errorHandler: {
-                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .top)
-                    } defaultErrorHandler: {
-                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.", position: .top)
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
                     }
                     
-                case .unsignedupUser, .ServerError, .ClientError:
-                    self?.view.makeToast(errCode.errorDescription)
-                default: break
+                default: self?.view.makeToast(errStatus.errorDescription)
                 }
             })
             .disposed(by: viewModel.disposeBag)

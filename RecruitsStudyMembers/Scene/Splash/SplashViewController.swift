@@ -65,7 +65,7 @@ final class SplashViewController: BaseViewController {
     
     func requestCheckUser() {
         NetworkManager.shared.request(UserData.self, router: SeSacApiUser.login)
-            .subscribe(onSuccess: { response in
+            .subscribe(onSuccess: { response, _ in
                 print(response)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
@@ -76,27 +76,18 @@ final class SplashViewController: BaseViewController {
                 UserDefaultsManager.userImage = response.sesac
                 
             }, onFailure: { [weak self] error in
-                let errors = (error as NSError).code
-                print(errors)
-                guard let errCode = SeSacUserError(rawValue: errors) else { return }
-                switch errCode {
-                    
-                case .firebaseTokenError:
-                    guard let codeNum = NetworkManager.shared.refreshToken() else {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self?.requestCheckUser()
-                        }
-                        return
-                    }
-                    guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
-                    switch errorCode {
-                    case .tooManyRequests:
-                        self?.view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", position: .center)
-                    default:
-                        self?.view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.requestCheckUser()
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
                     }
                     
-                case .unsignedupUser:
+                case .unsignedUp:
                     UserDefaultsManager.resetSignupData()
                     
                     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -112,9 +103,7 @@ final class SplashViewController: BaseViewController {
                     sceneDelegate?.window?.makeKeyAndVisible()
                     nav.push(vcs)
                     
-                case .ServerError, .ClientError:
-                    self?.view.makeToast(errCode.errorDescription)
-                default: break
+                default: self?.view.makeToast(errStatus.errorDescription)
                 }
             })
             .disposed(by: disposeBag)
