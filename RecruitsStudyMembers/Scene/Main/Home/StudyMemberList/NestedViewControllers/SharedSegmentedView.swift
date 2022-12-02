@@ -178,7 +178,11 @@ extension SharedSegmentedView {
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<HeaderImageCollectionReusableView>(elementKind: HeaderImageCollectionReusableView.reuseIdentifier) {
             [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
-            supplementaryView.setComponents(state: self.state, indexPath: indexPath, backgroundImg: self.viewModel.memberList.value[indexPath.section].data.background, foregroundImg: self.viewModel.memberList.value[indexPath.section].data.sesac)
+            supplementaryView.setComponents(state: self.state,
+                                            indexPath: indexPath,
+                                            backgroundImg: self.viewModel.memberList.value[indexPath.section].data.background,
+                                            foregroundImg: self.viewModel.memberList.value[indexPath.section].data.sesac,
+                                            uid: self.viewModel.memberList.value[indexPath.section].data.uid)
         }
         
         dataSource = UICollectionViewDiffableDataSource<MemberListData, MemberListData>(collectionView: collectionView) {
