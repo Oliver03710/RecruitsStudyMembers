@@ -45,7 +45,8 @@ final class NetworkManager {
                         let dataWithState = (value, statusCode)
                         single(.success(dataWithState))
                     
-                case .failure(let error):
+                case .failure:
+                    guard let error = SesacStatus.DefaultError(rawValue: statusCode) else { return }
                     single(.failure(error))
                 }
             }
@@ -65,7 +66,8 @@ final class NetworkManager {
                     let dataWithState = (value, statusCode)
                     single(.success(dataWithState))
                     
-                case .failure(let error):
+                case .failure:
+                    guard let error = SesacStatus.DefaultError(rawValue: statusCode) else { return }
                     single(.failure(error))
                 }
             }
@@ -93,7 +95,7 @@ final class NetworkManager {
     
     func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void) {
         guard let codeNum = NetworkManager.shared.refreshToken() else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(100)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                 competionHandler()
             }
             return
