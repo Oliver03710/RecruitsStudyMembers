@@ -20,6 +20,8 @@ final class NetworkManager {
     var nearByStudyList: [SearchView.Item] = []
     var myStudyList: [SearchView.Item] = []
     
+    var uid = ""
+    
     static let shared = NetworkManager()
     private let disposeBag = DisposeBag()
     
@@ -31,35 +33,39 @@ final class NetworkManager {
     
     // MARK: - Helper Functions
         
-    func request<T: Codable>(_ types: T.Type = T.self, router: URLRequestConvertible) -> Single<T> {
-        return Single<T>.create { single in
+    func request<T: Codable>(_ types: T.Type = T.self, router: URLRequestConvertible) -> Single<(data: T, state: Int)> {
+        return Single<(data: T, state: Int)>.create { single in
 
-            AF.request(router).validate(statusCode: 200..<400).responseDecodable(of: types.self) { response in
+            AF.request(router).responseDecodable(of: types.self) { response in
 
+                guard let statusCode = response.response?.statusCode else { return }
+                
                 switch response.result {
                 case .success(let value):
-                    single(.success(value))
-                case .failure:
-                    guard let statusCode = response.response?.statusCode else { return }
-                    guard let error = SeSacUserError(rawValue: statusCode) else { return }
+                        let dataWithState = (value, statusCode)
+                        single(.success(dataWithState))
+                    
+                case .failure(let error):
                     single(.failure(error))
                 }
-
             }
             return Disposables.create()
         }
     }
     
-    func request(router: URLRequestConvertible) -> Single<String> {
-        return Single<String>.create { single in
+    func request(router: URLRequestConvertible) -> Single<(data: String, state: Int)> {
+        return Single<(data: String, state: Int)>.create { single in
             
-            AF.request(router).validate(statusCode: 100...200).responseString() { response in
+            AF.request(router).responseString() { response in
+                
+                guard let statusCode = response.response?.statusCode else { return }
+                
                 switch response.result {
-                case .success(let data):
-                    single(.success(data))
-                case .failure:
-                    guard let statusCode = response.response?.statusCode else { return }
-                    guard let error = SeSacUserError(rawValue: statusCode) else { return }
+                case .success(let value):
+                    let dataWithState = (value, statusCode)
+                    single(.success(dataWithState))
+                    
+                case .failure(let error):
                     single(.failure(error))
                 }
             }
@@ -85,21 +91,16 @@ final class NetworkManager {
         return errCode
     }
     
-    func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void, defaultErrorHandler: @escaping () -> Void) {
+    func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void) {
         guard let codeNum = NetworkManager.shared.refreshToken() else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(100)) {
                 competionHandler()
             }
             return
         }
         guard let errorCode = AuthErrorCode.Code(rawValue: codeNum) else { return }
         switch errorCode {
-        case .tooManyRequests:
-            errorHandler()
-        default:
-            defaultErrorHandler()
+        default: errorHandler()
         }
     }
 }
-
-
