@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class HeaderImageCollectionReusableView: UICollectionReusableView {
@@ -35,6 +36,7 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
     }()
     
     private var currentState = CustomAlertState.sendRequest
+    private var currentUid = ""
     
     
     // MARK: - Init
@@ -53,10 +55,11 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
     
     @objc func buttonTapped() {
         let vc = CustomAlertViewController()
-        vc.deleteView.titleLabel.text = "스터디를 요청할게요!"
-        vc.deleteView.bodyLabel.text = "상대방이 요청을 수락하면\n채팅창에서 대화를 나눌 수 있어요"
+        vc.customAlertView.titleLabel.text = "스터디를 요청할게요!"
+        vc.customAlertView.bodyLabel.text = "상대방이 요청을 수락하면\n채팅창에서 대화를 나눌 수 있어요"
         let currentVC = self.getCurrentViewController()
-        vc.deleteView.state = currentState
+        vc.customAlertView.state = currentState
+        NetworkManager.shared.uid = currentUid
         vc.modalPresentationStyle = .overFullScreen
         currentVC?.present(vc, animated: true)
         print(requestButton.tag)
@@ -87,11 +90,12 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    func setComponents(state: CustomAlertState, indexPath: IndexPath, backgroundImg: Int, foregroundImg: Int) {
+    func setComponents(state: CustomAlertState, indexPath: IndexPath, backgroundImg: Int, foregroundImg: Int, uid: String) {
         currentState = state
         backgroundImageView.image = UIImage(named: "sesacBackground\(backgroundImg)")
         foregroundImageView.image = UIImage(named: "sesacFace\(foregroundImg)")
         requestButton.tag = indexPath.section
+        currentUid = uid
     }
     
     private func getCurrentViewController() -> UIViewController? {
