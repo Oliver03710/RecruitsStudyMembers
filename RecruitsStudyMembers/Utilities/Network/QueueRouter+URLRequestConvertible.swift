@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiQueue {
-    case myQueueState, search, queue
+    case myQueueState, search, queue, sendRequest, cancelRequest
 }
 
 
@@ -32,21 +32,23 @@ extension SeSacApiQueue: URLRequestConvertible {
         switch self {
         case .myQueueState: return UserDefaultsManager.myQueueState
         case .search: return UserDefaultsManager.search
-        case .queue: return ""
+        case .queue, .cancelRequest: return ""
+        case .sendRequest: return UserDefaultsManager.studyRequest
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .myQueueState: return .get
-        case .search, .queue: return .post
+        case .search, .queue, .sendRequest: return .post
+        case .cancelRequest: return .delete
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
-        case .myQueueState: return ["idtoken": UserDefaultsManager.token]
-        case .search, .queue: return ["Content-Type": UserDefaultsManager.contentType,
+        case .myQueueState, .cancelRequest: return ["idtoken": UserDefaultsManager.token]
+        case .search, .queue, .sendRequest: return ["Content-Type": UserDefaultsManager.contentType,
                                       "idtoken": UserDefaultsManager.token]
         }
     }
@@ -70,13 +72,14 @@ extension SeSacApiQueue: URLRequestConvertible {
                     "long": "\(LocationManager.shared.currentPosition.lon)",
                     "studylist": arr]
             
+        case .sendRequest: return ["otheruid": NetworkManager.shared.uid]
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .myQueueState, .search: return URLEncoding.default
+        case .myQueueState, .search, .sendRequest, .cancelRequest: return URLEncoding.default
         case .queue: return URLEncoding(arrayEncoding: .noBrackets)
         }
     }
