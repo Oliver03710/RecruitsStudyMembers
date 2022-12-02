@@ -60,6 +60,8 @@ final class CustomAlertView: BaseView {
         return btn
     }()
     
+    let viewModel = CustomAlertViewModel()
+    
     
     // MARK: - Init
     
