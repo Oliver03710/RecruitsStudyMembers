@@ -60,6 +60,7 @@ final class CustomAlertView: BaseView {
         return btn
     }()
     
+    var state = CustomAlertState.acceptRequest
     let viewModel = CustomAlertViewModel()
     
     
