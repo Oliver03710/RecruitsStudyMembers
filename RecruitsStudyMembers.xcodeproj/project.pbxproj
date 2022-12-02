@@ -102,6 +102,7 @@
 		ADA27D162934CA0E00150C26 /* SesacNearByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */; };
 		ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */; };
 		ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */; };
+		ADA59A7F2939BA1000A7A8A0 /* CustomAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */; };
 		ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */; };
 		ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */; };
 		ADAC0D632926297200424D39 /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */; };
@@ -226,6 +227,7 @@
 		ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacNearByViewController.swift; sourceTree = "<group>"; };
 		ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedRequestViewController.swift; sourceTree = "<group>"; };
 		ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSegmentedView.swift; sourceTree = "<group>"; };
+		ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewModel.swift; sourceTree = "<group>"; };
 		ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 			children = (
 				AD90630D292D6A35007A70E2 /* CustomAlertViewController.swift */,
 				AD90630F292D6A42007A70E2 /* CustomAlertView.swift */,
+				ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */,
 			);
 			path = CustomAleart;
 			sourceTree = "<group>";
@@ -949,6 +952,7 @@
 				AD23FAE429221352004FA34E /* ShopView.swift in Sources */,
 				AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */,
 				AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */,
+				ADA59A7F2939BA1000A7A8A0 /* CustomAlertViewModel.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
