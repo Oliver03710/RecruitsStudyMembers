@@ -142,6 +142,7 @@ extension ManageInfoViewController: UICollectionViewDelegate {
             myView.updateUI()
         } else if indexPath == [6, 0] {
             let vc = CustomAlertViewController()
+            vc.deleteView.state = .deleteAccount
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true)
         }
