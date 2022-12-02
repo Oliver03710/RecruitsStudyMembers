@@ -17,8 +17,6 @@ final class CustomAlertViewController: BaseViewController {
     
     let deleteView = CustomAlertView()
     
-    private let disposeBag = DisposeBag()
-    
     
     // MARK: - Init
     
@@ -38,19 +36,22 @@ final class CustomAlertViewController: BaseViewController {
     }
     
     private func bindData() {
-        deleteView.cancelButton.rx.tap
-            .asDriver()
+        let input = CustomAlertViewModel.Input(cancelButtonTapped: deleteView.cancelButton.rx.tap,
+                                               confirmButtonTapped: deleteView.confirmButton.rx.tap)
+        let output = deleteView.viewModel.transform(input: input)
+        
+        
+        output.cancelButtonDriver
             .drive { [weak self] _ in
                 self?.dismiss(animated: true)
             }
-            .disposed(by: disposeBag)
+            .disposed(by: deleteView.viewModel.disposeBag)
         
-        deleteView.confirmButton.rx.tap
-            .asDriver()
+        output.confirmButtonDriver
             .drive { [weak self] _ in
                 self?.deleteAccount()
             }
-            .disposed(by: disposeBag)
+            .disposed(by: deleteView.viewModel.disposeBag)
     }
     
     private func deleteAccount() {
@@ -85,6 +86,6 @@ final class CustomAlertViewController: BaseViewController {
                 default: break
                 }
             })
-            .disposed(by: disposeBag)
+            .disposed(by: deleteView.viewModel.disposeBag)
     }
 }
