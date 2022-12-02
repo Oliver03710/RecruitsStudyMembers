@@ -73,7 +73,7 @@ final class CustomButton: UIButton {
     }
     
     // 새싹 찾기의 요청 버튼
-    convenience init(text: String, backgroundColor: UIColor?, borderColor: UIColor?) {
+    convenience init(state: CustomAlertState) {
         self.init()
         let style = NSMutableParagraphStyle()
         let lineHeights = SSFonts.title3M14.size * SSFonts.title3M14.lineHeight
@@ -87,13 +87,13 @@ final class CustomButton: UIButton {
         container.baselineOffset = (lineHeights - SSFonts.title2R16.size) / 4
         
         var configuration = UIButton.Configuration.plain()
-        configuration.attributedTitle = AttributedString(text, attributes: container)
+        configuration.attributedTitle = AttributedString(state == .sendRequest ? "요청하기" : "수락하기", attributes: container)
         configuration.titleAlignment = .center
         self.configuration = configuration
         
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = state == .sendRequest ? SSColors.error.color : SSColors.success.color
         layer.borderWidth = 1
-        layer.borderColor = borderColor?.cgColor
+        layer.borderColor = state == .sendRequest ? SSColors.error.color.cgColor : SSColors.success.color.cgColor
     }
     
     
