@@ -54,6 +54,7 @@ final class SharedSegmentedView: BaseView {
     let viewModel = MemberListViewModel()
     
     var isFolded = true
+    var state = CustomAlertState.sendRequest
     
     
     // MARK: - Init
@@ -177,7 +178,7 @@ extension SharedSegmentedView {
         let supplementaryRegistration = UICollectionView.SupplementaryRegistration<HeaderImageCollectionReusableView>(elementKind: HeaderImageCollectionReusableView.reuseIdentifier) {
             [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
-            supplementaryView.setComponents(indexPath: indexPath, backgroundImg: self.viewModel.memberList.value[indexPath.section].data.background, foregroundImg: self.viewModel.memberList.value[indexPath.section].data.sesac)
+            supplementaryView.setComponents(state: self.state, indexPath: indexPath, backgroundImg: self.viewModel.memberList.value[indexPath.section].data.background, foregroundImg: self.viewModel.memberList.value[indexPath.section].data.sesac)
         }
         
         dataSource = UICollectionViewDiffableDataSource<MemberListData, MemberListData>(collectionView: collectionView) {
