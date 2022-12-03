@@ -7,14 +7,23 @@
 
 import UIKit
 
-class ChatView: BaseView {
+final class ChatView: BaseView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // MARK: - Properties
+    
+    
+    
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
+    
+    
+    // MARK: - Helper Functions
+    
+    override func setConstraints() {
+        
+    }
 
 }

@@ -6,3 +6,30 @@
 //
 
 import Foundation
+
+import RxCocoa
+import RxSwift
+
+final class ChatViewModel: CommonViewModel {
+    
+    // MARK: - Properties
+    
+    let disposeBag = DisposeBag()
+    
+    
+    // MARK: - In & Out Data
+    
+    struct Input {
+    }
+    
+    struct Output {
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    func transform(input: Input) -> Output {
+       
+        return Output()
+    }
+}
