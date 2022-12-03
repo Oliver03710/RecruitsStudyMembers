@@ -57,7 +57,7 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         let vc = CustomAlertViewController()
         vc.customAlertView.titleLabel.text = "스터디를 요청할게요!"
         vc.customAlertView.bodyLabel.text = "상대방이 요청을 수락하면\n채팅창에서 대화를 나눌 수 있어요"
-        let currentVC = self.getCurrentViewController()
+        let currentVC = UIApplication.getTopMostViewController()
         vc.customAlertView.state = currentState
         NetworkManager.shared.uid = currentUid
         vc.modalPresentationStyle = .overFullScreen
@@ -97,15 +97,4 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         requestButton.tag = indexPath.section
         currentUid = uid
     }
-    
-    private func getCurrentViewController() -> UIViewController? {
-       if let rootController = UIApplication.shared.keyWindow?.rootViewController {
-           var currentController: UIViewController! = rootController
-           while( currentController.presentedViewController != nil ) {
-               currentController = currentController.presentedViewController
-           }
-           return currentController
-       }
-       return nil
-   }
 }
