@@ -9,6 +9,7 @@ import Foundation
 
 import Alamofire
 import FirebaseAuth
+import RxCocoa
 import RxSwift
 
 final class NetworkManager {
@@ -21,6 +22,8 @@ final class NetworkManager {
     var myStudyList: [SearchView.Item] = []
     
     var uid = ""
+    
+    var queueState = BehaviorRelay<QueueStates>(value: .defaultState)
     
     static let shared = NetworkManager()
     private let disposeBag = DisposeBag()
@@ -95,7 +98,7 @@ final class NetworkManager {
     
     func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void) {
         guard let codeNum = NetworkManager.shared.refreshToken() else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150)) {
                 competionHandler()
             }
             return
@@ -105,4 +108,9 @@ final class NetworkManager {
         default: errorHandler()
         }
     }
+}
+
+
+extension NetworkManager {
+    
 }
