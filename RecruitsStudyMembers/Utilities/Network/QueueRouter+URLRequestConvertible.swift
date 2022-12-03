@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiQueue {
-    case myQueueState, search, queue, sendRequest, cancelRequest
+    case myQueueState, search, queue, sendRequest, cancelRequest, acceptRequest, dodge
 }
 
 
@@ -34,13 +34,15 @@ extension SeSacApiQueue: URLRequestConvertible {
         case .search: return UserDefaultsManager.search
         case .queue, .cancelRequest: return ""
         case .sendRequest: return UserDefaultsManager.studyRequest
+        case .acceptRequest: return UserDefaultsManager.studyAccept
+        case .dodge: return UserDefaultsManager.dodge
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .myQueueState: return .get
-        case .search, .queue, .sendRequest: return .post
+        case .search, .queue, .sendRequest, .acceptRequest, .dodge: return .post
         case .cancelRequest: return .delete
         }
     }
@@ -48,7 +50,7 @@ extension SeSacApiQueue: URLRequestConvertible {
     var headers: HTTPHeaders {
         switch self {
         case .myQueueState, .cancelRequest: return ["idtoken": UserDefaultsManager.token]
-        case .search, .queue, .sendRequest: return ["Content-Type": UserDefaultsManager.contentType,
+        case .search, .queue, .sendRequest, .acceptRequest, .dodge: return ["Content-Type": UserDefaultsManager.contentType,
                                       "idtoken": UserDefaultsManager.token]
         }
     }
@@ -72,14 +74,15 @@ extension SeSacApiQueue: URLRequestConvertible {
                     "long": "\(LocationManager.shared.currentPosition.lon)",
                     "studylist": arr]
             
-        case .sendRequest: return ["otheruid": NetworkManager.shared.uid]
+        case .sendRequest, .acceptRequest, .dodge: return ["otheruid": NetworkManager.shared.uid]
+            
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .myQueueState, .search, .sendRequest, .cancelRequest: return URLEncoding.default
+        case .myQueueState, .search, .sendRequest, .cancelRequest, .acceptRequest, .dodge: return URLEncoding.default
         case .queue: return URLEncoding(arrayEncoding: .noBrackets)
         }
     }
