@@ -12,11 +12,6 @@ import RxSwift
 import SnapKit
 import Toast
 
-protocol TossQueueStateDelegate: AnyObject {
-    func stillSeeking(_ state: QueueStates)
-    func cancelSeeking(_ state: QueueStates)
-}
-
 final class MemberListViewController: BaseViewController {
 
     // MARK: - Properties
@@ -26,13 +21,13 @@ final class MemberListViewController: BaseViewController {
         return segmentedControl
     }()
     
-    private let vc1: BaseViewController = {
+    private let vc1: SesacNearByViewController = {
         let vc = SesacNearByViewController()
         vc.nearbyView.mainLabel.text = "아쉽게도 주변에 새싹이 없어요ㅠ"
         return vc
     }()
     
-    private let vc2: BaseViewController = {
+    private let vc2: ReceivedRequestViewController = {
         let vc = ReceivedRequestViewController()
         vc.receivedView.mainLabel.text = "아직 받은 요청이 없어요ㅠ"
         return vc
@@ -58,8 +53,6 @@ final class MemberListViewController: BaseViewController {
         }
     }
     
-    weak var delegate: TossQueueStateDelegate?
-    
     private let disposeBag = DisposeBag()
     
     
@@ -80,8 +73,12 @@ final class MemberListViewController: BaseViewController {
         deleteSearch()
     }
     
+    @objc private func backToSelectStudy() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @objc override func backButtonTapped() {
-        delegate?.stillSeeking(.readyToBeMatched)
+        NetworkManager.shared.queueState.accept(.readyToBeMatched)
         navigationController?.popViewControllers(2)
     }
     
@@ -91,6 +88,7 @@ final class MemberListViewController: BaseViewController {
     override func configureUI() {
         view.backgroundColor = SSColors.white.color
         setNaigations(naviTitle: "새싹 찾기")
+        bindData()
         setSegmentedControl()
     }
     
@@ -136,6 +134,29 @@ final class MemberListViewController: BaseViewController {
         valueChanged(control: segmentedControl)
     }
     
+    private func bindData() {
+        Observable.merge(vc1.nearbyView.changeStudyButton.rx.tap.map { _ in ButtonCombined.action1 },
+                         vc2.receivedView.changeStudyButton.rx.tap.map { _ in ButtonCombined.action2 })
+        .asDriver(onErrorJustReturn: .action1)
+        .drive { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        .disposed(by: disposeBag)
+        
+        Observable.merge(vc1.nearbyView.refreshButton.rx.tap.map { _ in ButtonCombined.action1 },
+                         vc2.receivedView.refreshButton.rx.tap.map { _ in ButtonCombined.action2 })
+        .asDriver(onErrorJustReturn: .action1)
+        .drive { action in
+            switch action {
+            case .action1:
+                self.searchStudyMembers(buttonAction: .action1)
+            case .action2:
+                self.searchStudyMembers(buttonAction: .action1)
+            }
+        }
+        .disposed(by: disposeBag)
+    }
+    
     private func deleteSearch() {
         NetworkManager.shared.request(router: SeSacApiQueue.cancelRequest)
             .subscribe(onSuccess: { [weak self] response, status in
@@ -143,7 +164,7 @@ final class MemberListViewController: BaseViewController {
                 dump(response)
                 switch status {
                 case .success:
-                    self.delegate?.cancelSeeking(.defaultState)
+                    NetworkManager.shared.queueState.accept(.defaultState)
                     self.navigationController?.popViewControllers(2)
                     
                 case .requestCanceled:
@@ -166,6 +187,87 @@ final class MemberListViewController: BaseViewController {
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func searchStudyMembers(buttonAction: ButtonCombined) {
+        NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.search)
+            .subscribe(onSuccess: { [weak self] response, status in
+                guard let self = self else { return }
+                dump(response)
+                
+                switch buttonAction {
+                case .action1:
+                    response.fromQueueDB.forEach { data in
+                        let data = MemberListData(data: data)
+                        self.vc1.nearbyView.viewModel.memberList.acceptAppending(data)
+                    }
+                    
+                    self.vc1.nearbyView.updateUI()
+                    if !self.vc1.nearbyView.viewModel.memberList.value.isEmpty {
+                        self.vc1.nearbyView.makeHidden(isHidden: true)
+                    }
+                    
+                case .action2:
+                    response.fromQueueDBRequested.forEach { data in
+                        let data = MemberListData(data: data)
+                        self.vc2.receivedView.viewModel.memberList.acceptAppending(data)
+                    }
+                    
+                    self.vc2.receivedView.updateUI()
+                    if !self.vc2.receivedView.viewModel.memberList.value.isEmpty {
+                        self.vc2.receivedView.makeHidden(isHidden: true)
+                    }
+                }
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        switch buttonAction {
+                        case .action1:
+                            self?.searchStudyMembers(buttonAction: .action1)
+                        case .action2:
+                            self?.searchStudyMembers(buttonAction: .action2)
+                        }
+                        
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func checkMyQueueState() {
+        NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.myQueueState)
+            .subscribe(onSuccess: { response, state in
+                print(response)
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.checkMyQueueState()
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    deinit {
+        print("새싹찾기 화면 deinit")
     }
 }
 
