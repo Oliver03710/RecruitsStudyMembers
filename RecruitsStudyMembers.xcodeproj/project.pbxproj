@@ -121,7 +121,7 @@
 		ADD78636292F8387001B63AC /* UINavigationViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */; };
 		ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24AD9292FE55C000C08AB /* LocationManager.swift */; };
 		ADE24ADC292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */; };
-		ADE76D81293B69B8004058D3 /* QueueStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D80293B69B8004058D3 /* QueueStates.swift */; };
+		ADE76D81293B69B8004058D3 /* QueueStates+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */; };
 		ADE76D83293B7CEF004058D3 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D82293B7CEF004058D3 /* UIApplication+Extension.swift */; };
 		ADE76D85293B8979004058D3 /* QueueStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D84293B8979004058D3 /* QueueStateData.swift */; };
 		ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96239292B6FA7003D5191 /* SearchViewController.swift */; };
@@ -250,7 +250,7 @@
 		ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADE24AD9292FE55C000C08AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
-		ADE76D80293B69B8004058D3 /* QueueStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStates.swift; sourceTree = "<group>"; };
+		ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueStates+Enum.swift"; sourceTree = "<group>"; };
 		ADE76D82293B7CEF004058D3 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		ADE76D84293B8979004058D3 /* QueueStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStateData.swift; sourceTree = "<group>"; };
 		ADE96239292B6FA7003D5191 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -692,7 +692,7 @@
 				AD23FAF529221EBA004FA34E /* GenderButton+Enum.swift */,
 				ADA27D122934C17500150C26 /* ButtonCombined+Enum.swift */,
 				ADA59A802939BED400A7A8A0 /* CustomAlertStates+Enum.swift */,
-				ADE76D80293B69B8004058D3 /* QueueStates.swift */,
+				ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -953,7 +953,7 @@
 				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,
 				ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */,
 				AD1B38AC2920F843006D7523 /* UserData.swift in Sources */,
-				ADE76D81293B69B8004058D3 /* QueueStates.swift in Sources */,
+				ADE76D81293B69B8004058D3 /* QueueStates+Enum.swift in Sources */,
 				AD1B38A429209CAD006D7523 /* OnboardingViewModel.swift in Sources */,
 				AD23FAE22922133F004FA34E /* ShopViewController.swift in Sources */,
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
