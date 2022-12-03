@@ -7,7 +7,10 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
+import Toast
 
 final class MemberListViewController: BaseViewController {
 
@@ -50,6 +53,8 @@ final class MemberListViewController: BaseViewController {
         }
     }
     
+    private let disposeBag = DisposeBag()
+    
     
     // MARK: - Init
     
@@ -65,6 +70,10 @@ final class MemberListViewController: BaseViewController {
     }
     
     @objc private func backToHome() {
+        deleteSearch()
+    }
+    
+    @objc override func backButtonTapped() {
         navigationController?.popViewControllers(2)
     }
     
@@ -117,6 +126,37 @@ final class MemberListViewController: BaseViewController {
         segmentedControl.addTarget(self, action: #selector(valueChanged(control:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = 0
         valueChanged(control: segmentedControl)
+    }
+    
+    private func deleteSearch() {
+        NetworkManager.shared.request(router: SeSacApiQueue.cancelRequest)
+            .subscribe(onSuccess: { [weak self] response, status in
+                guard let self = self, let status = SesacStatus.Queue.CancelFindRequest(rawValue: status) else { return }
+                dump(response)
+                switch status {
+                case .success:
+                    self.navigationController?.popViewControllers(2)
+                    
+                case .requestCanceled:
+                    self.view.makeToast("누군가와 스터디하기로 약속하셨습니다.")
+                }
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.deleteSearch()
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
