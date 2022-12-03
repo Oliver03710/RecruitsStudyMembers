@@ -66,7 +66,20 @@ final class HomeViewController: BaseViewController {
         
         output.seekButtonDriver
             .drive { [weak self] _ in
-                self?.myView.locationManager.authorizationStatus == .denied || self?.myView.locationManager.authorizationStatus == .restricted ? self?.checkUserDeviceLocationServiceAuthorization() : self?.PresentToSearchVC()
+                guard let self = self else { return }
+                if self.myView.locationManager.authorizationStatus == .denied || self.myView.locationManager.authorizationStatus == .restricted {
+                    self.checkUserDeviceLocationServiceAuthorization()
+                    
+                } else if NetworkManager.shared.queueState.value == .defaultState {
+                    self.PresentToSearchVC()
+                    
+                } else if NetworkManager.shared.queueState.value == .readyToBeMatched {
+                    self.showList()
+                    
+                } else if NetworkManager.shared.queueState.value == .matched {
+                    print("Show A Chating Room")
+                }
+                
             }
             .disposed(by: viewModel.disposeBag)
         
@@ -90,6 +103,23 @@ final class HomeViewController: BaseViewController {
                     anno.coordinate = CLLocationCoordinate2D(latitude: data.lat, longitude: data.long)
                     anno.image = data.sesac
                     self.myView.mapView.addAnnotation(anno)
+                }
+            }
+            .disposed(by: viewModel.disposeBag)
+        
+        NetworkManager.shared.queueState
+            .asDriver()
+            .drive { [weak self] state in
+                guard let self = self else { return }
+                switch state {
+                case .defaultState:
+                    self.myView.seekButton.setImage(UIImage(named: GeneralIcons.seek.rawValue), for: .normal)
+
+                case .readyToBeMatched:
+                    self.myView.seekButton.setImage(UIImage(named: GeneralIcons.matching.rawValue), for: .normal)
+
+                case .matched:
+                    self.myView.seekButton.setImage(UIImage(named: GeneralIcons.matched.rawValue), for: .normal)
                 }
             }
             .disposed(by: viewModel.disposeBag)
@@ -139,29 +169,6 @@ final class HomeViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func checkMyQueueState() {
-        NetworkManager.shared.request(router: SeSacApiQueue.myQueueState)
-            .subscribe(onSuccess: { response in
-                print(response)
-                
-            }, onFailure: { [weak self] error in
-                let err = (error as NSError).code
-                print(err)
-                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
-                switch errStatus {
-                case .firebase:
-                    NetworkManager.shared.fireBaseError {
-                        self?.checkMyQueueState()
-                    } errorHandler: {
-                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
-                    }
-                    
-                default: self?.view.makeToast(errStatus.errorDescription)
-                }
-            })
-            .disposed(by: viewModel.disposeBag)
-    }
-    
     func searchStudyMembers() {
         NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.search)
             .subscribe(onSuccess: { [weak self] response, _ in
@@ -177,6 +184,35 @@ final class HomeViewController: BaseViewController {
                 case .firebase:
                     NetworkManager.shared.fireBaseError {
                         self?.searchStudyMembers()
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    private func showList() {
+        NetworkManager.shared.request(router: SeSacApiQueue.queue)
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                let vc = SearchViewController()
+                let targetVC = MemberListViewController()
+                let vcs = [vc, targetVC]
+               
+                self.navigationController?.push(vcs)
+                targetVC.navigationController?.isNavigationBarHidden = false
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.showList()
                     } errorHandler: {
                         self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
                     }
@@ -311,5 +347,4 @@ extension HomeViewController: CLLocationManagerDelegate {
         LocationManager.shared.currentPosition = (myView.mapView.region.center.latitude, myView.mapView.region.center.longitude)
         searchStudyMembers()
     }
-    
 }
