@@ -22,9 +22,13 @@ final class MemberListViewModel: CommonViewModel {
     // MARK: - In & Out Data
     
     struct Input {
+        let changeStudyButtonTapped: ControlEvent<Void>
+        let refreshButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
+        let changeStudyButtonDriver: SharedSequence<DriverSharingStrategy, Void>
+        let refreshButtonDriver: SharedSequence<DriverSharingStrategy, Void>
     }
     
     
@@ -32,6 +36,9 @@ final class MemberListViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        return Output()
+        let changeStudyButtonDriver = input.changeStudyButtonTapped.asDriver()
+        let refreshButtonDriver = input.refreshButtonTapped.asDriver()
+        
+        return Output(changeStudyButtonDriver: changeStudyButtonDriver, refreshButtonDriver: refreshButtonDriver)
     }
 }
