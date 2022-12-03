@@ -12,6 +12,11 @@ import RxSwift
 import SnapKit
 import Toast
 
+protocol TossQueueStateDelegate: AnyObject {
+    func stillSeeking(_ state: QueueStates)
+    func cancelSeeking(_ state: QueueStates)
+}
+
 final class MemberListViewController: BaseViewController {
 
     // MARK: - Properties
@@ -53,6 +58,8 @@ final class MemberListViewController: BaseViewController {
         }
     }
     
+    weak var delegate: TossQueueStateDelegate?
+    
     private let disposeBag = DisposeBag()
     
     
@@ -74,6 +81,7 @@ final class MemberListViewController: BaseViewController {
     }
     
     @objc override func backButtonTapped() {
+        delegate?.stillSeeking(.readyToBeMatched)
         navigationController?.popViewControllers(2)
     }
     
@@ -135,6 +143,7 @@ final class MemberListViewController: BaseViewController {
                 dump(response)
                 switch status {
                 case .success:
+                    self.delegate?.cancelSeeking(.defaultState)
                     self.navigationController?.popViewControllers(2)
                     
                 case .requestCanceled:
