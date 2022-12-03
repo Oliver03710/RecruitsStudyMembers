@@ -303,9 +303,9 @@
 		AD0D0479291CE50C00377276 /* Verification */ = {
 			isa = PBXGroup;
 			children = (
-				AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */,
-				AD0D047B291CE54F00377276 /* LoginVerificationView.swift */,
-				AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */,
+				ADE76DBE293BA143004058D3 /* ViewControllers */,
+				ADE76DBD293BA13E004058D3 /* Views */,
+				ADE76DBC293BA135004058D3 /* ViewModels */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -313,9 +313,9 @@
 		AD0D047A291CE51C00377276 /* PhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
-				AD9533C629196460002126C0 /* LoginViewController.swift */,
-				AD9533C82919646C002126C0 /* LoginView.swift */,
-				AD103A8A291B8E130032E9EB /* LoginViewModel.swift */,
+				ADE76DBB293BA12C004058D3 /* ViewControllers */,
+				ADE76DBA293BA126004058D3 /* Views */,
+				ADE76DB9293BA11E004058D3 /* ViewModels */,
 			);
 			path = PhoneNumber;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 		AD23FAD229220BF5004FA34E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				AD23FAD729221070004FA34E /* MainTabBarController.swift */,
+				ADE76DAD293BA03C004058D3 /* ViewControllers */,
 				AD23FAD929221148004FA34E /* Home */,
 				AD23FAE02922129D004FA34E /* Shop */,
 				AD23FAE72922139F004FA34E /* Friends */,
@@ -400,9 +400,9 @@
 		AD23FAE02922129D004FA34E /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				AD23FAE12922133F004FA34E /* ShopViewController.swift */,
-				AD23FAE329221352004FA34E /* ShopView.swift */,
-				AD23FAE529221377004FA34E /* ShopViewModel.swift */,
+				ADE76DA0293B9E99004058D3 /* ViewControllers */,
+				ADE76D9F293B9E96004058D3 /* Views */,
+				ADE76D9E293B9E8E004058D3 /* ViewModels */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -410,9 +410,9 @@
 		AD23FAE72922139F004FA34E /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				AD23FAE82922144C004FA34E /* FriendsViewController.swift */,
-				AD23FAEA2922145D004FA34E /* FriendsView.swift */,
-				AD23FAEC29221471004FA34E /* FriendsViewModel.swift */,
+				ADE76DA3293B9EB4004058D3 /* ViewControllers */,
+				ADE76DA2293B9EB1004058D3 /* Views */,
+				ADE76DA1293B9EAB004058D3 /* ViewModels */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -420,25 +420,21 @@
 		AD23FAEE29221495004FA34E /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				AD23FAFA29224F56004FA34E /* ManageInfo */,
-				AD23FAEF292214FA004FA34E /* MyinfoViewController.swift */,
-				AD23FAF129221830004FA34E /* MyinfoView.swift */,
-				AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */,
-				AD23FAF329221851004FA34E /* MyinfoViewModel.swift */,
+				ADE76DA7293B9EE7004058D3 /* ViewControllers */,
+				ADE76DA6293B9EDD004058D3 /* Views */,
+				ADE76DA5293B9ED7004058D3 /* Cells */,
+				ADE76DA4293B9ED2004058D3 /* ViewModels */,
+				AD23FAFA29224F56004FA34E /* Nested */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
 		};
-		AD23FAFA29224F56004FA34E /* ManageInfo */ = {
+		AD23FAFA29224F56004FA34E /* Nested */ = {
 			isa = PBXGroup;
 			children = (
-				ADAC0D5D29260F1C00424D39 /* Cells */,
-				ADB604BE2923EA320081CEC2 /* ReusableView.swift */,
-				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
-				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
-				AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */,
+				ADE76DA8293B9EFD004058D3 /* ManagingMyInfo */,
 			);
-			path = ManageInfo;
+			path = Nested;
 			sourceTree = "<group>";
 		};
 		AD23FB0529227881004FA34E /* SignUp */ = {
@@ -498,15 +494,13 @@
 			path = CustomComponents;
 			sourceTree = "<group>";
 		};
-		AD609680291A45D600FF78CB /* NestedViewController */ = {
+		AD609680291A45D600FF78CB /* Nested */ = {
 			isa = PBXGroup;
 			children = (
-				AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */,
-				AD609681291A462200FF78CB /* FirstViewController.swift */,
-				AD609683291A463500FF78CB /* SecondViewController.swift */,
-				AD609685291A463D00FF78CB /* ThirdViewController.swift */,
+				ADE76DB8293BA0F5004058D3 /* ViewControllers */,
 			);
-			path = NestedViewController;
+			name = Nested;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		AD6EF3162938DD6B006CA502 /* Shared */ = {
@@ -520,9 +514,9 @@
 		AD90630C292D69CD007A70E2 /* CustomAleart */ = {
 			isa = PBXGroup;
 			children = (
-				AD90630D292D6A35007A70E2 /* CustomAlertViewController.swift */,
-				AD90630F292D6A42007A70E2 /* CustomAlertView.swift */,
-				ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */,
+				ADE76DB0293BA06D004058D3 /* ViewControllers */,
+				ADE76DAF293BA068004058D3 /* Views */,
+				ADE76DAE293BA05F004058D3 /* ViewModels */,
 			);
 			path = CustomAleart;
 			sourceTree = "<group>";
@@ -530,8 +524,8 @@
 		AD9533B529195C41002126C0 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				ADF9B3522918CCE400D1F758 /* SplashViewController.swift */,
-				AD9533C1291961E1002126C0 /* SplashView.swift */,
+				ADE76DB2293BA084004058D3 /* ViewControllers */,
+				ADE76DB1293BA07F004058D3 /* Views */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -547,10 +541,10 @@
 		AD9533B929195FE3002126C0 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				AD609680291A45D600FF78CB /* NestedViewController */,
-				AD9533BA29196019002126C0 /* OnboardingViewController.swift */,
-				AD9533C32919629A002126C0 /* OnboardingView.swift */,
-				AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */,
+				ADE76DB5293BA0A3004058D3 /* ViewControllers */,
+				ADE76DB4293BA09B004058D3 /* Views */,
+				ADE76DB3293BA095004058D3 /* ViewModels */,
+				ADE76DB7293BA0D5004058D3 /* Nested */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -576,9 +570,9 @@
 		AD9533CA291964D7002126C0 /* Nickname */ = {
 			isa = PBXGroup;
 			children = (
-				AD9533CE2919652F002126C0 /* NicknameViewController.swift */,
-				AD9533D029196539002126C0 /* NicknameView.swift */,
-				AD0D0481291D1B6900377276 /* NicknameViewModel.swift */,
+				ADE76DC1293BA15B004058D3 /* ViewControllers */,
+				ADE76DC0293BA155004058D3 /* Views */,
+				ADE76DBF293BA150004058D3 /* ViewModels */,
 			);
 			path = Nickname;
 			sourceTree = "<group>";
@@ -586,9 +580,9 @@
 		AD9533CB291964EB002126C0 /* Birth */ = {
 			isa = PBXGroup;
 			children = (
-				AD9533D4291965BA002126C0 /* BirthViewController.swift */,
-				AD9533D6291965C3002126C0 /* BirthView.swift */,
-				AD0D0483291D1CC200377276 /* BirthViewModel.swift */,
+				ADE76DC4293BA172004058D3 /* ViewControllers */,
+				ADE76DC3293BA16D004058D3 /* Views */,
+				ADE76DC2293BA166004058D3 /* ViewModels */,
 			);
 			path = Birth;
 			sourceTree = "<group>";
@@ -596,9 +590,9 @@
 		AD9533CC29196508002126C0 /* Email */ = {
 			isa = PBXGroup;
 			children = (
-				AD9533D82919660D002126C0 /* EmailViewController.swift */,
-				AD9533DA29196616002126C0 /* EmailView.swift */,
-				AD0D0485291D1F0D00377276 /* EmailViewModel.swift */,
+				ADE76DCA293BA19F004058D3 /* ViewControllers */,
+				ADE76DC9293BA198004058D3 /* Views */,
+				ADE76DC8293BA193004058D3 /* ViewModels */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -606,9 +600,9 @@
 		AD9533CD2919650C002126C0 /* Gender */ = {
 			isa = PBXGroup;
 			children = (
-				AD9533DC29196653002126C0 /* GenderViewController.swift */,
-				AD9533DE2919665D002126C0 /* GenderView.swift */,
-				AD0D0487291D20C200377276 /* GenderViewModel.swift */,
+				ADE76DC7293BA188004058D3 /* ViewControllers */,
+				ADE76DC6293BA182004058D3 /* Views */,
+				ADE76DC5293BA17D004058D3 /* ViewModels */,
 			);
 			path = Gender;
 			sourceTree = "<group>";
@@ -616,38 +610,29 @@
 		ADA27D0B293495E800150C26 /* StudyMemberList */ = {
 			isa = PBXGroup;
 			children = (
-				ADA27D142934C96F00150C26 /* NestedViewControllers */,
-				ADA27D0C29349C6500150C26 /* MemberListViewController.swift */,
-				ADA27D0E29349C7F00150C26 /* MemberListView.swift */,
+				ADE76D9A293B9E02004058D3 /* ViewControllers */,
+				ADE76D99293B9DF9004058D3 /* Views */,
+				ADA27D142934C96F00150C26 /* Nested */,
 			);
 			path = StudyMemberList;
 			sourceTree = "<group>";
 		};
-		ADA27D142934C96F00150C26 /* NestedViewControllers */ = {
+		ADA27D142934C96F00150C26 /* Nested */ = {
 			isa = PBXGroup;
 			children = (
-				ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */,
-				ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */,
-				ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */,
-				ADD5AE30293677B20092B3B5 /* MemberListViewModel.swift */,
-				AD22E6FC29373EB700D50B99 /* HeaderImageCollectionReusableView.swift */,
+				ADE76D9C293B9E3A004058D3 /* ViewControllers */,
+				ADE76D9D293B9E57004058D3 /* Views */,
+				ADE76D9B293B9E2E004058D3 /* ViewModels */,
 			);
-			path = NestedViewControllers;
+			path = Nested;
 			sourceTree = "<group>";
 		};
-		ADAC0D5D29260F1C00424D39 /* Cells */ = {
+		ADAC0D5D29260F1C00424D39 /* Nested */ = {
 			isa = PBXGroup;
 			children = (
-				ADE96241292C24F2003D5191 /* CellInCardView */,
-				AD23FAFF29224F9B004FA34E /* ImageCollectionViewCell.swift */,
-				ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */,
-				ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */,
-				ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */,
-				ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */,
-				ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */,
-				ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */,
+				ADE96241292C24F2003D5191 /* CellsInFoldableView */,
 			);
-			path = Cells;
+			path = Nested;
 			sourceTree = "<group>";
 		};
 		ADAC0D6C292699E900424D39 /* Buttons */ = {
@@ -672,35 +657,35 @@
 		ADE76D86293B9C25004058D3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				ADE76D89293B9C49004058D3 /* ViewController */,
-				ADE76D8A293B9C57004058D3 /* View */,
-				ADE76D8D293B9C90004058D3 /* ViewModel */,
+				ADE76D89293B9C49004058D3 /* ViewControllers */,
+				ADE76D8A293B9C57004058D3 /* Views */,
+				ADE76D8D293B9C90004058D3 /* ViewModels */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		ADE76D89293B9C49004058D3 /* ViewController */ = {
+		ADE76D89293B9C49004058D3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				ADE76D87293B9C43004058D3 /* ChatViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		ADE76D8A293B9C57004058D3 /* View */ = {
+		ADE76D8A293B9C57004058D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				ADE76D8B293B9C68004058D3 /* ChatView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		ADE76D8D293B9C90004058D3 /* ViewModel */ = {
+		ADE76D8D293B9C90004058D3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				ADE76D8E293B9CA8004058D3 /* ChatViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		ADE76D90293B9CD7004058D3 /* Nested */ = {
@@ -737,25 +722,474 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		ADE96238292B6F94003D5191 /* Search */ = {
+		ADE76D94293B9D54004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD7AE60629338F5C0089D747 /* SearchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76D95293B9D5E004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */,
+				ADE9623B292B7401003D5191 /* SearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76D96293B9D6F004058D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ADE76D97293B9D79004058D3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				ADE96239292B6FA7003D5191 /* SearchViewController.swift */,
-				ADE9623B292B7401003D5191 /* SearchView.swift */,
-				ADE9623D292BEB52003D5191 /* SearchCollectionViewCell.swift */,
-				AD7AE60629338F5C0089D747 /* SearchViewModel.swift */,
-				ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76D99293B9DF9004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADA27D0E29349C7F00150C26 /* MemberListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76D9A293B9E02004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADA27D0C29349C6500150C26 /* MemberListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76D9B293B9E2E004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ADD5AE30293677B20092B3B5 /* MemberListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76D9C293B9E3A004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */,
+				ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76D9D293B9E57004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADA27D202934CD5800150C26 /* SharedSegmentedView.swift */,
+				AD22E6FC29373EB700D50B99 /* HeaderImageCollectionReusableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76D9E293B9E8E004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAE529221377004FA34E /* ShopViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76D9F293B9E96004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAE329221352004FA34E /* ShopView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DA0293B9E99004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAE12922133F004FA34E /* ShopViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DA1293B9EAB004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAEC29221471004FA34E /* FriendsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DA2293B9EB1004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAEA2922145D004FA34E /* FriendsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DA3293B9EB4004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAE82922144C004FA34E /* FriendsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DA4293B9ED2004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAF329221851004FA34E /* MyinfoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DA5293B9ED7004058D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ADE76DA6293B9EDD004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAF129221830004FA34E /* MyinfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DA7293B9EE7004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAEF292214FA004FA34E /* MyinfoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DA8293B9EFD004058D3 /* ManagingMyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				ADE76DAB293B9F2A004058D3 /* ViewControllers */,
+				ADE76DAA293B9F1E004058D3 /* Views */,
+				ADE76DAC293B9FEA004058D3 /* Cells */,
+				ADE76DA9293B9F17004058D3 /* ViewModels */,
+				ADAC0D5D29260F1C00424D39 /* Nested */,
+			);
+			path = ManagingMyInfo;
+			sourceTree = "<group>";
+		};
+		ADE76DA9293B9F17004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FB0129224FBB004FA34E /* ManageInfoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DAA293B9F1E004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAFD29224F88004FA34E /* ManageInfoView.swift */,
+				ADB604BE2923EA320081CEC2 /* ReusableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DAB293B9F2A004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAFB29224F7C004FA34E /* ManageInfoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DAC293B9FEA004058D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAFF29224F9B004FA34E /* ImageCollectionViewCell.swift */,
+				ADB604BC2923859F0081CEC2 /* FoldableCollectionViewCell.swift */,
+				ADAC0D5E2926109B00424D39 /* GenderCollectionViewCell.swift */,
+				ADAC0D622926297200424D39 /* StudyCollectionViewCell.swift */,
+				ADAC0D6429263C5E00424D39 /* SearchMeCollectionViewCell.swift */,
+				ADAC0D682926943A00424D39 /* AgeChoiceCollectionViewCell.swift */,
+				ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ADE76DAD293BA03C004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD23FAD729221070004FA34E /* MainTabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DAE293BA05F004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ADA59A7E2939BA1000A7A8A0 /* CustomAlertViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DAF293BA068004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD90630F292D6A42007A70E2 /* CustomAlertView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DB0293BA06D004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD90630D292D6A35007A70E2 /* CustomAlertViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DB1293BA07F004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533C1291961E1002126C0 /* SplashView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DB2293BA084004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADF9B3522918CCE400D1F758 /* SplashViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DB3293BA095004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DB4293BA09B004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533C32919629A002126C0 /* OnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DB5293BA0A3004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533BA29196019002126C0 /* OnboardingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DB6293BA0AD004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DB7293BA0D5004058D3 /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				ADE76DB6293BA0AD004058D3 /* ViewControllers */,
+				AD609680291A45D600FF78CB /* Nested */,
+			);
+			name = Nested;
+			path = Nested/Nested;
+			sourceTree = "<group>";
+		};
+		ADE76DB8293BA0F5004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD609681291A462200FF78CB /* FirstViewController.swift */,
+				AD609683291A463500FF78CB /* SecondViewController.swift */,
+				AD609685291A463D00FF78CB /* ThirdViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DB9293BA11E004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD103A8A291B8E130032E9EB /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DBA293BA126004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533C82919646C002126C0 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DBB293BA12C004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533C629196460002126C0 /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DBC293BA135004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DBD293BA13E004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D047B291CE54F00377276 /* LoginVerificationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DBE293BA143004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DBF293BA150004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D0481291D1B6900377276 /* NicknameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DC0293BA155004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533D029196539002126C0 /* NicknameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DC1293BA15B004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533CE2919652F002126C0 /* NicknameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DC2293BA166004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D0483291D1CC200377276 /* BirthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DC3293BA16D004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533D6291965C3002126C0 /* BirthView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DC4293BA172004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533D4291965BA002126C0 /* BirthViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DC5293BA17D004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D0487291D20C200377276 /* GenderViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DC6293BA182004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533DE2919665D002126C0 /* GenderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DC7293BA188004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533DC29196653002126C0 /* GenderViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE76DC8293BA193004058D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D0485291D1F0D00377276 /* EmailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADE76DC9293BA198004058D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533DA29196616002126C0 /* EmailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE76DCA293BA19F004058D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9533D82919660D002126C0 /* EmailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADE96238292B6F94003D5191 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				ADE76D97293B9D79004058D3 /* ViewControllers */,
+				ADE76D95293B9D5E004058D3 /* Views */,
+				ADE76D96293B9D6F004058D3 /* Cells */,
+				ADE76D94293B9D54004058D3 /* ViewModels */,
 			);
 			path = Search;
 			sourceTree = "<group>";
 		};
-		ADE96241292C24F2003D5191 /* CellInCardView */ = {
+		ADE96241292C24F2003D5191 /* CellsInFoldableView */ = {
 			isa = PBXGroup;
 			children = (
 				ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */,
 				ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */,
 			);
-			path = CellInCardView;
+			path = CellsInFoldableView;
 			sourceTree = "<group>";
 		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
