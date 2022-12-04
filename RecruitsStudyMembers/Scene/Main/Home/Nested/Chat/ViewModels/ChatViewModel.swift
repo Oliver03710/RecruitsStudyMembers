@@ -14,6 +14,9 @@ final class ChatViewModel: CommonViewModel {
     
     // MARK: - Properties
     
+    var usersChat = BehaviorRelay<[String]>(value: [])
+    var myChat = BehaviorRelay<[String]>(value: [])
+    
     let disposeBag = DisposeBag()
     
     
