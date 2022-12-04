@@ -121,6 +121,7 @@
 		ADD78636292F8387001B63AC /* UINavigationViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */; };
 		ADDA22F4293C6A5900FCF617 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = ADDA22F3293C6A5900FCF617 /* RxDataSources */; };
 		ADDA22F7293C6B1800FCF617 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */; };
+		ADDA22FB293C731600FCF617 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA22FA293C731600FCF617 /* ChatData.swift */; };
 		ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24AD9292FE55C000C08AB /* LocationManager.swift */; };
 		ADE24ADC292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */; };
 		ADE76D81293B69B8004058D3 /* QueueStates+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */; };
@@ -254,6 +255,7 @@
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		ADDA22FA293C731600FCF617 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		ADE24AD9292FE55C000C08AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueStates+Enum.swift"; sourceTree = "<group>"; };
@@ -658,6 +660,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		ADDA22F8293C72E900FCF617 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA22FA293C731600FCF617 /* ChatData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		ADE24AD8292FE549000C08AB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +683,7 @@
 				ADE76D8A293B9C57004058D3 /* Views */,
 				ADDA22F5293C6AF900FCF617 /* Cells */,
 				ADE76D8D293B9C90004058D3 /* ViewModels */,
+				ADDA22F8293C72E900FCF617 /* Models */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1422,6 +1433,7 @@
 				ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
 				AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */,
+				ADDA22FB293C731600FCF617 /* ChatData.swift in Sources */,
 				ADD5AE31293677B20092B3B5 /* MemberListViewModel.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
