@@ -119,6 +119,8 @@
 		ADD5AE31293677B20092B3B5 /* MemberListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5AE30293677B20092B3B5 /* MemberListViewModel.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADD78636292F8387001B63AC /* UINavigationViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */; };
+		ADDA22F4293C6A5900FCF617 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = ADDA22F3293C6A5900FCF617 /* RxDataSources */; };
+		ADDA22F7293C6B1800FCF617 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */; };
 		ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24AD9292FE55C000C08AB /* LocationManager.swift */; };
 		ADE24ADC292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */; };
 		ADE76D81293B69B8004058D3 /* QueueStates+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */; };
@@ -251,6 +253,7 @@
 		ADD5AE30293677B20092B3B5 /* MemberListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewModel.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationViewController+Extension.swift"; sourceTree = "<group>"; };
+		ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		ADE24AD9292FE55C000C08AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueStates+Enum.swift"; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 				AD609672291A1A7000FF78CB /* Alamofire in Frameworks */,
 				AD103A9E291C21290032E9EB /* FirebaseAuth in Frameworks */,
 				AD60966D291A1A5F00FF78CB /* RxCocoa in Frameworks */,
+				ADDA22F4293C6A5900FCF617 /* RxDataSources in Frameworks */,
 				AD60966A291A1A4F00FF78CB /* Toast in Frameworks */,
 				AD60966F291A1A5F00FF78CB /* RxSwift in Frameworks */,
 				AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */,
@@ -646,6 +650,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		ADDA22F5293C6AF900FCF617 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ADE24AD8292FE549000C08AB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +671,7 @@
 			children = (
 				ADE76D89293B9C49004058D3 /* ViewControllers */,
 				ADE76D8A293B9C57004058D3 /* Views */,
+				ADDA22F5293C6AF900FCF617 /* Cells */,
 				ADE76D8D293B9C90004058D3 /* ViewModels */,
 			);
 			path = Chat;
@@ -1329,6 +1342,7 @@
 				AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */,
 				AD103A9D291C21290032E9EB /* FirebaseAuth */,
 				AD103A9F291C21290032E9EB /* FirebaseMessaging */,
+				ADDA22F3293C6A5900FCF617 /* RxDataSources */,
 			);
 			productName = RecruitsStudyMembers;
 			productReference = ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */;
@@ -1365,6 +1379,7 @@
 				AD609670291A1A7000FF78CB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				AD609678291A1AAA00FF78CB /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AD103A9A291C21290032E9EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				ADDA22F2293C6A5900FCF617 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = ADF9B34C2918CCE400D1F758 /* Products */;
 			projectDirPath = "";
@@ -1444,6 +1459,7 @@
 				ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */,
 				AD23FAEB2922145D004FA34E /* FriendsView.swift in Sources */,
 				AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */,
+				ADDA22F7293C6B1800FCF617 /* ChatTableViewCell.swift in Sources */,
 				ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */,
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
 				ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */,
@@ -1789,6 +1805,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		ADDA22F2293C6A5900FCF617 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1836,6 +1860,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AD609678291A1AAA00FF78CB /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		ADDA22F3293C6A5900FCF617 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADDA22F2293C6A5900FCF617 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
