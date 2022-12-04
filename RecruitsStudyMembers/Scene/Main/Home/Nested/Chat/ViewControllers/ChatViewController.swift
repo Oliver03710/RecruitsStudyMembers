@@ -16,6 +16,10 @@ final class ChatViewController: BaseViewController {
     
     // MARK: - Init
     
+    override func loadView() {
+        view = chatView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,6 +27,15 @@ final class ChatViewController: BaseViewController {
     
     // MARK: - Helper Functions
     
+    override func configureUI() {
+        setNaigations(naviTitle: "NickName")
+    }
     
+    override func setNaigations(naviTitle: String? = nil) {
+        super.setNaigations(naviTitle: naviTitle)
+        let stopButton = UIBarButtonItem(image: UIImage(named: GeneralIcons.more.rawValue), style: .plain, target: self, action: nil)
+        
+        self.navigationItem.rightBarButtonItem = stopButton
+    }
 
 }
