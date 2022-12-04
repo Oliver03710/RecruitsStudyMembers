@@ -18,8 +18,20 @@ final class ChatView: BaseView {
     
     private let tableView: UITableView = {
         let tv = UITableView()
+        tv.rowHeight = UITableView.automaticDimension
+        tv.keyboardDismissMode = .onDrag
+        tv.register(ChatTableViewCell.self, forCellReuseIdentifier: ChatTableViewCell.reuseIdentifier)
         return tv
     }()
+    
+    private lazy var dataSource = RxTableViewSectionedReloadDataSource<ChatSections> { dataSource, tableView, indexPath, item in
+        switch item {
+        case let .chatCell(cellModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
+            cell.configureCells(text: cellModel.string)
+                return cell
+        }
+    }
     
     private let viewModel = ChatViewModel()
     
@@ -34,6 +46,7 @@ final class ChatView: BaseView {
     // MARK: - Helper Functions
     
     override func configureUI() {
+        addData()
         bindData()
     }
     
@@ -46,28 +59,20 @@ final class ChatView: BaseView {
     }
     
     private func bindData() {
-        let cities = ["London", "Vienna", "Lisbon"]
-        
-        let configureCell: (TableViewSectionedDataSource<SectionModel<String, String>>, UITableView,IndexPath, String) -> UITableViewCell = { (datasource, tableView, indexPath,  element) in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
-            cell.configureCells(text: element)
-            return cell
-        }
-        
-        let datasource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>.init(configureCell: configureCell)
-        
-        datasource.titleForHeaderInSection = { datasource, index in
-            return datasource.sectionModels[index].model
-        }
-        
-        let sections = [
-            SectionModel<String, String>(model: "first section", items: cities),
-            SectionModel<String, String>(model: "second section", items: cities)
-        ]
-        
-        Observable.just(sections)
-            .bind(to: tableView.rx.items(dataSource: datasource))
+        viewModel.usersChat
+            .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: viewModel.disposeBag)
+    }
+    
+    private func addData() {
+        let item1 = ChatItems.chatCell(ChatCellModel(string: "첫번째drijphigewoirbwpbm4wopbm4pobm4pob5mpo45mbp4o5bmp45ogdssbsdfbvdsfniodfgnoidsfgnodsfgnoidsfgnsdfogndfiognfignfignignfnodfbndoifbdfb"))
+        let item2 = ChatItems.chatCell(ChatCellModel(string: "두번째"))
+        let item3 = ChatItems.chatCell(ChatCellModel(string: "세번째"))
+        let item4 = ChatItems.chatCell(ChatCellModel(string: "네번째"))
+        let item5 = ChatItems.chatCell(ChatCellModel(string: "다섯번째"))
+        let section1 = ChatSections(items: [item1, item2, item3, item4, item5])
+        
+        viewModel.usersChat.accept([section1])
     }
 
 }
