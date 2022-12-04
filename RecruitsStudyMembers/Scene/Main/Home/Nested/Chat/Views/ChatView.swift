@@ -33,6 +33,27 @@ final class ChatView: BaseView {
         }
     }
     
+    private let chatView: UIView = {
+        let view = UIView()
+        view.backgroundColor = SSColors.gray1.color
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 8
+        return view
+    }()
+    
+    private let textView: UITextView = {
+        let tv = UITextView()
+        tv.isScrollEnabled = false
+        return tv
+    }()
+    
+    private let sendButton: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: GeneralIcons.sendInact.rawValue), for: .normal)
+        return btn
+    }()
+    
+    private var textViewHeightConstraint: Constraint?
     private let viewModel = ChatViewModel()
     
     
@@ -41,7 +62,7 @@ final class ChatView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+        
     
     // MARK: - Helper Functions
     
@@ -52,15 +73,78 @@ final class ChatView: BaseView {
     
     override func setConstraints() {
         addSubview(tableView)
+        addSubview(chatView)
+        chatView.addSubview(textView)
+        chatView.addSubview(sendButton)
         
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.directionalHorizontalEdges.equalToSuperview().inset(16)
+            $0.bottom.equalTo(chatView.snp.top).offset(-16)
+        }
+        
+        chatView.snp.makeConstraints {
+            $0.directionalHorizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+            $0.height.lessThanOrEqualTo(88)
+            textViewHeightConstraint = $0.height.greaterThanOrEqualTo(self.textView.contentSize.height + 52).constraint
+        }
+        
+        textView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.directionalVerticalEdges.equalToSuperview().inset(14)
+            $0.leading.equalToSuperview().inset(12)
+            $0.trailing.equalTo(sendButton.snp.leading).offset(-10)
+        }
+        
+        sendButton.snp.makeConstraints {
+            $0.centerY.equalTo(textView)
+            $0.height.width.equalTo(20)
+            $0.trailing.equalToSuperview().inset(14)
         }
     }
     
     private func bindData() {
         viewModel.usersChat
             .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: viewModel.disposeBag)
+        
+        Observable.merge(textView.rx.didBeginEditing.map { _ in TextFieldActions.editingDidBegin },
+                         textView.rx.didEndEditing.map { _ in TextFieldActions.editingDidEnd })
+        .asDriver(onErrorJustReturn: .editingDidEnd)
+        .drive { [weak self] actions in
+            guard let self = self else { return }
+            switch actions {
+            case .editingDidBegin:
+                print(self.textView.contentSize.height)
+                self.didUpdateTextViewContentSize()
+                
+            case .editingDidEnd:
+                print(self.textView.contentSize.height)
+            }
+        }
+        .disposed(by: viewModel.disposeBag)
+        
+        textView.rx
+            .didChange
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                let size = CGSize(width: self.textView.frame.width, height: .infinity)
+                let estimatedSize = self.textView.sizeThatFits(size)
+                let isMaxHeight = estimatedSize.height >= 54
+                
+                guard isMaxHeight != self.textView.isScrollEnabled else { return }
+                self.textView.isScrollEnabled = isMaxHeight
+                self.textView.reloadInputViews()
+                self.setNeedsUpdateConstraints()
+            })
+            .disposed(by: viewModel.disposeBag)
+        
+        textView.rx.text
+            .orEmpty
+            .asDriver()
+            .drive { [weak self] str in
+                guard let self = self else { return }
+                self.sendButton.setImage(UIImage(named: str.isEmpty ? GeneralIcons.sendInact.rawValue : GeneralIcons.sendAct.rawValue), for: .normal)
+            }
             .disposed(by: viewModel.disposeBag)
     }
     
@@ -73,6 +157,13 @@ final class ChatView: BaseView {
         let section1 = ChatSections(items: [item1, item2, item3, item4, item5])
         
         viewModel.usersChat.accept([section1])
+    }
+    
+    private func didUpdateTextViewContentSize() {
+        self.textViewHeightConstraint?.update(offset: self.textView.contentSize.height + 28)
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
     }
 
 }
