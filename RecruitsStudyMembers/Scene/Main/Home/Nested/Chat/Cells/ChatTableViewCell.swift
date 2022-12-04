@@ -15,6 +15,9 @@ final class ChatTableViewCell: UITableViewCell {
     
     private let textsLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .red
+        label.backgroundColor = .yellow
+        label.numberOfLines = 0
         return label
     }()
     
@@ -35,6 +38,10 @@ final class ChatTableViewCell: UITableViewCell {
     
     private func setConstraints() {
         contentView.addSubview(textsLabel)
+        
+        textsLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12))
+        }
     }
     
     func configureCells(text: String?) {
