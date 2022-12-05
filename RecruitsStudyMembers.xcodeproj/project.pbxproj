@@ -520,19 +520,19 @@
 		AD6EF3162938DD6B006CA502 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				AD90630C292D69CD007A70E2 /* CustomAleart */,
+				AD90630C292D69CD007A70E2 /* CustomAlert */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		AD90630C292D69CD007A70E2 /* CustomAleart */ = {
+		AD90630C292D69CD007A70E2 /* CustomAlert */ = {
 			isa = PBXGroup;
 			children = (
 				ADE76DB0293BA06D004058D3 /* ViewControllers */,
 				ADE76DAF293BA068004058D3 /* Views */,
 				ADE76DAE293BA05F004058D3 /* ViewModels */,
 			);
-			path = CustomAleart;
+			path = CustomAlert;
 			sourceTree = "<group>";
 		};
 		AD9533B529195C41002126C0 /* Splash */ = {
