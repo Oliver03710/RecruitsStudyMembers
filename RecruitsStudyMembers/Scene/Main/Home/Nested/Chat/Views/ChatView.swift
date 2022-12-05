@@ -21,7 +21,7 @@ final class ChatView: BaseView {
         tv.bounces = false
         tv.separatorStyle = .none
         tv.rowHeight = UITableView.automaticDimension
-//        tv.keyboardDismissMode = .onDrag
+        tv.keyboardDismissMode = .onDrag
         tv.register(DateTableViewCell.self, forCellReuseIdentifier: DateTableViewCell.reuseIdentifier)
         tv.register(UserChatTableViewCell.self, forCellReuseIdentifier: UserChatTableViewCell.reuseIdentifier)
         tv.register(MyChatTableViewCell.self, forCellReuseIdentifier: MyChatTableViewCell.reuseIdentifier)
@@ -97,15 +97,11 @@ final class ChatView: BaseView {
     // MARK: - Selectors
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        guard let chatConstraint = chatViewBottomConstraint, let tableViewConstraint = tableViewBottomConstraint else { return }
-        moveViewWithKeyboard(notification: notification, viewBottomConstraint: chatConstraint, keyboardWillShow: true)
-//        movetableViewWithKeyboard(notification: notification, viewBottomConstraint: tableViewConstraint, keyboardWillShow: true)
+        moveTableViewWithKeyboard(notification: notification)
     }
         
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        guard let chatConstraint = chatViewBottomConstraint, let tableViewConstraint = tableViewBottomConstraint else { return }
-        moveViewWithKeyboard(notification: notification, viewBottomConstraint: chatConstraint, keyboardWillShow: false)
-//        movetableViewWithKeyboard(notification: notification, viewBottomConstraint: tableViewConstraint, keyboardWillShow: false)
+        self.transform = .identity
     }
 
 
@@ -223,14 +219,9 @@ final class ChatView: BaseView {
     private func didUpdateTextViewContentSize() {
         textViewHeightConstraint?.update(offset: SSFonts.body3R14.size)
         
-        tableView.snp.updateConstraints {
-            $0.bottom.equalTo(chatView.snp.top).offset(-16)
-        }
-        
         UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }
-        self.tableView.scrollToRow(at: IndexPath(row: viewModel.dateSection.value.count - 1, section: 0), at: .bottom, animated: true)
     }
     
     private func keyboardActions() {
@@ -238,49 +229,16 @@ final class ChatView: BaseView {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    private func moveViewWithKeyboard(notification: NSNotification, viewBottomConstraint: Constraint, keyboardWillShow: Bool) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        let keyboardHeight = keyboardSize.height
-        
-        let keyboardDuration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        
-        let keyboardCurve = UIView.AnimationCurve(rawValue: notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! Int)!
-        
-        if keyboardWillShow {
-            let bottomConstant: CGFloat = 16
-            viewBottomConstraint.update(offset: -keyboardHeight + bottomConstant)
+    private func moveTableViewWithKeyboard(notification: NSNotification) {
+        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
             
-        }else {
-            viewBottomConstraint.update(offset: -16)
+            UIView.animate(
+                withDuration: 0.3
+                , animations: {
+                    self.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
+                }
+            )
         }
-        
-        let animator = UIViewPropertyAnimator(duration: keyboardDuration, curve: keyboardCurve) { [weak self] in
-            self?.layoutIfNeeded()
-        }
-        
-        animator.startAnimation()
     }
-    
-    private func movetableViewWithKeyboard(notification: NSNotification, viewBottomConstraint: Constraint, keyboardWillShow: Bool) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        let keyboardHeight = keyboardSize.height
-        
-        let keyboardDuration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        
-        let keyboardCurve = UIView.AnimationCurve(rawValue: notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! Int)!
-        
-        if keyboardWillShow {
-            viewBottomConstraint.update(offset: -keyboardHeight / 7)
-            
-        }else {
-            viewBottomConstraint.update(offset: -16)
-        }
-        
-        let animator = UIViewPropertyAnimator(duration: keyboardDuration, curve: keyboardCurve) { [weak self] in
-            self?.layoutIfNeeded()
-        }
-        
-        animator.startAnimation()
-    }
-
 }
