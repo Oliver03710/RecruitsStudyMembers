@@ -18,17 +18,19 @@ final class ChatView: BaseView {
     
     private let tableView: UITableView = {
         let tv = UITableView()
+        tv.bounces = false
         tv.rowHeight = UITableView.automaticDimension
         tv.keyboardDismissMode = .onDrag
+        tv.register(DateTableViewCell.self, forCellReuseIdentifier: DateTableViewCell.reuseIdentifier)
         tv.register(ChatTableViewCell.self, forCellReuseIdentifier: ChatTableViewCell.reuseIdentifier)
         return tv
     }()
     
     private lazy var dataSource = RxTableViewSectionedReloadDataSource<ChatSections> { dataSource, tableView, indexPath, item in
         switch item {
-        case let .introCell(introModel):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
-            cell.configureCells(text: introModel.string)
+        case let .dateCell(dateModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DateTableViewCell.reuseIdentifier, for: indexPath) as? DateTableViewCell else { return UITableViewCell() }
+            cell.configureCells(date: dateModel.string)
                 return cell
         case let .chatCell(cellModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
@@ -128,13 +130,6 @@ final class ChatView: BaseView {
     }
     
     private func bindData() {
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].header
-        }
-        
-        dataSource.canEditRowAtIndexPath = { dataSource, indexPath in true }
-        dataSource.canMoveRowAtIndexPath = { dataSource, indexPath in true }
-        
         viewModel.dateSection
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: viewModel.disposeBag)
@@ -187,14 +182,19 @@ final class ChatView: BaseView {
     }
     
     private func addData() {
-        let item1 = ChatItems.chatCell(ChatCellModel(string: "첫번째drijphigewoirbwpbm4wopbm4pobm4pob5mpo45mbp4o5bmp45ogdssbsdfbvdsfniodfgnoidsfgnodsfgnoidsfgnsdfogndfiognfignfignignfnodfbndoifbdfb"))
-        let item2 = ChatItems.chatCell(ChatCellModel(string: "두번째"))
-        let item3 = ChatItems.chatCell(ChatCellModel(string: "세번째"))
-        let item4 = ChatItems.chatCell(ChatCellModel(string: "네번째"))
-        let item5 = ChatItems.chatCell(ChatCellModel(string: "다섯번째"))
         
-        let sections = [ChatSections(header: "어제", items: [item1, item2, item3]),
-                                     ChatSections(header: "오늘", items: [item4, item5])]
+        let item1 = ChatItems.dateCell(DateCellModel(string: "어제"))
+        let item2 = ChatItems.chatCell(ChatCellModel(string: "첫번째drijphigewoirbwpbm4wopbm4pobm4pob5mpo45mbp4o5bmp45ogdssbsdfbvdsfniodfgnoidsfgnodsfgnoidsfgnsdfogndfiognfignfignignfnodfbndoifbdfb"))
+        let item3 = ChatItems.chatCell(ChatCellModel(string: "두번째"))
+        let item4 = ChatItems.chatCell(ChatCellModel(string: "세번째"))
+        let item5 = ChatItems.dateCell(DateCellModel(string: "오늘"))
+        let item6 = ChatItems.chatCell(ChatCellModel(string: "네번째"))
+        let item7 = ChatItems.chatCell(ChatCellModel(string: "다섯번째"))
+        let item8 = ChatItems.chatCell(ChatCellModel(string: "여섯번째"))
+        let item9 = ChatItems.chatCell(ChatCellModel(string: "일곱번째"))
+        let item10 = ChatItems.chatCell(ChatCellModel(string: "여덟번째"))
+        
+        let sections = [ChatSections(items: [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10])]
         
         viewModel.dateSection.accept(sections)
     }
