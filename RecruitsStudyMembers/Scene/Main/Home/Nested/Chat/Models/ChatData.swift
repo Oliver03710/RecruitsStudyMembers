@@ -13,7 +13,9 @@ struct ChatSections {
 
 enum ChatItems {
     case dateCell(DateCellModel)
-    case chatCell(ChatCellModel)
+    case userChatCell(UserChatCellModel)
+    case introCell(IntroCellModel)
+    case myChatCell(MyChatCellModel)
 }
 
 extension ChatSections: SectionModelType {
@@ -25,10 +27,18 @@ extension ChatSections: SectionModelType {
     }
 }
 
-struct ChatCellModel {
+struct UserChatCellModel {
     let string: String
 }
 
 struct DateCellModel {
+    let string: String
+}
+
+struct IntroCellModel {
+    let string: String
+}
+
+struct MyChatCellModel {
     let string: String
 }
