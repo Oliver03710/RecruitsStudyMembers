@@ -20,6 +20,7 @@ final class DateTableViewCell: UITableViewCell {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.textColor = SSColors.white.color
         label.font = UIFont(name: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size)
         return label
@@ -47,7 +48,7 @@ final class DateTableViewCell: UITableViewCell {
         ellipseView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.height.equalTo(28)
-            $0.width.equalTo(ellipseView.snp.height).multipliedBy(4)
+            $0.width.greaterThanOrEqualTo(ellipseView.snp.height)
         }
         
         dateLabel.snp.makeConstraints {
