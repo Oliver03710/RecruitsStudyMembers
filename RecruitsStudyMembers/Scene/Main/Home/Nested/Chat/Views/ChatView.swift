@@ -19,10 +19,13 @@ final class ChatView: BaseView {
     private let tableView: UITableView = {
         let tv = UITableView()
         tv.bounces = false
+        tv.separatorStyle = .none
         tv.rowHeight = UITableView.automaticDimension
-        tv.keyboardDismissMode = .onDrag
+//        tv.keyboardDismissMode = .onDrag
         tv.register(DateTableViewCell.self, forCellReuseIdentifier: DateTableViewCell.reuseIdentifier)
-        tv.register(ChatTableViewCell.self, forCellReuseIdentifier: ChatTableViewCell.reuseIdentifier)
+        tv.register(UserChatTableViewCell.self, forCellReuseIdentifier: UserChatTableViewCell.reuseIdentifier)
+        tv.register(MyChatTableViewCell.self, forCellReuseIdentifier: MyChatTableViewCell.reuseIdentifier)
+        tv.register(IntroTableViewCell.self, forCellReuseIdentifier: IntroTableViewCell.reuseIdentifier)
         return tv
     }()
     
@@ -31,11 +34,26 @@ final class ChatView: BaseView {
         case let .dateCell(dateModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DateTableViewCell.reuseIdentifier, for: indexPath) as? DateTableViewCell else { return UITableViewCell() }
             cell.configureCells(date: dateModel.string)
-                return cell
-        case let .chatCell(cellModel):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
-            cell.configureCells(text: cellModel.string)
-                return cell
+            cell.selectionStyle = .none
+            return cell
+            
+        case let .userChatCell(userChatModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: UserChatTableViewCell.reuseIdentifier, for: indexPath) as? UserChatTableViewCell else { return UITableViewCell() }
+            cell.configureCells(text: userChatModel.string)
+            cell.selectionStyle = .none
+            return cell
+            
+        case let .introCell(introModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: IntroTableViewCell.reuseIdentifier, for: indexPath) as? IntroTableViewCell else { return UITableViewCell() }
+            cell.configureCells(text: introModel.string)
+            cell.selectionStyle = .none
+            return cell
+            
+        case let .myChatCell(myChatModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as? MyChatTableViewCell else { return UITableViewCell() }
+            cell.configureCells(text: myChatModel.string)
+            cell.selectionStyle = .none
+            return cell
         }
     }
     
@@ -63,7 +81,9 @@ final class ChatView: BaseView {
     }()
     
     private var textViewHeightConstraint: Constraint?
-    var chatViewBottomConstraint: Constraint?
+    private var chatViewBottomConstraint: Constraint?
+    private var tableViewBottomConstraint: Constraint?
+    
     private let viewModel = ChatViewModel()
     
     
@@ -77,15 +97,15 @@ final class ChatView: BaseView {
     // MARK: - Selectors
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-//        if textView.isEditable {
-            guard let constraint = chatViewBottomConstraint else { return }
-            moveViewWithKeyboard(notification: notification, viewBottomConstraint: constraint, keyboardWillShow: true)
-//        }
+        guard let chatConstraint = chatViewBottomConstraint, let tableViewConstraint = tableViewBottomConstraint else { return }
+        moveViewWithKeyboard(notification: notification, viewBottomConstraint: chatConstraint, keyboardWillShow: true)
+//        movetableViewWithKeyboard(notification: notification, viewBottomConstraint: tableViewConstraint, keyboardWillShow: true)
     }
         
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        guard let constraint = chatViewBottomConstraint else { return }
-        moveViewWithKeyboard(notification: notification, viewBottomConstraint: constraint, keyboardWillShow: false)
+        guard let chatConstraint = chatViewBottomConstraint, let tableViewConstraint = tableViewBottomConstraint else { return }
+        moveViewWithKeyboard(notification: notification, viewBottomConstraint: chatConstraint, keyboardWillShow: false)
+//        movetableViewWithKeyboard(notification: notification, viewBottomConstraint: tableViewConstraint, keyboardWillShow: false)
     }
 
 
@@ -105,7 +125,7 @@ final class ChatView: BaseView {
         
         tableView.snp.makeConstraints {
             $0.top.directionalHorizontalEdges.equalToSuperview().inset(16)
-            $0.bottom.equalTo(chatView.snp.top).offset(-16)
+            tableViewBottomConstraint = $0.bottom.equalTo(chatView.snp.top).offset(-16).constraint
         }
         
         chatView.snp.makeConstraints {
@@ -184,26 +204,33 @@ final class ChatView: BaseView {
     private func addData() {
         
         let item1 = ChatItems.dateCell(DateCellModel(string: "어제"))
-        let item2 = ChatItems.chatCell(ChatCellModel(string: "첫번째drijphigewoirbwpbm4wopbm4pobm4pob5mpo45mbp4o5bmp45ogdssbsdfbvdsfniodfgnoidsfgnodsfgnoidsfgnsdfogndfiognfignfignignfnodfbndoifbdfb"))
-        let item3 = ChatItems.chatCell(ChatCellModel(string: "두번째"))
-        let item4 = ChatItems.chatCell(ChatCellModel(string: "세번째"))
-        let item5 = ChatItems.dateCell(DateCellModel(string: "오늘"))
-        let item6 = ChatItems.chatCell(ChatCellModel(string: "네번째"))
-        let item7 = ChatItems.chatCell(ChatCellModel(string: "다섯번째"))
-        let item8 = ChatItems.chatCell(ChatCellModel(string: "여섯번째"))
-        let item9 = ChatItems.chatCell(ChatCellModel(string: "일곱번째"))
-        let item10 = ChatItems.chatCell(ChatCellModel(string: "여덟번째"))
+        let item2 = ChatItems.introCell(IntroCellModel(string: "고뤠밥"))
+        let item3 = ChatItems.myChatCell(MyChatCellModel(string: "첫번째drijphigewoirbwpbm4wopbm4pobm4pob5mpo45mbp4o5bmp45ogdssbsdfbvdsfniodfgnoidsfgnodsfgnoidsfgnsdfogndfiognfignfignignfnodfbndoifbdfb"))
+        let item4 = ChatItems.userChatCell(UserChatCellModel(string: "두번째"))
+        let item5 = ChatItems.myChatCell(MyChatCellModel(string: "세번째"))
+        let item6 = ChatItems.dateCell(DateCellModel(string: "오늘"))
+        let item7 = ChatItems.myChatCell(MyChatCellModel(string: "네번째"))
+        let item8 = ChatItems.userChatCell(UserChatCellModel(string: "다섯번째"))
+        let item9 = ChatItems.myChatCell(MyChatCellModel(string: "여섯번째"))
+        let item10 = ChatItems.userChatCell(UserChatCellModel(string: "일곱번째"))
+        let item11 = ChatItems.userChatCell(UserChatCellModel(string: "여덟번째 메세지 보냅니다아아아아아아아아아아아아아     아아아아아"))
         
-        let sections = [ChatSections(items: [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10])]
+        let sections = [ChatSections(items: [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11])]
         
         viewModel.dateSection.accept(sections)
     }
     
     private func didUpdateTextViewContentSize() {
         textViewHeightConstraint?.update(offset: SSFonts.body3R14.size)
+        
+        tableView.snp.updateConstraints {
+            $0.bottom.equalTo(chatView.snp.top).offset(-16)
+        }
+        
         UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }
+        self.tableView.scrollToRow(at: IndexPath(row: viewModel.dateSection.value.count - 1, section: 0), at: .bottom, animated: true)
     }
     
     private func keyboardActions() {
@@ -233,4 +260,27 @@ final class ChatView: BaseView {
         
         animator.startAnimation()
     }
+    
+    private func movetableViewWithKeyboard(notification: NSNotification, viewBottomConstraint: Constraint, keyboardWillShow: Bool) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        let keyboardHeight = keyboardSize.height
+        
+        let keyboardDuration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        
+        let keyboardCurve = UIView.AnimationCurve(rawValue: notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! Int)!
+        
+        if keyboardWillShow {
+            viewBottomConstraint.update(offset: -keyboardHeight / 7)
+            
+        }else {
+            viewBottomConstraint.update(offset: -16)
+        }
+        
+        let animator = UIViewPropertyAnimator(duration: keyboardDuration, curve: keyboardCurve) { [weak self] in
+            self?.layoutIfNeeded()
+        }
+        
+        animator.startAnimation()
+    }
+
 }
