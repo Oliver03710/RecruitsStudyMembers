@@ -117,13 +117,14 @@
 		ADB604BF2923EA320081CEC2 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB604BE2923EA320081CEC2 /* ReusableView.swift */; };
 		ADC259D8292770EB004E5121 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */; };
 		ADCC0098293DDDD200C15C72 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC0097293DDDD200C15C72 /* CircleView.swift */; };
+		ADCC009D293DFFCB00C15C72 /* IntroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC009C293DFFCB00C15C72 /* IntroTableViewCell.swift */; };
 		ADD5AE31293677B20092B3B5 /* MemberListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5AE30293677B20092B3B5 /* MemberListViewModel.swift */; };
 		ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD65505291FB85800CA435D /* Date+Extension.swift */; };
 		ADD78636292F8387001B63AC /* UINavigationViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */; };
 		ADDA22F4293C6A5900FCF617 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = ADDA22F3293C6A5900FCF617 /* RxDataSources */; };
 		ADDA22F7293C6B1800FCF617 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */; };
 		ADDA22FB293C731600FCF617 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA22FA293C731600FCF617 /* ChatData.swift */; };
-		ADDAFAFB293D9A5F00D47154 /* IntroductionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDAFAFA293D9A5F00D47154 /* IntroductionTableViewCell.swift */; };
+		ADDAFAFB293D9A5F00D47154 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDAFAFA293D9A5F00D47154 /* DateTableViewCell.swift */; };
 		ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24AD9292FE55C000C08AB /* LocationManager.swift */; };
 		ADE24ADC292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */; };
 		ADE76D81293B69B8004058D3 /* QueueStates+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */; };
@@ -254,12 +255,13 @@
 		ADB604BE2923EA320081CEC2 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		ADC259D7292770EB004E5121 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADCC0097293DDDD200C15C72 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		ADCC009C293DFFCB00C15C72 /* IntroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTableViewCell.swift; sourceTree = "<group>"; };
 		ADD5AE30293677B20092B3B5 /* MemberListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewModel.swift; sourceTree = "<group>"; };
 		ADD65505291FB85800CA435D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADD78635292F8387001B63AC /* UINavigationViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		ADDA22FA293C731600FCF617 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
-		ADDAFAFA293D9A5F00D47154 /* IntroductionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTableViewCell.swift; sourceTree = "<group>"; };
+		ADDAFAFA293D9A5F00D47154 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		ADE24AD9292FE55C000C08AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueStates+Enum.swift"; sourceTree = "<group>"; };
@@ -491,11 +493,11 @@
 		AD609664291A184900FF78CB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				ADCC0099293DDDD800C15C72 /* Views */,
 				ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */,
 				ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */,
 				ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */,
 				AD910B7629290709000F7828 /* SeSacAnnotation.swift */,
+				ADCC0099293DDDD800C15C72 /* Views */,
 				ADAC0D6C292699E900424D39 /* Buttons */,
 				AD23FB0F29229E62004FA34E /* ImageViews */,
 				ADEF3B7E291D8B4F004B4CDE /* TextFields */,
@@ -668,8 +670,9 @@
 		ADDA22F5293C6AF900FCF617 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ADDAFAFA293D9A5F00D47154 /* DateTableViewCell.swift */,
+				ADCC009C293DFFCB00C15C72 /* IntroTableViewCell.swift */,
 				ADDA22F6293C6B1800FCF617 /* ChatTableViewCell.swift */,
-				ADDAFAFA293D9A5F00D47154 /* IntroductionTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1516,11 +1519,12 @@
 				AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
+				ADCC009D293DFFCB00C15C72 /* IntroTableViewCell.swift in Sources */,
 				AD23FAE429221352004FA34E /* ShopView.swift in Sources */,
 				AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */,
 				AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */,
 				ADA59A7F2939BA1000A7A8A0 /* CustomAlertViewModel.swift in Sources */,
-				ADDAFAFB293D9A5F00D47154 /* IntroductionTableViewCell.swift in Sources */,
+				ADDAFAFB293D9A5F00D47154 /* DateTableViewCell.swift in Sources */,
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
