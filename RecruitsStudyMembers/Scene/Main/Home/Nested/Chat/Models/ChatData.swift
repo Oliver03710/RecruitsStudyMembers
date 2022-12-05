@@ -8,10 +8,12 @@
 import Differentiator
 
 struct ChatSections {
+    var header: String
     var items: [Item]
 }
 
 enum ChatItems {
+    case introCell(IntroCellModel)
     case chatCell(ChatCellModel)
 }
 
@@ -25,5 +27,9 @@ extension ChatSections: SectionModelType {
 }
 
 struct ChatCellModel {
+    let string: String
+}
+
+struct IntroCellModel {
     let string: String
 }
