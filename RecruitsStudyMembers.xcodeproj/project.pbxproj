@@ -56,6 +56,7 @@
 		AD32E9D4293F27330037939C /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D3293F27330037939C /* ReportAlertViewController.swift */; };
 		AD32E9D7293F274F0037939C /* ReportAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D6293F274F0037939C /* ReportAlertView.swift */; };
 		AD32E9DA293F27660037939C /* ReportAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */; };
+		AD32E9DC293F2ACA0037939C /* AlertSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9DB293F2ACA0037939C /* AlertSplit.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -204,6 +205,7 @@
 		AD32E9D3293F27330037939C /* ReportAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewController.swift; sourceTree = "<group>"; };
 		AD32E9D6293F274F0037939C /* ReportAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertView.swift; sourceTree = "<group>"; };
 		AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewModel.swift; sourceTree = "<group>"; };
+		AD32E9DB293F2ACA0037939C /* AlertSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSplit.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -1293,6 +1295,7 @@
 				ADA27D122934C17500150C26 /* ButtonCombined+Enum.swift */,
 				ADA59A802939BED400A7A8A0 /* CustomAlertStates+Enum.swift */,
 				ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */,
+				AD32E9DB293F2ACA0037939C /* AlertSplit.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1570,6 +1573,7 @@
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
 				ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */,
 				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
+				AD32E9DC293F2ACA0037939C /* AlertSplit.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
 				AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
