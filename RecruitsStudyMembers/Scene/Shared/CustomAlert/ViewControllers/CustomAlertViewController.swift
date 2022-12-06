@@ -61,6 +61,9 @@ final class CustomAlertViewController: BaseViewController {
                 case .deleteAccount:
                     self.deleteAccount()
                     self.dismiss(animated: true)
+                    
+                case .cancelStudy:
+                    self.dismiss(animated: true)
                 }
             }
             .disposed(by: customAlertView.viewModel.disposeBag)
