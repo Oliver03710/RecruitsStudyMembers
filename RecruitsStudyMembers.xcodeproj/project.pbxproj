@@ -53,6 +53,9 @@
 		AD23FB0A29229A0B004FA34E /* Reusable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */; };
 		AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */; };
 		AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0D29229E5E004FA34E /* CircleImageView.swift */; };
+		AD32E9D4293F27330037939C /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D3293F27330037939C /* ReportAlertViewController.swift */; };
+		AD32E9D7293F274F0037939C /* ReportAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D6293F274F0037939C /* ReportAlertView.swift */; };
+		AD32E9DA293F27660037939C /* ReportAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -198,6 +201,9 @@
 		AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+Protocol.swift"; sourceTree = "<group>"; };
 		AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoTableViewCell.swift; sourceTree = "<group>"; };
 		AD23FB0D29229E5E004FA34E /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		AD32E9D3293F27330037939C /* ReportAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewController.swift; sourceTree = "<group>"; };
+		AD32E9D6293F274F0037939C /* ReportAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertView.swift; sourceTree = "<group>"; };
+		AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewModel.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -482,6 +488,48 @@
 			path = ImageViews;
 			sourceTree = "<group>";
 		};
+		AD32E9CF293F26D20037939C /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				AD32E9D5293F27370037939C /* Report */,
+			);
+			path = Nested;
+			sourceTree = "<group>";
+		};
+		AD32E9D0293F26DD0037939C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD32E9D3293F27330037939C /* ReportAlertViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AD32E9D1293F26E40037939C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD32E9D6293F274F0037939C /* ReportAlertView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD32E9D5293F27370037939C /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				AD32E9D0293F26DD0037939C /* ViewControllers */,
+				AD32E9D1293F26E40037939C /* Views */,
+				AD32E9D8293F27560037939C /* ViewModels */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		AD32E9D8293F27560037939C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +752,7 @@
 				ADDA22F5293C6AF900FCF617 /* Cells */,
 				ADE76D8D293B9C90004058D3 /* ViewModels */,
 				ADDA22F8293C72E900FCF617 /* Models */,
+				AD32E9CF293F26D20037939C /* Nested */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1462,6 +1511,7 @@
 				AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */,
 				AD9533C2291961E1002126C0 /* SplashView.swift in Sources */,
 				ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */,
+				AD32E9D4293F27330037939C /* ReportAlertViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */,
 				AD90630E292D6A35007A70E2 /* CustomAlertViewController.swift in Sources */,
@@ -1500,6 +1550,7 @@
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
+				AD32E9D7293F274F0037939C /* ReportAlertView.swift in Sources */,
 				AD906310292D6A42007A70E2 /* CustomAlertView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD103A97291C15050032E9EB /* UserRouter+URLRequestConvertible.swift in Sources */,
@@ -1523,6 +1574,7 @@
 				AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
+				AD32E9DA293F27660037939C /* ReportAlertViewModel.swift in Sources */,
 				ADCC009D293DFFCB00C15C72 /* IntroTableViewCell.swift in Sources */,
 				AD23FAE429221352004FA34E /* ShopView.swift in Sources */,
 				AD23FAE629221377004FA34E /* ShopViewModel.swift in Sources */,
