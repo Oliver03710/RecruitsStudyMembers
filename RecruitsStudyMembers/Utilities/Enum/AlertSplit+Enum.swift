@@ -1,5 +1,5 @@
 //
-//  AlertSplit.swift
+//  AlertSplit+Enum.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/12/06.
