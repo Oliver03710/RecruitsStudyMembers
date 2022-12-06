@@ -8,5 +8,5 @@
 import Foundation
 
 enum CustomAlertState {
-    case deleteAccount, sendRequest, acceptRequest
+    case deleteAccount, sendRequest, acceptRequest, cancelStudy
 }
