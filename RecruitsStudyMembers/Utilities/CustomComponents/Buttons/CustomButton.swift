@@ -96,12 +96,45 @@ final class CustomButton: UIButton {
         layer.borderColor = state == .sendRequest ? SSColors.error.color.cgColor : SSColors.success.color.cgColor
     }
     
+    // 채팅의 더보기 버튼
+    convenience init(text: String, image: String, config: UIButton.Configuration, tint: UIColor?, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) {
+        self.init()
+        setImage(UIImage(named: image), for: .normal)
+        tintColor = tint
+        self.configuration = buttonConfiguration(text: text, config: config, foregroundColor: foregroundColor, font: font, size: size, lineHeight: lineHeight)
+    }
+    
     
     // MARK: - Helper Functions
     
-    func configureUI() {
+    private func configureUI() {
         clipsToBounds = true
         layer.cornerRadius = 8
+    }
+    
+    private func buttonConfiguration(text: String, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) -> UIButton.Configuration {
+        var configuration = config
+        
+        var container = AttributeContainer()
+        container.font = UIFont(name: font, size: size)
+        container.foregroundColor = foregroundColor
+        container.paragraphStyle = paragraphStyle(size: size, lineHeight: lineHeight)
+        container.baselineOffset = (size * lineHeight - size) / 4
+        
+        configuration.attributedTitle = AttributedString(text, attributes: container)
+        configuration.imagePlacement = .top
+        configuration.imagePadding = 10
+        configuration.titleAlignment = .center
+        
+        return configuration
+    }
+    
+    private func paragraphStyle(size: CGFloat, lineHeight: CGFloat) -> NSMutableParagraphStyle {
+        let style = NSMutableParagraphStyle()
+        let lineHeights = size * lineHeight
+        style.minimumLineHeight = lineHeights
+        style.maximumLineHeight = lineHeights
+        return style
     }
 
 }
