@@ -45,6 +45,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "contentType", defaultValue: "application/x-www-form-urlencoded")
     static var contentType: String
     
+    @UserDefaultsWrapper(key: "jsonContentType", defaultValue: "application/json")
+    static var jsonContentType: String
+    
     // MARK: - User API
     @UserDefaultsWrapper(key: "userBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210/v1/user")
     static var userBaseURLPath: String
@@ -79,6 +82,19 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper(key: "dodge", defaultValue: "/dodge")
     static var dodge: String
+    
+    // MARK: - Chat API
+    @UserDefaultsWrapper(key: "chatBaseURLPath", defaultValue: "http://api.sesac.co.kr:2022")
+    static var chatBaseURLPath: String
+    
+    @UserDefaultsWrapper(key: "chatGet", defaultValue: "/chats")
+    static var chatGet: String
+    
+    @UserDefaultsWrapper(key: "chatPost", defaultValue: "/chats")
+    static var chatPost: String
+    
+    @UserDefaultsWrapper(key: "chatSignUp", defaultValue: "/auth/signup")
+    static var chatSignUp: String
     
     // MARK: - Parameters
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
