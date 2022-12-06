@@ -115,6 +115,7 @@ final class ChatView: BaseView {
     var moreViewHeightConstraint: Constraint?
     
     var showMores = false
+    var popupPresented = false
     private let viewModel = ChatViewModel()
     
     
@@ -128,7 +129,9 @@ final class ChatView: BaseView {
     // MARK: - Selectors
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        moveTableViewWithKeyboard(notification: notification)
+        if !popupPresented {
+            moveTableViewWithKeyboard(notification: notification)
+        }
     }
         
     @objc func keyboardWillHide(_ notification: NSNotification) {
@@ -268,6 +271,8 @@ final class ChatView: BaseView {
         .drive { [weak self] actions in
             guard let self = self else { return }
             self.showMoreButtons()
+            self.popupPresented = true
+            
             switch actions {
             case .report:
                 let vc = ReportAlertViewController()
@@ -277,8 +282,10 @@ final class ChatView: BaseView {
                 currentVC?.present(vc, animated: true)
                 
             case .cancel:
-                let vc = ReportAlertViewController()
+                let vc = CustomAlertViewController()
                 let currentVC = UIApplication.getTopMostViewController()
+                vc.customAlertView.titleLabel.text = "스터디를 취소하겠습니까?"
+                vc.customAlertView.bodyLabel.text = "스터디를 취소하시면 패널티가 부과됩니다"
                 vc.modalPresentationStyle = .overFullScreen
                 currentVC?.present(vc, animated: true)
                 
@@ -329,9 +336,7 @@ final class ChatView: BaseView {
         if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             
-            UIView.animate(
-                withDuration: 0.3
-                , animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                     self.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
                 }
             )
