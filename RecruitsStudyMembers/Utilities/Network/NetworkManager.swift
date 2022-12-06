@@ -109,8 +109,3 @@ final class NetworkManager {
         }
     }
 }
-
-
-extension NetworkManager {
-    
-}
