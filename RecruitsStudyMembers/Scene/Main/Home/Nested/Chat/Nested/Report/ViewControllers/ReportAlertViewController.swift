@@ -11,13 +11,13 @@ final class ReportAlertViewController: BaseViewController {
 
     // MARK: - Properties
     
-    private let reportView = ReportAlertView()
+    let alertView = AlertSplitView()
     
     
     // MARK: - Init
     
     override func loadView() {
-        view = reportView
+        view = alertView
     }
     
     override func viewDidLoad() {
