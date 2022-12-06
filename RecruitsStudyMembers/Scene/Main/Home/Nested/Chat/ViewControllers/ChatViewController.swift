@@ -14,7 +14,6 @@ final class ChatViewController: BaseViewController {
     // MARK: - Properties
     
     let chatView = ChatView()
-    var showMores = false
     
     
     // MARK: - Init
@@ -31,26 +30,7 @@ final class ChatViewController: BaseViewController {
     // MARK: - Selectors
     
     @objc func showMore() {
-        if !showMores {
-            showMores = true
-            chatView.moreViewHeightConstraint?.update(offset: 0)
-            chatView.opaqueView.isHidden = false
-            chatView.moreView.isHidden = false
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.chatView.opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0.45)
-                self?.view.layoutIfNeeded()
-            }
-        } else {
-            showMores = false
-            chatView.moreViewHeightConstraint?.update(offset: -76)
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.chatView.opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0)
-                self?.view.layoutIfNeeded()
-            } completion: { [weak self] _ in
-                self?.chatView.moreView.isHidden = true
-                self?.chatView.opaqueView.isHidden = true
-            }
-        }
+        chatView.showMoreButtons()
     }
     
     
@@ -68,16 +48,6 @@ final class ChatViewController: BaseViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if showMores {
-            showMores = false
-            chatView.moreViewHeightConstraint?.update(offset: -76)
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.chatView.opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0)
-                self?.view.layoutIfNeeded()
-            } completion: { [weak self] _ in
-                self?.chatView.moreView.isHidden = true
-                self?.chatView.opaqueView.isHidden = true
-            }
-        }
+        chatView.showMoreButtons()
     }
 }
