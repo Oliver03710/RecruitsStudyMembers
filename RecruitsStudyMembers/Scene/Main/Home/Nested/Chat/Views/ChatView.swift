@@ -114,6 +114,7 @@ final class ChatView: BaseView {
     private var tableViewBottomConstraint: Constraint?
     var moreViewHeightConstraint: Constraint?
     
+    var showMores = false
     private let viewModel = ChatViewModel()
     
     
@@ -259,6 +260,37 @@ final class ChatView: BaseView {
                 self.sendButton.setImage(UIImage(named: str.isEmpty || self.textView.textColor == SSColors.gray7.color ? GeneralIcons.sendInact.rawValue : GeneralIcons.sendAct.rawValue), for: .normal)
             }
             .disposed(by: viewModel.disposeBag)
+        
+        Observable.merge(reportButton.rx.tap.map { AlertButtonCombined.report },
+                         cancelButton.rx.tap.map { AlertButtonCombined.cancel },
+                         reviewButton.rx.tap.map { AlertButtonCombined.review })
+        .asDriver(onErrorJustReturn: .report)
+        .drive { [weak self] actions in
+            guard let self = self else { return }
+            self.showMoreButtons()
+            switch actions {
+            case .report:
+                let vc = ReportAlertViewController()
+                vc.alertView.viewState = .report
+                let currentVC = UIApplication.getTopMostViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                currentVC?.present(vc, animated: true)
+                
+            case .cancel:
+                let vc = ReportAlertViewController()
+                let currentVC = UIApplication.getTopMostViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                currentVC?.present(vc, animated: true)
+                
+            case .review:
+                let vc = ReportAlertViewController()
+                vc.alertView.viewState = .review
+                let currentVC = UIApplication.getTopMostViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                currentVC?.present(vc, animated: true)
+            }
+        }
+        .disposed(by: viewModel.disposeBag)
     }
     
     private func addData() {
@@ -303,6 +335,29 @@ final class ChatView: BaseView {
                     self.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
                 }
             )
+        }
+    }
+    
+    func showMoreButtons() {
+        if !showMores {
+            showMores = true
+            moreViewHeightConstraint?.update(offset: 0)
+            opaqueView.isHidden = false
+            moreView.isHidden = false
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0.45)
+                self?.layoutIfNeeded()
+            }
+        } else {
+            showMores = false
+            moreViewHeightConstraint?.update(offset: -76)
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0)
+                self?.layoutIfNeeded()
+            } completion: { [weak self] _ in
+                self?.moreView.isHidden = true
+                self?.opaqueView.isHidden = true
+            }
         }
     }
 }
