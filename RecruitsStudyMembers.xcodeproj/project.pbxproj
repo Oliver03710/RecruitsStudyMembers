@@ -54,10 +54,13 @@
 		AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */; };
 		AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0D29229E5E004FA34E /* CircleImageView.swift */; };
 		AD32E9D4293F27330037939C /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D3293F27330037939C /* ReportAlertViewController.swift */; };
-		AD32E9D7293F274F0037939C /* ReportAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D6293F274F0037939C /* ReportAlertView.swift */; };
+		AD32E9D7293F274F0037939C /* AlertSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D6293F274F0037939C /* AlertSplitView.swift */; };
 		AD32E9DA293F27660037939C /* ReportAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */; };
 		AD32E9DC293F2ACA0037939C /* AlertSplit+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9DB293F2ACA0037939C /* AlertSplit+Enum.swift */; };
 		AD32E9DE293F2FE40037939C /* AlertButtonCombined+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9DD293F2FE40037939C /* AlertButtonCombined+Enum.swift */; };
+		AD32E9E0293F3AE90037939C /* AlertBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9DF293F3AE90037939C /* AlertBaseView.swift */; };
+		AD32E9E2293F3E790037939C /* AlertTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9E1293F3E790037939C /* AlertTitleView.swift */; };
+		AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9E3293F419A0037939C /* AlertBodyView.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -204,10 +207,13 @@
 		AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoTableViewCell.swift; sourceTree = "<group>"; };
 		AD23FB0D29229E5E004FA34E /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		AD32E9D3293F27330037939C /* ReportAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewController.swift; sourceTree = "<group>"; };
-		AD32E9D6293F274F0037939C /* ReportAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertView.swift; sourceTree = "<group>"; };
+		AD32E9D6293F274F0037939C /* AlertSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSplitView.swift; sourceTree = "<group>"; };
 		AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewModel.swift; sourceTree = "<group>"; };
 		AD32E9DB293F2ACA0037939C /* AlertSplit+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertSplit+Enum.swift"; sourceTree = "<group>"; };
 		AD32E9DD293F2FE40037939C /* AlertButtonCombined+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertButtonCombined+Enum.swift"; sourceTree = "<group>"; };
+		AD32E9DF293F3AE90037939C /* AlertBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBaseView.swift; sourceTree = "<group>"; };
+		AD32E9E1293F3E790037939C /* AlertTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTitleView.swift; sourceTree = "<group>"; };
+		AD32E9E3293F419A0037939C /* AlertBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBodyView.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -511,7 +517,7 @@
 		AD32E9D1293F26E40037939C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AD32E9D6293F274F0037939C /* ReportAlertView.swift */,
+				AD32E9D6293F274F0037939C /* AlertSplitView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -717,6 +723,9 @@
 			children = (
 				ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */,
 				ADCC0097293DDDD200C15C72 /* CircleView.swift */,
+				AD32E9DF293F3AE90037939C /* AlertBaseView.swift */,
+				AD32E9E1293F3E790037939C /* AlertTitleView.swift */,
+				AD32E9E3293F419A0037939C /* AlertBodyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1552,11 +1561,12 @@
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
 				ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
+				AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */,
 				ADCC0098293DDDD200C15C72 /* CircleView.swift in Sources */,
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
-				AD32E9D7293F274F0037939C /* ReportAlertView.swift in Sources */,
+				AD32E9D7293F274F0037939C /* AlertSplitView.swift in Sources */,
 				AD906310292D6A42007A70E2 /* CustomAlertView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD32E9DE293F2FE40037939C /* AlertButtonCombined+Enum.swift in Sources */,
@@ -1601,9 +1611,11 @@
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
 				AD910B7D29295A2A000F7828 /* CircleButton.swift in Sources */,
 				ADAC0D61292610B400424D39 /* CustomCollectionViewCell.swift in Sources */,
+				AD32E9E2293F3E790037939C /* AlertTitleView.swift in Sources */,
 				ADE76D8C293B9C68004058D3 /* ChatView.swift in Sources */,
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
+				AD32E9E0293F3AE90037939C /* AlertBaseView.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */,
 				AD7AE609293391B10089D747 /* SearchData.swift in Sources */,
