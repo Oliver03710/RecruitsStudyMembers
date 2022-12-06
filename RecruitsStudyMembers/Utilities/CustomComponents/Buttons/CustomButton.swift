@@ -9,6 +9,11 @@ import UIKit
 
 final class CustomButton: UIButton {
 
+    // MARK: - Properties
+    
+    var toggle = ButtonToggle.on
+    
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -97,7 +102,7 @@ final class CustomButton: UIButton {
     }
     
     // 채팅의 더보기 버튼
-    convenience init(text: String, image: String, config: UIButton.Configuration, tint: UIColor?, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) {
+    convenience init(text: String, image: String, config: UIButton.Configuration, tint: UIColor?, foregroundColor: UIColor?, font: String, size: CGFloat, lineHeight: CGFloat) {
         self.init()
         setImage(UIImage(named: image), for: .normal)
         tintColor = tint
@@ -105,8 +110,13 @@ final class CustomButton: UIButton {
     }
     
     // 채팅 더보기 이후 버튼
-    convenience init(text: String, withImage: Bool, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) {
+    convenience init(text: String, withImage: Bool, config: UIButton.Configuration, borderColor: UIColor? = SSColors.gray4.color, foregroundColor: UIColor?, font: String, size: CGFloat, lineHeight: CGFloat) {
         self.init()
+        layer.borderWidth = 1
+        layer.borderColor = borderColor?.cgColor
+        clipsToBounds = true
+        layer.cornerRadius = 8
+        tintColor = SSColors.black.color
         self.configuration = buttonConfiguration(text: text, withImage: withImage, config: config, foregroundColor: foregroundColor, font: font, size: size, lineHeight: lineHeight)
     }
 
