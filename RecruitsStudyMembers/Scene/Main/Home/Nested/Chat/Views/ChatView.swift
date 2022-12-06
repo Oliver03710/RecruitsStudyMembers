@@ -80,9 +80,39 @@ final class ChatView: BaseView {
         return btn
     }()
     
+    let moreView: UIView = {
+        let view = UIView()
+        view.backgroundColor = SSColors.white.color
+        return view
+    }()
+    
+    let opaqueView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0)
+        view.isOpaque = false
+        view.isHidden = true
+        return view
+    }()
+    
+    private let reportButton: CustomButton = {
+        let btn = CustomButton(text: "새싹 신고", image: GeneralIcons.siren.rawValue, config: .plain(), tint: SSColors.black.color, foregroundColor: SSColors.black.color, font: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
+        return btn
+    }()
+    
+    private let cancelButton: CustomButton = {
+        let btn = CustomButton(text: "스터디 취소", image: GeneralIcons.cancelMatch.rawValue, config: .plain(), tint: SSColors.black.color, foregroundColor: SSColors.black.color, font: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
+        return btn
+    }()
+    
+    private let reviewButton: CustomButton = {
+        let btn = CustomButton(text: "리뷰 등록", image: GeneralIcons.write.rawValue, config: .plain(), tint: SSColors.black.color, foregroundColor: SSColors.black.color, font: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
+        return btn
+    }()
+    
     private var textViewHeightConstraint: Constraint?
     private var chatViewBottomConstraint: Constraint?
     private var tableViewBottomConstraint: Constraint?
+    var moreViewHeightConstraint: Constraint?
     
     private let viewModel = ChatViewModel()
     
@@ -116,8 +146,42 @@ final class ChatView: BaseView {
     override func setConstraints() {
         addSubview(tableView)
         addSubview(chatView)
+        addSubview(opaqueView)
+        addSubview(moreView)
+        
+        moreView.addSubview(reportButton)
+        moreView.addSubview(cancelButton)
+        moreView.addSubview(reviewButton)
+        
         chatView.addSubview(textView)
         chatView.addSubview(sendButton)
+        
+        opaqueView.snp.makeConstraints {
+            $0.directionalHorizontalEdges.top.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
+        }
+        
+        moreView.snp.makeConstraints {
+            $0.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide)
+            $0.height.equalTo(76)
+            moreViewHeightConstraint = $0.top.equalTo(safeAreaLayoutGuide).offset(-76).constraint
+        }
+        
+        reportButton.snp.makeConstraints {
+            $0.leading.directionalVerticalEdges.equalToSuperview()
+            $0.width.equalToSuperview().dividedBy(3)
+        }
+        
+        cancelButton.snp.makeConstraints {
+            $0.directionalVerticalEdges.equalToSuperview()
+            $0.leading.equalTo(reportButton.snp.trailing)
+            $0.width.equalToSuperview().dividedBy(3)
+        }
+        
+        reviewButton.snp.makeConstraints {
+            $0.directionalVerticalEdges.trailing.equalToSuperview()
+            $0.leading.equalTo(cancelButton.snp.trailing)
+        }
         
         tableView.snp.makeConstraints {
             $0.top.directionalHorizontalEdges.equalToSuperview().inset(16)
