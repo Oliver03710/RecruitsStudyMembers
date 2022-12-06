@@ -101,8 +101,15 @@ final class CustomButton: UIButton {
         self.init()
         setImage(UIImage(named: image), for: .normal)
         tintColor = tint
-        self.configuration = buttonConfiguration(text: text, config: config, foregroundColor: foregroundColor, font: font, size: size, lineHeight: lineHeight)
+        self.configuration = buttonConfiguration(text: text, withImage: true, config: config, foregroundColor: foregroundColor, font: font, size: size, lineHeight: lineHeight)
     }
+    
+    // 채팅 더보기 이후 버튼
+    convenience init(text: String, withImage: Bool, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) {
+        self.init()
+        self.configuration = buttonConfiguration(text: text, withImage: withImage, config: config, foregroundColor: foregroundColor, font: font, size: size, lineHeight: lineHeight)
+    }
+
     
     
     // MARK: - Helper Functions
@@ -112,7 +119,7 @@ final class CustomButton: UIButton {
         layer.cornerRadius = 8
     }
     
-    private func buttonConfiguration(text: String, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) -> UIButton.Configuration {
+    private func buttonConfiguration(text: String, withImage: Bool, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) -> UIButton.Configuration {
         var configuration = config
         
         var container = AttributeContainer()
@@ -122,9 +129,12 @@ final class CustomButton: UIButton {
         container.baselineOffset = (size * lineHeight - size) / 4
         
         configuration.attributedTitle = AttributedString(text, attributes: container)
-        configuration.imagePlacement = .top
-        configuration.imagePadding = 10
-        configuration.titleAlignment = .center
+        
+        if withImage {
+            configuration.imagePlacement = .top
+            configuration.imagePadding = 10
+            configuration.titleAlignment = .center
+        }
         
         return configuration
     }
