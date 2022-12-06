@@ -24,7 +24,7 @@ final class AlertTitleView: BaseView {
         return label
     }()
     
-    private let xmarkButton: UIButton = {
+    let xmarkButton: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: GeneralIcons.closeBig.rawValue), for: .normal)
         btn.tintColor = SSColors.gray6.color
