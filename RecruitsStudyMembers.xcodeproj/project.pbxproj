@@ -53,6 +53,10 @@
 		AD23FB0A29229A0B004FA34E /* Reusable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */; };
 		AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */; };
 		AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23FB0D29229E5E004FA34E /* CircleImageView.swift */; };
+		AD2E2F37293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E2F36293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift */; };
+		AD2E2F39293F933400842879 /* ButtonToggle+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */; };
+		AD2E2F3B293FB73000842879 /* ChatRouter+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E2F3A293FB73000842879 /* ChatRouter+URLRequestConvertible.swift */; };
+		AD2E2F3E293FBCE700842879 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = AD2E2F3D293FBCE700842879 /* SocketIO */; };
 		AD32E9D4293F27330037939C /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D3293F27330037939C /* ReportAlertViewController.swift */; };
 		AD32E9D7293F274F0037939C /* AlertSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D6293F274F0037939C /* AlertSplitView.swift */; };
 		AD32E9DA293F27660037939C /* ReportAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */; };
@@ -206,6 +210,9 @@
 		AD23FB0929229A0B004FA34E /* Reusable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+Protocol.swift"; sourceTree = "<group>"; };
 		AD23FB0B29229A59004FA34E /* MyinfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyinfoTableViewCell.swift; sourceTree = "<group>"; };
 		AD23FB0D29229E5E004FA34E /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		AD2E2F36293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertViewButtonCombined+Enum.swift"; sourceTree = "<group>"; };
+		AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonToggle+Enum.swift"; sourceTree = "<group>"; };
+		AD2E2F3A293FB73000842879 /* ChatRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		AD32E9D3293F27330037939C /* ReportAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewController.swift; sourceTree = "<group>"; };
 		AD32E9D6293F274F0037939C /* AlertSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSplitView.swift; sourceTree = "<group>"; };
 		AD32E9D9293F27660037939C /* ReportAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewModel.swift; sourceTree = "<group>"; };
@@ -319,6 +326,7 @@
 				AD60966D291A1A5F00FF78CB /* RxCocoa in Frameworks */,
 				ADDA22F4293C6A5900FCF617 /* RxDataSources in Frameworks */,
 				AD60966A291A1A4F00FF78CB /* Toast in Frameworks */,
+				AD2E2F3E293FBCE700842879 /* SocketIO in Frameworks */,
 				AD60966F291A1A5F00FF78CB /* RxSwift in Frameworks */,
 				AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */,
 				AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
@@ -400,6 +408,7 @@
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
 				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
 				ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */,
+				AD2E2F3A293FB73000842879 /* ChatRouter+URLRequestConvertible.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1308,6 +1317,8 @@
 				ADE76D80293B69B8004058D3 /* QueueStates+Enum.swift */,
 				AD32E9DB293F2ACA0037939C /* AlertSplit+Enum.swift */,
 				AD32E9DD293F2FE40037939C /* AlertButtonCombined+Enum.swift */,
+				AD2E2F36293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift */,
+				AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1438,6 +1449,7 @@
 				AD103A9D291C21290032E9EB /* FirebaseAuth */,
 				AD103A9F291C21290032E9EB /* FirebaseMessaging */,
 				ADDA22F3293C6A5900FCF617 /* RxDataSources */,
+				AD2E2F3D293FBCE700842879 /* SocketIO */,
 			);
 			productName = RecruitsStudyMembers;
 			productReference = ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */;
@@ -1475,6 +1487,7 @@
 				AD609678291A1AAA00FF78CB /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AD103A9A291C21290032E9EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				ADDA22F2293C6A5900FCF617 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				AD2E2F3C293FBCE700842879 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = ADF9B34C2918CCE400D1F758 /* Products */;
 			projectDirPath = "";
@@ -1556,6 +1569,7 @@
 				ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */,
 				AD23FAEB2922145D004FA34E /* FriendsView.swift in Sources */,
 				AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */,
+				AD2E2F3B293FB73000842879 /* ChatRouter+URLRequestConvertible.swift in Sources */,
 				ADDA22F7293C6B1800FCF617 /* UserChatTableViewCell.swift in Sources */,
 				ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */,
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
@@ -1589,6 +1603,7 @@
 				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
 				AD32E9DC293F2ACA0037939C /* AlertSplit+Enum.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
+				AD2E2F39293F933400842879 /* ButtonToggle+Enum.swift in Sources */,
 				AD23FAED29221471004FA34E /* FriendsViewModel.swift in Sources */,
 				AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */,
 				AD9533DF2919665D002126C0 /* GenderView.swift in Sources */,
@@ -1602,6 +1617,7 @@
 				ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */,
 				ADD65506291FB85800CA435D /* Date+Extension.swift in Sources */,
 				AD9533C92919646C002126C0 /* LoginView.swift in Sources */,
+				AD2E2F37293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift in Sources */,
 				AD23FADD29221180004FA34E /* HomeView.swift in Sources */,
 				AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
@@ -1873,6 +1889,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		AD2E2F3C293FBCE700842879 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 16.0.1;
+			};
+		};
 		AD609665291A1A4300FF78CB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1938,6 +1962,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AD103A9A291C21290032E9EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		AD2E2F3D293FBCE700842879 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD2E2F3C293FBCE700842879 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 		AD609666291A1A4300FF78CB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
