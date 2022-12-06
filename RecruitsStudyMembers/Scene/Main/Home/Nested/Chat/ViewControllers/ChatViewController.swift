@@ -48,6 +48,14 @@ final class ChatViewController: BaseViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        chatView.showMoreButtons()
+        chatView.showMores = false
+        chatView.moreViewHeightConstraint?.update(offset: -76)
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.chatView.opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0)
+            self?.view.layoutIfNeeded()
+        } completion: { [weak self] _ in
+            self?.chatView.moreView.isHidden = true
+            self?.chatView.opaqueView.isHidden = true
+        }
     }
 }
