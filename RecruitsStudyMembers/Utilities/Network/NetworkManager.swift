@@ -98,7 +98,7 @@ final class NetworkManager {
     
     func fireBaseError(competionHandler: @escaping () -> Void, errorHandler: @escaping () -> Void) {
         guard let codeNum = NetworkManager.shared.refreshToken() else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(180)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
                 competionHandler()
             }
             return
