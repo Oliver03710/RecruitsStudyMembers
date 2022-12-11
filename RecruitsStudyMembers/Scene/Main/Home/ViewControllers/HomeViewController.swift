@@ -36,6 +36,7 @@ final class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         navigationController?.isNavigationBarHidden = true
+        CheckMyQueueState(button: false)
     }
     
     
@@ -67,19 +68,13 @@ final class HomeViewController: BaseViewController {
         output.seekButtonDriver
             .drive { [weak self] _ in
                 guard let self = self else { return }
+                
                 if self.myView.locationManager.authorizationStatus == .denied || self.myView.locationManager.authorizationStatus == .restricted {
                     self.checkUserDeviceLocationServiceAuthorization()
                     
-                } else if NetworkManager.shared.queueState.value == .defaultState {
-                    self.PresentToSearchVC()
-                    
-                } else if NetworkManager.shared.queueState.value == .readyToBeMatched {
-                    self.showList()
-                    
-                } else if NetworkManager.shared.queueState.value == .matched {
-                    print("Show A Chating Room")
+                } else {
+                    self.CheckMyQueueState(button: true)
                 }
-                
             }
             .disposed(by: viewModel.disposeBag)
         
@@ -222,6 +217,55 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: viewModel.disposeBag)
     }
+    
+    private func CheckMyQueueState(button: Bool) {
+        NetworkManager.shared.request(QueueStateData.self, router: SeSacApiQueue.myQueueState)
+            .subscribe(onSuccess: { [weak self] response, state in
+                guard let self = self else { return }
+                print(response, state)
+                
+                if button {
+                    guard let errStatus = SesacStatus.Queue.myQueueState(rawValue: state) else { return }
+                    switch errStatus {
+                    case .success:
+                        if response.matched == 0 {
+                            self.showList()
+                            
+                        } else if response.matched == 1 {
+                            let vc = ChatViewController()
+                            vc.nickname = response.matchedNick
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                        
+                    case .defaultState:
+                        self.PresentToSearchVC()
+                    }
+                    
+                } else {
+                    if response.matched == 1 {
+                        NetworkManager.shared.queueState.accept(.matched)
+                    }
+                }
+                
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        button ? self?.CheckMyQueueState(button: true) : self?.CheckMyQueueState(button: false)
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+
 }
 
 
