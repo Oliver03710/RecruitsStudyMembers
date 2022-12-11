@@ -27,12 +27,16 @@ final class ReceivedRequestViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchStudyMembers()
+    }
+    
     
     // MARK: - Helper Functions
     
     override func configureUI() {
         receivedView.state = .acceptRequest
-        searchStudyMembers()
     }
     
     private func searchStudyMembers() {
@@ -40,6 +44,8 @@ final class ReceivedRequestViewController: BaseViewController {
             .subscribe(onSuccess: { [weak self] response, _ in
                 guard let self = self else { return }
                 dump(response)
+                self.receivedView.viewModel.memberList.accept([])
+                
                 response.fromQueueDBRequested.forEach { data in
                     let data = MemberListData(data: data)
                     self.receivedView.viewModel.memberList.acceptAppending(data)
