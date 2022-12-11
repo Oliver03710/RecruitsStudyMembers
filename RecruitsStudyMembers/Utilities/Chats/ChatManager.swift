@@ -33,22 +33,24 @@ final class ChatManager {
             print("Socket Is Disconnected", data, ack)
         }
         
-        socket.on("sesac") { dataArray, ack in
+        socket.on("chat") { dataArray, ack in
             print("Sesac Received", dataArray, ack)
             
             guard let data = dataArray[0] as? NSDictionary else { return }
-            guard let chat = data["text"] as? String else { return }
-            guard let name = data["name"] as? String else { return }
-            guard let userId = data["userId"] as? String else { return }
+            guard let id = data["_id"] as? String else { return }
+            guard let chat = data["chat"] as? String else { return }
             guard let createdAt = data["createdAt"] as? String else { return }
+            guard let from = data["from"] as? String else { return }
+            guard let to = data["to"] as? String else { return }
             
-            print("Check >>>", chat, name, createdAt)
+            print("Check >>>", chat, id, createdAt)
             
             NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self,
-                                            userInfo: ["chat": chat,
-                                                       "name": name,
+                                            userInfo: ["is": id,
+                                                       "chat": chat,
                                                        "createdAt": createdAt,
-                                                       "userId": userId])
+                                                       "from": from,
+                                                       "to": to])
         }
     }
     
