@@ -148,13 +148,17 @@ final class CustomAlertViewController: BaseViewController {
                     if self.sendToAccept {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.view.makeToast("상대방도 스터디를 요청하여 매칭되었습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
-                                UIApplication.getTopMostViewController()?.view.makeToast("채팅방 화면전환 코드")
+                                NetworkManager.shared.queueState.accept(.matched)
+                                let vc = ChatViewController()
+                                UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)
                             })
                         })
                         
                     } else {
                         self.dismiss(animated: true, completion: {
-                            UIApplication.getTopMostViewController()?.view.makeToast("채팅방 화면전환 코드")
+                            NetworkManager.shared.queueState.accept(.matched)
+                            let vc = ChatViewController()
+                            UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)
                         })
                     }
                     self.sendToAccept = false
@@ -205,7 +209,11 @@ final class CustomAlertViewController: BaseViewController {
                     if response.matched == 1 {
                         self.dismiss(animated: true, completion: {
                             guard let nick = response.matchedNick else { return }
-                            UIApplication.getTopMostViewController()?.view.makeToast("\(nick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.")
+                            UIApplication.getTopMostViewController()?.view.makeToast("\(nick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
+                                NetworkManager.shared.queueState.accept(.matched)
+                                let vc = ChatViewController()
+                                UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)
+                            })
                         })
                     }
                     
