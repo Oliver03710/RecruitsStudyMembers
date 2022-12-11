@@ -129,7 +129,7 @@ final class CustomButton: UIButton {
         layer.cornerRadius = 8
     }
     
-    private func buttonConfiguration(text: String, withImage: Bool, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) -> UIButton.Configuration {
+    func buttonConfiguration(text: String, withImage: Bool, config: UIButton.Configuration, foregroundColor: UIColor? ,font: String, size: CGFloat, lineHeight: CGFloat) -> UIButton.Configuration {
         var configuration = config
         
         var container = AttributeContainer()
