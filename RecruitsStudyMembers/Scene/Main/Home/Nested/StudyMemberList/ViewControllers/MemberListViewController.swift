@@ -197,6 +197,8 @@ final class MemberListViewController: BaseViewController {
                 
                 switch buttonAction {
                 case .action1:
+                    self.vc1.nearbyView.viewModel.memberList.accept([])
+                    
                     response.fromQueueDB.forEach { data in
                         let data = MemberListData(data: data)
                         self.vc1.nearbyView.viewModel.memberList.acceptAppending(data)
@@ -208,6 +210,8 @@ final class MemberListViewController: BaseViewController {
                     }
                     
                 case .action2:
+                    self.vc2.receivedView.viewModel.memberList.accept([])
+                    
                     response.fromQueueDBRequested.forEach { data in
                         let data = MemberListData(data: data)
                         self.vc2.receivedView.viewModel.memberList.acceptAppending(data)
