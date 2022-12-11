@@ -137,14 +137,28 @@ final class ChatView: BaseView {
     @objc func keyboardWillHide(_ notification: NSNotification) {
         self.transform = .identity
     }
+    
+    @objc func getMessage(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let id = userInfo["id"] as? String,
+              let chat = userInfo["chat"] as? String,
+              let createdAt = userInfo["createdAt"] as? String,
+              let from = userInfo["from"] as? String,
+              let to = userInfo["to"] as? String else { return }
+        
+        ChatRepository.shared.addItem(id: id, chat: chat, createdAt: createdAt, from: from, to: to)
+    }
 
 
     // MARK: - Helper Functions
     
     override func configureUI() {
+        ChatRepository.shared.fetchData()
         addData()
         bindData()
         keyboardActions()
+        NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification:)), name: Notification.Name("getMessage"), object: nil)
+        dump(ChatRepository.shared.tasks)
     }
     
     override func setConstraints() {
