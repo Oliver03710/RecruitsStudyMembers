@@ -159,6 +159,8 @@
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
 		ADF937BD29405C250000EC41 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = ADF937BC29405C250000EC41 /* Realm */; };
 		ADF937BF29405C250000EC41 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADF937BE29405C250000EC41 /* RealmSwift */; };
+		ADF937C1294061BA0000EC41 /* ChatRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF937C0294061BA0000EC41 /* ChatRealm.swift */; };
+		ADF937C3294061D20000EC41 /* ChatRealm+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF937C2294061D20000EC41 /* ChatRealm+Repository.swift */; };
 		ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */; };
 		ADF9B3512918CCE400D1F758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */; };
 		ADF9B3532918CCE400D1F758 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3522918CCE400D1F758 /* SplashViewController.swift */; };
@@ -310,6 +312,8 @@
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
+		ADF937C0294061BA0000EC41 /* ChatRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRealm.swift; sourceTree = "<group>"; };
+		ADF937C2294061D20000EC41 /* ChatRealm+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRealm+Repository.swift"; sourceTree = "<group>"; };
 		ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitsStudyMembers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF9B34E2918CCE400D1F758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF9B3502918CCE400D1F758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -518,8 +522,10 @@
 		AD2E2F41293FC52F00842879 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
-				AD2E2F3F293FC2CB00842879 /* ChatManager.swift */,
 				AD2E2F42293FC54A00842879 /* ChattingData.swift */,
+				ADF937C0294061BA0000EC41 /* ChatRealm.swift */,
+				ADF937C2294061D20000EC41 /* ChatRealm+Repository.swift */,
+				AD2E2F3F293FC2CB00842879 /* ChatManager.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -1572,6 +1578,7 @@
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
 				AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */,
+				ADF937C3294061D20000EC41 /* ChatRealm+Repository.swift in Sources */,
 				AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */,
 				AD22E6FD29373EB700D50B99 /* HeaderImageCollectionReusableView.swift in Sources */,
 				AD23FB0029224F9B004FA34E /* ImageCollectionViewCell.swift in Sources */,
@@ -1591,6 +1598,7 @@
 				ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */,
 				AD23FAEB2922145D004FA34E /* FriendsView.swift in Sources */,
 				AD23FAFC29224F7C004FA34E /* ManageInfoViewController.swift in Sources */,
+				ADF937C1294061BA0000EC41 /* ChatRealm.swift in Sources */,
 				AD2E2F3B293FB73000842879 /* ChatRouter+URLRequestConvertible.swift in Sources */,
 				ADDA22F7293C6B1800FCF617 /* UserChatTableViewCell.swift in Sources */,
 				ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */,
