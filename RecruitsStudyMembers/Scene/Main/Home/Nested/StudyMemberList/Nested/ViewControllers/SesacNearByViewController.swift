@@ -27,12 +27,16 @@ final class SesacNearByViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchStudyMembers()
+    }
+    
     
     // MARK: - Helper Functions
     
     override func configureUI() {
         nearbyView.state = .sendRequest
-        searchStudyMembers()
         bindData()
         nearbyView.collectionView.delegate = self
     }
@@ -42,6 +46,7 @@ final class SesacNearByViewController: BaseViewController {
             .subscribe(onSuccess: { [weak self] response, status in
                 guard let self = self else { return }
                 dump(response)
+                self.nearbyView.viewModel.memberList.accept([])
                 
                 response.fromQueueDB.forEach { data in
                     let data = MemberListData(data: data)
