@@ -96,5 +96,14 @@ final class HeaderImageCollectionReusableView: UICollectionReusableView {
         foregroundImageView.image = UIImage(named: "sesacFace\(foregroundImg)")
         requestButton.tag = indexPath.section
         currentUid = uid
+        setButtonConfiguration(state: state)
+    }
+    
+    private func setButtonConfiguration(state: CustomAlertState) {
+        if state == .acceptRequest {
+            requestButton.configuration = requestButton.buttonConfiguration(text: "수락하기", withImage: false, config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size, lineHeight: SSFonts.title4R14.lineHeight)
+            requestButton.layer.borderColor = SSColors.success.color.cgColor
+            requestButton.backgroundColor = SSColors.success.color
+        }
     }
 }
