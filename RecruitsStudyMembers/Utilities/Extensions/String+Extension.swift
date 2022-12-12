@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     
-    internal func substring(start: Int, offsetBy: Int) -> String? {
+    func substring(start: Int, offsetBy: Int) -> String? {
         guard let substringStartIndex = self.index(startIndex, offsetBy: start, limitedBy: endIndex) else {
             return nil
         }
@@ -19,5 +19,17 @@ extension String {
         }
 
         return String(self[substringStartIndex ..< substringEndIndex])
+    }
+    
+    func toDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        if let date = dateFormatter.date(from: self) {
+            return date
+        } else {
+            return nil
+        }
     }
 }
