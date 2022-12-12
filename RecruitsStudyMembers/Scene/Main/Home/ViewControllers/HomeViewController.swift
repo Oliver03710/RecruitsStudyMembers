@@ -73,7 +73,17 @@ final class HomeViewController: BaseViewController {
                     self.checkUserDeviceLocationServiceAuthorization()
                     
                 } else {
-                    self.CheckMyQueueState(button: true)
+                    switch NetworkManager.shared.queueState.value {
+                    case .defaultState:
+                        self.PresentToSearchVC()
+                        
+                    case .readyToBeMatched:
+                        self.showList()
+                        
+                    case .matched:
+                        self.CheckMyQueueState(button: true)
+                    }
+                    
                 }
             }
             .disposed(by: viewModel.disposeBag)
@@ -221,32 +231,26 @@ final class HomeViewController: BaseViewController {
     private func CheckMyQueueState(button: Bool) {
         NetworkManager.shared.request(QueueStateData.self, router: SeSacApiQueue.myQueueState)
             .subscribe(onSuccess: { [weak self] response, state in
-                guard let self = self else { return }
                 print(response, state)
+                guard let self = self, let state = SesacStatus.Queue.myQueueState(rawValue: state) else { return }
                 
-                if button {
-                    guard let errStatus = SesacStatus.Queue.myQueueState(rawValue: state) else { return }
-                    switch errStatus {
-                    case .success:
-                        if response.matched == 0 {
-                            self.showList()
-                            
-                        } else if response.matched == 1 {
-                            let vc = ChatViewController()
-                            vc.nickname = response.matchedNick
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
+                switch state {
+                case .success:
+                    if response.matched == 0 {
+                        self.showList()
                         
-                    case .defaultState:
-                        self.PresentToSearchVC()
-                    }
-                    
-                } else {
-                    if response.matched == 1 {
+                    } else if response.matched == 1 && button {
+                        NetworkManager.shared.uid = response.matchedUid ?? ""
+                        let vc = ChatViewController()
+                        vc.chatView.nickname = response.matchedNick ?? ""
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    } else if !button {
                         NetworkManager.shared.queueState.accept(.matched)
                     }
+                    
+                case .defaultState:
+                    self.PresentToSearchVC()
                 }
-                
                 
             }, onFailure: { [weak self] error in
                 let err = (error as NSError).code
