@@ -63,6 +63,7 @@ final class CustomAlertViewController: BaseViewController {
                     self.dismiss(animated: true)
                     
                 case .cancelStudy:
+                    self.cancelStudy()
                     self.dismiss(animated: true)
                 }
             }
@@ -199,6 +200,42 @@ final class CustomAlertViewController: BaseViewController {
             .disposed(by: customAlertView.viewModel.disposeBag)
     }
     
+    private func cancelStudy() {
+        NetworkManager.shared.request(router: SeSacApiQueue.dodge)
+            .subscribe(onSuccess: { [weak self] response, state in
+                guard let self = self, let status = SesacStatus.Queue.Dodge(rawValue: state) else { return }
+                switch status {
+                case .success:
+                    NetworkManager.shared.queueState.accept(.defaultState)
+                    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                    let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                    let vc = MainTabBarController()
+                    sceneDelegate?.window?.rootViewController = vc
+                    sceneDelegate?.window?.makeKeyAndVisible()
+                    
+                case .wrongUid:
+                    self.view.makeToast("취소하려는 상대의 아이디를 확인해주세요.")
+                }
+                
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                let err = (error as NSError).code
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self.cancelStudy()
+                    } errorHandler: {
+                        self.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+
+                default:
+                    self.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: customAlertView.viewModel.disposeBag)
+    }
+    
     private func checkMyQueueState() {
         NetworkManager.shared.request(QueueStateData.self, router: SeSacApiQueue.myQueueState)
             .subscribe(onSuccess: { [weak self] response, state in
@@ -208,8 +245,7 @@ final class CustomAlertViewController: BaseViewController {
                 case .success:
                     if response.matched == 1 {
                         self.dismiss(animated: true, completion: {
-                            guard let nick = response.matchedNick else { return }
-                            UIApplication.getTopMostViewController()?.view.makeToast("\(nick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
+                            UIApplication.getTopMostViewController()?.view.makeToast("\(response.matchedNick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
                                 NetworkManager.shared.queueState.accept(.matched)
                                 let vc = ChatViewController()
                                 UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)
