@@ -49,9 +49,9 @@ extension SeSacApiQueue: URLRequestConvertible {
         
     var headers: HTTPHeaders {
         switch self {
-        case .cancelRequest: return ["idtoken": UserDefaultsManager.token]
+        case .cancelRequest, .myQueueState: return ["idtoken": UserDefaultsManager.token]
             
-        case .search, .queue, .sendRequest, .acceptRequest, .dodge, .myQueueState:
+        case .search, .queue, .sendRequest, .acceptRequest, .dodge:
             return ["Content-Type": UserDefaultsManager.contentType,
                     "idtoken": UserDefaultsManager.token]
         }
