@@ -66,6 +66,7 @@ final class MyChatTableViewCell: UITableViewCell {
         chatLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16))
         }
+        chatLabel.setContentHuggingPriority(.init(999), for: .horizontal)
         
         dateLabel.snp.makeConstraints {
             $0.height.equalTo(SSFonts.title6R12.size)
