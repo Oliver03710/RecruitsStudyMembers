@@ -25,8 +25,11 @@ final class ChatManager {
         manager = SocketManager(socketURL: url, config: [.forceWebsockets(true)])
         socket = manager.defaultSocket
         
-        socket.on(clientEvent: .connect) { data, ack in
+        socket.on(clientEvent: .connect) { [weak self] data, ack in
+            guard let self = self else { return }
             print("Socket Is Connected", data, ack)
+            self.socket.emit("changesocketid", UserDefaultsManager.myUid)
+            
         }
         
         socket.on(clientEvent: .disconnect) { data, ack in
@@ -46,7 +49,7 @@ final class ChatManager {
             print("Check >>>", chat, id, createdAt)
             
             NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self,
-                                            userInfo: ["is": id,
+                                            userInfo: ["id": id,
                                                        "chat": chat,
                                                        "createdAt": createdAt,
                                                        "from": from,
