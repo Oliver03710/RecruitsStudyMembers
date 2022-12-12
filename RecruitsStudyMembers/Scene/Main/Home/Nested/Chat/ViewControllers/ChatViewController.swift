@@ -27,6 +27,16 @@ final class ChatViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ChatManager.shared.establishConnection()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ChatManager.shared.closeConnection()
+    }
+    
     
     // MARK: - Selectors
     
