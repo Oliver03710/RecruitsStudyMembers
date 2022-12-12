@@ -39,7 +39,7 @@ final class ChatView: BaseView {
             
         case let .userChatCell(userChatModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: UserChatTableViewCell.reuseIdentifier, for: indexPath) as? UserChatTableViewCell else { return UITableViewCell() }
-            cell.configureCells(text: userChatModel.string)
+            cell.configureCells(text: userChatModel.chat, date: userChatModel.date)
             cell.selectionStyle = .none
             return cell
             
@@ -51,7 +51,7 @@ final class ChatView: BaseView {
             
         case let .myChatCell(myChatModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as? MyChatTableViewCell else { return UITableViewCell() }
-            cell.configureCells(text: myChatModel.string)
+            cell.configureCells(text: myChatModel.chat, date: myChatModel.date)
             cell.selectionStyle = .none
             return cell
         }
@@ -116,6 +116,8 @@ final class ChatView: BaseView {
     
     var showMores = false
     var popupPresented = false
+    var nickname = "이름"
+    
     private let viewModel = ChatViewModel()
     
     
@@ -275,6 +277,7 @@ final class ChatView: BaseView {
             .drive { [weak self] str in
                 guard let self = self else { return }
                 self.sendButton.setImage(UIImage(named: str.isEmpty || self.textView.textColor == SSColors.gray7.color ? GeneralIcons.sendInact.rawValue : GeneralIcons.sendAct.rawValue), for: .normal)
+                NetworkManager.shared.myChat = str
             }
             .disposed(by: viewModel.disposeBag)
         
@@ -301,6 +304,7 @@ final class ChatView: BaseView {
                 vc.customAlertView.titleLabel.text = "스터디를 취소하겠습니까?"
                 vc.customAlertView.bodyLabel.text = "스터디를 취소하시면 패널티가 부과됩니다"
                 vc.modalPresentationStyle = .overFullScreen
+                vc.customAlertView.state = .cancelStudy
                 currentVC?.present(vc, animated: true)
                 
             case .review:
@@ -312,23 +316,44 @@ final class ChatView: BaseView {
             }
         }
         .disposed(by: viewModel.disposeBag)
+        
+        sendButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                if self.sendButton.currentImage == UIImage(named: GeneralIcons.sendAct.rawValue) {
+                    self.sendMyChat()
+                }
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
     private func addData() {
         
-        let item1 = ChatItems.dateCell(DateCellModel(string: "어제"))
-        let item2 = ChatItems.introCell(IntroCellModel(string: "고뤠밥"))
-        let item3 = ChatItems.myChatCell(MyChatCellModel(string: "첫번째drijphigewoirbwpbm4wopbm4pobm4pob5mpo45mbp4o5bmp45ogdssbsdfbvdsfniodfgnoidsfgnodsfgnoidsfgnsdfogndfiognfignfignignfnodfbndoifbdfb"))
-        let item4 = ChatItems.userChatCell(UserChatCellModel(string: "두번째"))
-        let item5 = ChatItems.myChatCell(MyChatCellModel(string: "세번째"))
-        let item6 = ChatItems.dateCell(DateCellModel(string: "오늘"))
-        let item7 = ChatItems.myChatCell(MyChatCellModel(string: "네번째"))
-        let item8 = ChatItems.userChatCell(UserChatCellModel(string: "다섯번째"))
-        let item9 = ChatItems.myChatCell(MyChatCellModel(string: "여섯번째"))
-        let item10 = ChatItems.userChatCell(UserChatCellModel(string: "일곱번째"))
-        let item11 = ChatItems.userChatCell(UserChatCellModel(string: "여덟번째 메세지 보냅니다아아아아아아아아아아아아아     아아아아아"))
+        var chatting: [ChatItems] = []
         
-        let sections = [ChatSections(items: [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11])]
+        
+        guard let first = ChatRepository.shared.tasks.first?.createdAt.toDate()?.toString(withFormat: "M월 dd일 EEEE") else { return }
+        let firstDate = ChatItems.dateCell(DateCellModel(string: first))
+        chatting.append(firstDate)
+        
+        let withWhom = ChatItems.introCell(IntroCellModel(string: nickname))
+        chatting.append(withWhom)
+        
+        ChatRepository.shared.tasks.forEach { chat in
+            if chat.to == UserDefaultsManager.myUid {
+                guard let time = chat.createdAt.toDate()?.toString(withFormat: "HH:mm") else { return }
+                let item = ChatItems.userChatCell(UserChatCellModel(chat: chat.chat, date: time))
+                chatting.append(item)
+                
+            } else if chat.to == NetworkManager.shared.uid {
+                guard let time = chat.createdAt.toDate()?.toString(withFormat: "HH:mm") else { return }
+                let item = ChatItems.myChatCell(MyChatCellModel(chat: chat.chat, date: time))
+                chatting.append(item)
+            }
+        }
+        
+        let sections = [ChatSections(items: chatting)]
         
         viewModel.dateSection.accept(sections)
     }
@@ -378,5 +403,43 @@ final class ChatView: BaseView {
                 self?.opaqueView.isHidden = true
             }
         }
+    }
+    
+    private func sendMyChat() {
+        NetworkManager.shared.request(Chat.self, router: SeSacApiChat.chatPost)
+            .subscribe(onSuccess: { [weak self] response, state in
+                guard let self = self else { return }
+                print(response, state)
+                guard let errStatus = SesacStatus.Chat.Send(rawValue: state) else { return }
+                switch errStatus {
+                case .success:
+                    ChatRepository.shared.addItem(id: response.id,
+                                                  chat: response.chat,
+                                                  createdAt: response.createdAt,
+                                                  from: response.from,
+                                                  to: response.to)
+                    self.textView.text = ""
+                case .matchingEnded:
+                    self.makeToast("스터디가 종료되어 채팅을 전송할 수 없습니다.")
+                }
+                
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self.sendMyChat()
+                    } errorHandler: {
+                        self.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
     }
 }
