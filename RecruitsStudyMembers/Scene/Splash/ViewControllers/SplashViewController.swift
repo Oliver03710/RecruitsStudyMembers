@@ -72,6 +72,7 @@ final class SplashViewController: BaseViewController {
                 let vc = MainTabBarController()
                 sceneDelegate?.window?.rootViewController = vc
                 sceneDelegate?.window?.makeKeyAndVisible()
+                UserDefaultsManager.myUid = response.uid
                 UserDefaultsManager.userName = response.nick
                 UserDefaultsManager.userImage = response.sesac
                 
