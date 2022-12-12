@@ -84,17 +84,14 @@ struct UserDefaultsManager {
     static var dodge: String
     
     // MARK: - Chat API
-    @UserDefaultsWrapper(key: "chatBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210")
+    @UserDefaultsWrapper(key: "chatBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210/v1")
     static var chatBaseURLPath: String
     
-    @UserDefaultsWrapper(key: "chatGet", defaultValue: "/chats")
+    @UserDefaultsWrapper(key: "chatGet", defaultValue: "/chat")
     static var chatGet: String
     
-    @UserDefaultsWrapper(key: "chatPost", defaultValue: "/chats")
+    @UserDefaultsWrapper(key: "chatPost", defaultValue: "/chat")
     static var chatPost: String
-    
-    @UserDefaultsWrapper(key: "chatSignUp", defaultValue: "/auth/signup")
-    static var chatSignUp: String
     
     @UserDefaultsWrapper(key: "myUid", defaultValue: "")
     static var myUid: String
