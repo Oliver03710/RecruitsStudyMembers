@@ -75,7 +75,8 @@ final class MyChatTableViewCell: UITableViewCell {
         }
     }
     
-    func configureCells(text: String?) {
+    func configureCells(text: String?, date: String?) {
         chatLabel.text = text
+        dateLabel.text = date
     }
 }

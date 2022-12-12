@@ -78,8 +78,8 @@ final class UserChatTableViewCell: UITableViewCell {
         dateLabel.setContentCompressionResistancePriority(.init(999), for: .horizontal)
     }
     
-    func configureCells(text: String?) {
+    func configureCells(text: String?, date: String?) {
         chatLabel.text = text
-        dateLabel.text = "88:88"
+        dateLabel.text = date
     }
 }
