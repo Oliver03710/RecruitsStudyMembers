@@ -59,6 +59,14 @@ enum SesacStatus {
         }
     }
     
+    enum Chat {
+        enum Send: Int, NetworkStatus {
+            case success = 200
+            case matchingEnded = 201
+        }
+
+    }
+    
     enum DefaultSuccess: Int, NetworkStatus {
         case success = 200
     }
