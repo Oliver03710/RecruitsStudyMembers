@@ -28,7 +28,8 @@ extension ChatSections: SectionModelType {
 }
 
 struct UserChatCellModel {
-    let string: String
+    let chat: String
+    let date: String
 }
 
 struct DateCellModel {
@@ -40,5 +41,6 @@ struct IntroCellModel {
 }
 
 struct MyChatCellModel {
-    let string: String
+    let chat: String
+    let date: String
 }
