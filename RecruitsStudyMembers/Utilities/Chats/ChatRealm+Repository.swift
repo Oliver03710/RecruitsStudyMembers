@@ -33,7 +33,7 @@ final class ChatRepository: ChatRepositoryType {
     // MARK: - Helper Functions
     
     func fetchData() {
-        tasks = localRealm.objects(ChatRealm.self)
+        tasks = localRealm.objects(ChatRealm.self).sorted(byKeyPath: "createdAt", ascending: true)
     }
     
     func addItem(id: String, chat: String, createdAt: String, from: String, to: String) {
