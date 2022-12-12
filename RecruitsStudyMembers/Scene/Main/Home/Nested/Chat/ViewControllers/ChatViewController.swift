@@ -48,7 +48,7 @@ final class ChatViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
-        setNaigations(naviTitle: nickname)
+        setNaigations(naviTitle: chatView.nickname)
     }
     
     override func setNaigations(naviTitle: String? = nil) {
