@@ -30,7 +30,7 @@ extension SeSacApiChat: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .chatGet: return UserDefaultsManager.chatGet
+        case .chatGet: return UserDefaultsManager.chatGet + "/\(NetworkManager.shared.uid)"
         case .chatPost: return UserDefaultsManager.chatPost + "/\(NetworkManager.shared.uid)"
         }
     }
@@ -44,7 +44,7 @@ extension SeSacApiChat: URLRequestConvertible {
         
     var headers: HTTPHeaders {
         switch self {
-        case .chatGet, .chatPost: return ["Content-Type": UserDefaultsManager.jsonContentType,
+        case .chatGet, .chatPost: return ["Content-Type": UserDefaultsManager.contentType,
                                           "idtoken": UserDefaultsManager.token]
         }
     }
@@ -52,13 +52,13 @@ extension SeSacApiChat: URLRequestConvertible {
     var parameters: [String: Any]? {
         switch self {
         case .chatPost: return ["chat": NetworkManager.shared.myChat]
-        default: return nil
+        case .chatGet: return ["lastchatDate": NetworkManager.shared.lastChatDate]
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .chatGet, .chatPost: return JSONEncoding.default
+        case .chatGet, .chatPost: return URLEncoding.default
         }
     }
     
@@ -72,6 +72,6 @@ extension SeSacApiChat: URLRequestConvertible {
         urlRequest.method = method
         urlRequest.headers = headers
         
-        return try JSONEncoding.default.encode(urlRequest, with: parameters)
+        return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
