@@ -120,7 +120,7 @@ final class ReportAlertViewController: BaseViewController {
                     NetworkManager.shared.reviewArr[Review.etcOrGoodtime.rawValue] = self.alertView.alertBodyView.etcOrGoodtimeButton.toggle == .off ? 0 : 1
                     self.alertView.alertBodyView.etcOrGoodtimeButton.toggle = self.alertView.alertBodyView.etcOrGoodtimeButton.toggle == .on ? .off : .on
                 }
-                print("after", NetworkManager.shared.reviewArr)
+                self.alertView.viewModel.valid.accept(NetworkManager.shared.reviewArr)
             }
             .disposed(by: alertView.viewModel.disposeBag)
         
@@ -145,9 +145,9 @@ final class ReportAlertViewController: BaseViewController {
         
         output.executionButtonValid
             .asDriver()
-            .drive { [weak self] empty in
+            .drive { [weak self] arr in
                 guard let self = self else { return }
-                if !empty && self.alertView.textView.text != "자세한 피드백은 다른 새싹들에게 도움이 됩니다. (500자 이내 작성)" {
+                if arr.contains(1) {
                     self.alertView.executionButton.configuration =
                     self.alertView.executionButton.buttonConfiguration(text: "리뷰 등록하기", withImage: false, config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.body3R14.fonts, size: SSFonts.body3R14.size, lineHeight: SSFonts.body3R14.lineHeight)
                     self.alertView.executionButton.layer.borderColor = SSColors.green.color.cgColor
@@ -166,13 +166,49 @@ final class ReportAlertViewController: BaseViewController {
             .disposed(by: alertView.viewModel.disposeBag)
         
         output.executionButtonDriver
-            .drive { _ in
-                print("Tapped")
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                NetworkManager.shared.reviewComment = self.alertView.textView.text
+                self.reviewNetworking()
             }
             .disposed(by: alertView.viewModel.disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    private func reviewNetworking() {
+        NetworkManager.shared.request(router: SeSacApiQueue.rate)
+            .subscribe(onSuccess: { response, state in
+                guard let state = SesacStatus.Queue.Rate(rawValue: state) else { return }
+                switch state {
+                case .success:
+                    NetworkManager.shared.queueState.accept(.defaultState)
+                    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                    let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                    let vc = MainTabBarController()
+                    sceneDelegate?.window?.rootViewController = vc
+                    sceneDelegate?.window?.makeKeyAndVisible()
+                }
+                
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self.reviewNetworking()
+                    } errorHandler: {
+                        self.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: alertView.viewModel.disposeBag)
     }
 }
