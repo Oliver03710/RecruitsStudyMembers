@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiQueue {
-    case myQueueState, search, queue, sendRequest, cancelRequest, acceptRequest, dodge
+    case myQueueState, search, queue, sendRequest, cancelRequest, acceptRequest, dodge, rate
 }
 
 
@@ -36,13 +36,14 @@ extension SeSacApiQueue: URLRequestConvertible {
         case .sendRequest: return UserDefaultsManager.studyRequest
         case .acceptRequest: return UserDefaultsManager.studyAccept
         case .dodge: return UserDefaultsManager.dodge
+        case .rate: return UserDefaultsManager.rate + "/\(NetworkManager.shared.uid)"
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .myQueueState: return .get
-        case .search, .queue, .sendRequest, .acceptRequest, .dodge: return .post
+        case .search, .queue, .sendRequest, .acceptRequest, .dodge, .rate: return .post
         case .cancelRequest: return .delete
         }
     }
@@ -51,7 +52,7 @@ extension SeSacApiQueue: URLRequestConvertible {
         switch self {
         case .cancelRequest, .myQueueState: return ["idtoken": UserDefaultsManager.token]
             
-        case .search, .queue, .sendRequest, .acceptRequest, .dodge:
+        case .search, .queue, .sendRequest, .acceptRequest, .dodge, .rate:
             return ["Content-Type": UserDefaultsManager.contentType,
                     "idtoken": UserDefaultsManager.token]
         }
@@ -78,6 +79,9 @@ extension SeSacApiQueue: URLRequestConvertible {
             
         case .sendRequest, .acceptRequest, .dodge: return ["otheruid": NetworkManager.shared.uid]
             
+        case .rate: return ["otheruid": NetworkManager.shared.uid,
+                            "comment": NetworkManager.shared.reviewComment,
+                            "reputation": NetworkManager.shared.reviewArr]
         default: return nil
         }
     }
@@ -85,7 +89,7 @@ extension SeSacApiQueue: URLRequestConvertible {
     var encoding: ParameterEncoding {
         switch self {
         case .myQueueState, .search, .sendRequest, .cancelRequest, .acceptRequest, .dodge: return URLEncoding.default
-        case .queue: return URLEncoding(arrayEncoding: .noBrackets)
+        case .queue, .rate: return URLEncoding(arrayEncoding: .noBrackets)
         }
     }
     
@@ -99,6 +103,6 @@ extension SeSacApiQueue: URLRequestConvertible {
         urlRequest.method = method
         urlRequest.headers = headers
         
-        return try URLEncoding(arrayEncoding: .noBrackets).encode(urlRequest, with: parameters)
+        return try encoding.encode(urlRequest, with: parameters)
     }
 }
