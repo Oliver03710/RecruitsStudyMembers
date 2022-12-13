@@ -57,6 +57,10 @@ enum SesacStatus {
             case success = 200
             case wrongUid = 201
         }
+        
+        enum Rate: Int, NetworkStatus {
+            case success = 200
+        }
     }
     
     enum Chat {
