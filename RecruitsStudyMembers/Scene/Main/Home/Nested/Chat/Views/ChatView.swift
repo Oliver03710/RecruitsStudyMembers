@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxDataSources
+import RxRealm
 import RxSwift
 import SnapKit
 
@@ -16,7 +17,7 @@ final class ChatView: BaseView {
 
     // MARK: - Properties
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tv = UITableView()
         tv.bounces = false
         tv.separatorStyle = .none
@@ -118,6 +119,8 @@ final class ChatView: BaseView {
     var popupPresented = false
     var nickname = "이름"
     
+    var chatting: [ChatItems] = []
+    
     private let viewModel = ChatViewModel()
     
     
@@ -156,11 +159,13 @@ final class ChatView: BaseView {
     
     override func configureUI() {
         ChatRepository.shared.fetchData()
+        createCellData()
         addData()
         bindData()
         keyboardActions()
         NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification:)), name: Notification.Name("getMessage"), object: nil)
         dump(ChatRepository.shared.tasks)
+        getChattingList()
     }
     
     override func setConstraints() {
@@ -326,13 +331,20 @@ final class ChatView: BaseView {
                 }
             }
             .disposed(by: viewModel.disposeBag)
+        
+        Observable.changeset(from: ChatRepository.shared.tasks)
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                self.createCellData()
+                self.getChattingList()
+                self.addData()
+                self.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count + 1, section: 0), at: .bottom, animated: false)
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
-    private func addData() {
-        
-        var chatting: [ChatItems] = []
-        
-        
+    private func createCellData() {
+        chatting.removeAll(keepingCapacity: true)
         guard let first = ChatRepository.shared.tasks.first?.createdAt.toDate()?.toString(withFormat: "M월 dd일 EEEE") else { return }
         let firstDate = ChatItems.dateCell(DateCellModel(string: first))
         chatting.append(firstDate)
@@ -353,8 +365,13 @@ final class ChatView: BaseView {
             }
         }
         
+        if let lastDate = ChatRepository.shared.tasks.last?.createdAt {
+            NetworkManager.shared.lastChatDate = lastDate
+        }
+    }
+    
+    private func addData() {
         let sections = [ChatSections(items: chatting)]
-        
         viewModel.dateSection.accept(sections)
     }
     
@@ -419,6 +436,7 @@ final class ChatView: BaseView {
                                                   from: response.from,
                                                   to: response.to)
                     self.textView.text = ""
+                    
                 case .matchingEnded:
                     self.makeToast("스터디가 종료되어 채팅을 전송할 수 없습니다.")
                 }
@@ -433,6 +451,42 @@ final class ChatView: BaseView {
                 case .firebase:
                     NetworkManager.shared.fireBaseError {
                         self.sendMyChat()
+                    } errorHandler: {
+                        self.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    private func getChattingList() {
+        NetworkManager.shared.request(Payload.self, router: SeSacApiChat.chatGet)
+            .subscribe(onSuccess: { [weak self] response, state in
+                guard let self = self, let state = SesacStatus.Chat.GetChatList(rawValue: state) else { return }
+                switch state {
+                case .success:
+                    if !response.payload.isEmpty {
+                        response.payload.forEach { chat in
+                            ChatRepository.shared.addItem(id: chat.id, chat: chat.chat, createdAt: chat.createdAt, from: chat.from, to: chat.to)
+                        }
+                        
+                    } else {
+                        return
+                    }
+                }
+                
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self.getChattingList()
                     } errorHandler: {
                         self.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
                     }
