@@ -24,6 +24,12 @@ final class NetworkManager {
     var uid = ""
     var myChat = ""
     var lastChatDate = ""
+    var nickName = ""
+    
+    var moreViewState = AlertSplit.report
+    var popupPresented = false
+    
+    var reviewArr = Array<Int>(repeating: 0, count: 8)
     
     var queueState = BehaviorRelay<QueueStates>(value: .defaultState)
     
