@@ -13,12 +13,12 @@ final class AlertTitleView: BaseView {
 
     // MARK: - Properties
     
-    private let titleLabel: CustomLabel = {
+    let titleLabel: CustomLabel = {
         let label = CustomLabel(text: "", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
         return label
     }()
     
-    private let subTitleLabel: CustomLabel = {
+    let subTitleLabel: CustomLabel = {
         let label = CustomLabel(text: "", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
         label.textColor = SSColors.green.color
         return label
