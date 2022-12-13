@@ -29,7 +29,8 @@ final class NetworkManager {
     var moreViewState = AlertSplit.report
     var popupPresented = false
     
-    var reviewArr = Array<Int>(repeating: 0, count: 8)
+    var reviewArr = Array<Int>(repeating: 0, count: 9)
+    var reviewComment = ""
     
     var queueState = BehaviorRelay<QueueStates>(value: .defaultState)
     
