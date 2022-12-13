@@ -14,6 +14,8 @@ final class ReportAlertViewModel: CommonViewModel {
     
     // MARK: - Properties
     
+    var valid = BehaviorRelay<[Int]>(value: Array<Int>(repeating: 0, count: 9))
+    
     let disposeBag = DisposeBag()
     
     
@@ -66,11 +68,7 @@ final class ReportAlertViewModel: CommonViewModel {
         
         let executionButtonDriver = input.executionButtonTapped.asDriver()
         
-        let executionButtonValid = input.textViewString
-            .map({ str in
-                str.isEmpty
-            })
-            .asDriver(onErrorJustReturn: false)
+        let executionButtonValid = valid.asDriver()
        
         return Output(xmarkButtonDriver: xmarkButtonDriver,
                       alertViewButtonMergedDriver: alertViewButtonMergedDriver,
