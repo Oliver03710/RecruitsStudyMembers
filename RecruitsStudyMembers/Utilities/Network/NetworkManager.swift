@@ -59,27 +59,6 @@ final class NetworkManager {
         }
     }
     
-    func request<T: Codable>(_ types: [T].Type, router: URLRequestConvertible) -> Single<(data: [T], state: Int)> {
-        return Single<(data: [T], state: Int)>.create { single in
-
-            AF.request(router).responseDecodable(of: types) { response in
-
-                guard let statusCode = response.response?.statusCode else { return }
-                
-                switch response.result {
-                case .success(let value):
-                        let dataWithState = (value, statusCode)
-                        single(.success(dataWithState))
-                    
-                case .failure:
-                    guard let error = SesacStatus.DefaultError(rawValue: statusCode) else { return }
-                    single(.failure(error))
-                }
-            }
-            return Disposables.create()
-        }
-    }
-    
     func request(router: URLRequestConvertible) -> Single<(data: String, state: Int)> {
         return Single<(data: String, state: Int)>.create { single in
             
