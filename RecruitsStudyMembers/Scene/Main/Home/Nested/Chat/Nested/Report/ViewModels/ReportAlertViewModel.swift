@@ -44,7 +44,7 @@ final class ReportAlertViewModel: CommonViewModel {
         let alertViewButtonMergedDriver: SharedSequence<DriverSharingStrategy, AlertViewButtonCombined>
         let textViewDriver: SharedSequence<DriverSharingStrategy, TextFieldActions>
         let executionButtonDriver: SharedSequence<DriverSharingStrategy, Void>
-        let executionButtonValid: SharedSequence<DriverSharingStrategy, Bool>
+        let executionButtonValid: SharedSequence<DriverSharingStrategy, [Int]>
     }
     
     
