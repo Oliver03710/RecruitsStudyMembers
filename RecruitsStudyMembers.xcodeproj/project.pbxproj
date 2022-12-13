@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD083EDE2948517800A43EF6 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = AD083EDD2948517800A43EF6 /* RxRealm */; };
+		AD083EE029486D0500A43EF6 /* ReviewTitle+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD083EDF29486D0500A43EF6 /* ReviewTitle+Enum.swift */; };
 		AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */; };
 		AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047B291CE54F00377276 /* LoginVerificationView.swift */; };
 		AD0D0480291D002100377276 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047F291D002100377276 /* UIViewController+Extension.swift */; };
@@ -174,6 +175,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD083EDF29486D0500A43EF6 /* ReviewTitle+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReviewTitle+Enum.swift"; sourceTree = "<group>"; };
 		AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewController.swift; sourceTree = "<group>"; };
 		AD0D047B291CE54F00377276 /* LoginVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationView.swift; sourceTree = "<group>"; };
 		AD0D047F291D002100377276 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -1347,6 +1349,7 @@
 				AD32E9DD293F2FE40037939C /* AlertButtonCombined+Enum.swift */,
 				AD2E2F36293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift */,
 				AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */,
+				AD083EDF29486D0500A43EF6 /* ReviewTitle+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1672,6 +1675,7 @@
 				AD32E9E0293F3AE90037939C /* AlertBaseView.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				AD2E2F40293FC2CB00842879 /* ChatManager.swift in Sources */,
+				AD083EE029486D0500A43EF6 /* ReviewTitle+Enum.swift in Sources */,
 				ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */,
 				AD7AE609293391B10089D747 /* SearchData.swift in Sources */,
 				ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */,
