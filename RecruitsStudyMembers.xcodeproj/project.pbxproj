@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD083EDE2948517800A43EF6 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = AD083EDD2948517800A43EF6 /* RxRealm */; };
 		AD0D0478291CE50400377276 /* LoginVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D0477291CE50400377276 /* LoginVerificationViewController.swift */; };
 		AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047B291CE54F00377276 /* LoginVerificationView.swift */; };
 		AD0D0480291D002100377276 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D047F291D002100377276 /* UIViewController+Extension.swift */; };
@@ -169,6 +170,7 @@
 		ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B3682918D49B00D1F758 /* SSColors.swift */; };
 		ADF9B36B2918DBFF00D1F758 /* SSFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */; };
 		ADF9B36E2918FCF800D1F758 /* SSIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9B36D2918FCF800D1F758 /* SSIcons.swift */; };
+		ADFF3C8729479A6D006A81DE /* PayloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF3C8629479A6D006A81DE /* PayloadData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +326,7 @@
 		ADF9B3682918D49B00D1F758 /* SSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSColors.swift; sourceTree = "<group>"; };
 		ADF9B36A2918DBFF00D1F758 /* SSFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSFonts.swift; sourceTree = "<group>"; };
 		ADF9B36D2918FCF800D1F758 /* SSIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSIcons.swift; sourceTree = "<group>"; };
+		ADFF3C8629479A6D006A81DE /* PayloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,7 @@
 				ADF937BF29405C250000EC41 /* RealmSwift in Frameworks */,
 				ADDA22F4293C6A5900FCF617 /* RxDataSources in Frameworks */,
 				AD60966A291A1A4F00FF78CB /* Toast in Frameworks */,
+				AD083EDE2948517800A43EF6 /* RxRealm in Frameworks */,
 				AD2E2F3E293FBCE700842879 /* SocketIO in Frameworks */,
 				ADF937BD29405C250000EC41 /* Realm in Frameworks */,
 				AD60966F291A1A5F00FF78CB /* RxSwift in Frameworks */,
@@ -524,6 +528,7 @@
 			children = (
 				AD2E2F42293FC54A00842879 /* ChattingData.swift */,
 				ADF937C0294061BA0000EC41 /* ChatRealm.swift */,
+				ADFF3C8629479A6D006A81DE /* PayloadData.swift */,
 				ADF937C2294061D20000EC41 /* ChatRealm+Repository.swift */,
 				AD2E2F3F293FC2CB00842879 /* ChatManager.swift */,
 			);
@@ -1476,6 +1481,7 @@
 				AD2E2F3D293FBCE700842879 /* SocketIO */,
 				ADF937BC29405C250000EC41 /* Realm */,
 				ADF937BE29405C250000EC41 /* RealmSwift */,
+				AD083EDD2948517800A43EF6 /* RxRealm */,
 			);
 			productName = RecruitsStudyMembers;
 			productReference = ADF9B34B2918CCE400D1F758 /* RecruitsStudyMembers.app */;
@@ -1515,6 +1521,7 @@
 				ADDA22F2293C6A5900FCF617 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				AD2E2F3C293FBCE700842879 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 				ADF937BB29405C250000EC41 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				AD083EDC2948517800A43EF6 /* XCRemoteSwiftPackageReference "RxRealm" */,
 			);
 			productRefGroup = ADF9B34C2918CCE400D1F758 /* Products */;
 			projectDirPath = "";
@@ -1578,6 +1585,7 @@
 				ADF9B3692918D49B00D1F758 /* SSColors.swift in Sources */,
 				AD9533DD29196653002126C0 /* GenderViewController.swift in Sources */,
 				AD23FB0C29229A59004FA34E /* MyinfoTableViewCell.swift in Sources */,
+				ADFF3C8729479A6D006A81DE /* PayloadData.swift in Sources */,
 				ADF937C3294061D20000EC41 /* ChatRealm+Repository.swift in Sources */,
 				AD23FB0229224FBB004FA34E /* ManageInfoViewModel.swift in Sources */,
 				AD22E6FD29373EB700D50B99 /* HeaderImageCollectionReusableView.swift in Sources */,
@@ -1912,6 +1920,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AD083EDC2948517800A43EF6 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.5;
+			};
+		};
 		AD103A9A291C21290032E9EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1987,6 +2003,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AD083EDD2948517800A43EF6 /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD083EDC2948517800A43EF6 /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
 		AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AD103A9A291C21290032E9EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
