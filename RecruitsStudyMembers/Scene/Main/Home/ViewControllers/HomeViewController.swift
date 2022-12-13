@@ -236,7 +236,7 @@ final class HomeViewController: BaseViewController {
                 
                 switch state {
                 case .success:
-                    if response.matched == 0 {
+                    if response.matched == 0 && button {
                         self.showList()
                         
                     } else if response.matched == 1 && button {
@@ -245,7 +245,7 @@ final class HomeViewController: BaseViewController {
                         let vc = ChatViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
                     } else if !button {
-                        NetworkManager.shared.queueState.accept(.matched)
+                        NetworkManager.shared.queueState.accept(.readyToBeMatched)
                     }
                     
                 case .defaultState:
