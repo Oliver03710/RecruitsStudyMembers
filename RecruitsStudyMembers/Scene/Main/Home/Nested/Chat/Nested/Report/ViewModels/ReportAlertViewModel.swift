@@ -28,11 +28,21 @@ final class ReportAlertViewModel: CommonViewModel {
         let sexualOrKindButtonTapped: ControlEvent<Void>
         let harrasmentOrSkilledButtonTapped: ControlEvent<Void>
         let etcOrGoodtimeButtonTapped: ControlEvent<Void>
+        
+        let textViewEditingBegan: ControlEvent<Void>
+        let textViewEditingDidEnd: ControlEvent<Void>
+        
+        let executionButtonTapped: ControlEvent<Void>
+        
+        let textViewString: ControlProperty<String>
     }
     
     struct Output {
         let xmarkButtonDriver: SharedSequence<DriverSharingStrategy, Void>
         let alertViewButtonMergedDriver: SharedSequence<DriverSharingStrategy, AlertViewButtonCombined>
+        let textViewDriver: SharedSequence<DriverSharingStrategy, TextFieldActions>
+        let executionButtonDriver: SharedSequence<DriverSharingStrategy, Void>
+        let executionButtonValid: SharedSequence<DriverSharingStrategy, Bool>
     }
     
     
@@ -49,8 +59,23 @@ final class ReportAlertViewModel: CommonViewModel {
                          input.harrasmentOrSkilledButtonTapped.map { AlertViewButtonCombined.harrasmentOrSkilled },
                          input.etcOrGoodtimeButtonTapped.map { AlertViewButtonCombined.etcOrGoodtime })
         .asDriver(onErrorJustReturn: .illigalOrManner)
+        
+        let textViewDriver = Observable.merge(input.textViewEditingBegan.map { _ in TextFieldActions.editingDidBegin },
+                         input.textViewEditingDidEnd.map { _ in TextFieldActions.editingDidEnd })
+        .asDriver(onErrorJustReturn: .editingDidBegin)
+        
+        let executionButtonDriver = input.executionButtonTapped.asDriver()
+        
+        let executionButtonValid = input.textViewString
+            .map({ str in
+                str.isEmpty
+            })
+            .asDriver(onErrorJustReturn: false)
        
         return Output(xmarkButtonDriver: xmarkButtonDriver,
-                      alertViewButtonMergedDriver: alertViewButtonMergedDriver)
+                      alertViewButtonMergedDriver: alertViewButtonMergedDriver,
+                      textViewDriver: textViewDriver,
+                      executionButtonDriver: executionButtonDriver,
+                      executionButtonValid: executionButtonValid)
     }
 }
