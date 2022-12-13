@@ -150,8 +150,13 @@ final class CustomAlertViewController: BaseViewController {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.view.makeToast("상대방도 스터디를 요청하여 매칭되었습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
                                 NetworkManager.shared.queueState.accept(.matched)
-                                let vc = ChatViewController()
-                                UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)
+                                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                                let vc = MainTabBarController()
+                                sceneDelegate?.window?.rootViewController = vc
+                                sceneDelegate?.window?.makeKeyAndVisible()
+                                let targetVC = ChatViewController()
+                                vc.navigationController?.pushViewController(targetVC, animated: true)
                             })
                         })
                         
@@ -247,8 +252,13 @@ final class CustomAlertViewController: BaseViewController {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.view.makeToast("\(NetworkManager.shared.nickName)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
                                 NetworkManager.shared.queueState.accept(.matched)
-                                let vc = ChatViewController()
-                                UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)
+                                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                                let vc = MainTabBarController()
+                                sceneDelegate?.window?.rootViewController = vc
+                                sceneDelegate?.window?.makeKeyAndVisible()
+                                let targetVC = ChatViewController()
+                                vc.navigationController?.pushViewController(targetVC, animated: true)
                             })
                         })
                     }
