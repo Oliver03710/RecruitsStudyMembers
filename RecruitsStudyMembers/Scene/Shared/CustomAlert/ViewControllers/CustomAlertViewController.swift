@@ -245,7 +245,7 @@ final class CustomAlertViewController: BaseViewController {
                 case .success:
                     if response.matched == 1 {
                         self.dismiss(animated: true, completion: {
-                            UIApplication.getTopMostViewController()?.view.makeToast("\(response.matchedNick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
+                            UIApplication.getTopMostViewController()?.view.makeToast("\(NetworkManager.shared.nickName)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.", completion: { _ in
                                 NetworkManager.shared.queueState.accept(.matched)
                                 let vc = ChatViewController()
                                 UIApplication.getTopMostViewController()?.navigationController?.pushViewController(vc, animated: true)

@@ -42,8 +42,6 @@ final class AlertBodyView: BaseView {
         let btn = CustomButton(text: "", withImage: false, config: .plain(), foregroundColor: SSColors.black.color, font: SSFonts.title4R14.fonts, size: SSFonts.title4R14.size, lineHeight: SSFonts.title4R14.lineHeight)
         return btn
     }()
-    
-    var alertState = AlertSplit.report
 
     
     // MARK: - Init
@@ -51,11 +49,6 @@ final class AlertBodyView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setTitle()
-    }
-    
-    convenience init(state: AlertSplit) {
-        self.init()
-        alertState = state
     }
     
     
@@ -70,50 +63,89 @@ final class AlertBodyView: BaseView {
         let widthDivided = 3.2
         let heightDivided = 2.2
         
-        illigalOrMannerButton.snp.makeConstraints {
-            $0.top.leading.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(alertState == .report ? heightDivided : widthDivided)
-            $0.width.equalToSuperview().dividedBy(alertState == .report ? widthDivided : heightDivided)
+        if NetworkManager.shared.moreViewState == .report {
+            illigalOrMannerButton.snp.makeConstraints {
+                $0.top.leading.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(heightDivided)
+                $0.width.equalToSuperview().dividedBy(widthDivided)
+            }
+            
+            unpleasantOrAppointmentButton.snp.makeConstraints {
+                $0.top.centerX.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(heightDivided)
+                $0.width.equalToSuperview().dividedBy(widthDivided)
+            }
+            
+            noShowOrResponseButton.snp.makeConstraints {
+                $0.top.trailing.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(heightDivided)
+                $0.width.equalToSuperview().dividedBy(widthDivided)
+            }
+            
+            sexualOrKindButton.snp.makeConstraints {
+                $0.bottom.leading.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(heightDivided)
+                $0.width.equalToSuperview().dividedBy(widthDivided)
+            }
+            
+            harrasmentOrSkilledButton.snp.makeConstraints {
+                $0.bottom.centerX.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(heightDivided)
+                $0.width.equalToSuperview().dividedBy(widthDivided)
+            }
+            
+            etcOrGoodtimeButton.snp.makeConstraints {
+                $0.bottom.trailing.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(heightDivided)
+                $0.width.equalToSuperview().dividedBy(widthDivided)
+            }
+        } else {
+            illigalOrMannerButton.snp.makeConstraints {
+                $0.top.leading.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(widthDivided)
+                $0.width.equalToSuperview().dividedBy(heightDivided)
+            }
+            
+            unpleasantOrAppointmentButton.snp.makeConstraints {
+                $0.top.trailing.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(widthDivided)
+                $0.width.equalToSuperview().dividedBy(heightDivided)
+            }
+            
+            noShowOrResponseButton.snp.makeConstraints {
+                $0.leading.centerY.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(widthDivided)
+                $0.width.equalToSuperview().dividedBy(heightDivided)
+            }
+            
+            sexualOrKindButton.snp.makeConstraints {
+                $0.trailing.centerY.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(widthDivided)
+                $0.width.equalToSuperview().dividedBy(heightDivided)
+            }
+            
+            harrasmentOrSkilledButton.snp.makeConstraints {
+                $0.bottom.leading.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(widthDivided)
+                $0.width.equalToSuperview().dividedBy(heightDivided)
+            }
+            
+            etcOrGoodtimeButton.snp.makeConstraints {
+                $0.bottom.trailing.equalToSuperview()
+                $0.height.equalToSuperview().dividedBy(widthDivided)
+                $0.width.equalToSuperview().dividedBy(heightDivided)
+            }
         }
         
-        unpleasantOrAppointmentButton.snp.makeConstraints {
-            $0.top.centerX.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(alertState == .report ? heightDivided : widthDivided)
-            $0.width.equalToSuperview().dividedBy(alertState == .report ? widthDivided : heightDivided)
-        }
-        
-        noShowOrResponseButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(alertState == .report ? heightDivided : widthDivided)
-            $0.width.equalToSuperview().dividedBy(alertState == .report ? widthDivided : heightDivided)
-        }
-        
-        sexualOrKindButton.snp.makeConstraints {
-            $0.bottom.leading.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(alertState == .report ? heightDivided : widthDivided)
-            $0.width.equalToSuperview().dividedBy(alertState == .report ? widthDivided : heightDivided)
-        }
-        
-        harrasmentOrSkilledButton.snp.makeConstraints {
-            $0.bottom.centerX.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(alertState == .report ? heightDivided : widthDivided)
-            $0.width.equalToSuperview().dividedBy(alertState == .report ? widthDivided : heightDivided)
-        }
-        
-        etcOrGoodtimeButton.snp.makeConstraints {
-            $0.bottom.trailing.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(alertState == .report ? heightDivided : widthDivided)
-            $0.width.equalToSuperview().dividedBy(alertState == .report ? widthDivided : heightDivided)
-        }
     }
     
     private func setTitle() {
-        illigalOrMannerButton.setTitle(alertState == .report ? "불법/사기" : "좋은 매너", for: .normal)
-        unpleasantOrAppointmentButton.setTitle(alertState == .report ? "불편한언행" : "정확한 시간 약속", for: .normal)
-        noShowOrResponseButton.setTitle(alertState == .report ? "노쇼" : "빠른 응답", for: .normal)
-        sexualOrKindButton.setTitle(alertState == .report ? "선정성" : "친절한 성격", for: .normal)
-        harrasmentOrSkilledButton.setTitle(alertState == .report ? "인신공격" : "능숙한 실력", for: .normal)
-        etcOrGoodtimeButton.setTitle(alertState == .report ? "기타" : "유익한 시간", for: .normal)
+        illigalOrMannerButton.setTitle(NetworkManager.shared.moreViewState == .report ? "불법/사기" : "좋은 매너", for: .normal)
+        unpleasantOrAppointmentButton.setTitle(NetworkManager.shared.moreViewState == .report ? "불편한언행" : "정확한 시간 약속", for: .normal)
+        noShowOrResponseButton.setTitle(NetworkManager.shared.moreViewState == .report ? "노쇼" : "빠른 응답", for: .normal)
+        sexualOrKindButton.setTitle(NetworkManager.shared.moreViewState == .report ? "선정성" : "친절한 성격", for: .normal)
+        harrasmentOrSkilledButton.setTitle(NetworkManager.shared.moreViewState == .report ? "인신공격" : "능숙한 실력", for: .normal)
+        etcOrGoodtimeButton.setTitle(NetworkManager.shared.moreViewState == .report ? "기타" : "유익한 시간", for: .normal)
     }
 }
 

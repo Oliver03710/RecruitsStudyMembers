@@ -116,8 +116,6 @@ final class ChatView: BaseView {
     var moreViewHeightConstraint: Constraint?
     
     var showMores = false
-    var popupPresented = false
-    var nickname = "이름"
     
     var chatting: [ChatItems] = []
     
@@ -134,7 +132,7 @@ final class ChatView: BaseView {
     // MARK: - Selectors
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        if !popupPresented {
+        if !NetworkManager.shared.popupPresented {
             moveTableViewWithKeyboard(notification: notification)
         }
     }
@@ -293,12 +291,12 @@ final class ChatView: BaseView {
         .drive { [weak self] actions in
             guard let self = self else { return }
             self.showMoreButtons()
-            self.popupPresented = true
+            NetworkManager.shared.popupPresented = true
             
             switch actions {
             case .report:
+                NetworkManager.shared.moreViewState = .report
                 let vc = ReportAlertViewController()
-                vc.alertView.viewState = .report
                 let currentVC = UIApplication.getTopMostViewController()
                 vc.modalPresentationStyle = .overFullScreen
                 currentVC?.present(vc, animated: true)
@@ -313,8 +311,8 @@ final class ChatView: BaseView {
                 currentVC?.present(vc, animated: true)
                 
             case .review:
+                NetworkManager.shared.moreViewState = .review
                 let vc = ReportAlertViewController()
-                vc.alertView.viewState = .review
                 let currentVC = UIApplication.getTopMostViewController()
                 vc.modalPresentationStyle = .overFullScreen
                 currentVC?.present(vc, animated: true)
@@ -349,7 +347,7 @@ final class ChatView: BaseView {
         let firstDate = ChatItems.dateCell(DateCellModel(string: first))
         chatting.append(firstDate)
         
-        let withWhom = ChatItems.introCell(IntroCellModel(string: nickname))
+        let withWhom = ChatItems.introCell(IntroCellModel(string: NetworkManager.shared.nickName))
         chatting.append(withWhom)
         
         ChatRepository.shared.tasks.forEach { chat in
@@ -463,8 +461,8 @@ final class ChatView: BaseView {
     
     private func getChattingList() {
         NetworkManager.shared.request(Payload.self, router: SeSacApiChat.chatGet)
-            .subscribe(onSuccess: { [weak self] response, state in
-                guard let self = self, let state = SesacStatus.Chat.GetChatList(rawValue: state) else { return }
+            .subscribe(onSuccess: { response, state in
+                guard let state = SesacStatus.Chat.GetChatList(rawValue: state) else { return }
                 switch state {
                 case .success:
                     if !response.payload.isEmpty {
