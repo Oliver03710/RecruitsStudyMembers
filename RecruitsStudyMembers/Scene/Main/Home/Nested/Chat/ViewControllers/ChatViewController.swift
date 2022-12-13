@@ -14,7 +14,6 @@ final class ChatViewController: BaseViewController {
     // MARK: - Properties
     
     let chatView = ChatView()
-    var nickname: String?
     
     
     // MARK: - Init
@@ -50,7 +49,7 @@ final class ChatViewController: BaseViewController {
     // MARK: - Helper Functions
     
     override func configureUI() {
-        setNaigations(naviTitle: chatView.nickname)
+        setNaigations(naviTitle: NetworkManager.shared.nickName)
     }
     
     override func setNaigations(naviTitle: String? = nil) {
