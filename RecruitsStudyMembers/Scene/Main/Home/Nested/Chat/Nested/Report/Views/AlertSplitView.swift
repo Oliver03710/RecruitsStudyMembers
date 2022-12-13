@@ -19,7 +19,8 @@ final class AlertSplitView: BaseView {
     }()
     
     let alertTitleView: AlertTitleView = {
-        let view = AlertTitleView(title: "새싹 신고", subTitle: "다시는 해당 새싹과 매칭되지 않습니다")
+        let view = AlertTitleView(title: NetworkManager.shared.moreViewState == .report ? "새싹 신고" : "리뷰 등록",
+                                  subTitle: NetworkManager.shared.moreViewState == .report ? "다시는 해당 새싹과 매칭되지 않습니다" : "\(NetworkManager.shared.nickName)님과의 스터디는 어떠셨나요?")
         return view
     }()
     
@@ -30,19 +31,19 @@ final class AlertSplitView: BaseView {
         tv.backgroundColor = SSColors.gray1.color
         tv.clipsToBounds = true
         tv.layer.cornerRadius = 8
-        tv.text = "신고 사유를 적어주세요\n허위 신고시 제재를 받을 수 있습니다"
+        tv.text = NetworkManager.shared.moreViewState == .report ? "신고 사유를 적어주세요\n허위 신고시 제재를 받을 수 있습니다" : "자세한 피드백은 다른 새싹들에게 도움이 됩니다. (500자 이내 작성)"
         tv.font = UIFont(name: SSFonts.body3R14.fonts, size: SSFonts.body3R14.size)
         tv.textColor = SSColors.gray7.color
         return tv
     }()
     
     let executionButton: CustomButton = {
-        let btn = CustomButton(text: "신고하기", withImage: false, config: .plain(), foregroundColor: SSColors.gray3.color, font: SSFonts.body3R14.fonts, size: SSFonts.body3R14.size, lineHeight: SSFonts.body3R14.lineHeight)
+        let btn = CustomButton(text: NetworkManager.shared.moreViewState == .report ? "신고하기" : "리뷰 등록하기", withImage: false, config: .plain(), foregroundColor: SSColors.gray3.color, font: SSFonts.body3R14.fonts, size: SSFonts.body3R14.size, lineHeight: SSFonts.body3R14.lineHeight)
         btn.backgroundColor = SSColors.gray6.color
+        btn.isUserInteractionEnabled = false
         return btn
     }()
     
-    var viewState = AlertSplit.report
     let viewModel = ReportAlertViewModel()
     
     
@@ -58,7 +59,6 @@ final class AlertSplitView: BaseView {
     // MARK: - Helper Functions
     
     override func configureUI() {
-        alertBodyView.alertState = viewState
         addProperties()
     }
     
@@ -66,7 +66,7 @@ final class AlertSplitView: BaseView {
         alertBaseView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalToSuperview().inset(16)
-            $0.height.equalToSuperview().dividedBy(1.8)
+            $0.height.equalToSuperview().dividedBy(NetworkManager.shared.moreViewState == .report ? 1.8 : 1.5)
         }
         
         alertTitleView.snp.makeConstraints {
@@ -77,7 +77,7 @@ final class AlertSplitView: BaseView {
         alertBodyView.snp.makeConstraints {
             $0.directionalHorizontalEdges.equalToSuperview().inset(16)
             $0.top.equalTo(alertTitleView.snp.bottom).offset(24)
-            $0.height.equalToSuperview().dividedBy(5.7)
+            $0.height.equalToSuperview().dividedBy(NetworkManager.shared.moreViewState == .report ? 5.7 : 4.0)
         }
         
         textView.snp.makeConstraints {
