@@ -29,7 +29,9 @@ final class ChatViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         ChatManager.shared.establishConnection()
+        chatView.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count + 1, section: 0), at: .bottom, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
