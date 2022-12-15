@@ -438,12 +438,9 @@
 			isa = PBXGroup;
 			children = (
 				AD1B38A52920A18B006D7523 /* CustomError.swift */,
-				ADEA5392294B4E1300A758F9 /* Data */,
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
-				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
-				ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */,
-				AD2E2F3A293FB73000842879 /* ChatRouter+URLRequestConvertible.swift */,
-				ADEA538E294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift */,
+				AD8B9556294B7A18000F0ECE /* URLRequestConvertible */,
+				ADEA5392294B4E1300A758F9 /* Data */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -674,6 +671,17 @@
 				AD90630C292D69CD007A70E2 /* CustomAlert */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		AD8B9556294B7A18000F0ECE /* URLRequestConvertible */ = {
+			isa = PBXGroup;
+			children = (
+				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
+				ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */,
+				AD2E2F3A293FB73000842879 /* ChatRouter+URLRequestConvertible.swift */,
+				ADEA538E294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift */,
+			);
+			path = URLRequestConvertible;
 			sourceTree = "<group>";
 		};
 		AD90630C292D69CD007A70E2 /* CustomAlert */ = {
