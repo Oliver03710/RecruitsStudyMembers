@@ -35,6 +35,8 @@ final class NetworkManager {
     var queueState = BehaviorRelay<QueueStates>(value: .defaultState)
     
     var shopState = ShopData(sesac: 0, sesacCollection: [], background: 0, backgroundCollection: [])
+    var shopSesac = 0
+    var shopbackground = 0
     
     static let shared = NetworkManager()
     private let disposeBag = DisposeBag()
