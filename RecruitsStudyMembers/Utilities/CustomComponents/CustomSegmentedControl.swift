@@ -1,5 +1,5 @@
 //
-//  CustromSegmentedControl.swift
+//  CustomSegmentedControl.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/11/28.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustromSegmentedControl: UISegmentedControl {
+final class CustomSegmentedControl: UISegmentedControl {
     
     // MARK: - Properties
     
