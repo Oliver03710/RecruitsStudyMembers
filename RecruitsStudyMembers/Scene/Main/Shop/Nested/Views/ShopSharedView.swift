@@ -13,11 +13,7 @@ final class ShopSharedView: BaseView {
     
     // MARK: - Properties
     
-    lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        cv.autoresizingMask = [.flexibleHeight]
-        return cv
-    }()
+    var collectionView: UICollectionView! = nil
     
     var faceDataSource: UICollectionViewDiffableDataSource<Int, FaceImages>! = nil
     var faceCurrentSnapshot: NSDiffableDataSourceSnapshot<Int, FaceImages>! = nil
@@ -37,21 +33,8 @@ final class ShopSharedView: BaseView {
     convenience init(state: ShopViewSelected) {
         self.init()
         self.state = state
+        configureHierarchy(state: state)
         configureDataSource(state: state)
-    }
-    
-    // MARK: - Helper Functions
-    
-    override func configureUI() {
-        
-    }
-    
-    override func setConstraints() {
-        addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(4)
-        }
     }
 }
 
@@ -60,27 +43,60 @@ final class ShopSharedView: BaseView {
 
 extension ShopSharedView {
     
-    private func createLayout() -> UICollectionViewLayout {
+    private func configureHierarchy(state: ShopViewSelected) {
+        switch state {
+        case .face:
+            collectionView = UICollectionView(frame: bounds, collectionViewLayout: createLayout(state: .face))
+        case .background:
+            collectionView = UICollectionView(frame: bounds, collectionViewLayout: createLayout(state: .background))
+        }
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(4)
+        }
+    }
+    
+    private func createLayout(state: ShopViewSelected) -> UICollectionViewLayout {
         
         let sectionProvider = { (sectionIndex: Int,
-            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                  heightDimension: .fractionalWidth(1.0))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = .init(top: 12, leading: 12, bottom: 12, trailing: 12)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .fractionalWidth(1.0))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-            group.contentInsets = .init(top: 0, leading: 0, bottom: 24, trailing: 0)
-            
-            let section = NSCollectionLayoutSection(group: group)
-            
-            return section
+                                 layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            switch state {
+            case .face:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .fractionalWidth(0.85))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = .init(top: 12, leading: 12, bottom: 12, trailing: 12)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .fractionalWidth(0.85))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+                group.contentInsets = .init(top: 0, leading: 0, bottom: 24, trailing: 0)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                
+                return section
+                
+            case .background:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .fractionalHeight(1.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .absolute(200))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                group.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                
+                return section
+            }
         }
-
+        
         let config = UICollectionViewCompositionalLayoutConfiguration()
-
+        
         let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider, configuration: config)
         return layout
     }
@@ -88,8 +104,8 @@ extension ShopSharedView {
     private func configureDataSource(state: ShopViewSelected) {
         switch state {
         case .face:
-            let cellRegistration = UICollectionView.CellRegistration<ShopCollectionViewCell, FaceImages> { (cell, indexPath, item) in
-                cell.ConfigureCells(image: "sesacFace\(item.rawValue)")
+            let cellRegistration = UICollectionView.CellRegistration<FaceCollectionViewCell, FaceImages> { (cell, indexPath, item) in
+                cell.ConfigureCells(image: item.images, title: item.title, description: item.description, price: item.price)
             }
             
             faceDataSource = UICollectionViewDiffableDataSource<Int, FaceImages>(collectionView: collectionView) {
@@ -103,8 +119,8 @@ extension ShopSharedView {
             faceDataSource.apply(faceCurrentSnapshot, animatingDifferences: false)
             
         case .background:
-            let cellRegistration = UICollectionView.CellRegistration<ShopCollectionViewCell, BackgroundImages> { (cell, indexPath, item) in
-                cell.ConfigureCells(image: "sesacBackground\(item.rawValue)")
+            let cellRegistration = UICollectionView.CellRegistration<BackgroundCollectionViewCell, BackgroundImages> { (cell, indexPath, item) in
+                cell.ConfigureCells(image: item.images, title: item.title, description: item.description, price: item.price)
             }
             
             backgroundDataSource = UICollectionViewDiffableDataSource<Int, BackgroundImages>(collectionView: collectionView) {
