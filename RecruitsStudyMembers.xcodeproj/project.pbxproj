@@ -69,6 +69,10 @@
 		AD32E9E0293F3AE90037939C /* AlertBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9DF293F3AE90037939C /* AlertBaseView.swift */; };
 		AD32E9E2293F3E790037939C /* AlertTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9E1293F3E790037939C /* AlertTitleView.swift */; };
 		AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32E9E3293F419A0037939C /* AlertBodyView.swift */; };
+		AD333027294B0F2C00CCBB41 /* BuySesacImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD333026294B0F2C00CCBB41 /* BuySesacImageViewController.swift */; };
+		AD333029294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD333028294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift */; };
+		AD333030294B109200CCBB41 /* ShopSharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD33302F294B109200CCBB41 /* ShopSharedViewModel.swift */; };
+		AD333032294B10C800CCBB41 /* ShopSharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD333031294B10C800CCBB41 /* ShopSharedView.swift */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -113,7 +117,7 @@
 		AD9533DF2919665D002126C0 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9533DE2919665D002126C0 /* GenderView.swift */; };
 		ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0C29349C6500150C26 /* MemberListViewController.swift */; };
 		ADA27D0F29349C7F00150C26 /* MemberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D0E29349C7F00150C26 /* MemberListView.swift */; };
-		ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */; };
+		ADA27D112934B4AD00150C26 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D102934B4AD00150C26 /* CustomSegmentedControl.swift */; };
 		ADA27D132934C17500150C26 /* ButtonCombined+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D122934C17500150C26 /* ButtonCombined+Enum.swift */; };
 		ADA27D162934CA0E00150C26 /* SesacNearByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */; };
 		ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */; };
@@ -156,6 +160,8 @@
 		ADE96240292C1032003D5191 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */; };
 		ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */; };
 		ADE96245292C2526003D5191 /* SesacReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */; };
+		ADEA5388294B175B00A758F9 /* ShopViewSelected+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */; };
+		ADEA538B294B1C5C00A758F9 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538A294B1C5C00A758F9 /* ShopCollectionViewCell.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
@@ -233,6 +239,10 @@
 		AD32E9DF293F3AE90037939C /* AlertBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBaseView.swift; sourceTree = "<group>"; };
 		AD32E9E1293F3E790037939C /* AlertTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTitleView.swift; sourceTree = "<group>"; };
 		AD32E9E3293F419A0037939C /* AlertBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBodyView.swift; sourceTree = "<group>"; };
+		AD333026294B0F2C00CCBB41 /* BuySesacImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySesacImageViewController.swift; sourceTree = "<group>"; };
+		AD333028294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySesacBackgroundViewController.swift; sourceTree = "<group>"; };
+		AD33302F294B109200CCBB41 /* ShopSharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSharedViewModel.swift; sourceTree = "<group>"; };
+		AD333031294B10C800CCBB41 /* ShopSharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSharedView.swift; sourceTree = "<group>"; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -271,7 +281,7 @@
 		AD9533DE2919665D002126C0 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		ADA27D0C29349C6500150C26 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		ADA27D0E29349C7F00150C26 /* MemberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListView.swift; sourceTree = "<group>"; };
-		ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustromSegmentedControl.swift; sourceTree = "<group>"; };
+		ADA27D102934B4AD00150C26 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		ADA27D122934C17500150C26 /* ButtonCombined+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ButtonCombined+Enum.swift"; sourceTree = "<group>"; };
 		ADA27D152934CA0E00150C26 /* SesacNearByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacNearByViewController.swift; sourceTree = "<group>"; };
 		ADA27D172934CA3200150C26 /* ReceivedRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedRequestViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +323,8 @@
 		ADE9623F292C1032003D5191 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopViewSelected+Enum.swift"; sourceTree = "<group>"; };
+		ADEA538A294B1C5C00A758F9 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
@@ -460,6 +472,7 @@
 				ADE76DA0293B9E99004058D3 /* ViewControllers */,
 				ADE76D9F293B9E96004058D3 /* Views */,
 				ADE76D9E293B9E8E004058D3 /* ViewModels */,
+				AD333022294B0EE100CCBB41 /* Nested */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -579,6 +592,42 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		AD333022294B0EE100CCBB41 /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				AD333023294B0EEE00CCBB41 /* ViewControllers */,
+				AD333024294B0EF700CCBB41 /* Views */,
+				ADEA5389294B1C2600A758F9 /* Cells */,
+				AD333025294B0EFB00CCBB41 /* ViewModels */,
+			);
+			path = Nested;
+			sourceTree = "<group>";
+		};
+		AD333023294B0EEE00CCBB41 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD333026294B0F2C00CCBB41 /* BuySesacImageViewController.swift */,
+				AD333028294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AD333024294B0EF700CCBB41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD333031294B10C800CCBB41 /* ShopSharedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD333025294B0EFB00CCBB41 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD33302F294B109200CCBB41 /* ShopSharedViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,7 +643,7 @@
 			children = (
 				ADAC0D60292610B400424D39 /* CustomCollectionViewCell.swift */,
 				ADAC0D6F29269ABA00424D39 /* CustomSlider.swift */,
-				ADA27D102934B4AD00150C26 /* CustromSegmentedControl.swift */,
+				ADA27D102934B4AD00150C26 /* CustomSegmentedControl.swift */,
 				AD910B7629290709000F7828 /* SeSacAnnotation.swift */,
 				ADCC0099293DDDD800C15C72 /* Views */,
 				ADAC0D6C292699E900424D39 /* Buttons */,
@@ -1337,6 +1386,14 @@
 			path = CellsInFoldableView;
 			sourceTree = "<group>";
 		};
+		ADEA5389294B1C2600A758F9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ADEA538A294B1C5C00A758F9 /* ShopCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -1350,6 +1407,7 @@
 				AD2E2F36293F8D4E00842879 /* AlertViewButtonCombined+Enum.swift */,
 				AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */,
 				AD083EDF29486D0500A43EF6 /* ReviewTitle+Enum.swift */,
+				ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1564,10 +1622,11 @@
 				AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */,
 				ADA59A812939BED400A7A8A0 /* CustomAlertStates+Enum.swift in Sources */,
 				ADE9623E292BEB52003D5191 /* SearchCollectionViewCell.swift in Sources */,
-				ADA27D112934B4AD00150C26 /* CustromSegmentedControl.swift in Sources */,
+				ADA27D112934B4AD00150C26 /* CustomSegmentedControl.swift in Sources */,
 				ADAC0D7029269ABA00424D39 /* CustomSlider.swift in Sources */,
 				AD910B792929415F000F7828 /* GenderButtonOnMap.swift in Sources */,
 				ADDA22FB293C731600FCF617 /* ChatData.swift in Sources */,
+				AD333032294B10C800CCBB41 /* ShopSharedView.swift in Sources */,
 				ADD5AE31293677B20092B3B5 /* MemberListViewModel.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
@@ -1580,6 +1639,7 @@
 				AD32E9D4293F27330037939C /* ReportAlertViewController.swift in Sources */,
 				AD609684291A463500FF78CB /* SecondViewController.swift in Sources */,
 				AD23FAF629221EBA004FA34E /* GenderButton+Enum.swift in Sources */,
+				ADEA5388294B175B00A758F9 /* ShopViewSelected+Enum.swift in Sources */,
 				AD90630E292D6A35007A70E2 /* CustomAlertViewController.swift in Sources */,
 				AD103A8E291B8FAA0032E9EB /* CommonViewModel+Protocol.swift in Sources */,
 				ADA27D182934CA3200150C26 /* ReceivedRequestViewController.swift in Sources */,
@@ -1631,6 +1691,7 @@
 				ADE76D88293B9C43004058D3 /* ChatViewController.swift in Sources */,
 				ADA27D162934CA0E00150C26 /* SesacNearByViewController.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
+				ADEA538B294B1C5C00A758F9 /* ShopCollectionViewCell.swift in Sources */,
 				ADA27D132934C17500150C26 /* ButtonCombined+Enum.swift in Sources */,
 				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,
 				ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */,
@@ -1662,6 +1723,7 @@
 				AD23FADD29221180004FA34E /* HomeView.swift in Sources */,
 				AD103A8B291B8E130032E9EB /* LoginViewModel.swift in Sources */,
 				AD9533C0291960BA002126C0 /* BaseView.swift in Sources */,
+				AD333029294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift in Sources */,
 				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
 				ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */,
 				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
@@ -1672,6 +1734,7 @@
 				ADE76D8C293B9C68004058D3 /* ChatView.swift in Sources */,
 				AD23FB0E29229E5E004FA34E /* CircleImageView.swift in Sources */,
 				AD609686291A463D00FF78CB /* ThirdViewController.swift in Sources */,
+				AD333030294B109200CCBB41 /* ShopSharedViewModel.swift in Sources */,
 				AD32E9E0293F3AE90037939C /* AlertBaseView.swift in Sources */,
 				AD9533C42919629A002126C0 /* OnboardingView.swift in Sources */,
 				AD2E2F40293FC2CB00842879 /* ChatManager.swift in Sources */,
@@ -1687,6 +1750,7 @@
 				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */,
+				AD333027294B0F2C00CCBB41 /* BuySesacImageViewController.swift in Sources */,
 				AD9533C729196460002126C0 /* LoginViewController.swift in Sources */,
 				ADE9623A292B6FA7003D5191 /* SearchViewController.swift in Sources */,
 				AD23FADF2922124A004FA34E /* HomeViewModel.swift in Sources */,
