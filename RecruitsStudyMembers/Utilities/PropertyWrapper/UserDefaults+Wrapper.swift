@@ -99,6 +99,13 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "myUid", defaultValue: "")
     static var myUid: String
     
+    // MARK: - Chat API
+    @UserDefaultsWrapper(key: "shopBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210/v1/user/shop")
+    static var shopBaseURLPath: String
+    
+    @UserDefaultsWrapper(key: "checkMyInfo", defaultValue: "/myinfo")
+    static var checkMyInfo: String
+    
     // MARK: - Parameters
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
     static var phoneNum: String
