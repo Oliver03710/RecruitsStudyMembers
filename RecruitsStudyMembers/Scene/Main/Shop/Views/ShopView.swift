@@ -16,7 +16,6 @@ final class ShopView: BaseView {
     
     private let backgroundImageView: UIImageView = {
         let iv = UIImageView(frame: .zero)
-        iv.image = UIImage(named: "sesacBackground\(BackgroundImages.sesacBackground0.rawValue)")
         iv.contentMode = .scaleAspectFill
         iv.layer.masksToBounds = true
         iv.layer.cornerRadius = 8
@@ -26,7 +25,6 @@ final class ShopView: BaseView {
     
     private let foregroundImageView: UIImageView = {
         let iv = UIImageView(frame: .zero)
-        iv.image = FaceImages.sesacFace0.images
         iv.contentMode = .scaleAspectFill
         return iv
     }()
@@ -85,6 +83,7 @@ final class ShopView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        checkMyShopState()
     }
     
     
@@ -142,6 +141,41 @@ final class ShopView: BaseView {
         segmentedControl.selectedSegmentIndex = 0
         valueChanged(control: segmentedControl)
     }
+    
+    private func checkMyShopState() {
+        NetworkManager.shared.request(ShopData.self, router: SeSacApiShop.checkMyInfo)
+            .subscribe(onSuccess: { [weak self] response, _ in
+                guard let self = self else { return }
+                NetworkManager.shared.shopState = response
+                self.setImages()
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.checkMyShopState()
+                    } errorHandler: {
+                        self?.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    private func setImages() {
+        foregroundImageView.image = UIImage(named: "sesacFace\(NetworkManager.shared.shopState.sesac)")
+        backgroundImageView.image = UIImage(named: "sesacBackground\(NetworkManager.shared.shopState.background)")
+    }
+    
+    private func collectionViewDelegates() {
+        sesacViewController.buyingView.collectionView.delegate = self
+        backgroundViewController.buyingView.collectionView.delegate = self
+    }
 }
 
 
@@ -171,4 +205,21 @@ extension ShopView: UIPageViewControllerDataSource {
 
 extension ShopView: UIPageViewControllerDelegate {
     
+}
+
+
+extension ShopView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        print("Tapped")
+        if collectionView == sesacViewController.buyingView.collectionView {
+            foregroundImageView.image = UIImage(named: "sesacFace\(indexPath.item)")
+            print(indexPath.item)
+            
+            
+        } else {
+            backgroundImageView.image = UIImage(named: "sesacBackground\(indexPath.item)")
+            print(indexPath.item)
+        }
+    }
 }
