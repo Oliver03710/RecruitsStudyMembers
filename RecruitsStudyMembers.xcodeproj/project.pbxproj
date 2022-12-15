@@ -163,6 +163,8 @@
 		ADEA5388294B175B00A758F9 /* ShopViewSelected+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */; };
 		ADEA538B294B1C5C00A758F9 /* FaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538A294B1C5C00A758F9 /* FaceCollectionViewCell.swift */; };
 		ADEA538D294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538C294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift */; };
+		ADEA538F294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538E294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift */; };
+		ADEA5391294B4E1000A758F9 /* ShopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA5390294B4E1000A758F9 /* ShopData.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
@@ -327,6 +329,8 @@
 		ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopViewSelected+Enum.swift"; sourceTree = "<group>"; };
 		ADEA538A294B1C5C00A758F9 /* FaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADEA538C294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADEA538E294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeSacApiShop+URLRequestConvertible.swift"; sourceTree = "<group>"; };
+		ADEA5390294B4E1000A758F9 /* ShopData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopData.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
@@ -434,13 +438,12 @@
 			isa = PBXGroup;
 			children = (
 				AD1B38A52920A18B006D7523 /* CustomError.swift */,
-				AD1B38AB2920F843006D7523 /* UserData.swift */,
-				AD7803DE2930D4870007B19C /* QueueData.swift */,
-				ADE76D84293B8979004058D3 /* QueueStateData.swift */,
+				ADEA5392294B4E1300A758F9 /* Data */,
 				AD103A98291C194D0032E9EB /* NetworkManager.swift */,
 				AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */,
 				ADE24ADB292FFF9F000C08AB /* QueueRouter+URLRequestConvertible.swift */,
 				AD2E2F3A293FB73000842879 /* ChatRouter+URLRequestConvertible.swift */,
+				ADEA538E294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1397,6 +1400,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		ADEA5392294B4E1300A758F9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AD1B38AB2920F843006D7523 /* UserData.swift */,
+				AD7803DE2930D4870007B19C /* QueueData.swift */,
+				ADE76D84293B8979004058D3 /* QueueStateData.swift */,
+				ADEA5390294B4E1000A758F9 /* ShopData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		ADEF3B77291D5ED6004B4CDE /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -1634,6 +1648,7 @@
 				ADD5AE31293677B20092B3B5 /* MemberListViewModel.swift in Sources */,
 				AD23FAD829221070004FA34E /* MainTabBarController.swift in Sources */,
 				AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */,
+				ADEA538F294B4C5500A758F9 /* SeSacApiShop+URLRequestConvertible.swift in Sources */,
 				AD2E2F43293FC54A00842879 /* ChattingData.swift in Sources */,
 				AD609663291A184300FF78CB /* CustomImageView.swift in Sources */,
 				AD9533CF2919652F002126C0 /* NicknameViewController.swift in Sources */,
@@ -1679,6 +1694,7 @@
 				ADB604BD2923859F0081CEC2 /* FoldableCollectionViewCell.swift in Sources */,
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
 				ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */,
+				ADEA5391294B4E1000A758F9 /* ShopData.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */,
 				ADCC0098293DDDD200C15C72 /* CircleView.swift in Sources */,
