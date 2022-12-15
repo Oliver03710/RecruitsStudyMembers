@@ -74,6 +74,23 @@ enum SesacStatus {
         }
     }
     
+    enum Shop {
+        enum Items: Int, NetworkStatus {
+            case success = 200
+            case doesntHave = 201
+        }
+        
+        enum IOS: Int, NetworkStatus {
+            case success = 200
+            case failToValidate = 201
+        }
+        
+        enum Purchasing: Int, NetworkStatus {
+            case success = 200
+            case alreadyHave = 201
+        }
+    }
+    
     enum DefaultSuccess: Int, NetworkStatus {
         case success = 200
     }
