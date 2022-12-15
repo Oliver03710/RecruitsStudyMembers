@@ -16,7 +16,6 @@ enum BackgroundImages: Int, CaseIterable {
     case sesacBackground5
     case sesacBackground6
     case sesacBackground7
-    case sesacBackground8
     
     var images: UIImage? {
         switch self {
@@ -28,7 +27,6 @@ enum BackgroundImages: Int, CaseIterable {
         case .sesacBackground5: return UIImage(named: "sesacBackground5")
         case .sesacBackground6: return UIImage(named: "sesacBackground6")
         case .sesacBackground7: return UIImage(named: "sesacBackground7")
-        case .sesacBackground8: return UIImage(named: "sesacBackground8")
         }
     }
     
@@ -42,7 +40,6 @@ enum BackgroundImages: Int, CaseIterable {
         case .sesacBackground5: return "라틴 거실"
         case .sesacBackground6: return "홈트방"
         case .sesacBackground7: return "뮤지션 작업실"
-        case .sesacBackground8: return "악마의 공방"
         }
     }
     
@@ -56,7 +53,6 @@ enum BackgroundImages: Int, CaseIterable {
         case .sesacBackground5: return "2,500"
         case .sesacBackground6: return "2,500"
         case .sesacBackground7: return "2,500"
-        case .sesacBackground8: return "2,500"
         }
     }
     
@@ -70,7 +66,6 @@ enum BackgroundImages: Int, CaseIterable {
         case .sesacBackground5: return "모노톤의 따스한 감성의 거실로 편하게 쉴 수 있는 공간입니다."
         case .sesacBackground6: return "집에서 운동을 할 수 있도록 기구를 갖춘 방입니다."
         case .sesacBackground7: return "여러가지 음악 작업을 할 수 있는 작업실입니다."
-        case .sesacBackground8: return "악마들이 도자기를 만드는 공방입니다."
         }
     }
 
