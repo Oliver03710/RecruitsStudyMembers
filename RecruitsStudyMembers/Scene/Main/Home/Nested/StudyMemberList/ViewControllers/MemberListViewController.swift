@@ -17,7 +17,7 @@ final class MemberListViewController: BaseViewController {
     // MARK: - Properties
     
     private let segmentedControl: UISegmentedControl = {
-        let segmentedControl = CustromSegmentedControl(items: ["주변 새싹", "받은 요청"])
+        let segmentedControl = CustomSegmentedControl(items: ["주변 새싹", "받은 요청"])
         return segmentedControl
     }()
     
