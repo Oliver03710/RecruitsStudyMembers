@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum BackgroundImages: Int {
+enum BackgroundImages: Int, CaseIterable {
     case sesacBackground0
     case sesacBackground1
     case sesacBackground2
@@ -19,7 +19,7 @@ enum BackgroundImages: Int {
     case sesacBackground8
 }
 
-enum FaceImages: Int {
+enum FaceImages: Int, CaseIterable {
     case sesacFace0
     case sesacFace1
     case sesacFace2
