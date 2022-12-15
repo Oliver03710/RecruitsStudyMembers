@@ -105,7 +105,7 @@ extension ShopSharedView {
         switch state {
         case .face:
             let cellRegistration = UICollectionView.CellRegistration<FaceCollectionViewCell, FaceImages> { (cell, indexPath, item) in
-                cell.ConfigureCells(image: item.images, title: item.title, description: item.description, price: item.price)
+                cell.ConfigureCells(item: item)
             }
             
             faceDataSource = UICollectionViewDiffableDataSource<Int, FaceImages>(collectionView: collectionView) {
@@ -120,7 +120,7 @@ extension ShopSharedView {
             
         case .background:
             let cellRegistration = UICollectionView.CellRegistration<BackgroundCollectionViewCell, BackgroundImages> { (cell, indexPath, item) in
-                cell.ConfigureCells(image: item.images, title: item.title, description: item.description, price: item.price)
+                cell.ConfigureCells(item: item)
             }
             
             backgroundDataSource = UICollectionViewDiffableDataSource<Int, BackgroundImages>(collectionView: collectionView) {
