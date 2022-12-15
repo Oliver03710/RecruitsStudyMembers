@@ -16,7 +16,7 @@ final class ShopView: BaseView {
     
     private let backgroundImageView: UIImageView = {
         let iv = UIImageView(frame: .zero)
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleToFill
         iv.layer.masksToBounds = true
         iv.layer.cornerRadius = 8
         iv.isUserInteractionEnabled = true
@@ -84,6 +84,7 @@ final class ShopView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         checkMyShopState()
+        collectionViewDelegates()
     }
     
     
@@ -104,7 +105,7 @@ final class ShopView: BaseView {
         
         foregroundImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview().multipliedBy(1.25)
+            $0.centerY.equalToSuperview().multipliedBy(1.1)
             $0.width.height.equalTo(184)
         }
         
@@ -208,17 +209,19 @@ extension ShopView: UIPageViewControllerDelegate {
 }
 
 
+// MARK: - Extension: UICollectionViewDelegate
+
 extension ShopView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-        print("Tapped")
         if collectionView == sesacViewController.buyingView.collectionView {
             foregroundImageView.image = UIImage(named: "sesacFace\(indexPath.item)")
+            NetworkManager.shared.shopSesac = indexPath.item
             print(indexPath.item)
-            
             
         } else {
             backgroundImageView.image = UIImage(named: "sesacBackground\(indexPath.item)")
+            NetworkManager.shared.shopbackground = indexPath.item
             print(indexPath.item)
         }
     }
