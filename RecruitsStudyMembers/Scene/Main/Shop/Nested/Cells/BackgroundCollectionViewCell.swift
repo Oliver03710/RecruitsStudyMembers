@@ -77,17 +77,19 @@ final class BackgroundCollectionViewCell: CustomCollectionViewCell {
         
     }
     
-    func ConfigureCells(image: UIImage?, title: String?, description: String?, price: String) {
-        backgroundImageView.image = image
-        titleLabel.text = title
-        descriptionLabel.text = description
+    func ConfigureCells(item: BackgroundImages) {
+        backgroundImageView.image = item.images
+        titleLabel.text = item.title
+        descriptionLabel.text = item.description
         
-        if price == "보유" {
-            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: price, config: .plain(), foregroundColor: SSColors.gray7.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
+        if NetworkManager.shared.shopState.backgroundCollection.contains(item.rawValue) {
+            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: "보유", config: .plain(), foregroundColor: SSColors.gray7.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
             purchaseButton.backgroundColor = SSColors.gray2.color
+            
         } else {
-            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: price, config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
+            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: item.price, config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
             purchaseButton.backgroundColor = SSColors.green.color
         }
     }
+
 }
