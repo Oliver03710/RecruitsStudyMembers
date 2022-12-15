@@ -161,7 +161,8 @@
 		ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */; };
 		ADE96245292C2526003D5191 /* SesacReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */; };
 		ADEA5388294B175B00A758F9 /* ShopViewSelected+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */; };
-		ADEA538B294B1C5C00A758F9 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538A294B1C5C00A758F9 /* ShopCollectionViewCell.swift */; };
+		ADEA538B294B1C5C00A758F9 /* FaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538A294B1C5C00A758F9 /* FaceCollectionViewCell.swift */; };
+		ADEA538D294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA538C294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift */; };
 		ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */; };
 		ADEF3B7B291D669B004B4CDE /* BirthComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */; };
 		ADEF3B7D291D8B1B004B4CDE /* BirthDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */; };
@@ -324,7 +325,8 @@
 		ADE96242292C251B003D5191 /* SesacTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADE96244292C2526003D5191 /* SesacReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopViewSelected+Enum.swift"; sourceTree = "<group>"; };
-		ADEA538A294B1C5C00A758F9 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADEA538A294B1C5C00A758F9 /* FaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADEA538C294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADEF3B78291D5EF3004B4CDE /* TextFieldEvent+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldEvent+Enum.swift"; sourceTree = "<group>"; };
 		ADEF3B7A291D669B004B4CDE /* BirthComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComponentView.swift; sourceTree = "<group>"; };
 		ADEF3B7C291D8B1B004B4CDE /* BirthDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateTextField.swift; sourceTree = "<group>"; };
@@ -1389,7 +1391,8 @@
 		ADEA5389294B1C2600A758F9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				ADEA538A294B1C5C00A758F9 /* ShopCollectionViewCell.swift */,
+				ADEA538A294B1C5C00A758F9 /* FaceCollectionViewCell.swift */,
+				ADEA538C294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1618,6 +1621,7 @@
 				AD9533D5291965BA002126C0 /* BirthViewController.swift in Sources */,
 				ADE76D83293B7CEF004058D3 /* UIApplication+Extension.swift in Sources */,
 				ADAC0D6529263C5E00424D39 /* SearchMeCollectionViewCell.swift in Sources */,
+				ADEA538D294B2A3D00A758F9 /* BackgroundCollectionViewCell.swift in Sources */,
 				AD7803DF2930D4870007B19C /* QueueData.swift in Sources */,
 				AD910B7B29294B6D000F7828 /* Shadow+Extension.swift in Sources */,
 				ADA59A812939BED400A7A8A0 /* CustomAlertStates+Enum.swift in Sources */,
@@ -1691,7 +1695,7 @@
 				ADE76D88293B9C43004058D3 /* ChatViewController.swift in Sources */,
 				ADA27D162934CA0E00150C26 /* SesacNearByViewController.swift in Sources */,
 				AD0D047C291CE54F00377276 /* LoginVerificationView.swift in Sources */,
-				ADEA538B294B1C5C00A758F9 /* ShopCollectionViewCell.swift in Sources */,
+				ADEA538B294B1C5C00A758F9 /* FaceCollectionViewCell.swift in Sources */,
 				ADA27D132934C17500150C26 /* ButtonCombined+Enum.swift in Sources */,
 				AD23FAFE29224F88004FA34E /* ManageInfoView.swift in Sources */,
 				ADE24ADA292FE55C000C08AB /* LocationManager.swift in Sources */,
