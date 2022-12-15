@@ -35,7 +35,7 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
     }()
     
     private let purchaseButton: CircleButton = {
-        let btn = CircleButton(text: "", font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight, config: .plain(), backgroundColor: SSColors.green.color)
+        let btn = CircleButton(text: "", font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight, config: .plain(), foregroundColor: SSColors.white.color, backgroundColor: SSColors.green.color)
         return btn
     }()
     
@@ -59,7 +59,7 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
         
         purchaseButton.snp.makeConstraints {
             $0.top.equalTo(faceImageView.snp.bottom).offset(12)
-            $0.width.equalTo(60)
+            $0.width.equalTo(56)
             $0.height.equalTo(20)
             $0.trailing.equalToSuperview().inset(12)
         }
@@ -82,6 +82,13 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
         faceImageView.image = image
         titleLabel.text = title
         descriptionLabel.text = description
-        purchaseButton.configuration = purchaseButton.buttonConfiguration(text: price, config: .plain(), foregroundColor: SSColors.black.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
+        
+        if price == "보유" {
+            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: price, config: .plain(), foregroundColor: SSColors.gray7.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
+            purchaseButton.backgroundColor = SSColors.gray2.color
+        } else {
+            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: price, config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
+            purchaseButton.backgroundColor = SSColors.green.color
+        }
     }
 }
