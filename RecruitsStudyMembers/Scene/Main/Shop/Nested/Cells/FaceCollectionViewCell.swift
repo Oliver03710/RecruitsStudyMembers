@@ -73,7 +73,7 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
         
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(purchaseButton.snp.bottom).offset(12)
-            $0.directionalHorizontalEdges.bottom.equalToSuperview()
+            $0.directionalHorizontalEdges.equalToSuperview()
         }
         
     }
