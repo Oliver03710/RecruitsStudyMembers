@@ -119,6 +119,30 @@ final class CustomButton: UIButton {
         tintColor = SSColors.black.color
         self.configuration = buttonConfiguration(text: text, withImage: withImage, config: config, foregroundColor: foregroundColor, font: font, size: size, lineHeight: lineHeight)
     }
+    
+    // Shop의 저장 버튼
+    convenience init(text: String, config: UIButton.Configuration, borderColor: UIColor? = SSColors.gray4.color, foregroundColor: UIColor?, backgroundColor: UIColor?, font: String, size: CGFloat, lineHeight: CGFloat) {
+        self.init()
+        let style = NSMutableParagraphStyle()
+        let lineHeights = size * lineHeight
+        style.minimumLineHeight = lineHeights
+        style.maximumLineHeight = lineHeights
+        
+        var container = AttributeContainer()
+        container.font = UIFont(name: font, size: size)
+        container.foregroundColor = foregroundColor
+        container.paragraphStyle = style
+        container.baselineOffset = (lineHeights - size) / 4
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString(text, attributes: container)
+        configuration.titleAlignment = .center
+        self.configuration = configuration
+        
+        self.backgroundColor = backgroundColor
+        layer.borderWidth = 1
+        layer.borderColor = borderColor?.cgColor
+    }
 
     
     
