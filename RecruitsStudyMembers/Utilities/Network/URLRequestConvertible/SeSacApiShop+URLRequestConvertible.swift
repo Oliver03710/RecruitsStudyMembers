@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiShop {
-    case checkMyInfo
+    case checkMyInfo, item, ios, purchaseItem
 }
 
 
@@ -31,30 +31,43 @@ extension SeSacApiShop: URLRequestConvertible {
     var path: String {
         switch self {
         case .checkMyInfo: return UserDefaultsManager.checkMyInfo
+        case .item: return UserDefaultsManager.item
+        case .ios: return UserDefaultsManager.ios
+        case .purchaseItem: return UserDefaultsManager.purchaseItem
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .checkMyInfo: return .get
+        case .item, .ios, .purchaseItem: return .post
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
-        case .checkMyInfo: return ["idtoken": UserDefaultsManager.token]
+        case .checkMyInfo, .item, .ios, .purchaseItem: return ["idtoken": UserDefaultsManager.token]
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
+        case .item: return ["sesac": 1,
+                            "background": 1]
+            
+        case .ios: return ["receipt": "",
+                           "product": ""]
+            
+        case .purchaseItem: return ["sesac": 1,
+                                    "background": 1]
+            
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .checkMyInfo: return URLEncoding.default
+        case .checkMyInfo, .item, .ios, .purchaseItem: return URLEncoding.default
         }
     }
     
