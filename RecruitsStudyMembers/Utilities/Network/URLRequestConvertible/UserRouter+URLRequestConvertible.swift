@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum SeSacApiUser {
-    case login, signup, myPage, withdraw
+    case login, signup, myPage, withdraw, fcmToken
 }
 
 
@@ -33,6 +33,7 @@ extension SeSacApiUser: URLRequestConvertible {
         case .login, .signup: return UserDefaultsManager.loginAndSignupPath
         case .myPage: return UserDefaultsManager.myPagePath
         case .withdraw: return UserDefaultsManager.withdrawPath
+        case .fcmToken: return UserDefaultsManager.updateFcmToken
         }
     }
     
@@ -40,14 +41,14 @@ extension SeSacApiUser: URLRequestConvertible {
         switch self {
         case .login: return .get
         case .signup, .withdraw: return .post
-        case .myPage: return .put
+        case .myPage, .fcmToken: return .put
         }
     }
         
     var headers: HTTPHeaders {
         switch self {
         case .login, .signup, .myPage: return ["Content-Type": UserDefaultsManager.contentType, "idtoken": UserDefaultsManager.token]
-        case .withdraw: return ["idtoken": UserDefaultsManager.token]
+        case .withdraw, .fcmToken: return ["idtoken": UserDefaultsManager.token]
         }
     }
     
@@ -65,13 +66,16 @@ extension SeSacApiUser: URLRequestConvertible {
                               "ageMax": "\(NetworkManager.shared.userData.ageMax)",
                               "gender": "\(NetworkManager.shared.userData.gender)",
                               "study": "\(NetworkManager.shared.userData.study)"]
+            
+        case .fcmToken: return ["FCMtoken": UserDefaultsManager.fcmToken]
+            
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .login, .signup, .myPage, .withdraw: return URLEncoding.default
+        case .login, .signup, .myPage, .withdraw, .fcmToken: return URLEncoding.default
         }
     }
     
