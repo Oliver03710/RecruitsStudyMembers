@@ -61,6 +61,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/withdraw")
     static var withdrawPath: String
     
+    @UserDefaultsWrapper(key: "updateFcmToken", defaultValue: "update_fcm_token")
+    static var updateFcmToken: String
+    
     // MARK: - Queue API
     @UserDefaultsWrapper(key: "queueBaseURLPath", defaultValue: "http://api.sesac.co.kr:1210/v1/queue")
     static var queueBaseURLPath: String
