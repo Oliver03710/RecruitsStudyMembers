@@ -143,7 +143,7 @@ final class ShopView: BaseView {
         valueChanged(control: segmentedControl)
     }
     
-    private func checkMyShopState() {
+    func checkMyShopState() {
         NetworkManager.shared.request(ShopData.self, router: SeSacApiShop.checkMyInfo)
             .subscribe(onSuccess: { [weak self] response, _ in
                 guard let self = self else { return }
