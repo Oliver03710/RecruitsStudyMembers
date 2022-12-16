@@ -27,6 +27,11 @@ final class ShopViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        shopView.checkMyShopState()
+    }
+    
     
     // MARK: - Helper Functions
     
