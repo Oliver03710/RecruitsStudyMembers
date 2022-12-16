@@ -65,7 +65,7 @@ final class SplashViewController: BaseViewController {
     
     func requestCheckUser() {
         NetworkManager.shared.request(UserData.self, router: SeSacApiUser.login)
-            .subscribe(onSuccess: { response, _ in
+            .subscribe(onSuccess: { [weak self] response, _ in
                 print(response)
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
@@ -75,6 +75,10 @@ final class SplashViewController: BaseViewController {
                 UserDefaultsManager.myUid = response.uid
                 UserDefaultsManager.userName = response.nick
                 UserDefaultsManager.userImage = response.sesac
+                
+                if response.fcMtoken != UserDefaultsManager.fcmToken {
+                    self?.updateFcmToken()
+                }
                 
             }, onFailure: { [weak self] error in
                 let err = (error as NSError).code
@@ -109,4 +113,30 @@ final class SplashViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    private func updateFcmToken() {
+        NetworkManager.shared.request(router: SeSacApiUser.fcmToken)
+            .subscribe(onSuccess: { response, _ in
+                print(response)
+                
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self.updateFcmToken()
+                    } errorHandler: {
+                        self.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
 }
