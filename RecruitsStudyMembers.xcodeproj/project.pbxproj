@@ -93,6 +93,7 @@
 		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
 		AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360D294D9B4400D3D615 /* IAPProducts.swift */; };
 		AD7A3610294D9CAF00D3D615 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360F294D9CAF00D3D615 /* IAPManager.swift */; };
+		AD7A3612294DB0D800D3D615 /* IAPBundles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3611294DB0D800D3D615 /* IAPBundles.swift */; };
 		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
 		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
 		AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */; };
@@ -263,6 +264,7 @@
 		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
 		AD7A360D294D9B4400D3D615 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
 		AD7A360F294D9CAF00D3D615 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		AD7A3611294DB0D800D3D615 /* IAPBundles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPBundles.swift; sourceTree = "<group>"; };
 		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
@@ -1457,6 +1459,7 @@
 				AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */,
 				AD083EDF29486D0500A43EF6 /* ReviewTitle+Enum.swift */,
 				ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */,
+				AD7A3611294DB0D800D3D615 /* IAPBundles.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1803,6 +1806,7 @@
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
 				ADE96245292C2526003D5191 /* SesacReviewCollectionViewCell.swift in Sources */,
 				ADE96240292C1032003D5191 /* SearchCollectionReusableView.swift in Sources */,
+				AD7A3612294DB0D800D3D615 /* IAPBundles.swift in Sources */,
 				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */,
