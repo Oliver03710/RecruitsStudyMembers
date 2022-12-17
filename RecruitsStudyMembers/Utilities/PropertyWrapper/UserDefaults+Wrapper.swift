@@ -115,9 +115,6 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "ios", defaultValue: "/ios")
     static var ios: String
     
-    @UserDefaultsWrapper(key: "purchaseItem", defaultValue: "/purchaseItem")
-    static var purchaseItem: String
-    
     // MARK: - Parameters
     @UserDefaultsWrapper(key: "phoneNum", defaultValue: "")
     static var phoneNum: String
