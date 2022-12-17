@@ -190,6 +190,7 @@ final class ReportAlertViewController: BaseViewController {
                     let vc = MainTabBarController()
                     sceneDelegate?.window?.rootViewController = vc
                     sceneDelegate?.window?.makeKeyAndVisible()
+                    ChatRepository.shared.deleteAll()
                 }
                 
             }, onFailure: { [weak self] error in
