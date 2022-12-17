@@ -24,13 +24,16 @@ final class ChatViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChatRepository.shared.fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         ChatManager.shared.establishConnection()
-        chatView.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count + 1, section: 0), at: .bottom, animated: false)
+        if ChatRepository.shared.tasks.count > 0 {
+            chatView.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count + 1, section: 0), at: .bottom, animated: false)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -336,16 +336,19 @@ final class ChatView: BaseView {
                 self.createCellData()
                 self.getChattingList()
                 self.addData()
-                self.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count + 1, section: 0), at: .bottom, animated: false)
+                if ChatRepository.shared.tasks.count > 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count - 1, section: 0), at: .bottom, animated: false)
+                }
             }
             .disposed(by: viewModel.disposeBag)
     }
     
     private func createCellData() {
         chatting.removeAll(keepingCapacity: true)
-        guard let first = ChatRepository.shared.tasks.first?.createdAt.toDate()?.toString(withFormat: "M월 dd일 EEEE") else { return }
-        let firstDate = ChatItems.dateCell(DateCellModel(string: first))
-        chatting.append(firstDate)
+        if let first = ChatRepository.shared.tasks.first?.createdAt.toDate()?.toString(withFormat: "M월 dd일 EEEE") {
+            let firstDate = ChatItems.dateCell(DateCellModel(string: first))
+            chatting.append(firstDate)
+        }
         
         let withWhom = ChatItems.introCell(IntroCellModel(string: NetworkManager.shared.nickName))
         chatting.append(withWhom)
