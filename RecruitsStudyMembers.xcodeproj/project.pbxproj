@@ -73,6 +73,7 @@
 		AD333029294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD333028294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift */; };
 		AD333030294B109200CCBB41 /* ShopSharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD33302F294B109200CCBB41 /* ShopSharedViewModel.swift */; };
 		AD333032294B10C800CCBB41 /* ShopSharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD333031294B10C800CCBB41 /* ShopSharedView.swift */; };
+		AD459D07294C63A700AB2529 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD459D06294C63A700AB2529 /* StoreKit.framework */; };
 		AD5A6858291AADCC00E84D18 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */; };
 		AD5A6859291AADCC00E84D18 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */; };
 		AD609663291A184300FF78CB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609662291A184300FF78CB /* CustomImageView.swift */; };
@@ -90,6 +91,8 @@
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */; };
 		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
+		AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360D294D9B4400D3D615 /* IAPProducts.swift */; };
+		AD7A3610294D9CAF00D3D615 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360F294D9CAF00D3D615 /* IAPManager.swift */; };
 		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
 		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
 		AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */; };
@@ -246,6 +249,7 @@
 		AD333028294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySesacBackgroundViewController.swift; sourceTree = "<group>"; };
 		AD33302F294B109200CCBB41 /* ShopSharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSharedViewModel.swift; sourceTree = "<group>"; };
 		AD333031294B10C800CCBB41 /* ShopSharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSharedView.swift; sourceTree = "<group>"; };
+		AD459D06294C63A700AB2529 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AD5A6856291AAD1400E84D18 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AD5A6857291AAD1400E84D18 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AD609662291A184300FF78CB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
+		AD7A360D294D9B4400D3D615 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		AD7A360F294D9CAF00D3D615 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 				AD60966F291A1A5F00FF78CB /* RxSwift in Frameworks */,
 				AD60967A291A1AAA00FF78CB /* JGProgressHUD in Frameworks */,
 				AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				AD459D07294C63A700AB2529 /* StoreKit.framework in Frameworks */,
 				AD103AA0291C21290032E9EB /* FirebaseMessaging in Frameworks */,
 				AD609667291A1A4300FF78CB /* SnapKit in Frameworks */,
 			);
@@ -630,6 +637,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		AD459D05294C63A700AB2529 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD459D06294C63A700AB2529 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD5A6855291AACF600E84D18 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +686,15 @@
 				AD90630C292D69CD007A70E2 /* CustomAlert */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		AD7A360C294D99D200D3D615 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				AD7A360D294D9B4400D3D615 /* IAPProducts.swift */,
+				AD7A360F294D9CAF00D3D615 /* IAPManager.swift */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		AD8B9556294B7A18000F0ECE /* URLRequestConvertible */ = {
@@ -1454,6 +1478,7 @@
 				AD1B38A92920E704006D7523 /* GoogleService-Info.plist */,
 				ADF9B34D2918CCE400D1F758 /* RecruitsStudyMembers */,
 				ADF9B34C2918CCE400D1F758 /* Products */,
+				AD459D05294C63A700AB2529 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1513,6 +1538,7 @@
 				AD9533BC2919605B002126C0 /* BaseComponents */,
 				AD609664291A184900FF78CB /* CustomComponents */,
 				AD103A92291C13B00032E9EB /* PropertyWrapper */,
+				AD7A360C294D99D200D3D615 /* IAP */,
 				AD103A95291C14CD0032E9EB /* Network */,
 				ADE24AD8292FE549000C08AB /* Managers */,
 				AD2E2F41293FC52F00842879 /* Chats */,
@@ -1703,6 +1729,7 @@
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
 				ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */,
 				ADEA5391294B4E1000A758F9 /* ShopData.swift in Sources */,
+				AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */,
 				ADCC0098293DDDD200C15C72 /* CircleView.swift in Sources */,
@@ -1710,6 +1737,7 @@
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
 				AD32E9D7293F274F0037939C /* AlertSplitView.swift in Sources */,
+				AD7A3610294D9CAF00D3D615 /* IAPManager.swift in Sources */,
 				AD906310292D6A42007A70E2 /* CustomAlertView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD32E9DE293F2FE40037939C /* AlertButtonCombined+Enum.swift in Sources */,
@@ -1932,9 +1960,10 @@
 				CODE_SIGN_ENTITLEMENTS = RecruitsStudyMembers/RecruitsStudyMembers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DLA597KS3F;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecruitsStudyMembers/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 이용하여 주변 스터디 멤버를 검색합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1947,7 +1976,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1966,9 +1995,10 @@
 				CODE_SIGN_ENTITLEMENTS = RecruitsStudyMembers/RecruitsStudyMembers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DLA597KS3F;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecruitsStudyMembers/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 이용하여 주변 스터디 멤버를 검색합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1981,7 +2011,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
