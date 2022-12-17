@@ -23,7 +23,7 @@ final class NetworkManager {
     
     var uid = ""
     var myChat = ""
-    var lastChatDate = ""
+    var lastChatDate: String?
     var nickName = ""
     
     var moreViewState = AlertSplit.report
