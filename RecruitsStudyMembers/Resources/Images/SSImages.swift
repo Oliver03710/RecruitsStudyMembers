@@ -61,14 +61,26 @@ enum BackgroundImages: Int, CaseIterable {
         case .sesacBackground0: return "새싹들을 많이 마주치는 매력적인 하늘 공원입니다."
         case .sesacBackground1: return "창밖으로 보이는 도시 야경이 아름다운 공간입니다."
         case .sesacBackground2: return "어둡지만 무섭지 않은 조용한 산책로입니다."
-        case .sesacBackground3: return "즐겁고 가볍게 걸을 수 있는 산책로입니다"
+        case .sesacBackground3: return "즐겁고 가볍게 걸을 수 있는 산책로입니다."
         case .sesacBackground4: return "연극의 주인공이 되어 연기를 펼칠 수 있는 무대입니다."
         case .sesacBackground5: return "모노톤의 따스한 감성의 거실로 편하게 쉴 수 있는 공간입니다."
         case .sesacBackground6: return "집에서 운동을 할 수 있도록 기구를 갖춘 방입니다."
         case .sesacBackground7: return "여러가지 음악 작업을 할 수 있는 작업실입니다."
         }
     }
-
+    
+    var iAPBundle: String {
+        switch self {
+        case .sesacBackground0: return ""
+        case .sesacBackground1: return "com.memolease.sesac1.background1"
+        case .sesacBackground2: return "com.memolease.sesac1.background2"
+        case .sesacBackground3: return "com.memolease.sesac1.background3"
+        case .sesacBackground4: return "com.memolease.sesac1.background4"
+        case .sesacBackground5: return "com.memolease.sesac1.background5"
+        case .sesacBackground6: return "com.memolease.sesac1.background6"
+        case .sesacBackground7: return "com.memolease.sesac1.background7"
+        }
+    }
 }
 
 enum FaceImages: Int, CaseIterable {
@@ -115,6 +127,16 @@ enum FaceImages: Int, CaseIterable {
         case .sesacFace2: return "호불호의 대명사! 상쾌한 향이 나서 허브가 대중화된 지역에서 많이 자랍니다."
         case .sesacFace3: return "감정을 편안하게 쉬도록 하며 슬프고 우울한 감정을 진정시켜주는 멋진 새싹입니다."
         case .sesacFace4: return "화려하고 멋있는 삶을 살며 돈과 인생을 플렉스 하는 자유분방한 새싹입니다."
+        }
+    }
+    
+    var iAPBundle: String {
+        switch self {
+        case .sesacFace0: return ""
+        case .sesacFace1: return "com.memolease.sesac1.sprout1"
+        case .sesacFace2: return "com.memolease.sesac1.sprout2"
+        case .sesacFace3: return "com.memolease.sesac1.sprout3"
+        case .sesacFace4: return "com.memolease.sesac1.sprout4"
         }
     }
 }
