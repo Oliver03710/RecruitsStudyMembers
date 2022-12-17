@@ -217,6 +217,7 @@ final class CustomAlertViewController: BaseViewController {
                     let vc = MainTabBarController()
                     sceneDelegate?.window?.rootViewController = vc
                     sceneDelegate?.window?.makeKeyAndVisible()
+                    ChatRepository.shared.deleteAll()
                     
                 case .wrongUid:
                     self.view.makeToast("취소하려는 상대의 아이디를 확인해주세요.")
