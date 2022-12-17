@@ -244,8 +244,9 @@ final class HomeViewController: BaseViewController {
                         NetworkManager.shared.nickName = response.matchedNick ?? ""
                         let vc = ChatViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
-                    } else if !button {
-                        NetworkManager.shared.queueState.accept(.readyToBeMatched)
+                        
+                    } else if response.matched == 1 && !button {
+                        NetworkManager.shared.queueState.accept(.matched)
                     }
                     
                 case .defaultState:
