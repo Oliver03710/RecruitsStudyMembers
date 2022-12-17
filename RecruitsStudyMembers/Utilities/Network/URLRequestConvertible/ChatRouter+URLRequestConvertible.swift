@@ -52,7 +52,7 @@ extension SeSacApiChat: URLRequestConvertible {
     var parameters: [String: Any]? {
         switch self {
         case .chatPost: return ["chat": NetworkManager.shared.myChat]
-        case .chatGet: return ["lastchatDate": NetworkManager.shared.lastChatDate]
+        case .chatGet: return ["lastchatDate": NetworkManager.shared.lastChatDate ?? "2000-01-01T00:00:00.000Z"]
         }
     }
     
