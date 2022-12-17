@@ -82,6 +82,7 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
         faceImageView.image = item.images
         titleLabel.text = item.title
         descriptionLabel.text = item.description
+        purchaseButton.tag = item.rawValue
         
         if NetworkManager.shared.shopState.sesacCollection.contains(item.rawValue) {
             purchaseButton.configuration = purchaseButton.buttonConfiguration(text: "보유", config: .plain(), foregroundColor: SSColors.gray7.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
