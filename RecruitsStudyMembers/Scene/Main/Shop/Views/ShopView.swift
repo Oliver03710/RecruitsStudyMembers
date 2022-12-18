@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 import Toast
 
@@ -92,6 +94,7 @@ final class ShopView: BaseView {
     
     override func configureUI() {
         setSegmentedControl()
+        bindData()
     }
     
     override func setConstraints() {
@@ -126,6 +129,17 @@ final class ShopView: BaseView {
             $0.bottom.equalTo(safeAreaLayoutGuide).inset(4)
             $0.top.equalTo(segmentedControl.snp.bottom).offset(4)
         }
+    }
+    
+    private func bindData() {
+        let input = ShopViewModel.Input(saveButtonTapped: saveButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.saveButtonDriver
+            .drive { [weak self] _ in
+                self?.changeMyImages()
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
     private func setSegmentedControl() {
@@ -167,6 +181,37 @@ final class ShopView: BaseView {
             })
             .disposed(by: viewModel.disposeBag)
     }
+    
+    private func changeMyImages() {
+        NetworkManager.shared.request(router: SeSacApiShop.item)
+            .subscribe(onSuccess: { [weak self] response, state in
+                guard let self = self, let state = SesacStatus.Shop.Items(rawValue: state) else { return }
+                switch state {
+                case .success:
+                    self.makeToast("성공적으로 저장되었습니다.")
+                    
+                case .doesntHave:
+                    self.makeToast("구매가 필요한 아이템이 있어요.")
+                }
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                print(err)
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.changeMyImages()
+                    } errorHandler: {
+                        self?.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+                    
+                default: self?.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+
     
     private func setImages() {
         foregroundImageView.image = UIImage(named: "sesacFace\(NetworkManager.shared.shopState.sesac)")
@@ -216,12 +261,12 @@ extension ShopView: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: false)
         if collectionView == sesacViewController.buyingView.collectionView {
             foregroundImageView.image = UIImage(named: "sesacFace\(indexPath.item)")
-            NetworkManager.shared.shopSesac = indexPath.item
+            NetworkManager.shared.shopState.sesac = indexPath.item
             print(indexPath.item)
             
         } else {
             backgroundImageView.image = UIImage(named: "sesacBackground\(indexPath.item)")
-            NetworkManager.shared.shopbackground = indexPath.item
+            NetworkManager.shared.shopState.background = indexPath.item
             print(indexPath.item)
         }
     }
