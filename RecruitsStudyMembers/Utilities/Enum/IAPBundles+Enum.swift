@@ -1,11 +1,15 @@
 //
-//  IAPBundles.swift
+//  IAPBundles+Enum.swift
 //  RecruitsStudyMembers
 //
 //  Created by Junhee Yoon on 2022/12/17.
 //
 
 import Foundation
+
+enum ProductType {
+    case face, background
+}
 
 enum FaceIAPBundles: String, CaseIterable {
     case sesacFace0 = ""
@@ -14,10 +18,10 @@ enum FaceIAPBundles: String, CaseIterable {
     case sesacFace3 = "com.memolease.sesac1.sprout3"
     case sesacFace4 = "com.memolease.sesac1.sprout4"
     
-    var Bundles: [String] {
-        var arr = Array<String>()
-        FaceIAPBundles.allCases.forEach { arr.append($0.rawValue) }
-        return arr
+    static var bundles: Set<String> {
+        var set = Set<String>()
+        FaceIAPBundles.allCases.forEach { set.insert($0.rawValue) }
+        return set
     }
 }
 
@@ -31,9 +35,9 @@ enum BackgroundIAPBundles: String, CaseIterable {
     case sesacBackground6 = "com.memolease.sesac1.background6"
     case sesacBackground7 = "com.memolease.sesac1.background7"
     
-    var Bundles: [String] {
-        var arr = Array<String>()
-        BackgroundIAPBundles.allCases.forEach { arr.append($0.rawValue) }
-        return arr
+    static var bundles: Set<String> {
+        var set = Set<String>()
+        BackgroundIAPBundles.allCases.forEach { set.insert($0.rawValue) }
+        return set
     }
 }
