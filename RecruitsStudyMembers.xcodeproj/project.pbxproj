@@ -28,6 +28,8 @@
 		AD103A9C291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9B291C21290032E9EB /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		AD103A9E291C21290032E9EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9D291C21290032E9EB /* FirebaseAuth */; };
 		AD103AA0291C21290032E9EB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AD103A9F291C21290032E9EB /* FirebaseMessaging */; };
+		AD17735B294E1B08000B8164 /* SKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17735A294E1B08000B8164 /* SKManager.swift */; };
+		AD17735F294E3A36000B8164 /* BlockingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17735E294E3A36000B8164 /* BlockingViewController.swift */; };
 		AD1B38A429209CAD006D7523 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */; };
 		AD1B38A62920A18B006D7523 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B38A52920A18B006D7523 /* CustomError.swift */; };
 		AD1B38AA2920E704006D7523 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD1B38A92920E704006D7523 /* GoogleService-Info.plist */; };
@@ -93,7 +95,9 @@
 		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
 		AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360D294D9B4400D3D615 /* IAPProducts.swift */; };
 		AD7A3610294D9CAF00D3D615 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360F294D9CAF00D3D615 /* IAPManager.swift */; };
-		AD7A3612294DB0D800D3D615 /* IAPBundles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3611294DB0D800D3D615 /* IAPBundles.swift */; };
+		AD7A3612294DB0D800D3D615 /* IAPBundles+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3611294DB0D800D3D615 /* IAPBundles+Enum.swift */; };
+		AD7A3614294DB72B00D3D615 /* IAP+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3613294DB72B00D3D615 /* IAP+Notification.swift */; };
+		AD7A3616294DB9D700D3D615 /* SKProductCurrency+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3615294DB9D700D3D615 /* SKProductCurrency+Extension.swift */; };
 		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
 		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
 		AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */; };
@@ -206,6 +210,8 @@
 		AD103A96291C15050032E9EB /* UserRouter+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRouter+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		AD103A98291C194D0032E9EB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AD103AA1291C298B0032E9EB /* RecruitsStudyMembers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecruitsStudyMembers.entitlements; sourceTree = "<group>"; };
+		AD17735A294E1B08000B8164 /* SKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKManager.swift; sourceTree = "<group>"; };
+		AD17735E294E3A36000B8164 /* BlockingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingViewController.swift; sourceTree = "<group>"; };
 		AD1B38A329209CAD006D7523 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		AD1B38A52920A18B006D7523 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		AD1B38A92920E704006D7523 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -264,7 +270,9 @@
 		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
 		AD7A360D294D9B4400D3D615 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
 		AD7A360F294D9CAF00D3D615 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		AD7A3611294DB0D800D3D615 /* IAPBundles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPBundles.swift; sourceTree = "<group>"; };
+		AD7A3611294DB0D800D3D615 /* IAPBundles+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPBundles+Enum.swift"; sourceTree = "<group>"; };
+		AD7A3613294DB72B00D3D615 /* IAP+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAP+Notification.swift"; sourceTree = "<group>"; };
+		AD7A3615294DB9D700D3D615 /* SKProductCurrency+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProductCurrency+Extension.swift"; sourceTree = "<group>"; };
 		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
@@ -431,6 +439,8 @@
 				AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */,
 				AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */,
 				ADE76D82293B7CEF004058D3 /* UIApplication+Extension.swift */,
+				AD7A3613294DB72B00D3D615 /* IAP+Notification.swift */,
+				AD7A3615294DB9D700D3D615 /* SKProductCurrency+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,6 +462,22 @@
 				ADEA5392294B4E1300A758F9 /* Data */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		AD17735C294E39EF000B8164 /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				AD17735D294E3A1C000B8164 /* ViewControllers */,
+			);
+			path = Nested;
+			sourceTree = "<group>";
+		};
+		AD17735D294E3A1C000B8164 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD17735E294E3A36000B8164 /* BlockingViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		AD23FAD229220BF5004FA34E /* Main */ = {
@@ -610,6 +636,7 @@
 				AD333024294B0EF700CCBB41 /* Views */,
 				ADEA5389294B1C2600A758F9 /* Cells */,
 				AD333025294B0EFB00CCBB41 /* ViewModels */,
+				AD17735C294E39EF000B8164 /* Nested */,
 			);
 			path = Nested;
 			sourceTree = "<group>";
@@ -695,6 +722,7 @@
 			children = (
 				AD7A360D294D9B4400D3D615 /* IAPProducts.swift */,
 				AD7A360F294D9CAF00D3D615 /* IAPManager.swift */,
+				AD17735A294E1B08000B8164 /* SKManager.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -1459,7 +1487,7 @@
 				AD2E2F38293F933400842879 /* ButtonToggle+Enum.swift */,
 				AD083EDF29486D0500A43EF6 /* ReviewTitle+Enum.swift */,
 				ADEA5387294B175B00A758F9 /* ShopViewSelected+Enum.swift */,
-				AD7A3611294DB0D800D3D615 /* IAPBundles.swift */,
+				AD7A3611294DB0D800D3D615 /* IAPBundles+Enum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1735,6 +1763,7 @@
 				AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */,
+				AD17735B294E1B08000B8164 /* SKManager.swift in Sources */,
 				ADCC0098293DDDD200C15C72 /* CircleView.swift in Sources */,
 				AD910B7729290709000F7828 /* SeSacAnnotation.swift in Sources */,
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
@@ -1761,6 +1790,7 @@
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
 				ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */,
+				AD7A3614294DB72B00D3D615 /* IAP+Notification.swift in Sources */,
 				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
 				AD32E9DC293F2ACA0037939C /* AlertSplit+Enum.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
@@ -1785,6 +1815,7 @@
 				AD333029294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift in Sources */,
 				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
 				ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */,
+				AD7A3616294DB9D700D3D615 /* SKProductCurrency+Extension.swift in Sources */,
 				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
 				AD910B7D29295A2A000F7828 /* CircleButton.swift in Sources */,
@@ -1803,10 +1834,11 @@
 				ADAC0D692926943A00424D39 /* AgeChoiceCollectionViewCell.swift in Sources */,
 				AD103A94291C13DA0032E9EB /* UserDefaults+Wrapper.swift in Sources */,
 				ADF9B34F2918CCE400D1F758 /* AppDelegate.swift in Sources */,
+				AD17735F294E3A36000B8164 /* BlockingViewController.swift in Sources */,
 				AD609682291A462200FF78CB /* FirstViewController.swift in Sources */,
 				ADE96245292C2526003D5191 /* SesacReviewCollectionViewCell.swift in Sources */,
 				ADE96240292C1032003D5191 /* SearchCollectionReusableView.swift in Sources */,
-				AD7A3612294DB0D800D3D615 /* IAPBundles.swift in Sources */,
+				AD7A3612294DB0D800D3D615 /* IAPBundles+Enum.swift in Sources */,
 				AD23FAF229221830004FA34E /* MyinfoView.swift in Sources */,
 				AD60967F291A3FD900FF78CB /* CustomButton.swift in Sources */,
 				ADA27D212934CD5800150C26 /* SharedSegmentedView.swift in Sources */,
