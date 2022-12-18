@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class FaceCollectionViewCell: CustomCollectionViewCell {
@@ -39,11 +41,14 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
         return btn
     }()
     
+    private let disposeBag = DisposeBag()
+    
     
     // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bindData()
     }
     
     
@@ -75,7 +80,17 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
             $0.top.equalTo(purchaseButton.snp.bottom).offset(12)
             $0.directionalHorizontalEdges.equalToSuperview()
         }
-        
+    }
+    
+    private func bindData() {
+        purchaseButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                guard let self = self, let products = SKManager.shared.products else { return }
+                SKManager.shared.purchase(productParam: products[self.purchaseButton.tag + BackgroundImages.allCases.count - 2])
+                NetworkManager.shared.product = SKManager.shared.productsIdentifier[self.purchaseButton.tag + BackgroundImages.allCases.count - 2]
+            }
+            .disposed(by: disposeBag)
     }
     
     func ConfigureCells(item: FaceImages) {
@@ -87,10 +102,12 @@ final class FaceCollectionViewCell: CustomCollectionViewCell {
         if NetworkManager.shared.shopState.sesacCollection.contains(item.rawValue) {
             purchaseButton.configuration = purchaseButton.buttonConfiguration(text: "보유", config: .plain(), foregroundColor: SSColors.gray7.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
             purchaseButton.backgroundColor = SSColors.gray2.color
+            purchaseButton.isUserInteractionEnabled = false
             
         } else {
-            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: item.price, config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
+            purchaseButton.configuration = purchaseButton.buttonConfiguration(text: SKManager.shared.prices[item.rawValue + BackgroundImages.allCases.count - 2], config: .plain(), foregroundColor: SSColors.white.color, font: SSFonts.title5M12.fonts, size: SSFonts.title5M12.size, lineHeight: SSFonts.title5M12.lineHeight)
             purchaseButton.backgroundColor = SSColors.green.color
+            purchaseButton.isUserInteractionEnabled = true
         }
     }
 }
