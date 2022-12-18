@@ -51,8 +51,8 @@ extension SeSacApiShop: URLRequestConvertible {
     
     var parameters: [String: Any]? {
         switch self {
-        case .item: return ["sesac": 1,
-                            "background": 1]
+        case .item: return ["sesac": NetworkManager.shared.shopState.sesac,
+                            "background": NetworkManager.shared.shopState.background]
             
         case .ios: return ["receipt": NetworkManager.shared.receipt.value,
                            "product": NetworkManager.shared.product]
