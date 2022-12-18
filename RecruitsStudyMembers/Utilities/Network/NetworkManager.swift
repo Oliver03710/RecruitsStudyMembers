@@ -38,6 +38,12 @@ final class NetworkManager {
     var shopSesac = 0
     var shopbackground = 0
     
+    var receipt = BehaviorRelay<String>(value: "")
+    var product = ""
+    
+    var isDismissed = BehaviorRelay<Bool>(value: false)
+    var isUpdated = BehaviorRelay<Bool>(value: false)
+    
     static let shared = NetworkManager()
     private let disposeBag = DisposeBag()
     
