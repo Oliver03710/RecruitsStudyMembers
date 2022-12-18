@@ -8,8 +8,8 @@
 import Foundation
 
 struct ShopData: Codable {
-    let sesac: Int
+    var sesac: Int
     let sesacCollection: [Int]
-    let background: Int
+    var background: Int
     let backgroundCollection: [Int]
 }
