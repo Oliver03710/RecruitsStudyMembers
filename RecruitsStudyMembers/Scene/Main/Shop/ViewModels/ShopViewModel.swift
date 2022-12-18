@@ -20,9 +20,11 @@ final class ShopViewModel: CommonViewModel {
     // MARK: - In & Out Data
     
     struct Input {
+        let saveButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
+        let saveButtonDriver: SharedSequence<DriverSharingStrategy, Void>
     }
     
     
@@ -30,6 +32,8 @@ final class ShopViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
        
-        return Output()
+        let saveButtonDriver = input.saveButtonTapped.asDriver()
+        
+        return Output(saveButtonDriver: saveButtonDriver)
     }
 }
