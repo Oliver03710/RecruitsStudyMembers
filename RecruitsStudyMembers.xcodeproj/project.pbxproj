@@ -93,11 +93,7 @@
 		AD60968A291A52BF00FF78CB /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */; };
 		AD7803DD2930B3660007B19C /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */; };
 		AD7803DF2930D4870007B19C /* QueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7803DE2930D4870007B19C /* QueueData.swift */; };
-		AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360D294D9B4400D3D615 /* IAPProducts.swift */; };
-		AD7A3610294D9CAF00D3D615 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A360F294D9CAF00D3D615 /* IAPManager.swift */; };
 		AD7A3612294DB0D800D3D615 /* IAPBundles+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3611294DB0D800D3D615 /* IAPBundles+Enum.swift */; };
-		AD7A3614294DB72B00D3D615 /* IAP+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3613294DB72B00D3D615 /* IAP+Notification.swift */; };
-		AD7A3616294DB9D700D3D615 /* SKProductCurrency+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A3615294DB9D700D3D615 /* SKProductCurrency+Extension.swift */; };
 		AD7AE60729338F5C0089D747 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60629338F5C0089D747 /* SearchViewModel.swift */; };
 		AD7AE609293391B10089D747 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE608293391B10089D747 /* SearchData.swift */; };
 		AD7AE60B29339B300089D747 /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */; };
@@ -268,11 +264,7 @@
 		AD609689291A52BF00FF78CB /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AD7803DC2930B3660007B19C /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
 		AD7803DE2930D4870007B19C /* QueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueData.swift; sourceTree = "<group>"; };
-		AD7A360D294D9B4400D3D615 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
-		AD7A360F294D9CAF00D3D615 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		AD7A3611294DB0D800D3D615 /* IAPBundles+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPBundles+Enum.swift"; sourceTree = "<group>"; };
-		AD7A3613294DB72B00D3D615 /* IAP+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAP+Notification.swift"; sourceTree = "<group>"; };
-		AD7A3615294DB9D700D3D615 /* SKProductCurrency+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProductCurrency+Extension.swift"; sourceTree = "<group>"; };
 		AD7AE60629338F5C0089D747 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD7AE608293391B10089D747 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
@@ -439,8 +431,6 @@
 				AD910B7A29294B6D000F7828 /* Shadow+Extension.swift */,
 				AD7AE60A29339B300089D747 /* BehaviorRelay+Extension.swift */,
 				ADE76D82293B7CEF004058D3 /* UIApplication+Extension.swift */,
-				AD7A3613294DB72B00D3D615 /* IAP+Notification.swift */,
-				AD7A3615294DB9D700D3D615 /* SKProductCurrency+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -720,8 +710,6 @@
 		AD7A360C294D99D200D3D615 /* IAP */ = {
 			isa = PBXGroup;
 			children = (
-				AD7A360D294D9B4400D3D615 /* IAPProducts.swift */,
-				AD7A360F294D9CAF00D3D615 /* IAPManager.swift */,
 				AD17735A294E1B08000B8164 /* SKManager.swift */,
 			);
 			path = IAP;
@@ -1760,7 +1748,6 @@
 				AD23FAF0292214FA004FA34E /* MyinfoViewController.swift in Sources */,
 				ADE96243292C251B003D5191 /* SesacTitleCollectionViewCell.swift in Sources */,
 				ADEA5391294B4E1000A758F9 /* ShopData.swift in Sources */,
-				AD7A360E294D9B4400D3D615 /* IAPProducts.swift in Sources */,
 				AD9533D7291965C3002126C0 /* BirthView.swift in Sources */,
 				AD32E9E4293F419A0037939C /* AlertBodyView.swift in Sources */,
 				AD17735B294E1B08000B8164 /* SKManager.swift in Sources */,
@@ -1769,7 +1756,6 @@
 				AD9533DB29196616002126C0 /* EmailView.swift in Sources */,
 				ADB604BB292377E20081CEC2 /* DefaultUserData.swift in Sources */,
 				AD32E9D7293F274F0037939C /* AlertSplitView.swift in Sources */,
-				AD7A3610294D9CAF00D3D615 /* IAPManager.swift in Sources */,
 				AD906310292D6A42007A70E2 /* CustomAlertView.swift in Sources */,
 				AD103A86291B79E30032E9EB /* SignupTextField.swift in Sources */,
 				AD32E9DE293F2FE40037939C /* AlertButtonCombined+Enum.swift in Sources */,
@@ -1790,7 +1776,6 @@
 				AD0D0488291D20C200377276 /* GenderViewModel.swift in Sources */,
 				AD103A99291C194D0032E9EB /* NetworkManager.swift in Sources */,
 				ADA27D0D29349C6500150C26 /* MemberListViewController.swift in Sources */,
-				AD7A3614294DB72B00D3D615 /* IAP+Notification.swift in Sources */,
 				ADEF3B79291D5EF3004B4CDE /* TextFieldEvent+Enum.swift in Sources */,
 				AD32E9DC293F2ACA0037939C /* AlertSplit+Enum.swift in Sources */,
 				AD9533BE2919606D002126C0 /* BaseViewController.swift in Sources */,
@@ -1815,7 +1800,6 @@
 				AD333029294B0F3900CCBB41 /* BuySesacBackgroundViewController.swift in Sources */,
 				AD0D0486291D1F0D00377276 /* EmailViewModel.swift in Sources */,
 				ADAC0D5F2926109B00424D39 /* GenderCollectionViewCell.swift in Sources */,
-				AD7A3616294DB9D700D3D615 /* SKProductCurrency+Extension.swift in Sources */,
 				AD23FADB29221176004FA34E /* HomeViewController.swift in Sources */,
 				AD9533D92919660D002126C0 /* EmailViewController.swift in Sources */,
 				AD910B7D29295A2A000F7828 /* CircleButton.swift in Sources */,
