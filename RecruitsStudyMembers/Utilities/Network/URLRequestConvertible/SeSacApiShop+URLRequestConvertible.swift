@@ -54,8 +54,8 @@ extension SeSacApiShop: URLRequestConvertible {
         case .item: return ["sesac": 1,
                             "background": 1]
             
-        case .ios: return ["receipt": "",
-                           "product": ""]
+        case .ios: return ["receipt": NetworkManager.shared.receipt.value,
+                           "product": NetworkManager.shared.product]
             
         default: return nil
         }
