@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class ShopSharedView: BaseView {
@@ -21,6 +23,7 @@ final class ShopSharedView: BaseView {
     var backgroundDataSource: UICollectionViewDiffableDataSource<Int, BackgroundImages>! = nil
     var backgroundCurrentSnapshot: NSDiffableDataSourceSnapshot<Int, BackgroundImages>! = nil
     
+    private let viewModel = ShopSharedViewModel()
     var state: ShopViewSelected = .face
     
     
@@ -32,9 +35,39 @@ final class ShopSharedView: BaseView {
     
     convenience init(state: ShopViewSelected) {
         self.init()
+        SKManager.shared.getProducts()
         self.state = state
         configureHierarchy(state: state)
         configureDataSource(state: state)
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    override func configureUI() {
+        bindData()
+    }
+    
+    private func bindData() {
+        NetworkManager.shared.isUpdated
+            .asDriver()
+            .drive { [weak self] bool in
+                print(NetworkManager.shared.isUpdated.value)
+                
+                guard let self = self else { return }
+                print(self.state)
+                if bool && self.state == .face {
+                    self.faceCurrentSnapshot.deleteAllItems()
+                    self.updateUI(state: .face)
+                    NetworkManager.shared.isUpdated.accept(false)
+                    
+                } else if bool && self.state == .background {
+                    self.backgroundCurrentSnapshot.deleteAllItems()
+                    self.updateUI(state: .background)
+                    NetworkManager.shared.isUpdated.accept(false)
+                }
+            }
+            .disposed(by: viewModel.disposeBag)
     }
 }
 
@@ -101,7 +134,7 @@ extension ShopSharedView {
         return layout
     }
     
-    private func configureDataSource(state: ShopViewSelected) {
+    func configureDataSource(state: ShopViewSelected) {
         switch state {
         case .face:
             let cellRegistration = UICollectionView.CellRegistration<FaceCollectionViewCell, FaceImages> { (cell, indexPath, item) in
@@ -112,11 +145,7 @@ extension ShopSharedView {
                 (collectionView, indexPath, item) -> UICollectionViewCell? in
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
             }
-            
-            faceCurrentSnapshot = NSDiffableDataSourceSnapshot<Int, FaceImages>()
-            faceCurrentSnapshot.appendSections([0])
-            faceCurrentSnapshot.appendItems(FaceImages.allCases)
-            faceDataSource.apply(faceCurrentSnapshot, animatingDifferences: false)
+            updateUI(state: state)
             
         case .background:
             let cellRegistration = UICollectionView.CellRegistration<BackgroundCollectionViewCell, BackgroundImages> { (cell, indexPath, item) in
@@ -127,7 +156,19 @@ extension ShopSharedView {
                 (collectionView, indexPath, item) -> UICollectionViewCell? in
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
             }
+            updateUI(state: state)
+        }
+    }
+    
+    func updateUI(state: ShopViewSelected) {
+        switch state {
+        case .face:
+            faceCurrentSnapshot = NSDiffableDataSourceSnapshot<Int, FaceImages>()
+            faceCurrentSnapshot.appendSections([0])
+            faceCurrentSnapshot.appendItems(FaceImages.allCases)
+            faceDataSource.apply(faceCurrentSnapshot, animatingDifferences: false)
             
+        case .background:
             backgroundCurrentSnapshot = NSDiffableDataSourceSnapshot<Int, BackgroundImages>()
             backgroundCurrentSnapshot.appendSections([0])
             backgroundCurrentSnapshot.appendItems(BackgroundImages.allCases)
