@@ -54,6 +54,8 @@ final class ReceivedRequestViewController: BaseViewController {
                 self.receivedView.updateUI()
                 if !self.receivedView.viewModel.memberList.value.isEmpty {
                     self.receivedView.makeHidden(isHidden: true)
+                } else {
+                    self.receivedView.makeHidden(isHidden: true)
                 }
                 
             }, onFailure: { [weak self] error in

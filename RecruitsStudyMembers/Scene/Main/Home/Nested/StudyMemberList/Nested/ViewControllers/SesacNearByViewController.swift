@@ -37,7 +37,6 @@ final class SesacNearByViewController: BaseViewController {
     
     override func configureUI() {
         nearbyView.state = .sendRequest
-        bindData()
         nearbyView.collectionView.delegate = self
     }
     
@@ -56,6 +55,8 @@ final class SesacNearByViewController: BaseViewController {
                 self.nearbyView.updateUI()
                 if !self.nearbyView.viewModel.memberList.value.isEmpty {
                     self.nearbyView.makeHidden(isHidden: true)
+                } else {
+                    self.nearbyView.makeHidden(isHidden: false)
                 }
                 
             }, onFailure: { [weak self] error in
@@ -75,12 +76,10 @@ final class SesacNearByViewController: BaseViewController {
             })
             .disposed(by: nearbyView.viewModel.disposeBag)
     }
-    
-    private func bindData() {
-        
-    }
 }
 
+
+// MARK: - Extension: UICollectionViewDelegate
 
 extension SesacNearByViewController: UICollectionViewDelegate {
     
