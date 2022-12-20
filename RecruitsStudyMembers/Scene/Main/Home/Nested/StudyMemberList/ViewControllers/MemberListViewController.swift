@@ -53,6 +53,8 @@ final class MemberListViewController: BaseViewController {
         }
     }
     
+    private var timer: Timer?
+    
     private let disposeBag = DisposeBag()
     
     
@@ -60,6 +62,16 @@ final class MemberListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTimer()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
     }
     
     
@@ -80,6 +92,10 @@ final class MemberListViewController: BaseViewController {
     @objc override func backButtonTapped() {
         NetworkManager.shared.queueState.accept(.readyToBeMatched)
         navigationController?.popViewControllers(2)
+    }
+    
+    @objc private func timerActions() {
+        checkMyQueueState()
     }
     
     
@@ -104,7 +120,6 @@ final class MemberListViewController: BaseViewController {
             $0.directionalHorizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(4)
             $0.top.equalTo(segmentedControl.snp.bottom).offset(4)
         }
-
     }
     
     override func setNaigations(naviTitle: String? = nil) {
@@ -248,9 +263,33 @@ final class MemberListViewController: BaseViewController {
     }
     
     private func checkMyQueueState() {
-        NetworkManager.shared.request(QueueData.self, router: SeSacApiQueue.myQueueState)
-            .subscribe(onSuccess: { response, state in
-                print(response)
+        NetworkManager.shared.request(QueueStateData.self, router: SeSacApiQueue.myQueueState)
+            .subscribe(onSuccess: { [weak self] response, state in
+                print(response, state)
+                guard let self = self, let state = SesacStatus.Queue.myQueueState(rawValue: state) else { return }
+                switch state {
+                case .success:
+                    if response.matched == 0 {
+                        print("Waiting For Matching...")
+                        
+                    } else if response.matched == 1 {
+                        self.view.makeToast("\(NetworkManager.shared.nickName)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.") {
+                            _ in
+                            NetworkManager.shared.queueState.accept(.matched)
+                            
+                            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                            let vc = MainTabBarController()
+                            sceneDelegate?.window?.rootViewController = vc
+                            sceneDelegate?.window?.makeKeyAndVisible()
+                            let targetVC = ChatViewController()
+                            vc.navigationController?.pushViewController(targetVC, animated: true)
+                        }
+                    }
+                    
+                case .defaultState:
+                    print("기본 상태")
+                }
                 
             }, onFailure: { [weak self] error in
                 let err = (error as NSError).code
@@ -270,8 +309,12 @@ final class MemberListViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    deinit {
-        print("새싹찾기 화면 deinit")
+    private func setTimer() {
+        if timer != nil && timer!.isValid {
+            timer?.invalidate()
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(timerActions), userInfo: nil, repeats: true)
     }
 }
 
