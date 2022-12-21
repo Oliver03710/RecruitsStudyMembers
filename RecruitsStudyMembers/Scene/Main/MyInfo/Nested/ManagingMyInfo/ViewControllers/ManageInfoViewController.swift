@@ -39,6 +39,23 @@ final class ManageInfoViewController: BaseViewController {
     // MARK: - Selectors
     
     @objc func saveAction() {
+        saveMyInfo()
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    override func configureUI() {
+        setNavigationStatus()
+        myView.collectionView.delegate = self
+    }
+    
+    func setNavigationStatus() {
+        setNaigations(naviTitle: "정보 관리")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveAction))
+    }
+    
+    private func saveMyInfo() {
         NetworkManager.shared.request(router: SeSacApiUser.myPage)
             .subscribe(onSuccess: { [weak self] response in
                 print(response)
@@ -52,50 +69,7 @@ final class ManageInfoViewController: BaseViewController {
                 switch errStatus {
                 case .firebase:
                     NetworkManager.shared.fireBaseError {
-                        self?.login()
-                    } errorHandler: {
-                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
-                    }
-
-                default:
-                    self?.view.makeToast(errStatus.errorDescription)
-                }
-            })
-            .disposed(by: myView.viewModel.disposeBag)
-    }
-    
-    
-    // MARK: - Helper Functions
-    
-    override func configureUI() {
-        login()
-        setNavigationStatus()
-        myView.collectionView.delegate = self
-        bindData()
-    }
-    
-    func setNavigationStatus() {
-        setNaigations(naviTitle: "정보 관리")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveAction))
-    }
-    
-    func bindData() {
-        
-    }
-    
-    func login() {
-        NetworkManager.shared.request(UserData.self, router: SeSacApiUser.login)
-            .subscribe(onSuccess: { respone, _ in
-                NetworkManager.shared.userData = respone
-                print(respone)
-                
-            }, onFailure: { [weak self] error in
-                let err = (error as NSError).code
-                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
-                switch errStatus {
-                case .firebase:
-                    NetworkManager.shared.fireBaseError {
-                        self?.login()
+                        self?.saveMyInfo()
                     } errorHandler: {
                         self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
                     }
