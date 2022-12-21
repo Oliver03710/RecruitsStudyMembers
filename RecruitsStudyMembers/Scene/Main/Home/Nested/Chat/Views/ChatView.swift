@@ -162,7 +162,6 @@ final class ChatView: BaseView {
         bindData()
         keyboardActions()
         NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification:)), name: Notification.Name("getMessage"), object: nil)
-        dump(ChatRepository.shared.tasks)
         getChattingList()
     }
     
@@ -334,7 +333,6 @@ final class ChatView: BaseView {
             .bind { [weak self] _ in
                 guard let self = self else { return }
                 self.createCellData()
-                self.getChattingList()
                 self.addData()
                 if ChatRepository.shared.tasks.count > 0 {
                     self.tableView.scrollToRow(at: IndexPath(row: ChatRepository.shared.tasks.count - 1, section: 0), at: .bottom, animated: false)
@@ -465,6 +463,7 @@ final class ChatView: BaseView {
     private func getChattingList() {
         NetworkManager.shared.request(Payload.self, router: SeSacApiChat.chatGet)
             .subscribe(onSuccess: { response, state in
+                dump(response)
                 guard let state = SesacStatus.Chat.GetChatList(rawValue: state) else { return }
                 switch state {
                 case .success:
