@@ -71,7 +71,7 @@ final class MyinfoTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(imagesView.snp.trailing).offset(16)
             make.directionalVerticalEdges.equalTo(self.safeAreaLayoutGuide).inset(20)
-            make.width.equalTo(titleLabel.snp.height).multipliedBy(3)
+            make.width.equalToSuperview().inset(16)
         }
         
         indicatorImageView.snp.makeConstraints { make in
