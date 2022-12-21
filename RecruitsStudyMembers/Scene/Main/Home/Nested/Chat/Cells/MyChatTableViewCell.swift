@@ -74,6 +74,7 @@ final class MyChatTableViewCell: UITableViewCell {
             $0.bottom.equalToSuperview().inset(8)
             $0.leading.equalToSuperview().inset(16)
         }
+        dateLabel.setContentCompressionResistancePriority(.init(999), for: .horizontal)
     }
     
     func configureCells(text: String?, date: String?) {

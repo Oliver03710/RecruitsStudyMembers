@@ -68,6 +68,7 @@ final class UserChatTableViewCell: UITableViewCell {
         chatLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16))
         }
+        chatLabel.setContentHuggingPriority(.init(999), for: .horizontal)
         
         dateLabel.snp.makeConstraints {
             $0.leading.equalTo(baseView.snp.trailing).offset(8)
