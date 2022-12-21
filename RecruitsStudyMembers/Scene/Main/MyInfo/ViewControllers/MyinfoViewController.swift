@@ -7,11 +7,17 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import Toast
+
 final class MyinfoViewController: BaseViewController {
 
     // MARK: - Properties
     
     private let myView = MyinfoView()
+    
+    private let disposeBag = DisposeBag()
     
     
     // MARK: - Init
@@ -34,10 +40,35 @@ final class MyinfoViewController: BaseViewController {
     
     override func configureUI() {
         setTableViewComponents()
+        getUserInfo()
     }
     
     func setTableViewComponents() {
         myView.tableView.delegate = self
+    }
+    
+    private func getUserInfo() {
+        NetworkManager.shared.request(UserData.self, router: SeSacApiUser.login)
+            .subscribe(onSuccess: { respone, _ in
+                NetworkManager.shared.userData = respone
+                print(respone)
+                
+            }, onFailure: { [weak self] error in
+                let err = (error as NSError).code
+                guard let errStatus = SesacStatus.DefaultError(rawValue: err) else { return }
+                switch errStatus {
+                case .firebase:
+                    NetworkManager.shared.fireBaseError {
+                        self?.getUserInfo()
+                    } errorHandler: {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 실행해주세요.")
+                    }
+
+                default:
+                    self?.view.makeToast(errStatus.errorDescription)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
 }
