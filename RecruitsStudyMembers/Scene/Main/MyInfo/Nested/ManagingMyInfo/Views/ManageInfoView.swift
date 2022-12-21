@@ -137,6 +137,8 @@ extension ManageInfoView {
             backConfig.image = UIImage(named: "sesacBackground\(NetworkManager.shared.userData.background)")
             backConfig.cornerRadius = 8
             cell.backgroundConfiguration = backConfig
+            
+            cell.ConfigureCells(image: "sesacFace\(NetworkManager.shared.userData.sesac)")
         }
         
         let foldableCellRegistration = UICollectionView.CellRegistration<FoldableCollectionViewCell, DefaultUserData> { [weak self] (cell, indexPath, identifier) in
