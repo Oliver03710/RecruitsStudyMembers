@@ -38,8 +38,8 @@
 | 의존성 관리도구 | Swift Pakage Manager |
 | 디자인 | AutoLayout |
 | 디자인 패턴 | Delegate, Input/OutPut, MVC, MVVM, Repository, Singleton |
-| 오픈 라이브러리 | Alarmofire, FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, SnapKit, |
-|  | Socket.I.O, Toast |
+| 오픈 라이브러리 | Alarmofire, FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, |
+|  | SnapKit, Socket.I.O, Toast |
 | 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Calendar, CaseIterable, |
 |  | Codable, CompositionalLayout, CustomFont, CustomView, Date, DateFormatter, |
 |  | DiffableDataSource, DispatchQueue, Hashable, Locale, NumberFormatter, |
