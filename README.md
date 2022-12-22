@@ -35,7 +35,7 @@
 | ----- | ----- |
 | 개발 언어 | Swift | 
 | 애플 프레임워크 | CoreLocation, Foundation, MapKit, StoreKit, UIKit |
-| 의존성 관리 도구&nbsp;&nbsp; | Swift Pakage Manager |
+| 의존성 관리 도구&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Swift Pakage Manager |
 | 디자인 | AutoLayout |
 | 디자인 패턴 | Delegate, Input/OutPut, MVC, MVVM, Repository, Singleton |
 | 오픈 라이브러리 | Alarmofire, FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, SnapKit, |
