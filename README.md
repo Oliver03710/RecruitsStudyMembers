@@ -35,15 +35,15 @@
 | ----- | ----- |
 | 개발 언어 | Swift | 
 | 애플 프레임워크 | CoreLocation, Foundation, MapKit, StoreKit, UIKit |
-| 의존성 관리 도구 | Swift Pakage Manager |
+| 의존성 관리 도구&nbsp;&nbsp; | Swift Pakage Manager |
 | 디자인 | AutoLayout |
 | 디자인 패턴 | Delegate, Input/OutPut, MVC, MVVM, Repository, Singleton |
 | 오픈 라이브러리 | Alarmofire, FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, SnapKit, |
 |  | Socket.I.O, Toast |
 | 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Calendar, CaseIterable, Codable, |
 |  | CompositionalLayout, CustomFont, CustomView, Date, DateFormatter, DiffableDataSource, |
-|  | DispatchQueue, Hashable, Locale, NumberFormatter, NSMutableParagraphStyle, NSPredicate, |
-|  | @PropertyWrapper, Timer, TimeZone, NotificationCenter, UserDefaults, UUID |
+|  | DispatchQueue, Hashable, Locale, NumberFormatter, NSMutableParagraphStyle, |
+|  | NSPredicate, @PropertyWrapper, Timer, TimeZone, NotificationCenter, UserDefaults, UUID |
 | 기타 툴 | Confluence, Jandi, Postman, Swagger |
 | 소스관리 | Git, GitHub |
 <br/>
