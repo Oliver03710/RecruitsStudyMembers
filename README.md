@@ -71,6 +71,86 @@
 ```
 <br/>
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/105812328/209213630-ee0e88e4-a20b-4dcd-860a-1a40510029fb.PNG" width="30%" height="40%">
+<img src="https://user-images.githubusercontent.com/105812328/209337827-1263f41e-be44-4359-b537-79129f7ebf68.PNG" width="30%" height="40%">
+</p>
+
+- **뷰 컨트롤러가 아닌 뷰에서 새로운 뷰 컨트롤러를 present해야 하는 문제**   
+  * UICollectionReusableView에 생성한 버튼의 tap action을 통해 Custom Alert View Controller를 호출해야 하는 상황에 직면.
+
+### 해결 방안   
+> UIApplication을 Extension하여 현재 뷰의 최상단 뷰컨트롤러를 호출하는 메서드를 만들고 호출.
+> keyWindow?.rootViewController를 이용.
+```swift
+final class HeaderImageCollectionReusableView: UICollectionReusableView {
+    @objc func buttonTapped() {
+        let vc = CustomAlertViewController()
+        let currentVC = UIApplication.getTopMostViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        currentVC?.present(vc, animated: true)
+    }
+}
+
+extension UIApplication {
+    class func getTopMostViewController() -> UIViewController? {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .filter { $0.isKeyWindow }.first
+        
+        if var topController = keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            return topController
+        } else {
+            return nil
+        }
+    }
+}
+```
+<br/>
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/105812328/209213618-50f843a6-1eb8-449a-b4ef-abf2a8fa9048.PNG" width="30%" height="40%">
+<img src="https://user-images.githubusercontent.com/105812328/209357211-7afe3a2a-c7c2-43c5-879b-87c571ba5b25.PNG" width="30%" height="40%">
+</p>
+
+- **재사용된 뷰의 분기처리 과정에서 발생한 문제**   
+  * UICollectionReusableView에 생성한 버튼의 tap action을 통해 Custom Alert View Controller를 호출해야 하는 상황에 직면.
+
+### 해결 방안   
+> UIApplication을 Extension하여 현재 뷰의 최상단 뷰컨트롤러를 호출하는 메서드를 만들고 호출.
+> keyWindow?.rootViewController를 이용.
+```swift
+final class HeaderImageCollectionReusableView: UICollectionReusableView {
+    @objc func buttonTapped() {
+        let vc = CustomAlertViewController()
+        let currentVC = UIApplication.getTopMostViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        currentVC?.present(vc, animated: true)
+    }
+}
+
+extension UIApplication {
+    class func getTopMostViewController() -> UIViewController? {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .filter { $0.isKeyWindow }.first
+        
+        if var topController = keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            return topController
+        } else {
+            return nil
+        }
+    }
+}
+```
+<br/>
+
 ## 회고
 - **상기한 기술을 사용한 이유**   
 ㅁㅇㄴ리ㅏㅁㄴㅇ림ㄴㅇ륌ㄴ우라ㅣㅁㄴㅇㄹ
