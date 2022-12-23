@@ -191,6 +191,7 @@ final class ReportAlertViewController: BaseViewController {
                     sceneDelegate?.window?.rootViewController = vc
                     sceneDelegate?.window?.makeKeyAndVisible()
                     ChatRepository.shared.deleteAll()
+                    NetworkManager.shared.popupPresented = false
                 }
                 
             }, onFailure: { [weak self] error in
