@@ -266,7 +266,12 @@ final class MemberListViewController: BaseViewController {
         NetworkManager.shared.request(QueueStateData.self, router: SeSacApiQueue.myQueueState)
             .subscribe(onSuccess: { [weak self] response, state in
                 print(response, state)
-                guard let self = self, let state = SesacStatus.Queue.myQueueState(rawValue: state) else { return }
+                guard let self = self,
+                      let name = response.matchedNick,
+                      let state = SesacStatus.Queue.myQueueState(rawValue: state) else { return }
+                
+                NetworkManager.shared.nickName = name
+                
                 switch state {
                 case .success:
                     if response.matched == 0 {
