@@ -45,7 +45,7 @@ final class LoginVerificationView: BaseView {
     }()
     
     let timerLabel: CustomLabel = {
-        let label = CustomLabel(text: "00:00", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
+        let label = CustomLabel(text: "01:00", textFont: SSFonts.title3M14.fonts, size: SSFonts.title3M14.size, lineHeight: SSFonts.title3M14.lineHeight)
         label.textColor = SSColors.green.color
         return label
     }()
