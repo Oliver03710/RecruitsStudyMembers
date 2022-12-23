@@ -21,7 +21,8 @@
 - 이메일 및 닉네임 등 개인정보 입력시 정규식으로 Validation 분기 처리 구현
 - MapKit으로 이동 시, 유저에게 위치 권한 요청하여 유저의 Current Location 호출
 - 웹소켓 통신으로 매칭된 상대방과의 실시간 채팅 기능 구현
-- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 esimate, intrinsicSize를 활용하여 Self-Sizing 스터디 화면 구성
+- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 esimate, intrinsicSize를 활용하여    
+  Self-Sizing 스터디 화면 구성
 - FirebaseMessaging을 이용한 Push 알림 구현
 - StoreKit을 Singleton으로 활용하여 InAppPurchase 기능 구현
 <br/>
