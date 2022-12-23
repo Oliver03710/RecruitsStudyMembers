@@ -19,6 +19,7 @@ final class CustomAlertViewController: BaseViewController {
     let customAlertView = CustomAlertView()
     private var sendToAccept = false
     
+    
     // MARK: - Init
     
     override func loadView() {
@@ -80,6 +81,7 @@ final class CustomAlertViewController: BaseViewController {
                 sceneDelegate?.window?.rootViewController = vc
                 sceneDelegate?.window?.makeKeyAndVisible()
                 
+                ChatRepository.shared.deleteAll()
                 UserDefaultsManager.removeAll()
                 
             }, onFailure: { [weak self] error in
