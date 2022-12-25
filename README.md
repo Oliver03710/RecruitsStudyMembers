@@ -117,34 +117,62 @@ extension UIApplication {
 </p>
 
 - **재사용된 뷰의 분기처리 과정에서 발생한 문제**   
-  * UICollectionReusableView에 생성한 버튼의 tap action을 통해 Custom Alert View Controller를 호출해야 하는 상황에 직면.
+  * Segmented Control을 커스텀하면서 뷰컨트롤러 두 개에 Enum을 이용하여 하나의 뷰를 재사용.
+  * 뷰 내부에 Enum Property를 만들고 이를 활용하여 Collection View의 Layout을 분기처리.
+  * 하지만 뷰가 생성되는 시점에 대한 이해 부족으로 오류 발생(하나의 케이스만 계속 적용).
 
 ### 해결 방안   
-> UIApplication을 Extension하여 현재 뷰의 최상단 뷰컨트롤러를 호출하는 메서드를 만들고 호출.
-> keyWindow?.rootViewController를 이용.
+> 뷰 convenience init의 parameter로 enum case를 전달.   
+> 전달받은 parameter를 이용하여 collection view의 레이아웃과 dataSource 및 snapshot을 세팅.
 ```swift
-final class HeaderImageCollectionReusableView: UICollectionReusableView {
-    @objc func buttonTapped() {
-        let vc = CustomAlertViewController()
-        let currentVC = UIApplication.getTopMostViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        currentVC?.present(vc, animated: true)
+final class ShopSharedView: BaseView {
+    convenience init(state: ShopViewSelected) {
+        self.init()
+        configureHierarchy(state: state)
+        configureDataSource(state: state)
     }
 }
 
-extension UIApplication {
-    class func getTopMostViewController() -> UIViewController? {
-        let keyWindow = UIApplication.shared.connectedScenes
-            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-            .filter { $0.isKeyWindow }.first
+extension ShopSharedView {
+    private func configureHierarchy(state: ShopViewSelected) {
+        switch state {
+        case .face:
+            collectionView = UICollectionView(frame: bounds, collectionViewLayout: createLayout(state: .face))
+        case .background:
+            collectionView = UICollectionView(frame: bounds, collectionViewLayout: createLayout(state: .background))
+        }
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        if var topController = keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
+        addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(4)
+        }
+    }
+    
+    func configureDataSource(state: ShopViewSelected) {
+        switch state {
+        case .face:
+            let cellRegistration = UICollectionView.CellRegistration<FaceCollectionViewCell, FaceImages> { (cell, indexPath, item) in
+                cell.ConfigureCells(item: item)
             }
-            return topController
-        } else {
-            return nil
+            
+            faceDataSource = UICollectionViewDiffableDataSource<Int, FaceImages>(collectionView: collectionView) {
+                (collectionView, indexPath, item) -> UICollectionViewCell? in
+                return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+            }
+            updateUI(state: state)
+            
+        case .background:
+            let cellRegistration = UICollectionView.CellRegistration<BackgroundCollectionViewCell, BackgroundImages> { (cell, indexPath, item) in
+                cell.ConfigureCells(item: item)
+            }
+            
+            backgroundDataSource = UICollectionViewDiffableDataSource<Int, BackgroundImages>(collectionView: collectionView) {
+                (collectionView, indexPath, item) -> UICollectionViewCell? in
+                return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+            }
+            updateUI(state: state)
         }
     }
 }
