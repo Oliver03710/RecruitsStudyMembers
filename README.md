@@ -33,7 +33,7 @@
 
 ## 프로젝트에 사용한 기술스택
 | 카테고리 | 내용 |
-| ----- | ----- |
+| :---: | ----- |
 | 개발 언어 | Swift | 
 | 애플 프레임워크 | CoreLocation, Foundation, MapKit, StoreKit, UIKit |
 | 의존성 관리도구 | Swift Pakage Manager |
