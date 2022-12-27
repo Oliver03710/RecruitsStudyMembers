@@ -39,12 +39,13 @@
 | 의존성 관리도구 | Swift Pakage Manager |
 | 디자인 | AutoLayout |
 | 디자인 패턴 | Delegate, Input/OutPut, MVC, MVVM, Repository, Singleton |
-| 오픈 라이브러리 | Alarmofire, FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, |
-|  | SnapKit, Socket.I.O, Toast |
+| 네트워크 | Alarmofire,  |
+| 오픈 라이브러리 | FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, SnapKit, |
+|  | Socket.I.O, Toast |
 | 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Codable, |
 |  | CompositionalLayout, CustomFont, CustomView, DiffableDataSource, |
 |  | DispatchQueue, Hashable, NSMutableParagraphStyle, NSPredicate, @PropertyWrapper, |
-|  | Timer, NotificationCenter, UserDefaults, UUID |
+|  | Timer, NotificationCenter, UserDefaults, UUID, 백업 및 복구 |
 | 협업 툴 | Confluence, Jandi, Postman, Swagger |
 | 소스관리 | Git, GitHub |
 <br/>
