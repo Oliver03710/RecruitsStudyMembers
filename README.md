@@ -41,12 +41,11 @@
 | 디자인 패턴 | Delegate, Input/OutPut, MVC, MVVM, Repository, Singleton |
 | 오픈 라이브러리 | Alarmofire, FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, |
 |  | SnapKit, Socket.I.O, Toast |
-| 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Calendar, CaseIterable, |
-|  | Codable, CompositionalLayout, CustomFont, CustomView, Date, DateFormatter, |
-|  | DiffableDataSource, DispatchQueue, Hashable, Locale, NumberFormatter, |
-|  | NSMutableParagraphStyle, NSPredicate, @PropertyWrapper, Timer, TimeZone, |
-|  | NotificationCenter, UserDefaults, UUID |
-| 기타 툴 | Confluence, Jandi, Postman, Swagger |
+| 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Codable, |
+|  | CompositionalLayout, CustomFont, CustomView, DiffableDataSource, |
+|  | DispatchQueue, Hashable, NSMutableParagraphStyle, NSPredicate, @PropertyWrapper, |
+|  | Timer, NotificationCenter, UserDefaults, UUID |
+| 협업 툴 | Confluence, Jandi, Postman, Swagger |
 | 소스관리 | Git, GitHub |
 <br/>
 
@@ -179,11 +178,16 @@ extension ShopSharedView {
 ```
 <br/>
 
-## 회고
+## 회고   
+[새싹스터디에 대한 상세 회고록 보기](https://jjhios.tistory.com/18)   
 - **상기한 기술을 사용한 이유**   
-ㅁㅇㄴ리ㅏㅁㄴㅇ림ㄴㅇ륌ㄴ우라ㅣㅁㄴㅇㄹ
+  - Alarmofire & URLRequestConvertible
+    > 새싹스터디 프로젝트에서는 네트워크 통신이 많아, 상황별로 네트워크 API case를 구분하는 것이 추후 코드 리팩토링 및 사용성 측면에서 좋다고 판단되어 사용하게 되었습니다.
+  - RxDataSource & RxRealm
+    > 채팅화면을 구현할 때 사용해보았습니다. 실시간 웹소켓통신을 구현하다보니, reloadData를 해야하는 지점이 많아 해당 라이브러리를 이용하여 Realm의 데이터가 변경될 때마다 반영되도록 구현해보았습니다.
+  - MVVM & Input/Output패턴
+    > 코드를 기능별로 구별해보기 위하여 ViewModel 생성 후, Input/Output패턴을 이용하여 ViewModel내부에서 로직을 구현하였습니다.
 <br/>
 
-- **느낀 점**   
-ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ
-<br/>
+- **느낀 점**    
+  > 새싹스터디를 하면서 느꼈던 점은 사소한 
