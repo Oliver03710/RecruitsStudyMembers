@@ -16,15 +16,22 @@
 <br/>
 
 ## 앱의 주요 기능
-- On Boarding 화면을 이용하여 앱의 사용방법에 대해 설명
 - Firebase Auth를 통해 핸드폰 번호 인증을 이용한 회원가입 로직 구현
-- 이메일 및 닉네임 등 개인정보 입력시 정규식으로 Validation 분기 처리 구현
-- MapKit으로 이동 시, 유저에게 위치 권한 요청하여 유저의 Current Location 호출
-- 웹소켓 통신으로 매칭된 상대방과의 실시간 채팅 기능 구현
-- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 esimate, intrinsicSize를 활용하여    
-  Self-Sizing 스터디 화면 구성
-- FirebaseMessaging을 이용한 Push 알림 구현
+- 이메일 및 닉네임 등 개인정보 입력시, 정규식으로 Validation 분기 처리 구현
+- Validation인증 시, UITextField의 canPerformAction을 이용하여 붙여넣기 기능 방지 처리
+- 로그인시 firebase의 ID Token을 확인 후, 만료시 재등록 처리
+- 로그인 시점에 서버의 유저 fcmTocken과 앱에 저장된 fcmToken 비교 및 필요시 교체 기능 구현
+- 통신 에러 발생 시, AuthErrorCode 및 CustomError를 이용하여 필요한 에러만 관리
+- Custom Annotation에 ID를 할당하여 이미지 재사용 방지 및 지도에 상대방 이미지 구현
+- 유저가 mapView의 화면 이동시, 0.8초 간격으로 UserInteraction을 막아 과도한 서버호출 방지
+- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 preferredLayoutAttributesFitting, esimated 및 intrinsicSize를 활용하여 Self-Sizing 화면 구현
+- 매칭 대기 상태 중, 매 5초마다 API 호출하여 내 매칭 상태 체크 기능 구현
+- 웹소켓 통신을 통한 실시간 채팅 내용은 Realm에 저장하고, 채팅화면으로 들어갈 경우 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 과도한 서버호출 방지
+- 채팅화면에서 더보기 버튼을 탭하면 CGAffineTransform을 이용하여 상단에서 내려오는 View의 animation 구현
+- 채팅입력 textView가 길어질 경우, SnapKit의 Constraint Class를 이용하여 textView 업데이트
 - StoreKit을 Singleton으로 활용하여 InAppPurchase 기능 구현
+- 제품 구매 시, Receipt를 서버에 송신하여 영수증 검증 후, 검증 성공 및 실패에 따른 로직 구현
+- 제품 구매 중, 투명한 ViewController를 Present하여 사용자의 event입력 일시 중단 기능 추가
 <br/>
 
 ## 프로젝트 진행기간
@@ -43,7 +50,7 @@
 | 오픈 라이브러리 | FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, SnapKit, |
 |  | Socket.I.O, Toast |
 | 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Codable, |
-|  | CompositionalLayout, CustomFont, CustomView, DiffableDataSource, |
+|  | CGAffineTransform, CompositionalLayout, CustomFont, CustomView, DiffableDataSource, |
 |  | DispatchQueue, Hashable, NSMutableParagraphStyle, NSPredicate, @PropertyWrapper, |
 |  | Timer, NotificationCenter, UserDefaults, UUID, 백업 및 복구 |
 | 협업 툴 | Confluence, Jandi, Postman, Swagger |
