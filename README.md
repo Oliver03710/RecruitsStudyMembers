@@ -16,22 +16,23 @@
 <br/>
 
 ## 앱의 주요 기능
-- Firebase Auth를 통해 핸드폰 번호 인증을 이용한 회원가입 로직 구현
-- 이메일 및 닉네임 등 개인정보 입력시, 정규식으로 Validation 분기 처리 구현
-- Validation인증 시, UITextField의 canPerformAction을 이용하여 붙여넣기 기능 방지 처리
-- 로그인시 firebase의 ID Token을 확인 후, 만료시 재등록 처리
-- 로그인 시점에 서버의 유저 fcmTocken과 앱에 저장된 fcmToken 비교 및 필요시 교체 기능 구현
-- 통신 에러 발생 시, AuthErrorCode 및 CustomError를 이용하여 필요한 에러만 관리
-- Custom Annotation에 ID를 할당하여 이미지 재사용 방지 및 지도에 상대방 이미지 구현
-- 유저가 mapView의 화면 이동시, 0.8초 간격으로 UserInteraction을 막아 과도한 서버호출 방지
-- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 preferredLayoutAttributesFitting, esimated 및 intrinsicSize를 활용하여 Self-Sizing 화면 구현
+- **Figma**를 통해 **Backend** 및 **Design**팀과 협업 경험
+- **Firebase Auth**를 통해 핸드폰 번호 인증을 이용한 회원가입 로직 구현
+- 이메일 및 닉네임 등 개인정보 입력시, **정규식**으로 Validation 분기 처리 구현
+- Validation인증 시, UITextField의 canPerformAction을 이용하여 **붙여넣기 방지** 구현
+- 로그인시 firebase의 **ID Token을 확인 후, 만료시 재등록** 처리
+- 로그인 시점에 서버의 유저 fcmTocken과 앱에 저장된 **fcmToken 비교 및 필요시 교체** 기능 구현
+- 통신 에러 발생 시, **AuthErrorCode 및 CustomError**를 이용하여 필요한 에러만 관리
+- Custom Annotation에 ID를 할당하여 **이미지 재사용 방지** 및 지도에 상대방 이미지 구현
+- 유저가 mapView의 화면 이동시, 0.8초 간격으로 UserInteraction을 막아 **과도한 서버호출** 방지
+- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 **preferredLayoutAttributesFitting**, **esimated** 및 **intrinsicSize**를 활용하여 Self-Sizing 화면 구현
 - 매칭 대기 상태 중, 매 5초마다 API 호출하여 내 매칭 상태 체크 기능 구현
-- 웹소켓 통신을 통한 실시간 채팅 내용은 Realm에 저장하고, 채팅화면으로 들어갈 경우 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 과도한 서버호출 방지
-- 채팅화면에서 더보기 버튼을 탭하면 CGAffineTransform을 이용하여 상단에서 내려오는 View의 animation 구현
-- 채팅입력 textView가 길어질 경우, SnapKit의 Constraint Class를 이용하여 textView 업데이트
-- StoreKit을 Singleton으로 활용하여 InAppPurchase 기능 구현
-- 제품 구매 시, Receipt를 서버에 송신하여 영수증 검증 후, 검증 성공 및 실패에 따른 로직 구현
-- 제품 구매 중, 투명한 ViewController를 Present하여 사용자의 event입력 일시 중단 기능 추가
+- **WebSocket** 통신을 통한 실시간 채팅 내용은 **Realm**에 저장하고, 채팅화면 진입 시, 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 과도한 서버호출 방지
+- 채팅화면에서 더보기 버튼을 탭하면 **CGAffineTransform**을 이용하여 상단에서 내려오는 **View의 animation** 구현
+- 채팅입력 textView가 길어질 경우, **SnapKit**의 **Constraint Class**를 이용하여 Layout 업데이트
+- StoreKit을 **Singleton**으로 활용하여 **InAppPurchase** 기능 구현
+- 제품 구매 시, Receipt를 서버에 송신하여 **영수증 검증** 후, 검증 성공 및 실패에 따른 로직 구현
+- 제품 구매 중, 투명한 ViewController를 present하여 사용자의 **event입력 일시 중단 기능** 추가
 <br/>
 
 ## 프로젝트 진행기간
@@ -201,7 +202,7 @@ extension ShopSharedView {
   &nbsp;새싹스터디를 하면서 느꼈던 점은 사소한 지점에서도 어려움을 느꼈습니다. 예를 들면, imageView에 button을 addSubview를 한 후, addTarget으로 tap Action을 설정했는데, 작동이 되지 않아 알고보니 imageView는 기본적으로 유저와의 인터렉션이 막혀있다는 것이 있었습니다. 이처럼 한정된 기간 내에 새로운 기술을 이용하여 구현하려고 하다보니 기본적인 부분을 많이 놓치는 것 같다는 것을 느끼게 되었습니다.
   <br/>
   <br/>
-&nbsp;반면, 프로젝트를 진행하면서 주차별로 개발일지([새싹스터디 개발일지 상세보기](https://fluffy-comte-126.notion.site/9fbdc10d4244491aa8c281501ce9dc78?v=1b644af5941247ac8d9b1fe0f16a410a))를 작성하였는데, 이 덕분에 프로젝트 도중에는 계획에 맞춰서 개발을 진행할 수 있었습니다. 프로젝트가 종료된 뒤에는 일지를 보면서 개선해야할 지점을 점검할 수 있어서 많은 도움이 되었습니다.
+&nbsp;반면, 프로젝트를 진행하면서 주차별로 개발일지([새싹스터디 개발일지 상세보기](https://fluffy-comte-126.notion.site/9fbdc10d4244491aa8c281501ce9dc78?v=1b644af5941247ac8d9b1fe0f16a410a))를 작성하였는데, 이 덕분에 프로젝트 도중에는 계획에 맞춰서 개발을 진행할 수 있었습니다. 프로젝트가 종료된 뒤에는 일지를 보면서 개선해야할 지점을 점검할 수 있어서 많은 도움이 되었습니다. 그리고 git commit 내용도 기능 구현이나 파일의 추가 및 삭제, 객체의 생성 등 기준을 세분화해서 작성해보았습니다. 돌아보니 프로젝트의 규모보다 너무 많은 commit이 생성된 것 같지만 언제 어떤 작업을 수행하였는지 세부적으로 확인할 수 있어서 좋은 경험이었습니다.
   <br/>
   <br/>
 &nbsp;추후에는 프로젝트 진행시, 개발일지를 통해 좀 더 자세하게 문제 발생했던 지점을 기록하고 오류가 났던 부분을 사진 및 영상과 코드를 같이 남길 예정입니다. 이와 더불어 애플 프레임워크 및 기본 문법과 새로운 기술의 비중을 약 7:3정도로 정하여 공부하면서 발전해나가도록 하겠습니다.
