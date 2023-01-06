@@ -43,19 +43,18 @@
 | 카테고리 | 내용 |
 | :---: | ----- |
 | 개발 언어 | Swift | 
-| 애플 프레임워크 | CoreLocation, Foundation, MapKit, StoreKit, UIKit |
+| 디자인 | AutoLayout, CodeBasedUI |
+| 디자인 패턴 | MVC, MVVM, Singleton, Input/OutPut, Repository, Delegate |
+| 애플 프레임워크 | UIKit, Foundation, StoreKit, MapKit, CoreLocation |
+| 네트워크 | Alarmofire |
 | 의존성 관리도구 | Swift Pakage Manager |
-| 디자인 | AutoLayout |
-| 디자인 패턴 | Delegate, Input/OutPut, MVC, MVVM, Repository, Singleton |
-| 네트워크 | Alarmofire,  |
-| 오픈 라이브러리 | FirebaseAuth, FirebaseMessaging, Realm, RxRealm, RxSwift, RxDataSource, SnapKit, |
-|  | Socket.I.O, Toast |
-| 기타 | ATSSettings, AttributeContainer, AttributedString, @available, Codable, |
-|  | CGAffineTransform, CompositionalLayout, CustomFont, CustomView, DiffableDataSource, |
-|  | DispatchQueue, Hashable, NSMutableParagraphStyle, NSPredicate, @PropertyWrapper, |
-|  | Timer, NotificationCenter, UserDefaults, UUID, 백업 및 복구 |
-| 협업 툴 | Confluence, Jandi, Postman, Swagger |
-| 소스관리 | Git, GitHub |
+| 오픈 라이브러리 | SnapKit, Socket.I.O, RxSwift, FirebaseAuth, Realm,  RxDataSource, RxRealm, |
+|  |  FirebaseMessaging, Toast |
+| 기타 | DispatchQueue, CustomView, Codable, ATSSettings, CompositionalLayout, |
+|  | DiffableDataSource, Hashable, CaseIterable, @PropertyWrapper, UserDefaults, |
+|  | CGAffineTransform, CustomFont, NotificationCenter, NSPredicate, Timer |
+| 협업 툴 | Confluence, Swagger, Figma, Postman, Jandi |
+| 소스관리 | Git |
 <br/>
 
 ## 트러블슈팅
