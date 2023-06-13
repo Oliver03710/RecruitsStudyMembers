@@ -28,7 +28,6 @@
 - 매칭 대기 상태 중, 매 5초마다 API 호출하여 내 매칭 상태 체크 기능 구현
 - **WebSocket** 통신을 통한 실시간 채팅 내용을 **Realm**에 저장
 - 채팅화면 진입 시, 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 **과도한 서버호출 방지**
-- **WebSocket** 통신을 통한 실시간 채팅 내용을 **Realm**에 저장채팅화면 진입 시, 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 과도한 서버호출 방지
 - 채팅화면에서 더보기 버튼을 탭했을 때, **CGAffineTransform**을 이용하여 상단에서 내려오는 **View의 animation** 구현
 - 채팅입력 textView가 길어질 경우, **SnapKit**의 **Constraint Class**를 이용하여 Layout 업데이트하여 텍스트의 길이에 맞게 View Self-Sizing 구현
 - StoreKit을 통한 **InAppPurchase** 기능 구현
