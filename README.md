@@ -16,20 +16,20 @@
 <br/>
 
 ## 앱의 주요 기능
-- **Figma**를 통해 **Backend** 및 **Design**팀과 협업 경험
 - **Firebase Auth**를 통해 핸드폰 번호 인증을 이용한 회원가입 로직 구현
-- 이메일 및 닉네임 등 개인정보 입력시, **정규식**으로 Validation 분기 처리 구현
-- Validation인증 시, UITextField의 canPerformAction을 이용하여 **붙여넣기 방지** 구현
-- 로그인시 firebase의 **ID Token을 확인 후, 만료시 재등록** 처리
+- 유저가 개인정보 입력할 때, UITextField의 canPerformAction을 이용하여 **붙여넣기 방지** 구현
+- 로그인시, firebase의 **ID Token을 확인 후, 만료시 재등록** 처리
 - 로그인 시점에 서버의 유저 fcmTocken과 앱에 저장된 **fcmToken 비교 및 필요시 교체** 기능 구현
-- 통신 에러 발생 시, **AuthErrorCode 및 CustomError**를 이용하여 필요한 에러만 관리
-- Custom Annotation에 ID를 할당하여 **이미지 재사용 방지** 및 지도에 상대방 이미지 구현
-- 유저가 mapView의 화면 이동시, 0.8초 간격으로 UserInteraction을 막아 **과도한 서버호출** 방지
-- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 **preferredLayoutAttributesFitting**, **esimated** 및 **intrinsicSize**를 활용하여 Self-Sizing 화면 구현
+- 통신 에러 발생 시, **AuthErrorCode 및 CustomError**를 이용한 **Error Handling**
+- Custom Annotation에 ID를 할당하여 불필요한 **이미지 재사용 방지** 및 지도에 상대방 이미지 구현
+- 유저가 Map View의 화면 이동시, 0.8초 간격으로 User Interaction을 막아 **과도한 서버호출** 방지
+- CompositionalLayout, DiffableDataSource로 생성한 Collection View와 **preferredLayoutAttributesFitting**, **estimated** 및 **intrinsicSize**를 활용하여 Self-Sizing View 구현
 - 매칭 대기 상태 중, 매 5초마다 API 호출하여 내 매칭 상태 체크 기능 구현
-- **WebSocket** 통신을 통한 실시간 채팅 내용은 **Realm**에 저장하고, 채팅화면 진입 시, 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 과도한 서버호출 방지
-- 채팅화면에서 더보기 버튼을 탭하면 **CGAffineTransform**을 이용하여 상단에서 내려오는 **View의 animation** 구현
-- 채팅입력 textView가 길어질 경우, **SnapKit**의 **Constraint Class**를 이용하여 Layout 업데이트
+- **WebSocket** 통신을 통한 실시간 채팅 내용을 **Realm**에 저장
+- 채팅화면 진입 시, 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 **과도한 서버호출 방지**
+- **WebSocket** 통신을 통한 실시간 채팅 내용을 **Realm**에 저장채팅화면 진입 시, 마지막 채팅 일자를 서버에 송신 후 채팅 데이터 불러옴으로써 과도한 서버호출 방지
+- 채팅화면에서 더보기 버튼을 탭했을 때, **CGAffineTransform**을 이용하여 상단에서 내려오는 **View의 animation** 구현
+- 채팅입력 textView가 길어질 경우, **SnapKit**의 **Constraint Class**를 이용하여 Layout 업데이트하여 텍스트의 길이에 맞게 View Self-Sizing 구현
 - StoreKit을 **Singleton**으로 활용하여 **InAppPurchase** 기능 구현
 - 제품 구매 시, Receipt를 서버에 송신하여 **영수증 검증** 후, 검증 성공 및 실패에 따른 로직 구현
 - 제품 구매 중, 투명한 ViewController를 present하여 사용자의 **event입력 일시 중단 기능** 추가
@@ -43,17 +43,15 @@
 | 카테고리 | 내용 |
 | :---: | ----- |
 | 개발 언어 | Swift | 
-| 디자인 | AutoLayout, CodeBasedUI |
-| 디자인 패턴 | MVC, MVVM, Singleton, Input/OutPut, Repository, Delegate |
-| 애플 프레임워크 | UIKit, Foundation, StoreKit, MapKit, CoreLocation |
-| 네트워크 | Alarmofire |
+| 디자인 | AutoLayout, Code Based UI |
+| 디자인 패턴 | MVC, MVVM, Singleton, Input/OutPut, Delegate |
+| 애플 프레임워크 | UIKit, StoreKit, MapKit, CoreLocation |
+| 네트워크 | Alamofire |
 | 의존성 관리도구 | Swift Pakage Manager |
-| 오픈 라이브러리 | SnapKit, Socket.I.O, RxSwift, FirebaseAuth, Realm,  RxDataSource, RxRealm, |
+| 오픈 라이브러리 | SnapKit, Socket.I.O, RxSwift, FirebaseAuth, Realm, RxDataSource, RxRealm, |
 |  |  FirebaseMessaging, Toast |
-| 기타 | DispatchQueue, CustomView, Codable, ATSSettings, CompositionalLayout, |
-|  | DiffableDataSource, Hashable, CaseIterable, @PropertyWrapper, UserDefaults, |
-|  | CGAffineTransform, CustomFont, NotificationCenter, NSPredicate, Timer |
-| 협업 툴 | Confluence, Swagger, Figma, Postman, Jandi |
+| 기타 | DispatchQueue, CustomView, CompositionalLayout, DiffableDataSource, @PropertyWrapper, |
+|  | CGAffineTransform, CustomFont, NotificationCenter, NSPredicate |
 | 소스관리 | Git |
 <br/>
 
