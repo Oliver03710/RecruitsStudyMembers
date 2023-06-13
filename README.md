@@ -19,7 +19,7 @@
 - **Firebase Auth**를 통해 핸드폰 번호 인증을 이용한 회원가입 로직 구현
 - 유저가 개인정보 입력할 때, UITextField의 canPerformAction을 이용하여 **붙여넣기 방지** 구현
 - 로그인시, firebase의 **ID Token을 확인 후, 만료시 재등록** 처리
-- 로그인 시점에 서버의 유저 fcmTocken과 앱에 저장된 **fcmToken 비교 및 필요시 교체** 기능 구현
+- 로그인 시점에 서버의 유저 fcmToken과 앱에 저장된 **fcmToken 비교 및 필요시 교체** 기능 구현
 - Alamofire의 **URLRequestConvertible** 과, **Generic** 을 이용하여 중복된 API 호출 코드 방지
 - 통신 에러 발생 시, **AuthErrorCode 및 CustomError**를 이용한 **Error Handling**
 - Custom Annotation에 ID를 할당하여 불필요한 **이미지 재사용 방지** 및 지도에 상대방 이미지 구현
