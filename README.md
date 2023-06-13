@@ -20,7 +20,7 @@
 - 유저가 개인정보 입력할 때, UITextField의 canPerformAction을 이용하여 **붙여넣기 방지** 구현
 - 로그인시, firebase의 **ID Token을 확인 후, 만료시 재등록** 처리
 - 로그인 시점에 서버의 유저 fcmToken과 앱에 저장된 **fcmToken 비교 및 필요시 교체** 기능 구현
-- Alamofire의 **URLRequestConvertible** 과, **Generic** 을 이용하여 중복된 API 호출 코드 방지
+- Alamofire의 **URLRequestConvertible** 과 **Generic** 을 이용하여 중복된 API 호출 코드 방지
 - 통신 에러 발생 시, **AuthErrorCode 및 CustomError**를 이용한 **Error Handling**
 - Custom Annotation에 ID를 할당하여 불필요한 **이미지 재사용 방지** 및 지도에 상대방 이미지 구현
 - 유저가 Map View의 화면 이동시, 0.8초 간격으로 User Interaction을 막아 **과도한 서버호출** 방지
