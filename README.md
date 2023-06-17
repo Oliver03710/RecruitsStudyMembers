@@ -1,6 +1,4 @@
 # 새싹스터디
-
-- **앱 이미지**   
 <p align="left">
 <img src="https://user-images.githubusercontent.com/105812328/209213584-44d1f0aa-2fde-45b2-8aa9-c15c30b24fbe.PNG" width="15%" height="30%">
 <img src="https://user-images.githubusercontent.com/105812328/209213618-50f843a6-1eb8-449a-b4ef-abf2a8fa9048.PNG" width="15%" height="30%">
